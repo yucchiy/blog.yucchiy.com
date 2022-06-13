@@ -1,0 +1,593 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.16.0"/><style data-href="/styles.efa6d53b05e0f8a1a318.css" data-identity="gatsby-global-css">/*
+! tailwindcss v3.1.2 | MIT License | https://tailwindcss.com
+*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{color:#9ca3af;opacity:1}input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#9ca3af;opacity:1}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.prose{color:var(--tw-prose-body);max-width:65ch}.prose :where([class~=lead]):not(:where([class~=not-prose] *)){color:var(--tw-prose-lead);font-size:1.25em;line-height:1.6;margin-bottom:1.2em;margin-top:1.2em}.prose :where(a):not(:where([class~=not-prose] *)){color:#dc4e47;font-weight:500;text-decoration:underline}.prose :where(strong):not(:where([class~=not-prose] *)){color:var(--tw-prose-bold);font-weight:600}.prose :where(ol):not(:where([class~=not-prose] *)){list-style-type:decimal;padding-left:1.625em}.prose :where(ol[type=A]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=A s]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a s]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=I]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type=I s]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i s]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type="1"]):not(:where([class~=not-prose] *)){list-style-type:decimal}.prose :where(ul):not(:where([class~=not-prose] *)){list-style-type:disc;padding-left:1.625em}.prose :where(ol>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-counters);font-weight:400}.prose :where(ul>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-bullets)}.prose :where(hr):not(:where([class~=not-prose] *)){border-color:var(--tw-prose-hr);border-top-width:1px;margin-bottom:3em;margin-top:3em}.prose :where(blockquote):not(:where([class~=not-prose] *)){border-left-color:var(--tw-prose-quote-borders);border-left-width:.25rem;color:var(--tw-prose-quotes);font-style:italic;font-weight:500;margin-bottom:1.6em;margin-top:1.6em;padding-left:1em;quotes:"\201C""\201D""\2018""\2019"}.prose :where(blockquote p:first-of-type):not(:where([class~=not-prose] *)):before{content:open-quote}.prose :where(blockquote p:last-of-type):not(:where([class~=not-prose] *)):after{content:close-quote}.prose :where(h1):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.5rem;font-weight:800;line-height:2rem;margin-bottom:.8888889em;margin-top:0}.prose :where(h1 strong):not(:where([class~=not-prose] *)){font-weight:900}.prose :where(h2):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.25rem;font-weight:700;line-height:1.75rem;margin-bottom:1em;margin-top:2em}.prose :where(h2 strong):not(:where([class~=not-prose] *)){font-weight:800}.prose :where(h3):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.125rem;font-weight:600;line-height:1.75rem;margin-bottom:.6em;margin-top:1.6em}.prose :where(h3 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(h4):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;line-height:1.5;margin-bottom:.5em;margin-top:1.5em}.prose :where(h4 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(figure>*):not(:where([class~=not-prose] *)){margin-bottom:0;margin-top:0}.prose :where(figcaption):not(:where([class~=not-prose] *)){color:var(--tw-prose-captions);font-size:.875em;line-height:1.4285714;margin-top:.8571429em}.prose :where(code):not(:where([class~=not-prose] *)){color:var(--tw-prose-code);font-size:.875em;font-weight:600}.prose :where(code):not(:where([class~=not-prose] *)):before{content:"`"}.prose :where(code):not(:where([class~=not-prose] *)):after{content:"`"}.prose :where(a code):not(:where([class~=not-prose] *)){color:var(--tw-prose-links)}.prose :where(pre):not(:where([class~=not-prose] *)){background-color:var(--tw-prose-pre-bg);border-radius:.375rem;color:var(--tw-prose-pre-code);font-size:.875em;font-weight:400;line-height:1.7142857;margin-bottom:1.7142857em;margin-top:1.7142857em;overflow-x:auto;padding:.8571429em 1.1428571em}.prose :where(pre code):not(:where([class~=not-prose] *)){background-color:transparent;border-radius:0;border-width:0;color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;padding:0}.prose :where(pre code):not(:where([class~=not-prose] *)):before{content:none}.prose :where(pre code):not(:where([class~=not-prose] *)):after{content:none}.prose :where(table):not(:where([class~=not-prose] *)){font-size:.875em;line-height:1.7142857;margin-bottom:2em;margin-top:2em;table-layout:auto;text-align:left;width:100%}.prose :where(thead):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-th-borders);border-bottom-width:1px}.prose :where(thead th):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;padding-bottom:.5714286em;padding-left:.5714286em;padding-right:.5714286em;vertical-align:bottom}.prose :where(tbody tr):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-td-borders);border-bottom-width:1px}.prose :where(tbody tr:last-child):not(:where([class~=not-prose] *)){border-bottom-width:0}.prose :where(tbody td):not(:where([class~=not-prose] *)){padding:.5714286em;vertical-align:baseline}.prose{--tw-prose-body:#374151;--tw-prose-headings:#111827;--tw-prose-lead:#4b5563;--tw-prose-links:#111827;--tw-prose-bold:#111827;--tw-prose-counters:#6b7280;--tw-prose-bullets:#d1d5db;--tw-prose-hr:#e5e7eb;--tw-prose-quotes:#111827;--tw-prose-quote-borders:#e5e7eb;--tw-prose-captions:#6b7280;--tw-prose-code:#111827;--tw-prose-pre-code:#e5e7eb;--tw-prose-pre-bg:#1f2937;--tw-prose-th-borders:#d1d5db;--tw-prose-td-borders:#e5e7eb;--tw-prose-invert-body:#d1d5db;--tw-prose-invert-headings:#fff;--tw-prose-invert-lead:#9ca3af;--tw-prose-invert-links:#fff;--tw-prose-invert-bold:#fff;--tw-prose-invert-counters:#9ca3af;--tw-prose-invert-bullets:#4b5563;--tw-prose-invert-hr:#374151;--tw-prose-invert-quotes:#f3f4f6;--tw-prose-invert-quote-borders:#374151;--tw-prose-invert-captions:#9ca3af;--tw-prose-invert-code:#fff;--tw-prose-invert-pre-code:#d1d5db;--tw-prose-invert-pre-bg:rgba(0,0,0,.5);--tw-prose-invert-th-borders:#4b5563;--tw-prose-invert-td-borders:#374151;font-size:1rem;line-height:1.75}.prose :where(p):not(:where([class~=not-prose] *)){margin-bottom:1.25em;margin-top:1.25em}.prose :where(img):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(video):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(figure):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(h2 code):not(:where([class~=not-prose] *)){font-size:.875em}.prose :where(h3 code):not(:where([class~=not-prose] *)){font-size:.9em}.prose :where(li):not(:where([class~=not-prose] *)){margin-bottom:.5em;margin-top:.5em}.prose :where(ol>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose :where(ul>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose>:where(ul>li p):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose>:where(ul>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ul>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose>:where(ol>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ol>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose :where(ul ul,ul ol,ol ul,ol ol):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose :where(hr+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h2+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h3+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h4+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(thead th:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(thead th:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose :where(tbody td:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(tbody td:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose>:where(:first-child):not(:where([class~=not-prose] *)){margin-top:0}.prose>:where(:last-child):not(:where([class~=not-prose] *)){margin-bottom:0}.mx-auto{margin-left:auto;margin-right:auto}.my-auto{margin-bottom:auto;margin-top:auto}.mb-6{margin-bottom:1.5rem}.mb-1{margin-bottom:.25rem}.mb-4{margin-bottom:1rem}.mb-2{margin-bottom:.5rem}.block{display:block}.flex{display:flex}.max-w-3xl{max-width:48rem}.max-w-none{max-width:none}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.justify-start{justify-content:flex-start}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-2{gap:.5rem}.rounded{border-radius:.25rem}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity))}.p-6{padding:1.5rem}.py-10{padding-bottom:2.5rem;padding-top:2.5rem}.px-4{padding-left:1rem;padding-right:1rem}.pt-10{padding-top:2.5rem}.pb-10{padding-bottom:2.5rem}.text-center{text-align:center}.font-serif{font-family:ui-serif,Georgia,Cambria,Times New Roman,Times,serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55/var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}html{font-family:-apple-system,Meiryo,"sans-serif"}body{word-wrap:break-word}a{color:#dc4e47;text-decoration:none}a:hover{text-decoration:underline}.gatsby-resp-image-figcaption{text-align:center}.last\:mb-0:last-child{margin-bottom:0}.hover\:no-underline:hover{-webkit-text-decoration-line:none;text-decoration-line:none}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><style type="text/css">
+    .header-link.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .header-link.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .header-link svg,
+    h2 .header-link svg,
+    h3 .header-link svg,
+    h4 .header-link svg,
+    h5 .header-link svg,
+    h6 .header-link svg {
+      visibility: hidden;
+    }
+    h1:hover .header-link svg,
+    h2:hover .header-link svg,
+    h3:hover .header-link svg,
+    h4:hover .header-link svg,
+    h5:hover .header-link svg,
+    h6:hover .header-link svg,
+    h1 .header-link:focus svg,
+    h2 .header-link:focus svg,
+    h3 .header-link:focus svg,
+    h4 .header-link:focus svg,
+    h5 .header-link:focus svg,
+    h6 .header-link:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Yucchiy&#x27;s Note" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=ced7ce5d16d58390b9715f99f691b449" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=ced7ce5d16d58390b9715f99f691b449"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="bg-slate-100"><div class="container max-w-3xl mx-auto pb-10 pt-10"><h3 class="text-2xl font-bold text-center"><a class="hover:no-underline text-gray-900 font-serif" href="/">Yucchiy&#x27;s Note</a></h3></div><main><div class="container bg-white rounded shadow hover:shadow-md max-w-3xl mx-auto p-6"><article><header class="mb-6"><div><time class="text-sm text-gray-500 mb-1">December 20, 2021</time><h1 class="text-xl font-semibold text-gray-700 mb-1">Unityでアプリ内にアセットを組み込む3つの方法</h1><div class="flex justify-start gap-2"><span class="text-sm text-gray-500">Tags: </span><a class="text-sm text-gray-400" href="/tags/unity/">Unity</a></div></div></header><div class="prose max-w-none"><p>この記事は「<a href="https://qiita.com/advent-calendar/2021/applibot">Applibot Advent Calendar 2021</a>」の20日目の記事になります。</p>
+<p>Unityではアプリ内にアセットを組み込む方法がいくつか存在しますが、それぞれの方法で利用方法や実装上の注意点があります。</p>
+<p>アプリ内にアセットを組み込む方法には大きく分けて下記があります。</p>
+<ol>
+<li><code>Assets/Resources</code> というフォルダを作成してその中にアセットを格納する</li>
+<li><code>Assets/StreamingAssets</code> というフォルダを作成してアセットを格納する</li>
+<li>Addressablesを利用してローカルアセットを読み込む</li>
+</ol>
+<p>これらの手法について、それぞれ紹介していきたいと思います。</p>
+<h2 id="assetsresources内にアセットを組み込む" style="position:relative;"><a href="#assetsresources%E5%86%85%E3%81%AB%E3%82%A2%E3%82%BB%E3%83%83%E3%83%88%E3%82%92%E7%B5%84%E3%81%BF%E8%BE%BC%E3%82%80" aria-label="assetsresources内にアセットを組み込む permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Assets/Resources内にアセットを組み込む</h2>
+<p><a href="https://docs.unity3d.com/2020.3/Documentation/ScriptReference/Resources.html">Unity - Scripting API: Resources</a></p>
+<p>Assetsフォルダ内にResourcesという名前のフォルダを作成してその中にアセットを配置し、 <a href="https://docs.unity3d.com/ScriptReference/Resources.html?_ga=2.2989232.1050104446.1639550329-353882182.1627870586">ResourcesAPI</a>を用いてロードします。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExampleClass</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> prefab <span class="token operator">=</span> Resources<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Load</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>GameObject<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token string">"Character"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        GameObject<span class="token punctuation">.</span><span class="token function">Instantiate</span><span class="token punctuation">(</span>prefab<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Resources<span class="token punctuation">.</span><span class="token function">UnloadAsset</span><span class="token punctuation">(</span>prefab<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>配置されたデータはビルド時にアプリ（ipaやapk）内に組み込まれるため、外部からのダウンロードを介さずにアセットをロードできます。</p>
+<h3 id="resourcesを利用する際の注意点" style="position:relative;"><a href="#resources%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B%E9%9A%9B%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9" aria-label="resourcesを利用する際の注意点 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resourcesを利用する際の注意点</h3>
+<p><a href="https://learn.unity.com/tutorial/assets-resources-and-assetbundles">https://learn.unity.com/tutorial/assets-resources-and-assetbundles</a></p>
+<p>ResourcesはUnity公式としては上記の通り「<strong>Don't use it.</strong>」と、利用は推奨されないようです。具体的には下記の理由のようです。</p>
+<ol>
+<li>きめ細かいメモリ管理が行えない</li>
+<li>Resources内のアセットが増えるとアプリの起動時間とビルド時間が長くなる</li>
+<li>特定プラットフォーム下へのカスタムコンテンツの配信、コンテンツのアップグレードがしづらくなる</li>
+</ol>
+<p>特に「2. アプリの起動時間が長くなる」に関しては、Resourcesシステムの初期化が<strong>アプリケーション起動時のスプラッシュ画面</strong>で行われ、アプリ側ではこの<strong>初期化をずらしたり非同期にできません</strong>。つまり、<strong>Resources内にアセットが増えれば増えるほど、アプリの起動が必ず遅くなることを意味する</strong>ので、個人的にはかなり致命的に感じています。</p>
+<p>公式として、Resourcesは下記の用途が適切だと述べています。</p>
+<ol>
+<li>プロトタイピング</li>
+<li>アプリ起動中に常に必要なアセット</li>
+<li>メモリを大量使用しないアセット</li>
+<li>頻繁なパッチ更新の必要がないアセット</li>
+<li>最小限のブートストラップのために必要なアセット（設定など）</li>
+</ol>
+<p>なのでResourcesは、<strong>アプリの設定やゲーム内で常に必須となるようなHUDのアセットやプレハブ</strong>などにとどめて利用するのが良さそうです。</p>
+<h2 id="assetsstreamingassets内にアセットを組み込む" style="position:relative;"><a href="#assetsstreamingassets%E5%86%85%E3%81%AB%E3%82%A2%E3%82%BB%E3%83%83%E3%83%88%E3%82%92%E7%B5%84%E3%81%BF%E8%BE%BC%E3%82%80" aria-label="assetsstreamingassets内にアセットを組み込む permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Assets/StreamingAssets内にアセットを組み込む</h2>
+<p><a href="https://docs.unity3d.com/2020.3/Documentation/Manual/StreamingAssets.html">Unity - Manual: Streaming Assets</a></p>
+<p>Unityでアプリ内にアセットを仕込む方法としてResources以外にStreamingAssetsがあります。</p>
+<p>この方法は、Assetsフォルダ下にStreamingAssetsフォルダを作成し、その中にアセットを格納しておくと、ビルド時にアプリ内に（ほぼ）そのままコピーする形でアプリに組み込まれます。</p>
+<p>StreamingAssetsで組み込まれるアセットは、<a href="https://docs.unity3d.com/2020.3/Documentation/ScriptReference/Application-streamingAssetsPath.html">Application.streamingAssetsPath</a> 内に格納されるので、このプロパティを元にパスを構築します。</p>
+<p>ロード方法はプラットフォームごとに若干異なるので注意が必要です。StreamingAssetsは、Resourcesのように専用のAPIは存在せず、通常は構築したパスに対して <code>System.IO.File.ReadAllText</code>や <code>System.IO.FileStream</code> などでファイルを開いてロードします。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>IO</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestStreamingAssetTextLoad</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">async</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// StreamingAssets内のhello.txtの中身を表示します</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> filePath <span class="token operator">=</span> Application<span class="token punctuation">.</span>streamingAssetsPath <span class="token operator">+</span> <span class="token string">"/hello.txt"</span><span class="token punctuation">;</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token keyword">await</span> <span class="token function">ReadStreamingAssetsWithIOAsync</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span> <span class="token function">ReadStreamingAssetsWithIOAsync</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> path<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">using</span> <span class="token class-name"><span class="token keyword">var</span></span> fileStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">FileStream</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> FileMode<span class="token punctuation">.</span>Open<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> resultBytes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name"><span class="token keyword">byte</span></span><span class="token punctuation">[</span>fileStream<span class="token punctuation">.</span>Length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">await</span> fileStream<span class="token punctuation">.</span><span class="token function">ReadAsync</span><span class="token punctuation">(</span>resultBytes<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> fileStream<span class="token punctuation">.</span>Length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> System<span class="token punctuation">.</span>Text<span class="token punctuation">.</span>Encoding<span class="token punctuation">.</span>UTF8<span class="token punctuation">.</span><span class="token function">GetString</span><span class="token punctuation">(</span>resultBytes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>ただし、AndroidではStreamingAssets内のアセットが基本apk内に圧縮して格納されているため、上記のようにそのまま <code>System.IO.FileStream</code> を介してのロードが行なえません。またWebGLビルドのアプリについても直接ロードできません。</p>
+<p>この問題を回避するために、Unityでは WWW または UnityWebRequestにStreamingAssetsのパスを指定することで、指定パスのファイルを読み込めます。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>IO</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">Cysharp<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestStreamingAssetTextLoad</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// UnityWebRequest経由でStreamingAssetを読み込む</span>
+    <span class="token keyword">async</span> <span class="token return-type class-name">UniTask<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span> <span class="token function">ReadStreamingAssetsWithWebRequestAsync</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> path<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> request <span class="token operator">=</span> UnityEngine<span class="token punctuation">.</span>Networking<span class="token punctuation">.</span>UnityWebRequest<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// UniTaskの機能で非同期に読み込む</span>
+        <span class="token keyword">await</span> request<span class="token punctuation">.</span><span class="token function">SendWebRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> request<span class="token punctuation">.</span>downloadHandler<span class="token punctuation">.</span>text<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">async</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> filePath <span class="token operator">=</span> Application<span class="token punctuation">.</span>streamingAssetsPath <span class="token operator">+</span> <span class="token string">"/hello.txt"</span><span class="token punctuation">;</span>
+        <span class="token comment">// Androidは読み込み方法が異なるため、UNITY_ANDROIDなどで呼び分けする</span>
+<span class="token preprocessor property">#<span class="token directive keyword">if</span> !UNITY_EDITOR &amp;&amp; </span><span class="token return-type class-name">UNITY_ANDROID</span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token keyword">await</span> <span class="token function">ReadStreamingAssetsWithWebRequestAsync</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token preprocessor property">#<span class="token directive keyword">else</span></span>
+        Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token keyword">await</span> <span class="token function">ReadStreamingAssetsWithIOAsync</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token preprocessor property">#<span class="token directive keyword">endif</span></span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span> <span class="token function">ReadStreamingAssetsWithIOAsync</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> path<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">using</span> <span class="token class-name"><span class="token keyword">var</span></span> fileStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">FileStream</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> FileMode<span class="token punctuation">.</span>Open<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> resultBytes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name"><span class="token keyword">byte</span></span><span class="token punctuation">[</span>fileStream<span class="token punctuation">.</span>Length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">await</span> fileStream<span class="token punctuation">.</span><span class="token function">ReadAsync</span><span class="token punctuation">(</span>resultBytes<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> fileStream<span class="token punctuation">.</span>Length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> System<span class="token punctuation">.</span>Text<span class="token punctuation">.</span>Encoding<span class="token punctuation">.</span>UTF8<span class="token punctuation">.</span><span class="token function">GetString</span><span class="token punctuation">(</span>resultBytes<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>このように、<strong>プラットフォームごとにStreamingAssetsの扱いが異なる可能性がある</strong>点に注意が必要です。</p>
+<p>また、StreamingAssetsではファイルを原則 <code>byte[]</code> または <code>string</code> としてロードすることになります。つまりそのまま利用すると<strong>プレハブやScriptableObjectsなどのアセットをロードして、インスタンス化することができません</strong>。</p>
+<h3 id="streamingassetsでプレハブやscriptableobjectなどを読み込む方法" style="position:relative;"><a href="#streamingassets%E3%81%A7%E3%83%97%E3%83%AC%E3%83%8F%E3%83%96%E3%82%84scriptableobject%E3%81%AA%E3%81%A9%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%80%E6%96%B9%E6%B3%95" aria-label="streamingassetsでプレハブやscriptableobjectなどを読み込む方法 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>StreamingAssetsでプレハブやScriptableObjectなどを読み込む方法</h3>
+<p>StreamingAssetsにアセットを組み込みつつ、プレハブやScriptableObjectsをロードしてインスタンス化するには、StreamingAssets内にアセットバンドルとしてデータを組み込みこんで、<a href="https://docs.unity3d.com/2020.3/Documentation/ScriptReference/AssetBundle.html">AssetBundleAPI</a>でアセットをロードすることでこれを実現できます。</p>
+<p>アセットのAssetBundle化は、プロジェクトの規模が大きくなると設定の自動化やJenkinsのジョブから <a href="https://docs.unity3d.com/ScriptReference/AssetBundleBuild.html">AssetBundleBuild</a> や <a href="https://docs.unity3d.com/Packages/com.unity.scriptablebuildpipeline@1.19/manual/index.html">Scriptable Build Pipeline</a> を通してビルドの自動化などのワークフローが組まれることが多いですが、簡易的には <a href="https://docs.unity3d.com/Manual/AssetBundles-Browser.html">AssetBundle Browser</a> を用いてAssetBundleを用意できます。</p>
+<p>まず、アセットバンドルにしたいアセットに名前をつけます。アセットをインスペクタで開き、下記画像赤枠の項目をクリックすると名前をつけられます。</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1976f55c30e8886afbeaf7d0f0574c4c/b67f3/00.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADt0lEQVQ4y42Tv28jVRDHH1vQ0J1Egc4Qh8TYTry7b3ft/f3b9vrH4XVi0BGdhGw58SUIJSgSEQcUBglBSxYEBQVQoqSn4E9hKypIR0PB7e47zVtvzjoorvhqZmfGnzcz7xl9WJOQ9+rrLx0EW6U3xNfucrtcqdlsliRJKomiSK3jOCXLskqCINAY2HUfY3y30Wi86LouQt9+8CnyWvpHB291/zG7zp8ch29YtnHDsiwVx3E3qqreyLJ8+/2M/sIY/12pVAIKJIQg3TC+GQ7vkX5/QGzbJqZpEsuyiKZppNlsklar9b+CHNS4rksqlcr09PQ0B/I8H/m+T3zff+w4TmrbdmpZVmqaZmoYRqrrOhX4IMgVMk0zabfbAJ9eX1/nwHq9HsFJnuclmqZlsizTDj3PI1Dc6/VIEAT0GwS1iqIQVVWhNnUcBzqeXl1d5UBVVaPxeEx0XU8sy8pgZAAMh0MqyIVhSMEgyANU1/VM0zTolLAsO7u8vMyBQRBE5+fnxHGcxPO8bDU+3Y1hGMWPqQ8CwEoZrAdy5XJ5dnh4mAPZ3Z1IkVtwIYllmpmqqqQQwJ7VWj5TFCWFFW1tbc3Ozs5yoN0dRINwjzi2nfh+G8YgUAR7WhfE1uOyLNMOYQWbm5uzk5OT1bPpDKIgnBDPsZPRaJR1u10Yn45cCEaEC+r3+7cx27azIAhSiG9sbMzm83kO3N2pRx3fI3v7+xS4KqbQwhYHwC2DXcWyTqdz2+Hx8XEOFEQxard94nte4vt+Bksu9gW+JElEEAQ6JvgYY/qwYeRih9vb27OLi4scKIpiBM/Ddb1EURQKLAS3CpBmU7p9f/APKS5FkqQUYtVqdbZcLnNgrVaLBAHDyYkgCBl0U4jjWLI4fp8EvSG8NSKKItUqn4mimIIPz+bo6GgFrFajvACA+CkQY4iR+eFDYtsu4TnuaZzmhAxjnMIKALhYLHLgdrV6yWJMWB7/y/I4ZXk+zS1OGzyfOp6fis0W9Ys4iOd50GOe50m5vDFdFB3qPPd9YOika2gkMHXSswxqC3V0lUB+PQayTZPu2fb7hBXU+dc//ZYDx0Lj0Tuu9cdYl3+fWFo8HQTx27YR75tqPDG1GGLUrrRvavF9S48H7XZsmGZs2U5cre2EP/z8C0L1l+8wCKFXEEIyQshACOkr+zwqagWE0B3DfxMh8uuP6GOn9cKXkyHzSd9jPg97zHdH7zJfTIbMctRlPguD/2gZ9piv9nrMwwcHzL3RiAn37zOa1Uaz9x6hJwK3XBVJreJ5AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="インスペクター上でアセットバンドルの名前をつける"
+        title="インスペクター上でアセットバンドルの名前をつける"
+        src="/static/1976f55c30e8886afbeaf7d0f0574c4c/5a190/00.png"
+        srcset="/static/1976f55c30e8886afbeaf7d0f0574c4c/772e8/00.png 200w,
+/static/1976f55c30e8886afbeaf7d0f0574c4c/e17e5/00.png 400w,
+/static/1976f55c30e8886afbeaf7d0f0574c4c/5a190/00.png 800w,
+/static/1976f55c30e8886afbeaf7d0f0574c4c/c1b63/00.png 1200w,
+/static/1976f55c30e8886afbeaf7d0f0574c4c/b67f3/00.png 1338w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption"><p>インスペクター上でアセットバンドルの名前をつける</p></figcaption>
+  </figure></p>
+<p>次にAssetBundle Browserを開きます。「Build」タブをクリックし、下の「Build」ボタンをクリックするとアセットバンドルがビルドされます。アセットバンドルはプラットフォームごとに生成が必要なため、対応するプラットフォームに対してそれぞれアセットをビルドする必要があります。</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ae0eb86938004d4ced4b36767fec76c4/b6425/Screen_Shot_2021-12-18_at_19.26.11.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 58.50000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAAB3UlEQVQoz6WPy27TQBSGDwhWWXULD9DEtzS+jMczZ2Y8Tuy4F9QixAYh1Sz6bPAybaMKyooXiYYcZCdApVQsyuLTf/5z+aUDH97IU7Tp1fjQuxx7XjeeeN3Y8zs/CLppGHbJbNYZrbp4djT4MAyHeb97OJl0E9+/nPj+VRCGJx+7TwBK4f2iqUlKJKs1Wa1II1LNM6oin+ZHIZ3kCS1mEVWRR00WD/NSIVXGkJaSNEpK4/gbADyHohC3iIqsFOuLeu7aqnSN0a5R6OaicI1Gd1rZQXtfo3SNVq4xyi1L7drSrI9tSceCXwPAS1CIK2MtqZy5WvCNKfhGpslGJPEfFcnsr0/jXW9LrdDVWlEr8hsAeAFSylXbtlRV1lmjqRowZBCHdwz+Gy2F61VwfjsE5pyvlm1L1lauLC1pY0hpQxKRhJQ7HtZ7uH43/x2Ypslq2TSklXI8z4llKbEso7yHbWEP6j2yzHHGKEmSbeCZYKv3C0sXBt25lr3u8a4yj/Z7zo10bw3Smci3gZyxGykKkqJYSyF+SlHsgfLx/o41CkGcsevty1n2vSgK4pw/naKgNMvuh8AgCL5Mp9MfURTdRVH09Qnc9fdhEHweAgHgAABeA8Cr/6C/PxiNRs9+AfvNTKjTlUmRAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="AssetBundle Browserでアセットバンドルをビルドする"
+        title="AssetBundle Browserでアセットバンドルをビルドする"
+        src="/static/ae0eb86938004d4ced4b36767fec76c4/5a190/Screen_Shot_2021-12-18_at_19.26.11.png"
+        srcset="/static/ae0eb86938004d4ced4b36767fec76c4/772e8/Screen_Shot_2021-12-18_at_19.26.11.png 200w,
+/static/ae0eb86938004d4ced4b36767fec76c4/e17e5/Screen_Shot_2021-12-18_at_19.26.11.png 400w,
+/static/ae0eb86938004d4ced4b36767fec76c4/5a190/Screen_Shot_2021-12-18_at_19.26.11.png 800w,
+/static/ae0eb86938004d4ced4b36767fec76c4/c1b63/Screen_Shot_2021-12-18_at_19.26.11.png 1200w,
+/static/ae0eb86938004d4ced4b36767fec76c4/29007/Screen_Shot_2021-12-18_at_19.26.11.png 1600w,
+/static/ae0eb86938004d4ced4b36767fec76c4/b6425/Screen_Shot_2021-12-18_at_19.26.11.png 2336w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption"><p>AssetBundle Browserでアセットバンドルをビルドする</p></figcaption>
+  </figure></p>
+<p>次に、上記のOutput Pathに生成されたアセットバンドルをStreamingAssetsにコピーします。</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5f5bb970da21a80ad1713753903d9fd0/38116/01.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACnUlEQVQoz6VPyW7TUBQ1RawQSoWaLV8CC1SEALcSaikL2kKT9kcAiY9gyRKpqDEdxCCBgKbO0DZN4ikhzmTHdjwmburhxe8ih4LomisdHd17zzvvHuL5jbUpPrtzu8gczDMMT+YKR+TxCUMelqrkcalK0iWe3PuSJfc+fCbzxRJZYQTypMJNuMrWyApbIxm+Pn9S4e68ePnqMnH31uw1nqnIQl2AmsBDuVQAqdMAVW6B1mtBX5VA7orQFnloiwK0GgKYfQkcUwVb74FtKGDpPdDV7iC19vQ6sbj0aDpLF9osy0Ku3Bm//dbF2/sd/J42JqCyGqYO+pg60PHWjx7e/NrEmX0VZ7Ia3pqwGmX2e/Duu2zevreUJFZWVhN0rtAuFA+h2VEjzQlwpdbFhbKIf3YtLOkelvQzLBsebikDzDUU3O2PcM/0cUOyMd/sR0JLh4Zkm8ur6RniyfJygqbznVy+CIqiRABjUBUZ5G4bvDMXcBROABiB741A11UYIx9i3cgdgGOb0cAxY625sbGeJBYWFhP54mGnXGFAUbUoCEOQZBkaogimZUEQBOAHAcRz9/QUFEUFz/MhRAhsxwHdMCLDMGEwHJrp9fUk8WBuLnF0VOpwfA36uhFZQxea7Ta4rgtoPP5rGP4xVFXwff9377pg2XYUfzx0XTOVSiWJ2aVnCe642BQ4Hvq6GWqahkRRRKejEQqCAPnnCMIQua6L5F4PDV0XxWU7DtJ1PTQMI76wn06nZ4jHC6npKle2hHodTMsGhNAkXoQxRFF0AePxeHJZrIn3cYI4ejz3PC9MpdJJ4uH9m1c3qU+vt3c/7tI0neE4jmI5jmIYhmJZlmJY9gJP9v/0LMvGb3YYhnlDkmSCOK8pgiCu/Cdij0u/AKG8lMcOIL2BAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="生成されたアセットバンドル"
+        title="生成されたアセットバンドル"
+        src="/static/5f5bb970da21a80ad1713753903d9fd0/5a190/01.png"
+        srcset="/static/5f5bb970da21a80ad1713753903d9fd0/772e8/01.png 200w,
+/static/5f5bb970da21a80ad1713753903d9fd0/e17e5/01.png 400w,
+/static/5f5bb970da21a80ad1713753903d9fd0/5a190/01.png 800w,
+/static/5f5bb970da21a80ad1713753903d9fd0/c1b63/01.png 1200w,
+/static/5f5bb970da21a80ad1713753903d9fd0/29007/01.png 1600w,
+/static/5f5bb970da21a80ad1713753903d9fd0/38116/01.png 2086w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption"><p>生成されたアセットバンドル</p></figcaption>
+  </figure></p>
+<p>上記でStreamingAssets以下にアセットバンドルが用意できたので読み込んでみます。アセットバンドルの読み込みには <code>AssetBundle.LoadFromFileAsync</code> などファイルパスやストリームを指定してアセットバンドルをロードするメソッドが用意されているのでそれを利用します。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">Cysharp<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestStreamingAssetAssetBundleLoad</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">async</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> assetBundle <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">LoadAssetBundleWithFileIOAsync</span><span class="token punctuation">(</span><span class="token string">"character"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> prefab <span class="token operator">=</span> <span class="token keyword">await</span> assetBundle<span class="token punctuation">.</span><span class="token function">LoadAssetAsync</span><span class="token punctuation">(</span><span class="token string">"Character"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        GameObject<span class="token punctuation">.</span><span class="token function">Instantiate</span><span class="token punctuation">(</span>prefab<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token return-type class-name"><span class="token keyword">string</span></span> <span class="token function">GetFilePath</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> assetBundleName<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+<span class="token preprocessor property">#<span class="token directive keyword">if</span> UNITY_IOS</span>
+        <span class="token keyword">return</span> Application<span class="token punctuation">.</span>streamingAssetsPath <span class="token operator">+</span> <span class="token interpolation-string"><span class="token string">$"/AssetBundle/iOS/</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">name</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">;</span>
+<span class="token preprocessor property">#<span class="token directive keyword">elif</span> UNITY_ANDROID</span>
+        <span class="token keyword">return</span> Application<span class="token punctuation">.</span>streamingAssetsPath <span class="token operator">+</span> <span class="token interpolation-string"><span class="token string">$"/AssetBundle/Android/</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">assetBundleName</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">;</span>
+<span class="token preprocessor property">#<span class="token directive keyword">else</span></span>
+        <span class="token keyword">return</span> Application<span class="token punctuation">.</span>streamingAssetsPath <span class="token operator">+</span> <span class="token interpolation-string"><span class="token string">$"/AssetBundle/iOS/</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">name</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">;</span>
+<span class="token preprocessor property">#<span class="token directive keyword">endif</span></span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">async</span> <span class="token return-type class-name">UniTask<span class="token punctuation">&lt;</span>AssetBundle<span class="token punctuation">></span></span> <span class="token function">LoadAssetBundleWithFileIOAsync</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> assetBundleName<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> filePath <span class="token operator">=</span> <span class="token function">GetFilePath</span><span class="token punctuation">(</span>assetBundleName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">await</span> AssetBundle<span class="token punctuation">.</span><span class="token function">LoadFromFileAsync</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>ただし、前述の通りAndroidの場合は直接ファイルを読み込めないため、UnityWebRequest経由でアセットバンドルをロードします。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">Cysharp<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestStreamingAssetAssetBundleLoad</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">async</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> assetBundle <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">LoadAssetBundleWithUnityWebRequest</span><span class="token punctuation">(</span><span class="token string">"character"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> prefab <span class="token operator">=</span> <span class="token keyword">await</span> assetBundle<span class="token punctuation">.</span><span class="token function">LoadAssetAsync</span><span class="token punctuation">(</span><span class="token string">"Character"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        GameObject<span class="token punctuation">.</span><span class="token function">Instantiate</span><span class="token punctuation">(</span>prefab<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token return-type class-name"><span class="token keyword">string</span></span> <span class="token function">GetFilePath</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> assetBundleName<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+<span class="token preprocessor property">#<span class="token directive keyword">if</span> UNITY_IOS</span>
+        <span class="token keyword">return</span> Application<span class="token punctuation">.</span>streamingAssetsPath <span class="token operator">+</span> <span class="token interpolation-string"><span class="token string">$"/AssetBundle/iOS/</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">name</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">;</span>
+<span class="token preprocessor property">#<span class="token directive keyword">elif</span> UNITY_ANDROID</span>
+        <span class="token keyword">return</span> Application<span class="token punctuation">.</span>streamingAssetsPath <span class="token operator">+</span> <span class="token interpolation-string"><span class="token string">$"/AssetBundle/Android/</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">assetBundleName</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">;</span>
+<span class="token preprocessor property">#<span class="token directive keyword">else</span></span>
+        <span class="token keyword">return</span> Application<span class="token punctuation">.</span>streamingAssetsPath <span class="token operator">+</span> <span class="token interpolation-string"><span class="token string">$"/AssetBundle/iOS/</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">name</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">;</span>
+<span class="token preprocessor property">#<span class="token directive keyword">endif</span></span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">async</span> <span class="token return-type class-name">UniTask<span class="token punctuation">&lt;</span>AssetBundle<span class="token punctuation">></span></span> <span class="token function">LoadAssetBundleWithUnityWebRequest</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> assetBundleName<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> filePath <span class="token operator">=</span> <span class="token function">GetFilePath</span><span class="token punctuation">(</span>assetBundleName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> request <span class="token operator">=</span> UnityEngine<span class="token punctuation">.</span>Networking<span class="token punctuation">.</span>UnityWebRequestAssetBundle<span class="token punctuation">.</span><span class="token function">GetAssetBundle</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">await</span> request<span class="token punctuation">.</span><span class="token function">SendWebRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword">return</span> UnityEngine<span class="token punctuation">.</span>Networking<span class="token punctuation">.</span>DownloadHandlerAssetBundle<span class="token punctuation">.</span><span class="token function">GetContent</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h2 id="addressablesでアセットを組み込む" style="position:relative;"><a href="#addressables%E3%81%A7%E3%82%A2%E3%82%BB%E3%83%83%E3%83%88%E3%82%92%E7%B5%84%E3%81%BF%E8%BE%BC%E3%82%80" aria-label="addressablesでアセットを組み込む permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Addressablesでアセットを組み込む</h2>
+<p><a href="https://docs.unity3d.com/Packages/com.unity.addressables@1.18/manual/index.html">Addressables | Addressables | 1.18.19</a></p>
+<p>3つ目の方法として、Addressablesを用いて対象のアセットをローカルグループに設定されたものに所属させることで、アセットをアプリ内に組み込む事ができます。</p>
+<p>この方法は、内部的には先程のStreamingAssetsにアセットバンドルのデータを組み込んでロードする方法が採用されています。</p>
+<p>StreamingAssets内にアセットバンドルを組み込みは、Unity標準でそれらの自動化は存在しないのでアプリ側でワークフローを整える必要がありますが、Addressablesによるアセットのアプリ組み込みは、ある意味2つ目の方法のワークフローをUnity標準のライブラリで整えてくれている、という感じでしょうか。</p>
+<p>実際にAddressablesによるアセットの組み込みからロードまでをおこなってみます。まず下図のように<strong>Window > Asset Management > Addressables > Groups</strong> でAddressables Groupsウインドウを開き、「Create Addressables Settings」でAddressablesの設定を作成します。</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/280a661df9ff6264d88de1ef06394e23/26a94/02.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 40.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABo0lEQVQoz43R3WvTUBjH8fxFJrVJk7RrG0rSpODdpG5t15aWraAwUHSCF96K4IU3A28H7mowZYMxquytY+22zOEY6tqZ0iEMX0CHf8BXToSCCNOLDwfOc87D8+ORFptndPY+EXy8YHvziDt3b1OfvEm5UqNUqlKaqP4+S1Vq9Slq9Qblcp1CsUKxWA0VQpWQdNDp4u8G9E4uaK76JJMjaJqKoijI8pWhSERBVaNhLRq9iqLIfxFvJH+vz6E/YBD8pLm6j5t1cV2XXC6H53lD2ayL5+WG97ZtDzmOg207ZDIZpPeHAW87Hzjvf6e9cYCh68RiGoZhkEqlsKw06XSaRCKBaZqheDz+B1ETxB9pbeuM1+untHa/srB0xPh4kXw+z+jodVRVRVZEVA1d1/+L1GoN2Nw4Zad9zsLSMfcfPefB43luPZxjYvoJhemnpOxrxLQohmGGU1xG6vkndPe7fOl9ZufVNmY8gaxEcByX2dlnvHyxzNiNsXBJIq6Y4tKGx+139N4EfOv/YH1li+SI2LKGZVk0phrM3JsJlyTi/2s60fAXKEhUXFKdHBwAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="メニューからAddressables Groupウインドウを開く"
+        title="メニューからAddressables Groupウインドウを開く"
+        src="/static/280a661df9ff6264d88de1ef06394e23/5a190/02.png"
+        srcset="/static/280a661df9ff6264d88de1ef06394e23/772e8/02.png 200w,
+/static/280a661df9ff6264d88de1ef06394e23/e17e5/02.png 400w,
+/static/280a661df9ff6264d88de1ef06394e23/5a190/02.png 800w,
+/static/280a661df9ff6264d88de1ef06394e23/26a94/02.png 1102w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption"><p>メニューからAddressables Groupウインドウを開く</p></figcaption>
+  </figure></p>
+<p>すると、下図の用にグループの設定が作成されます。このとき「Default Local Group」というグループに所属するアセットは、アプリ内に組み込まれてロードされます。</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2e4d2e64491c1b1e238e0ff1cb30e125/1be7e/03.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTUlEQVQoz6XRXU+DMBQG4KM3Go33XDHUDNJuFMJW2tLBkJn4sSs/lmhi9Td6q9nfUuc2akowbiZGNy+eHDgNbzktXLjh3uUwvaEZv/f94A5jrNrttmq1WpUwDJWUUiVJooIgUAgh5fu+IoQsuiOEPGCMLQhxOzw/O9Gnw6HOjwrNGNOU0kq3262qEEKnaaqllNVzFEXa931NCFnSbDavwDnY7+R5/no8GJRFUcz6/f48SZJ5lmVVNaSUS0xPCLFoajbyPG8Etm1HnPM32euZPyiFECVjrIzjuKp/NDeTua47AsdxOpTSiWnUi5pzvoqSc/4V2Gg0OnEcTxYW9Wdovclvfg5cYcQl3wMjSulL3ZwyxmZreK8Dr80ZUvNibuk/zISe592CZVmHCKFHhNAYIfSEEHpeB8Z4bNt2AgCwAQBbALALADtrMt9uA8DmByMOIdT1bPFIAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Addressables Groupウインドウ上でのDefault Local Groupの確認"
+        title="Addressables Groupウインドウ上でのDefault Local Groupの確認"
+        src="/static/2e4d2e64491c1b1e238e0ff1cb30e125/5a190/03.png"
+        srcset="/static/2e4d2e64491c1b1e238e0ff1cb30e125/772e8/03.png 200w,
+/static/2e4d2e64491c1b1e238e0ff1cb30e125/e17e5/03.png 400w,
+/static/2e4d2e64491c1b1e238e0ff1cb30e125/5a190/03.png 800w,
+/static/2e4d2e64491c1b1e238e0ff1cb30e125/1be7e/03.png 1059w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption"><p>Addressables Groupウインドウ上でのDefault Local Groupの確認</p></figcaption>
+  </figure></p>
+<p>念の為、「Default Local Group」が組み込みアセットの読み込み設定になっているかを確認しておきます。</p>
+<p>Addressables Groupウインドウのグループをクリックするとインスペクター上でグループの設定が確認できます。下図のようにDefault Local Groupの設定のContent Packing &#x26; LoadingのBuild PathがLocalBuildPathに、Load PathがLocalLoadPathになっていれば、組み込みアセットからロードを行います。</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 524px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/830906f40033efe577b912a3cd1d2ec5/664c8/04.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 79.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB30lEQVQ4y3WT6Y6CQBCE54VE1HjgheABiIp3stn9YWJ8/0fozTduEbLZ/VFppumurq4B97VK7eNzaYP13MKwa0HQsiAIarTbbZvP5xbHsXU6HWu1Wj7XhOp47/L90YqysrLc2SiKfLLX61m32/VRaJ6pgSAMQw/Oo9HIhsOhuer6YYcisyRNbLVa2WazsSzL6pjneX1WbrFY2Gw284iiyMf7/e7fuSLPbZu9iykcj8c2mUxsOp36CMgJECiXpqmdTieP5/Npl8vFHP4kaWrL5dLi+D2ZBho1Hf8ABCBJEj8cRfv93rbbrRVF4UU5JlEMMUUUQ9jv970nEGhlFKDmeDz6eLvd7HA4eKvW6/WbkNVQpwSRApQNBoNaJXWyA+gSiLIBvx0HSCSbJKpoRiXPVVXVkDqGI0QQh2M6igSpxAYUQowd8lWXg+ImqEGQowkizIUMRTSzDgoper1e9ng8vGdlWXolv0H/brczhweaiAIGyBueuSTZQWx+m02gEDGOZq3NmhAJUs/tXq9XO5/PnvgviNhJjW4NkiYhhkOEOp4ZQEx/vl3Oeq4Vsq6SfItaW+RYIU/J/YbesbYnxEMUYPhf/y65JsixJgL0TyMKMZ4Q0KxiXQJgyH832xwAWP8bQoAxl18yVnkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="グループ設定の確認"
+        title="グループ設定の確認"
+        src="/static/830906f40033efe577b912a3cd1d2ec5/664c8/04.png"
+        srcset="/static/830906f40033efe577b912a3cd1d2ec5/772e8/04.png 200w,
+/static/830906f40033efe577b912a3cd1d2ec5/e17e5/04.png 400w,
+/static/830906f40033efe577b912a3cd1d2ec5/664c8/04.png 524w"
+        sizes="(max-width: 524px) 100vw, 524px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption"><p>グループ設定の確認</p></figcaption>
+  </figure></p>
+<p>次に、アセットをこのAddressablesのグループに所属させます。対象アセットをインスペクターで開き、赤枠の「Addressable」のチェックボタンをONにします。合わせてこのアセットのアドレス（アセットを読み込むときに指定する文字列）を指定しておきます。</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 730px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0b91cfdbf36580c94bd8c802ac44b610/e9beb/Screen_Shot_2021-12-19_at_6.04.07.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 73.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACgklEQVQ4y52TzWvUQBiHZ7VawXv1JohN23zNxyaZzG4mmWw23Tb9kIqWfiBV0FooKHjw//DiyasIgncV7Ar+K57K3qpLYXfzarbsR2kV6cDDZN73Nw9DJkE/FmK0PTN9c23t9uwtqmnMJhqhRCNkRJIkWi2ONYzxqfoA27ZnCSE3sixDCABQVpUfV+/VwJHVI2zZbdsew7LaPudtz/PalmWd7p1wRCkFwzDeHx8fo2JMViL1rbG4BEma5lUpQUZRHy4EeL5/Li7n4LkuOI6TK6XA9/0vCKErhfDac3znYD/isBe4nSc+zR85Vr5lz+RbtpZvWlq+YU732bK0fNOeyXfs6fyxYHkjy/KV5eVOmqbged4nhNDV/gmXqNlcCwTcrfDuqnAh8xis+C6s10LYSBTsLDXg4ULaXz9QEjKHQMNzQIYhxEp1gyAAxtjnodDxRVPVEvBEpev6AjwhoCIlqCSBqFaDUCmIkwSKTLHm1Wo/43MOnPOu7/tQLpdHQtMwmoxSoIR0KSHFDIQQsC0Lihf+4uUruL++DaZpAsYYxjOk2EMp6Lo+EhqG0SyKg2YBYwws04SknsLrN29hfXMHKGUw6A8Y7DEM49/CAsuyIFIKdvf2IZCqLyxO9d9CSukpoW3bIKWEp7vPQIYRMFY+I6T0HKGu6wdFEGPcIYT0BmCMe4yxnoqinuM4w9oog3uYkA4hGPS52dFnQyn9XtwUP7m1M7iu+9ce9zwQlQCoF34dCjnnH+I4/imEOJyfn2+ladqSUrbCMOwTRdHweZx6vd6K4/hQxbVfIlDvBn/KBEJIL5VKixfj0mIJoQWE0FxpYnICTU1NobFRuiAIXRfo8p/5N+7JeWkFrbgIAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="アセットのAddressables設定"
+        title="アセットのAddressables設定"
+        src="/static/0b91cfdbf36580c94bd8c802ac44b610/e9beb/Screen_Shot_2021-12-19_at_6.04.07.png"
+        srcset="/static/0b91cfdbf36580c94bd8c802ac44b610/772e8/Screen_Shot_2021-12-19_at_6.04.07.png 200w,
+/static/0b91cfdbf36580c94bd8c802ac44b610/e17e5/Screen_Shot_2021-12-19_at_6.04.07.png 400w,
+/static/0b91cfdbf36580c94bd8c802ac44b610/e9beb/Screen_Shot_2021-12-19_at_6.04.07.png 730w"
+        sizes="(max-width: 730px) 100vw, 730px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption"><p>アセットのAddressables設定</p></figcaption>
+  </figure></p>
+<p>設定が完了すると、下図のように「Addressables Groups」のDefault Local Group配下にCharacterアセットが追加されていることが確認できます（今回は１グループのみかつデフォルトのグループ設定としてDefault Local Groupに所属しましたが、そうでない場合はアセットを右クリックして「Move Addressable to Group」で所属するグループを変更できます）。</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c3d0f4c275eff87ea09cec58e6a02d24/1be7e/05.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdElEQVQoz6WRTU/DMAyGDRcQiPtO2wDtI1mbdbRJ2yTt2oFUMU4gkECi8Bu5gva3+G6NEor4EBfG4ZH9OvZrRYbjvrd1cpSc8zS+ct3xJaW0dBynHI1GNnqeV2qtSyllOR6PS0JI6bpuyRj7yiVj7JpS2gKPOt78sMBiPscsyzEMQ+ScI+cB+r6PQRDYmtYalVIopcTJZIKO4yBjDF3XtZi81+udwPbOjp/PZg9FUdQHB/uv0+m00lpXWT6rTJ6maZUkiY1GZ1lmtemRUn7wEscxDofDM+h0OntKqcc8zzFJklpKWcdxXCud1Gma1qZmokEpZTE1rbXta6iiKMLBYGAN/SAInoQQKISozffesfobn2/fMDOVyfv9/ruhEOLJbIiiqG7iXzAzvxs22/7MT8M9zvl9U3wJw/B1CZ4bw1PodrvcCHOl/9Ac5QJardYuIeSGELIghNwSQu6WgVK6aLfbEgBgBQDWAGATADaWxMyuA8DqGxcHIwUJXFCuAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="アセットがDefault Local Groupに所属しているかの確認"
+        title="アセットがDefault Local Groupに所属しているかの確認"
+        src="/static/c3d0f4c275eff87ea09cec58e6a02d24/5a190/05.png"
+        srcset="/static/c3d0f4c275eff87ea09cec58e6a02d24/772e8/05.png 200w,
+/static/c3d0f4c275eff87ea09cec58e6a02d24/e17e5/05.png 400w,
+/static/c3d0f4c275eff87ea09cec58e6a02d24/5a190/05.png 800w,
+/static/c3d0f4c275eff87ea09cec58e6a02d24/1be7e/05.png 1059w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption"><p>アセットがDefault Local Groupに所属しているかの確認</p></figcaption>
+  </figure></p>
+<p>これでアセットの設定は完了したので、実際にロードしてみます。ロード自体は非常にシンプルです。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">Cysharp<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">UnityEngine<span class="token punctuation">.</span>AddressableAssets</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestAddressablesLoad</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">async</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Addressablesによるアセットのロード</span>
+        <span class="token comment">// awaitはUniTaskで提供される機能を利用しています</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> prefab <span class="token operator">=</span> <span class="token keyword">await</span> Addressables<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">LoadAssetAsync</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>GameObject<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token string">"Character"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// ロードしたPrefabをインスタンス化して表示</span>
+        <span class="token function">Instantiate</span><span class="token punctuation">(</span>prefab<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>今回の例では、名前を直接指定して<code>LoadAssetAsync</code>メソッド経由でロードしましたが、その他にもアセットにあらかじめ設定したラベルを指定して、複数アセットを読み込んだり、<a href="https://docs.unity3d.com/Packages/com.unity.addressables@1.18/manual/RuntimeAddressables.html">その他にもAPIが存在します</a>。</p>
+<p>あとは上記のコンポーネントをゲームオブジェクトにアタッチすればアセットをAddressables経由でロードして表示されます。</p>
+<p>方法2と比べると、StreamingAssets配下であることは隠蔽されているので、2つ目に紹介したようなプラットフォームごとの呼び分けを意識する必要がなく（さらにいうとアセットがどこにあるのかも意識していない）、より直感的にアセットのロードを行うことができるようになりました。</p>
+<p>アプリ内へ埋め込むアセットバンドルのビルドとStreamingAssetsへの組み込みは、ローカルアセットの場合はアプリビルド時に自動で行われるようです。例えばapkをビルドして、生成されたapkを展開すると、 <code>assets/aa/Android</code> 配下（StreamingAssetsに格納したアセットはこの <code>assets</code> 下にコピーされる）にAddressablesが組み込んだアセットを確認できました。</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/52d9a902501b38b0276fd3e7a1eb4f71/434c7/06.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJ0lEQVQoz5XQS27TQBgAYK9ZI3EGLHasUbkE3nCC3KBcoEJll4guGRYcgZDm4aRpk4aSNKFVbJyXXecdjx0/k9ieeH4Ug0CCINTFp380/2P0D3NTKT3t99ofpE7nndBuI1lW0GAgI1lRUL/fR7diBzVbX1Gr1UKSJKFut4e63S5SFAUNh0M0HI7QeDx+r6oqOj3NPmJ4vvhSEERQ7lToDQagLeZgmgZYlgnm0oDlL3ocTXMJ8/kMJuMROI4NtmWCoWPAWINM5tMTpsCXXtTr1zCazAN54RJ1ionl+sRdk784u7jZEt30yBxbxFmFsYXhELx0t5kc/5jJ5niu2WyC0JtGFdGhZ407Wv+m04Zk0OuOQRsSplcCpqWWRi9Fi37perQmmrR6u6BXkkNrok0v2xgubjRIoTTLlPgSJwoS6LoRTTSdLrQFEBJAGO5HSAie54Jh6BAEPmw2a7r7np18Ps8y1TOe60kijGZapM40ul6tIAhD8P0A/OAPfhDnbMcB3TDiu43vU9O0wHFdKBaLLFMsX3CCKMFsjiPdtKjneRCGYdy4zy63Wq/jAUEQPxD37BQKBZYpl6ucKHYAY30bRVu6Kwj/h5AfwjCuJ4RQ3/chm82yTK32mVMUFbBuRGS7/V38D2TPmRASr5/L5Vjm/LzC9fsyTKYz6npevIp7X54Htm3Dx3SaZQ4PXz08Onr9/Pj4zUEqlTpIJpP387Pn7cnJs0Qi8eA7Kqn30oX0xEQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="apk内に組み込まれたAddressablesのアセット"
+        title="apk内に組み込まれたAddressablesのアセット"
+        src="/static/52d9a902501b38b0276fd3e7a1eb4f71/5a190/06.png"
+        srcset="/static/52d9a902501b38b0276fd3e7a1eb4f71/772e8/06.png 200w,
+/static/52d9a902501b38b0276fd3e7a1eb4f71/e17e5/06.png 400w,
+/static/52d9a902501b38b0276fd3e7a1eb4f71/5a190/06.png 800w,
+/static/52d9a902501b38b0276fd3e7a1eb4f71/c1b63/06.png 1200w,
+/static/52d9a902501b38b0276fd3e7a1eb4f71/434c7/06.png 1381w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption"><p>apk内に組み込まれたAddressablesのアセット</p></figcaption>
+  </figure></p>
+<h2 id="まとめ" style="position:relative;"><a href="#%E3%81%BE%E3%81%A8%E3%82%81" aria-label="まとめ permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>まとめ</h2>
+<p>アセットをアプリに組み込んで、利用する方法を3つ紹介しました。</p>
+<ul>
+<li>Resourcesによる組み込みはアプリ起動時間の増加やメモリ管理の観点から、ライフサイクルが永続的かつ頻繁な更新が行われないアセットに限定した利用用途の限定が推奨されている。</li>
+<li>StreamingAssetsを用いると上記の問題を回避してアセットを組み込める。ただし一部プラットフォームではアセットの読み込み方法が異なるので注意が必要。
+<ul>
+<li>StreamingAssets内でプレハブなどUnityのアセットを読み込む場合はアセットバンドルを埋め込む必要がある</li>
+</ul>
+</li>
+<li>Addressablesを用いるとStreamingAssetsへのアセットバンドルの組み込みとロードを、それらのワークフローをあまり意識することなく実装できる。</li>
+</ul>
+<h2 id="参考" style="position:relative;"><a href="#%E5%8F%82%E8%80%83" aria-label="参考 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参考</h2>
+<ul>
+<li><a href="https://learn.unity.com/tutorial/assets-resources-and-assetbundles">Assets, Resources and AssetBundles - Unity Learn</a></li>
+<li><a href="https://tsubakit1.hateblo.jp/entry/20120917/1347807947">StreamingAssetsについて - テラシュールブログ</a></li>
+<li><a href="https://light11.hatenadiary.com/entry/2020/07/29/202755">【Unity】僕はそろそろResourcesフォルダを卒業しようと思う - LIGHT11</a></li>
+<li><a href="https://light11.hatenadiary.com/entry/2019/12/26/225232">【Unity】Addressableアセットシステム入門 - 3つのメリットと基本的な使い方を紹介 - LIGHT11</a></li>
+<li><a href="https://qiita.com/k7a/items/df6dd8ea66cbc5a1e21d">今更誰も教えてくれない、Unityにおけるアセット読み込みについての基礎知識 - Qiita</a></li>
+</ul></div></article></div></main><footer class="container max-w-3xl mx-auto pt-10 pb-10"><div class="flex justify-center gap-6"><a class="hover:no-underline text-gray-800" href="/">Home</a><a class="hover:no-underline text-gray-800" href="/profile">Profile</a><a class="hover:no-underline text-gray-800" href="/project/unity-weekly">Unity Weekly</a></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/articles/2021/12/built-in-asset-for-unity/";window.___webpackCompilationHash="fc054c76d935a904d69e";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4bae0ebd19da6d624f9b.js"],"app":["/app-af3c6be3755c0810b80f.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-42660d3ea51266f3e6ca.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-25c83ed41e02527f6e75.js"],"component---src-pages-project-unity-weekly-tsx":["/component---src-pages-project-unity-weekly-tsx-85146e2f653cf86267ba.js"],"component---src-pages-tags-tsx":["/component---src-pages-tags-tsx-7d944f901b66b6d75221.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-5cf0013df3037b91cf03.js"],"component---src-templates-tag-tsx":["/component---src-templates-tag-tsx-5a26138ea8576f0bb25c.js"]};/*]]>*/</script><script src="/polyfill-4bae0ebd19da6d624f9b.js" nomodule=""></script><script src="/app-af3c6be3755c0810b80f.js" async=""></script><script src="/framework-6ad8a8eb04f78e566be1.js" async=""></script><script src="/webpack-runtime-e2204fc0d98161dad324.js" async=""></script></body></html>

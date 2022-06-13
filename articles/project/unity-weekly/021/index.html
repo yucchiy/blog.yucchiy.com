@@ -1,0 +1,410 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.16.0"/><style data-href="/styles.efa6d53b05e0f8a1a318.css" data-identity="gatsby-global-css">/*
+! tailwindcss v3.1.2 | MIT License | https://tailwindcss.com
+*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{color:#9ca3af;opacity:1}input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#9ca3af;opacity:1}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.prose{color:var(--tw-prose-body);max-width:65ch}.prose :where([class~=lead]):not(:where([class~=not-prose] *)){color:var(--tw-prose-lead);font-size:1.25em;line-height:1.6;margin-bottom:1.2em;margin-top:1.2em}.prose :where(a):not(:where([class~=not-prose] *)){color:#dc4e47;font-weight:500;text-decoration:underline}.prose :where(strong):not(:where([class~=not-prose] *)){color:var(--tw-prose-bold);font-weight:600}.prose :where(ol):not(:where([class~=not-prose] *)){list-style-type:decimal;padding-left:1.625em}.prose :where(ol[type=A]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=A s]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a s]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=I]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type=I s]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i s]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type="1"]):not(:where([class~=not-prose] *)){list-style-type:decimal}.prose :where(ul):not(:where([class~=not-prose] *)){list-style-type:disc;padding-left:1.625em}.prose :where(ol>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-counters);font-weight:400}.prose :where(ul>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-bullets)}.prose :where(hr):not(:where([class~=not-prose] *)){border-color:var(--tw-prose-hr);border-top-width:1px;margin-bottom:3em;margin-top:3em}.prose :where(blockquote):not(:where([class~=not-prose] *)){border-left-color:var(--tw-prose-quote-borders);border-left-width:.25rem;color:var(--tw-prose-quotes);font-style:italic;font-weight:500;margin-bottom:1.6em;margin-top:1.6em;padding-left:1em;quotes:"\201C""\201D""\2018""\2019"}.prose :where(blockquote p:first-of-type):not(:where([class~=not-prose] *)):before{content:open-quote}.prose :where(blockquote p:last-of-type):not(:where([class~=not-prose] *)):after{content:close-quote}.prose :where(h1):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.5rem;font-weight:800;line-height:2rem;margin-bottom:.8888889em;margin-top:0}.prose :where(h1 strong):not(:where([class~=not-prose] *)){font-weight:900}.prose :where(h2):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.25rem;font-weight:700;line-height:1.75rem;margin-bottom:1em;margin-top:2em}.prose :where(h2 strong):not(:where([class~=not-prose] *)){font-weight:800}.prose :where(h3):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.125rem;font-weight:600;line-height:1.75rem;margin-bottom:.6em;margin-top:1.6em}.prose :where(h3 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(h4):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;line-height:1.5;margin-bottom:.5em;margin-top:1.5em}.prose :where(h4 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(figure>*):not(:where([class~=not-prose] *)){margin-bottom:0;margin-top:0}.prose :where(figcaption):not(:where([class~=not-prose] *)){color:var(--tw-prose-captions);font-size:.875em;line-height:1.4285714;margin-top:.8571429em}.prose :where(code):not(:where([class~=not-prose] *)){color:var(--tw-prose-code);font-size:.875em;font-weight:600}.prose :where(code):not(:where([class~=not-prose] *)):before{content:"`"}.prose :where(code):not(:where([class~=not-prose] *)):after{content:"`"}.prose :where(a code):not(:where([class~=not-prose] *)){color:var(--tw-prose-links)}.prose :where(pre):not(:where([class~=not-prose] *)){background-color:var(--tw-prose-pre-bg);border-radius:.375rem;color:var(--tw-prose-pre-code);font-size:.875em;font-weight:400;line-height:1.7142857;margin-bottom:1.7142857em;margin-top:1.7142857em;overflow-x:auto;padding:.8571429em 1.1428571em}.prose :where(pre code):not(:where([class~=not-prose] *)){background-color:transparent;border-radius:0;border-width:0;color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;padding:0}.prose :where(pre code):not(:where([class~=not-prose] *)):before{content:none}.prose :where(pre code):not(:where([class~=not-prose] *)):after{content:none}.prose :where(table):not(:where([class~=not-prose] *)){font-size:.875em;line-height:1.7142857;margin-bottom:2em;margin-top:2em;table-layout:auto;text-align:left;width:100%}.prose :where(thead):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-th-borders);border-bottom-width:1px}.prose :where(thead th):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;padding-bottom:.5714286em;padding-left:.5714286em;padding-right:.5714286em;vertical-align:bottom}.prose :where(tbody tr):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-td-borders);border-bottom-width:1px}.prose :where(tbody tr:last-child):not(:where([class~=not-prose] *)){border-bottom-width:0}.prose :where(tbody td):not(:where([class~=not-prose] *)){padding:.5714286em;vertical-align:baseline}.prose{--tw-prose-body:#374151;--tw-prose-headings:#111827;--tw-prose-lead:#4b5563;--tw-prose-links:#111827;--tw-prose-bold:#111827;--tw-prose-counters:#6b7280;--tw-prose-bullets:#d1d5db;--tw-prose-hr:#e5e7eb;--tw-prose-quotes:#111827;--tw-prose-quote-borders:#e5e7eb;--tw-prose-captions:#6b7280;--tw-prose-code:#111827;--tw-prose-pre-code:#e5e7eb;--tw-prose-pre-bg:#1f2937;--tw-prose-th-borders:#d1d5db;--tw-prose-td-borders:#e5e7eb;--tw-prose-invert-body:#d1d5db;--tw-prose-invert-headings:#fff;--tw-prose-invert-lead:#9ca3af;--tw-prose-invert-links:#fff;--tw-prose-invert-bold:#fff;--tw-prose-invert-counters:#9ca3af;--tw-prose-invert-bullets:#4b5563;--tw-prose-invert-hr:#374151;--tw-prose-invert-quotes:#f3f4f6;--tw-prose-invert-quote-borders:#374151;--tw-prose-invert-captions:#9ca3af;--tw-prose-invert-code:#fff;--tw-prose-invert-pre-code:#d1d5db;--tw-prose-invert-pre-bg:rgba(0,0,0,.5);--tw-prose-invert-th-borders:#4b5563;--tw-prose-invert-td-borders:#374151;font-size:1rem;line-height:1.75}.prose :where(p):not(:where([class~=not-prose] *)){margin-bottom:1.25em;margin-top:1.25em}.prose :where(img):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(video):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(figure):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(h2 code):not(:where([class~=not-prose] *)){font-size:.875em}.prose :where(h3 code):not(:where([class~=not-prose] *)){font-size:.9em}.prose :where(li):not(:where([class~=not-prose] *)){margin-bottom:.5em;margin-top:.5em}.prose :where(ol>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose :where(ul>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose>:where(ul>li p):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose>:where(ul>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ul>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose>:where(ol>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ol>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose :where(ul ul,ul ol,ol ul,ol ol):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose :where(hr+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h2+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h3+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h4+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(thead th:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(thead th:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose :where(tbody td:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(tbody td:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose>:where(:first-child):not(:where([class~=not-prose] *)){margin-top:0}.prose>:where(:last-child):not(:where([class~=not-prose] *)){margin-bottom:0}.mx-auto{margin-left:auto;margin-right:auto}.my-auto{margin-bottom:auto;margin-top:auto}.mb-6{margin-bottom:1.5rem}.mb-1{margin-bottom:.25rem}.mb-4{margin-bottom:1rem}.mb-2{margin-bottom:.5rem}.block{display:block}.flex{display:flex}.max-w-3xl{max-width:48rem}.max-w-none{max-width:none}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.justify-start{justify-content:flex-start}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-2{gap:.5rem}.rounded{border-radius:.25rem}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity))}.p-6{padding:1.5rem}.py-10{padding-bottom:2.5rem;padding-top:2.5rem}.px-4{padding-left:1rem;padding-right:1rem}.pt-10{padding-top:2.5rem}.pb-10{padding-bottom:2.5rem}.text-center{text-align:center}.font-serif{font-family:ui-serif,Georgia,Cambria,Times New Roman,Times,serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55/var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}html{font-family:-apple-system,Meiryo,"sans-serif"}body{word-wrap:break-word}a{color:#dc4e47;text-decoration:none}a:hover{text-decoration:underline}.gatsby-resp-image-figcaption{text-align:center}.last\:mb-0:last-child{margin-bottom:0}.hover\:no-underline:hover{-webkit-text-decoration-line:none;text-decoration-line:none}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><style type="text/css">
+    .header-link.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .header-link.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .header-link svg,
+    h2 .header-link svg,
+    h3 .header-link svg,
+    h4 .header-link svg,
+    h5 .header-link svg,
+    h6 .header-link svg {
+      visibility: hidden;
+    }
+    h1:hover .header-link svg,
+    h2:hover .header-link svg,
+    h3:hover .header-link svg,
+    h4:hover .header-link svg,
+    h5:hover .header-link svg,
+    h6:hover .header-link svg,
+    h1 .header-link:focus svg,
+    h2 .header-link:focus svg,
+    h3 .header-link:focus svg,
+    h4 .header-link:focus svg,
+    h5 .header-link:focus svg,
+    h6 .header-link:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Yucchiy&#x27;s Note" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=ced7ce5d16d58390b9715f99f691b449" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=ced7ce5d16d58390b9715f99f691b449"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="bg-slate-100"><div class="container max-w-3xl mx-auto pb-10 pt-10"><h3 class="text-2xl font-bold text-center"><a class="hover:no-underline text-gray-900 font-serif" href="/">Yucchiy&#x27;s Note</a></h3></div><main><div class="container bg-white rounded shadow hover:shadow-md max-w-3xl mx-auto p-6"><article><header class="mb-6"><div><time class="text-sm text-gray-500 mb-1">July 12, 2021</time><h1 class="text-xl font-semibold text-gray-700 mb-1">Unity Weekly #021</h1><div class="flex justify-start gap-2"><span class="text-sm text-gray-500">Tags: </span><a class="text-sm text-gray-400" href="/tags/unity/">Unity</a><a class="text-sm text-gray-400" href="/tags/unity-weekly/">Unity Weekly</a></div></div></header><div class="prose max-w-none"><h2 id="unity-20212-feature-preview" style="position:relative;"><a href="#unity-20212-feature-preview" aria-label="unity 20212 feature preview permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unity 2021.2 Feature Preview</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/51c3534fa0d5922584b3792ae2d79fa7/eea4a/image6_0.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 33.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAHABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAcKCQH//xAAYEAACAwAAAAAAAAAAAAAAAAAAARAREv/aAAgBAQABBQLI1Uf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAY/An//xAAZEAABBQAAAAAAAAAAAAAAAAABABARQVH/2gAIAQEAAT8hErC0Bv/aAAwDAQACAAMAAAAQ/wD/AP/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABkQAQEBAQEBAAAAAAAAAAAAAAERAFEh0f/aAAgBAQABPxBg+c7fmVApeXTf/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="image6 0"
+        title="image6 0"
+        src="/static/51c3534fa0d5922584b3792ae2d79fa7/4b190/image6_0.jpg"
+        srcset="/static/51c3534fa0d5922584b3792ae2d79fa7/e07e9/image6_0.jpg 200w,
+/static/51c3534fa0d5922584b3792ae2d79fa7/066f9/image6_0.jpg 400w,
+/static/51c3534fa0d5922584b3792ae2d79fa7/4b190/image6_0.jpg 800w,
+/static/51c3534fa0d5922584b3792ae2d79fa7/e5166/image6_0.jpg 1200w,
+/static/51c3534fa0d5922584b3792ae2d79fa7/eea4a/image6_0.jpg 1280w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://blog.unity.com/ja/technology/behind-the-scenes-speeding-up-unity-workflows">Unity のワークフロー高速化の舞台裏 | Unity Blog</a>
+<a href="https://blog.unity.com/ja/technology/discover-the-tools-you-need-with-flexible-feature-sets-in-package-manager">パッケージマネージャーの柔軟な機能セットを活用して必要なツールを見つけよう | Unity Blog</a></p>
+<ul>
+<li>この記事ではUnity 2021.2で導入された、ワークフローの高速化とパッケージマネジャーの機能セットについて紹介しています。</li>
+<li><a href="https://blog.unity.com/ja/technology/behind-the-scenes-speeding-up-unity-workflows">Unity のワークフロー高速化の舞台裏</a>では、2021.2で以前のバージョンから改善されたワークフローのうち、エディターの起動速度最適化、モデルやテクスチャインポートの高速化、大規模なヒエラルキー構造下でのエディター操作の高速化、IL2CPPの高速化、アセットバンドル読み込みのメモリ効率化について説明しています。</li>
+<li><a href="https://blog.unity.com/ja/technology/discover-the-tools-you-need-with-flexible-feature-sets-in-package-manager">パッケージマネージャーの柔軟な機能セットを活用して必要なツールを見つけよう</a>ではパッケージマネジャーで新たに導入された、機能を実現するために複数の設定済みパッケージをまとめ、そのセットをインストールできるようにした機能セット（Feature sets）について紹介しています。</li>
+</ul>
+<h2 id="noise-variants" style="position:relative;"><a href="#noise-variants" aria-label="noise variants permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Noise Variants</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f674fff2e611e1d6543673360084167f/72e01/tutorial-image.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAHknWRoR//EABgQAAIDAAAAAAAAAAAAAAAAAAIQAAER/9oACAEBAAEFAiuaxX//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAWEAADAAAAAAAAAAAAAAAAAAAAICH/2gAIAQEABj8CIv8A/8QAGxAAAQQDAAAAAAAAAAAAAAAAAQAQEVExQYH/2gAIAQEAAT8hiuLCsfG0UAjDf//aAAwDAQACAAMAAAAQS/8A/8QAFREBAQAAAAAAAAAAAAAAAAAAEEH/2gAIAQMBAT8Qh//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQABBQEBAAAAAAAAAAAAAAERABAhMUFRYf/aAAgBAQABPxBImCM8KnAhJ36fLIIJImqEkA+xb//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="tutorial image"
+        title="tutorial image"
+        src="/static/f674fff2e611e1d6543673360084167f/4b190/tutorial-image.jpg"
+        srcset="/static/f674fff2e611e1d6543673360084167f/e07e9/tutorial-image.jpg 200w,
+/static/f674fff2e611e1d6543673360084167f/066f9/tutorial-image.jpg 400w,
+/static/f674fff2e611e1d6543673360084167f/4b190/tutorial-image.jpg 800w,
+/static/f674fff2e611e1d6543673360084167f/72e01/tutorial-image.jpg 1024w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://catlikecoding.com/unity/tutorials/pseudorandom-noise/noise-variants/">Noise Variants</a></p>
+<ul>
+<li>この記事はCatlike Codingさんの<a href="https://catlikecoding.com/unity/tutorials/pseudorandom-noise/">Pseudorandom Noise</a>の第5回目のチュートリアルです。</li>
+<li>複数のオクターブのノイズを組み合わせてフラクタルパターンを作成する方法、パーリンノイズとバリューノイズにTurbulenceオプションを追加する方法、タイルノイズの実装についてそれぞれ解説しています。</li>
+</ul>
+<h2 id="how-does-the-stringbuilder-work-in-net" style="position:relative;"><a href="#how-does-the-stringbuilder-work-in-net" aria-label="how does the stringbuilder work in net permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How Does the StringBuilder Work in .NET?</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cd0e165a570537b9366ec377f59a60fe/1d69c/How-Does-the-StringBuilder-Work-in-.NET_-750x410.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACqElEQVQozy3SW1MaBwCG4f0roTNtoCyaquxmUakG0GQmnjqKt73s72lsrYpyZpeFPbDs+QBYq/lXb8emF8/te/HNJ3w2nqmMlkiDDHn4v1H6jZogazGSFlHWAiQ9QJ74yFMX2Zgjmw6yZVO2TXbmFoehg1DVVpS6McVOhNh9FSL2AsS+jzjwKA5cxNGcLd1jfewgahaibiJOpohTHdEYUzRVSvaI3WCCIA0z3rYDcvceuXuX3MOcXNsh15nxpmPx/cDmt9VXfl088YM64c1II6eNyI2H5PQ+uUmX74w2ebuD5A8RpFHKej/iwFzSMBc0rIyGndKwE+qzmMN5zGWy4DxOqbkuB75LI3CohzaNyOIgNvgQ64huGznsIZTVmI1RyMn8kWN3xam35NRfcBZknIYpp1HCSRTxOfI5SwOOU5ejzOFs6XCytDlZmRyvDNb8e6SojSBpIftmwuEsZdsIaDgRVdunbM7YdRy2LIN64FALbOqRxYdoynagUUt0tqMBtUzl01JjJ+1SjlsIsh5QHM0QNZvi2GJt8m3wHWdGzZ9xlLjUQotGbPLL0qGe6FSiAUWvRdG7RfRvKAbX/Bj+iZTeIbyfehRUk4I2paBPKEzG5Kcq7+wxG46K5Gr8NB+w5fWRgh7r/gMlv8Vb75qCf00++IN8eEU+/IKc3SJsTmdsGBaXacJFFtNchFwuA5orn4uVy/mjQ/PvGRdPNhdPJs1/TC6fDZovU85fdJpfdc5eVErxFZvZNcLP8zklY0zJ1FizX/80QPJUqpHGXqyyn6rsJn120x77iz57iy57yw6b6Q3F6Oq/kBh/QUx+p/p4h3AUe1R9A8XTqfhjKoGKEg5Roj5K3KOSdFGSNkr6gJLdo2QtlMUdyuIWZfnqhveLv9h7bPHxuc2/GoY+bgJ/HbwAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="How Does the StringBuilder Work in  NET  750x410"
+        title="How Does the StringBuilder Work in  NET  750x410"
+        src="/static/cd0e165a570537b9366ec377f59a60fe/1d69c/How-Does-the-StringBuilder-Work-in-.NET_-750x410.png"
+        srcset="/static/cd0e165a570537b9366ec377f59a60fe/772e8/How-Does-the-StringBuilder-Work-in-.NET_-750x410.png 200w,
+/static/cd0e165a570537b9366ec377f59a60fe/e17e5/How-Does-the-StringBuilder-Work-in-.NET_-750x410.png 400w,
+/static/cd0e165a570537b9366ec377f59a60fe/1d69c/How-Does-the-StringBuilder-Work-in-.NET_-750x410.png 750w"
+        sizes="(max-width: 750px) 100vw, 750px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://www.stevejgordon.co.uk/how-does-the-stringbuilder-work-in-dotnet-part-1">How Does the StringBuilder Work in .NET? (Part 1) - Steve Gordon - Code with Steve</a>
+<a href="https://www.stevejgordon.co.uk/how-does-the-stringbuilder-work-in-dotnet-part-2">How Does the StringBuilder Work in .NET? (Part 2) - Steve Gordon - Code with Steve</a></p>
+<ul>
+<li>この記事では、.NETのStringBuilderがどのように動作するか紹介しています。</li>
+<li>パート1ではstringの結合とStringBuilderによる文字列の結合の効率について、実際にプロファイリングを取りながら説明しています。</li>
+<li>パート2ではパート1のStringBuilderのプロファイリング結果の解説を、StringBuilderの内部構造を踏まえて解説しています。</li>
+</ul>
+<h2 id="caunity-2" style="position:relative;"><a href="#caunity-2" aria-label="caunity 2 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CA.unity #2</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ec52761c980854ba94593b38dc05fd31/68947/101326b834310625bef79201d2b3e4a8c4888efa.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 35%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAAA9ElEQVQoz42RS07DQBBEcyCuxZIL5AisuEMOwIoF8oILBMULK4SPAZPEI6xohKPYcQZ3P+SPkI29oKTWlLo11aXqCaqoKhW05oKItrydta9ov6+Dv8qEFr8DhhjtqQ54I9jZIgcDZs5imWC/DrhTgXPf9cyVwscuI80dhSvrXnYqKUV7oo2glI2L1xmJ73E+vSN4iom3a17CEHfMWK4tZ1OPq9tnLm8euZ5vuZj5eMFnY0a077AS1P075mGBv7KE0Q5jYqIoIs8zjk64f7NsbF7XKt4TbFKStBjPEB1L6n/o5tl3qIJKc+W/l66qyku0UzK88g8nOR5Dqr+TGwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="101326b834310625bef79201d2b3e4a8c4888efa"
+        title="101326b834310625bef79201d2b3e4a8c4888efa"
+        src="/static/ec52761c980854ba94593b38dc05fd31/5a190/101326b834310625bef79201d2b3e4a8c4888efa.png"
+        srcset="/static/ec52761c980854ba94593b38dc05fd31/772e8/101326b834310625bef79201d2b3e4a8c4888efa.png 200w,
+/static/ec52761c980854ba94593b38dc05fd31/e17e5/101326b834310625bef79201d2b3e4a8c4888efa.png 400w,
+/static/ec52761c980854ba94593b38dc05fd31/5a190/101326b834310625bef79201d2b3e4a8c4888efa.png 800w,
+/static/ec52761c980854ba94593b38dc05fd31/c1b63/101326b834310625bef79201d2b3e4a8c4888efa.png 1200w,
+/static/ec52761c980854ba94593b38dc05fd31/68947/101326b834310625bef79201d2b3e4a8c4888efa.png 1281w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://meetup.unity3d.jp/jp/events/1307">CA.unity #2 - Unity Meetup</a></p>
+<ul>
+<li>CA.unityの第2回目がオンラインで開催されました</li>
+<li>資料や配信内容は、後日一部の発表のみ<a href="https://learning.unity3d.jp/">Unity Learning Materials</a>にて公開される予定とのことです。</li>
+</ul>
+<h2 id="mesh-deformation-in-unity" style="position:relative;"><a href="#mesh-deformation-in-unity" aria-label="mesh deformation in unity permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mesh Deformation in Unity</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ee1d6456bb6d95e0e4de92ce2e3051e1/58213/Wario.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqklEQVQoz33Ry0sbURQGcP80wYWiILirglChYBaCD3yAoEujNlhjXfjGSnUyCw1GzbySzJ25SWaiedi5TaKjtknQ1FYFE4MGw8wp6sZHIpzl9+NwvlOFeXgzhsRAVNEzmbF0ejSuaCIDmC9h3nyVrHorEQP7weRZvnEh5Rk/iPoOhpIqEVmQOUPmzPexKbNwnbUA1P+6pMnJokoGz0gX5k52UTEkgsxVxKbEQli6SLBN1oHGid6GjYkPu1RHbKdPD/auTn38Po/VB2+Ux4gFDecSzFe3R3LTtG9uHtk+/11dASQcUStB/vgpVh4HvLBD6RE8U4rHYEs3HQS+hYvTQnaEythde5tpSQDMVcB+HhBTGOrv6W9u+ffFeW6j59o6bJ8sDjvrcd1IHDzv/HVhEguKeK8jSt0LnBKS1ci22ynTU4p87xfAz7/XtoE9cIgW40vjuWNv/kIrXJIrwii24cjWLBYAV8YGckMskoovt/+0D5fyjlxy7fb3+t2fZcXarU62xkIpxDwuKIcfPhzy5zRvIvujC6DGLNSahTqA6vNIp+RUA+IVfnnzf3OqBl6scHIyAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Wario"
+        title="Wario"
+        src="/static/ee1d6456bb6d95e0e4de92ce2e3051e1/5a190/Wario.png"
+        srcset="/static/ee1d6456bb6d95e0e4de92ce2e3051e1/772e8/Wario.png 200w,
+/static/ee1d6456bb6d95e0e4de92ce2e3051e1/e17e5/Wario.png 400w,
+/static/ee1d6456bb6d95e0e4de92ce2e3051e1/5a190/Wario.png 800w,
+/static/ee1d6456bb6d95e0e4de92ce2e3051e1/58213/Wario.png 902w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://bronsonzgeb.com/index.php/2021/07/10/mesh-deformation-in-unity/">Mesh Deformation in Unity – Bronson Zgeb</a></p>
+<ul>
+<li>この記事では頂点シェーダーでメッシュを変形する方法について紹介しています。</li>
+<li>メッシュの変形については<a href="https://www.youtube.com/watch?v=c7HBxBfCsas">こちらのGDCのトーク</a>を参考に、この実装を頂点シェーダーで行っています。</li>
+<li>頂点を操作することで影響する法線の向きを正しい向きに修正する方法と、マウスによる操作の実装方法についても合わせて説明しています。</li>
+</ul>
+<h2 id="array-iteration-performance-in-csharp" style="position:relative;"><a href="#array-iteration-performance-in-csharp" aria-label="array iteration performance in csharp permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Array iteration performance in Csharp</h2>
+<p><a href="https://antao-almada.medium.com/array-iteration-performance-in-c-branching-and-parallelization-d0705adbf425">Array iteration performance in C# — Branching and parallelization | by Antão Almada | Jun, 2021 | Medium</a></p>
+<ul>
+<li>この記事では、C#の繰り返しのパフォーマンスのうち、とくに分岐予測と並列化について解説しています。</li>
+<li>繰り返し中にifによる分岐を取り除くことで分岐予測を効率よく行い、パフォーマンスの向上ができることを示しています。</li>
+<li>sum関数をSIMD命令が有効になるように書き直すことで、もとのsum関数よりも高速に動作することを示しています。</li>
+</ul>
+<h2 id="coloring-raymarched-volumetric-light-as-it-passes-through-stained-glass" style="position:relative;"><a href="#coloring-raymarched-volumetric-light-as-it-passes-through-stained-glass" aria-label="coloring raymarched volumetric light as it passes through stained glass permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Coloring Raymarched Volumetric Light as it passes through Stained Glass</h2>
+<p><img src="/5c14743f99fd9ae02bd55c46153daa60/1_sO8xw5sb-OrepuJIDCEcUw.gif" alt=""></p>
+<p><a href="https://valeriomarty.medium.com/coloring-raymarched-volumetric-light-as-it-passes-through-stained-glass-a19846def1cd">Coloring Raymarched Volumetric Light as it passes through Stained Glass | by Valerio Marty | Jul, 2021 | Medium</a></p>
+<ul>
+<li>この記事では、ステンドグラスを通過する際色付きのVolumetric Lightをレイマーチで実装する方法について紹介しています。</li>
+</ul>
+<h2 id="zipでunityのexeファイルを配るの止めたいinnosetupを使おう" style="position:relative;"><a href="#zip%E3%81%A7unity%E3%81%AEexe%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%85%8D%E3%82%8B%E3%81%AE%E6%AD%A2%E3%82%81%E3%81%9F%E3%81%84innosetup%E3%82%92%E4%BD%BF%E3%81%8A%E3%81%86" aria-label="zipでunityのexeファイルを配るの止めたいinnosetupを使おう permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ZipでUnityのexeファイルを配るの止めたい。InnoSetupを使おう</h2>
+<p><a href="https://qiita.com/neon-izm/items/d200838cbb7875dde621">ZipでUnityのexeファイルを配るの止めたい。InnoSetupを使おう - Qiita</a></p>
+<ul>
+<li>この記事では、Unityで作成したWindowsのexeのインストーラーを簡単に作成できるInnoSetupというツールと、その利用方法について紹介しています。</li>
+<li>設定をGUIで行いexeファイルを指定するだけで、Program Filesにアプリケーションを配置するインストーラーが作成できます。VSCodeのインストーラーもInno Setupで作成されているようです。</li>
+</ul>
+<h2 id="unlit-dynamic-decalsprojection" style="position:relative;"><a href="#unlit-dynamic-decalsprojection" aria-label="unlit dynamic decalsprojection permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unlit Dynamic Decals/Projection</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 718px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b36549b6f424e6895099b4c88f946451/57dc1/SimpleResult.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 78.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADzElEQVQ4yyWTXU/bZRiHf/+XsiFzi9nmXKJmGrM5B5WV0lIobSlQ264tbaH0hdLSlhZoERxgGJvZ1E3dm4mazczosgPdoSdL9MxP4IEf6TJ/OLjyPAdP7vvO/bsezdbFzLqIroupDTG/KyoON0T6cxG7LhI7Ir0n0vsivi2iGyLYFOMrYqIlQm0RahiEmwYqZ4dZWLzI3OIHpBYuUG+8Q6t5nvLKWRaap4gt9RMt20SqJuGaCJZFoCB8BRGsimBdBFtias0gcd1AlYqbSu1DytUrFMpDrNSGadfd1EoeNqo+elUv3SUPhdwlUtkLhFPnCWfeIpI/w2TFRaQtPtkR8T2R2BNK9gxi6xbTay7iW8dJbfeR3LJJb/VR33udUu8sldp7NCuXWCpdJrs4RH5+kGx+iGT6CrPZd4nV3iDaGCDUsFFqSyQ3RXbbIL5pEe+JRFeEOyK8JmY6ItYyCVcHmGmfJN45QXJtgNT6KdJr57jWPkeyfZpY4zTT9ZMouipmmqLQs4mtmcx2xVRHdPbEwR3xy/cGf/zg4vGXFqmmuJwVgYoTgg5DmKxbBJYtQrV+wuUzaNYpuCLiDRfBZRFeEb1d8fyxuPeVTXvLRbll8M1N8eu3orsp3BkxnBNeh6zNSNrgSuwk70feRMmWCFZMAgULT16s9MTzhwY7+y4GcxYjJeEpC/eCyPfEX09Fb1sEC2I4IzxZE0/G5HKsj/OBs+jgvkiuWyTbwrsgvj6wefHQxUTRwDMn/GUx2TXwF0WwIT69KV49E90bwud4uCL8S67Dt4NxGzV2DRoHNvnPDOK9Pn78zuLPn0TG8Swl/JV+JlePEVkVo03R2hf/vRT1LaeQGF8SvrKJZ97CXzZQrG6TWD1OuOrCv2Rw+wvx2wNx70BcTAh3zsBbOsYHGdHoiad3xctHIrIo3CnhTh4xkjUZWxaKVvoJlV4jUrLxZl1MF22e3bX5+4nNnX2TW3sn2N17m9qmwasnLl48sDnYtXGnbDwZi+GUxdW0zchcP545CwVKIr1hk+yIaF348wbjOZO7N0z++dnk0S2TB7cs/n1u8Pt9g27PYDhtcPWahSfjYiTXhzd3nLHCAN68gSZKItI0Ga+Z+KtirCiGronBhJjIi3pL7G6LQl2MpMXHcxajeRt/wcZXMBmtmIRWbSYaOkSLvSP3JpbFaEl4Fx0VxHhRhKriUlJ85CSYEr68hW/exDcvvEURWBKBqhPK0TlWFdq5bTJVF4Gy8Jd0qIdzj3acycVU4+grTjePGjsrcvAVhackrhaEJ3fUwBnofz/kH+/++WUUAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="SimpleResult"
+        title="SimpleResult"
+        src="/static/b36549b6f424e6895099b4c88f946451/57dc1/SimpleResult.png"
+        srcset="/static/b36549b6f424e6895099b4c88f946451/772e8/SimpleResult.png 200w,
+/static/b36549b6f424e6895099b4c88f946451/e17e5/SimpleResult.png 400w,
+/static/b36549b6f424e6895099b4c88f946451/57dc1/SimpleResult.png 718w"
+        sizes="(max-width: 718px) 100vw, 718px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://www.ronja-tutorials.com/post/054-unlit-dynamic-decals/?utm_source=pocket_mylist">Unlit Dynamic Decals/Projection | Ronja's tutorials</a></p>
+<ul>
+<li>この記事では、Unlitなデカールを実装する方法について紹介しています。</li>
+<li>デカールの実装はのテクスチャの参照をフラグメントシェーダー内で、デプスバッファーによる深度とカメラからオブジェクトへのベクトルをもとにオブジェクトのワールド座標を再構築して、その値をもとにテクスチャのuv値を計算しています。</li>
+<li>上記のワールド座標の再構築の際に利用する深度は、そのままカメラからの距離を表しているわけではないため画面端ではズレるので、カメラの向きとカメラからオブジェクトへの向きの内積をもとに補正する方法も説明してます。</li>
+</ul>
+<h2 id="optimizing-performance-of-unity-games" style="position:relative;"><a href="#optimizing-performance-of-unity-games" aria-label="optimizing performance of unity games permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optimizing performance of Unity games</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7b26c312247f00f29102c1954eacd997/212bf/Profiler-header.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAP/2gAMAwEAAhADEAAAAaFc7WScRCv/xAAaEAEBAAMBAQAAAAAAAAAAAAABAgADEhEi/9oACAEBAAEFAvkk2Hl7bl7rO6xVf//EABURAQEAAAAAAAAAAAAAAAAAAAAS/9oACAEDAQE/AaU//8QAFhEBAQEAAAAAAAAAAAAAAAAAABIB/9oACAECAQE/AZ1L/8QAGxAAAgIDAQAAAAAAAAAAAAAAAAECERIhMUH/2gAIAQEABj8C3MdNyl4VLFHTps//xAAZEAADAQEBAAAAAAAAAAAAAAAAAREhMVH/2gAIAQEAAT8hmZvceiq2J4Shrw7Oi94/eUTVn//aAAwDAQACAAMAAAAQy+//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPxAp/8QAGREAAgMBAAAAAAAAAAAAAAAAAFEBEYHw/9oACAECAQE/EG12EMf/xAAdEAEAAgEFAQAAAAAAAAAAAAABABEhMUFRcbGR/9oACAEBAAE/EKtBmq3oVr8jUJLyA2VMGfZXlYA3Q7Ljy9/mUD3jpRYt4n//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Profiler header"
+        title="Profiler header"
+        src="/static/7b26c312247f00f29102c1954eacd997/212bf/Profiler-header.jpg"
+        srcset="/static/7b26c312247f00f29102c1954eacd997/e07e9/Profiler-header.jpg 200w,
+/static/7b26c312247f00f29102c1954eacd997/066f9/Profiler-header.jpg 400w,
+/static/7b26c312247f00f29102c1954eacd997/212bf/Profiler-header.jpg 768w"
+        sizes="(max-width: 768px) 100vw, 768px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://www.m2h.nl/optimizing-performance-of-unity-games/">Optimizing performance of Unity games - M2H</a></p>
+<ul>
+<li>この記事では、Unityで作成したゲームのパフォーマンスを最適化するときのよくある間違いから最適化のための計画、CPUやGPUのボトルネックやスパイクなどのそれぞれの項目のために何を最適化するべきかなどについて解説しています。</li>
+<li>最適化を計画する上で最も弱いプラットフォームをベースラインにすること、プロファイリングを簡単に行えるように準備すること、最適化時に見るべき箇所、<a href="https://docs.unity3d.com/Packages/com.unity.performance.profile-analyzer@1.1/manual/index.html">Profile Analyzer</a>などを用いてパフォーマンスをドキュメント化することなどの重要性を説明しています。</li>
+<li>最適化の際にボトルネックになりやすい典型や、それらに対して有効な手法についていくつの例を紹介しています。</li>
+</ul>
+<h2 id="start-profiting-from-texture-compression-in-unity" style="position:relative;"><a href="#start-profiting-from-texture-compression-in-unity" aria-label="start profiting from texture compression in unity permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Start Profiting From Texture Compression in Unity</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2f73bdcdc99a69fc4020f07af10ee384/dc333/texture-compression-cover.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 53.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiklEQVQoz02OO0wTcQDGj0FXBhfDgJNxwMFNnTRhFEYGE2JcdcHEmJBohBgxhGhEKAXF0JZXaZG2Qrk2tFxb29L03evZ6+u4lrbQuz6A4x696+uvNQx+w7f9vu8HYUEfiYYwl1sslytEYl+tjHidZDSCud1CicrFY4fRSCGJFxJ4IRmnSYIm0nQqcUoVj7VKCE2Nu+JKjWleajRrHKMZ6w//fu1KKXVWhSCIRZo+yhdKlWqaJMmj3CGZSZGZBI4XzhjapIOmJwZnvg5adAPtFteQWN3044/vHs1+H7QahtqNcwBAu90G/6fVklbWwHGxhBihjbd33j+9nrENASA1hHOjfHh9tG/qWW/O/QQAVhQbzWazM/GvW6LIzn9jXo1yn2UnX6Ygx/els0LCvKTYXzUXU9mQXodaEBTZsyk0PuNBo8Z3nlutDs9x/JqafTN28eKluA1T6iVIOfSJKbGlUpXOlptSq0ozTOWCY4Usni+fVJqSeEnyHK9QcXML7IdJXr0BAKB+bkDb/SOqgQnLyk4KDcRC3lKRKh4d52NZIkCkEELiuI4tx/GqVV6+IGh/1BAESHUhl/E/6IOqy8Pe5zK3SoYTkx7feMhqD2vgkFmnH1mHx40d47Nzbn5RWF7lZuaEzS0AgJAjvfdv2bshiKKoeAzf0RkMOq1er9k26C2wye8/2INhr8dFl8uVYIiTydnpWV67CRpNIZ/13r1p74ZcvVcgD4qlM5mtXZPBtAfvO2DEZnb8QhPpXcTm9AexFHEQiYBzph4IAwBqhaz33iXp7OmCrIvy04CnmY7Vk1g9GZUSmBiP8rGwlMBqOMrHwjwWZCK+i1j41GMPPLztuAa5blx19nT9hf8Axez+Z/ITk0sAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="texture compression cover"
+        title="texture compression cover"
+        src="/static/2f73bdcdc99a69fc4020f07af10ee384/5a190/texture-compression-cover.png"
+        srcset="/static/2f73bdcdc99a69fc4020f07af10ee384/772e8/texture-compression-cover.png 200w,
+/static/2f73bdcdc99a69fc4020f07af10ee384/e17e5/texture-compression-cover.png 400w,
+/static/2f73bdcdc99a69fc4020f07af10ee384/5a190/texture-compression-cover.png 800w,
+/static/2f73bdcdc99a69fc4020f07af10ee384/dc333/texture-compression-cover.png 938w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://thegamedev.guru/unity-gpu-performance/texture-compression-and-formats/">Start Profiting From Texture Compression in Unity | The Gamedev Guru</a></p>
+<ul>
+<li>この記事では、Unityにおけるテクスチャ圧縮の必要性について説明しています。</li>
+<li>そもそもなぜテクスチャを圧縮する必要があるのか、適切なテクスチャフォーマットを選択する必要があるのかを解説しています。</li>
+<li>Unityにおけるテクスチャ圧縮のための設定項目とその説明、テクスチャフォーマットなどを選択する際に考慮する観点を説明しています。</li>
+</ul>
+<h2 id="introduction-to-unity-2d" style="position:relative;"><a href="#introduction-to-unity-2d" aria-label="introduction to unity 2d permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction to Unity 2D</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2cca83a3f8d3718c673e56d4835fc1a3/a6d36/Unity_KpCho6WvaI-650x372.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 57.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACkElEQVQozx3SSXPaaBSF4c+AmGIwoy1mNCGhASGJQRJYjDaOK+leJIvs0///L7xdZnF351bdW+cRdnLBWe9ZBBG6rmMYBpvtFs/zsOw5ztrHjwOCOMBbLVitItarFVEUsdlsSNOU3W5HkiREUYgQ83dEf4EoPiKEuE8QhGw3GxzPw146GJuUcXKhZdi0RyoteUij3SUMlhwPB97f3tB0g/ZzD5Gzzoi+i6h1KXxrIaQqqmFyOZ+5nI445oyGnfEU/qTpnsgNHERLQTRG1HtTBmMFeTCi0hlSGZiIsvuBpKUUeh7lrkah1kE3LYIgoKs6lNUVJSOl6bzysjzz5J6QjD3F+YW8miI6OqKpkZsklL+Oe9r+oR79pmLeyHctprrJMdsz0kyEEiPZV8pWRtc/01+90V/s0B0f2Ul49D8pqK/klYyc9YHk/UA8rX9RD/5FmmY8KwtOpyNhGFAbGEjqhrL7TsX/pOGdaeoBtuOQ7VM8x6bhnilqGYVJTHX5D430D6Jq7CmNQipdhXi75eN2w1v4lHomZW1D3b8x8FJkxaLVn95bfc0OZK972hMX0Z5TkD1q3g358y+i2LaQGlMUbUaaJtzerwx1l9I0pqJtkM0Q33NZryKmk8mdy9v1ShLHVOsDhPRMvjOnPDtS978jpKZJsze7v/kVXK23lNQtVftEceShGSaHLMNfBti2c7c6tuZ8a8pfy+QehxQnMQX7Rn52QBRfbPTZnH2akO139CyPanimkfymOn9los1I4i22ZbLbru+k8vIEUWrwUO7w0DTJj2MetAMt9cvzdE3PivCDiJk1v5Npr2+0r/9Ri34yVGcYpsnY8nkxIyp6Sl52ydVk8s0xohcilO9I2hlFmfI/DVw9Yu32xBAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Unity KpCho6WvaI 650x372"
+        title="Unity KpCho6WvaI 650x372"
+        src="/static/2cca83a3f8d3718c673e56d4835fc1a3/a6d36/Unity_KpCho6WvaI-650x372.png"
+        srcset="/static/2cca83a3f8d3718c673e56d4835fc1a3/772e8/Unity_KpCho6WvaI-650x372.png 200w,
+/static/2cca83a3f8d3718c673e56d4835fc1a3/e17e5/Unity_KpCho6WvaI-650x372.png 400w,
+/static/2cca83a3f8d3718c673e56d4835fc1a3/a6d36/Unity_KpCho6WvaI-650x372.png 650w"
+        sizes="(max-width: 650px) 100vw, 650px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://www.raywenderlich.com/11409307-introduction-to-unity-2d">Introduction to Unity 2D | raywenderlich.com</a></p>
+<ul>
+<li>この記事は、1つのゲーム制作を題材にUnity 2Dの設定から利用方法までを解説するチュートリアルです。</li>
+<li>2Dプロジェクトの作成からスプライトの作成、2Dカメラの設定の説明、Physics 2Dコンポーネントを利用した衝突判定や2Dアニメーションの実装方法、スプライトとレイヤーの関係について説明しています。</li>
+</ul></div></article></div></main><footer class="container max-w-3xl mx-auto pt-10 pb-10"><div class="flex justify-center gap-6"><a class="hover:no-underline text-gray-800" href="/">Home</a><a class="hover:no-underline text-gray-800" href="/profile">Profile</a><a class="hover:no-underline text-gray-800" href="/project/unity-weekly">Unity Weekly</a></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/articles/project/unity-weekly/021/";window.___webpackCompilationHash="fc054c76d935a904d69e";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4bae0ebd19da6d624f9b.js"],"app":["/app-af3c6be3755c0810b80f.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-42660d3ea51266f3e6ca.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-25c83ed41e02527f6e75.js"],"component---src-pages-project-unity-weekly-tsx":["/component---src-pages-project-unity-weekly-tsx-85146e2f653cf86267ba.js"],"component---src-pages-tags-tsx":["/component---src-pages-tags-tsx-7d944f901b66b6d75221.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-5cf0013df3037b91cf03.js"],"component---src-templates-tag-tsx":["/component---src-templates-tag-tsx-5a26138ea8576f0bb25c.js"]};/*]]>*/</script><script src="/polyfill-4bae0ebd19da6d624f9b.js" nomodule=""></script><script src="/app-af3c6be3755c0810b80f.js" async=""></script><script src="/framework-6ad8a8eb04f78e566be1.js" async=""></script><script src="/webpack-runtime-e2204fc0d98161dad324.js" async=""></script></body></html>

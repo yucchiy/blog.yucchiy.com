@@ -1,0 +1,483 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.16.0"/><style data-href="/styles.efa6d53b05e0f8a1a318.css" data-identity="gatsby-global-css">/*
+! tailwindcss v3.1.2 | MIT License | https://tailwindcss.com
+*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{color:#9ca3af;opacity:1}input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#9ca3af;opacity:1}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.prose{color:var(--tw-prose-body);max-width:65ch}.prose :where([class~=lead]):not(:where([class~=not-prose] *)){color:var(--tw-prose-lead);font-size:1.25em;line-height:1.6;margin-bottom:1.2em;margin-top:1.2em}.prose :where(a):not(:where([class~=not-prose] *)){color:#dc4e47;font-weight:500;text-decoration:underline}.prose :where(strong):not(:where([class~=not-prose] *)){color:var(--tw-prose-bold);font-weight:600}.prose :where(ol):not(:where([class~=not-prose] *)){list-style-type:decimal;padding-left:1.625em}.prose :where(ol[type=A]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=A s]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a s]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=I]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type=I s]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i s]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type="1"]):not(:where([class~=not-prose] *)){list-style-type:decimal}.prose :where(ul):not(:where([class~=not-prose] *)){list-style-type:disc;padding-left:1.625em}.prose :where(ol>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-counters);font-weight:400}.prose :where(ul>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-bullets)}.prose :where(hr):not(:where([class~=not-prose] *)){border-color:var(--tw-prose-hr);border-top-width:1px;margin-bottom:3em;margin-top:3em}.prose :where(blockquote):not(:where([class~=not-prose] *)){border-left-color:var(--tw-prose-quote-borders);border-left-width:.25rem;color:var(--tw-prose-quotes);font-style:italic;font-weight:500;margin-bottom:1.6em;margin-top:1.6em;padding-left:1em;quotes:"\201C""\201D""\2018""\2019"}.prose :where(blockquote p:first-of-type):not(:where([class~=not-prose] *)):before{content:open-quote}.prose :where(blockquote p:last-of-type):not(:where([class~=not-prose] *)):after{content:close-quote}.prose :where(h1):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.5rem;font-weight:800;line-height:2rem;margin-bottom:.8888889em;margin-top:0}.prose :where(h1 strong):not(:where([class~=not-prose] *)){font-weight:900}.prose :where(h2):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.25rem;font-weight:700;line-height:1.75rem;margin-bottom:1em;margin-top:2em}.prose :where(h2 strong):not(:where([class~=not-prose] *)){font-weight:800}.prose :where(h3):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.125rem;font-weight:600;line-height:1.75rem;margin-bottom:.6em;margin-top:1.6em}.prose :where(h3 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(h4):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;line-height:1.5;margin-bottom:.5em;margin-top:1.5em}.prose :where(h4 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(figure>*):not(:where([class~=not-prose] *)){margin-bottom:0;margin-top:0}.prose :where(figcaption):not(:where([class~=not-prose] *)){color:var(--tw-prose-captions);font-size:.875em;line-height:1.4285714;margin-top:.8571429em}.prose :where(code):not(:where([class~=not-prose] *)){color:var(--tw-prose-code);font-size:.875em;font-weight:600}.prose :where(code):not(:where([class~=not-prose] *)):before{content:"`"}.prose :where(code):not(:where([class~=not-prose] *)):after{content:"`"}.prose :where(a code):not(:where([class~=not-prose] *)){color:var(--tw-prose-links)}.prose :where(pre):not(:where([class~=not-prose] *)){background-color:var(--tw-prose-pre-bg);border-radius:.375rem;color:var(--tw-prose-pre-code);font-size:.875em;font-weight:400;line-height:1.7142857;margin-bottom:1.7142857em;margin-top:1.7142857em;overflow-x:auto;padding:.8571429em 1.1428571em}.prose :where(pre code):not(:where([class~=not-prose] *)){background-color:transparent;border-radius:0;border-width:0;color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;padding:0}.prose :where(pre code):not(:where([class~=not-prose] *)):before{content:none}.prose :where(pre code):not(:where([class~=not-prose] *)):after{content:none}.prose :where(table):not(:where([class~=not-prose] *)){font-size:.875em;line-height:1.7142857;margin-bottom:2em;margin-top:2em;table-layout:auto;text-align:left;width:100%}.prose :where(thead):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-th-borders);border-bottom-width:1px}.prose :where(thead th):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;padding-bottom:.5714286em;padding-left:.5714286em;padding-right:.5714286em;vertical-align:bottom}.prose :where(tbody tr):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-td-borders);border-bottom-width:1px}.prose :where(tbody tr:last-child):not(:where([class~=not-prose] *)){border-bottom-width:0}.prose :where(tbody td):not(:where([class~=not-prose] *)){padding:.5714286em;vertical-align:baseline}.prose{--tw-prose-body:#374151;--tw-prose-headings:#111827;--tw-prose-lead:#4b5563;--tw-prose-links:#111827;--tw-prose-bold:#111827;--tw-prose-counters:#6b7280;--tw-prose-bullets:#d1d5db;--tw-prose-hr:#e5e7eb;--tw-prose-quotes:#111827;--tw-prose-quote-borders:#e5e7eb;--tw-prose-captions:#6b7280;--tw-prose-code:#111827;--tw-prose-pre-code:#e5e7eb;--tw-prose-pre-bg:#1f2937;--tw-prose-th-borders:#d1d5db;--tw-prose-td-borders:#e5e7eb;--tw-prose-invert-body:#d1d5db;--tw-prose-invert-headings:#fff;--tw-prose-invert-lead:#9ca3af;--tw-prose-invert-links:#fff;--tw-prose-invert-bold:#fff;--tw-prose-invert-counters:#9ca3af;--tw-prose-invert-bullets:#4b5563;--tw-prose-invert-hr:#374151;--tw-prose-invert-quotes:#f3f4f6;--tw-prose-invert-quote-borders:#374151;--tw-prose-invert-captions:#9ca3af;--tw-prose-invert-code:#fff;--tw-prose-invert-pre-code:#d1d5db;--tw-prose-invert-pre-bg:rgba(0,0,0,.5);--tw-prose-invert-th-borders:#4b5563;--tw-prose-invert-td-borders:#374151;font-size:1rem;line-height:1.75}.prose :where(p):not(:where([class~=not-prose] *)){margin-bottom:1.25em;margin-top:1.25em}.prose :where(img):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(video):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(figure):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(h2 code):not(:where([class~=not-prose] *)){font-size:.875em}.prose :where(h3 code):not(:where([class~=not-prose] *)){font-size:.9em}.prose :where(li):not(:where([class~=not-prose] *)){margin-bottom:.5em;margin-top:.5em}.prose :where(ol>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose :where(ul>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose>:where(ul>li p):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose>:where(ul>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ul>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose>:where(ol>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ol>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose :where(ul ul,ul ol,ol ul,ol ol):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose :where(hr+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h2+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h3+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h4+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(thead th:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(thead th:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose :where(tbody td:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(tbody td:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose>:where(:first-child):not(:where([class~=not-prose] *)){margin-top:0}.prose>:where(:last-child):not(:where([class~=not-prose] *)){margin-bottom:0}.mx-auto{margin-left:auto;margin-right:auto}.my-auto{margin-bottom:auto;margin-top:auto}.mb-6{margin-bottom:1.5rem}.mb-1{margin-bottom:.25rem}.mb-4{margin-bottom:1rem}.mb-2{margin-bottom:.5rem}.block{display:block}.flex{display:flex}.max-w-3xl{max-width:48rem}.max-w-none{max-width:none}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.justify-start{justify-content:flex-start}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-2{gap:.5rem}.rounded{border-radius:.25rem}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity))}.p-6{padding:1.5rem}.py-10{padding-bottom:2.5rem;padding-top:2.5rem}.px-4{padding-left:1rem;padding-right:1rem}.pt-10{padding-top:2.5rem}.pb-10{padding-bottom:2.5rem}.text-center{text-align:center}.font-serif{font-family:ui-serif,Georgia,Cambria,Times New Roman,Times,serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55/var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}html{font-family:-apple-system,Meiryo,"sans-serif"}body{word-wrap:break-word}a{color:#dc4e47;text-decoration:none}a:hover{text-decoration:underline}.gatsby-resp-image-figcaption{text-align:center}.last\:mb-0:last-child{margin-bottom:0}.hover\:no-underline:hover{-webkit-text-decoration-line:none;text-decoration-line:none}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><style type="text/css">
+    .header-link.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .header-link.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .header-link svg,
+    h2 .header-link svg,
+    h3 .header-link svg,
+    h4 .header-link svg,
+    h5 .header-link svg,
+    h6 .header-link svg {
+      visibility: hidden;
+    }
+    h1:hover .header-link svg,
+    h2:hover .header-link svg,
+    h3:hover .header-link svg,
+    h4:hover .header-link svg,
+    h5:hover .header-link svg,
+    h6:hover .header-link svg,
+    h1 .header-link:focus svg,
+    h2 .header-link:focus svg,
+    h3 .header-link:focus svg,
+    h4 .header-link:focus svg,
+    h5 .header-link:focus svg,
+    h6 .header-link:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Yucchiy&#x27;s Note" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=ced7ce5d16d58390b9715f99f691b449" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=ced7ce5d16d58390b9715f99f691b449"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="bg-slate-100"><div class="container max-w-3xl mx-auto pb-10 pt-10"><h3 class="text-2xl font-bold text-center"><a class="hover:no-underline text-gray-900 font-serif" href="/">Yucchiy&#x27;s Note</a></h3></div><main><div class="container bg-white rounded shadow hover:shadow-md max-w-3xl mx-auto p-6"><article><header class="mb-6"><div><time class="text-sm text-gray-500 mb-1">December 06, 2021</time><h1 class="text-xl font-semibold text-gray-700 mb-1">Welcome, SyncSketch! - Unity Weekly #042</h1><div class="flex justify-start gap-2"><span class="text-sm text-gray-500">Tags: </span><a class="text-sm text-gray-400" href="/tags/unity/">Unity</a><a class="text-sm text-gray-400" href="/tags/unity-weekly/">Unity Weekly</a></div></div></header><div class="prose max-w-none"><p>12/1からAdvent Calendar 2021が始まりました。こちらの記事の一覧は<a href="https://blog.yucchiy.com/project/unity-weekly/043/">Advent Calendar 2021特集 その1 - Unity Weekly #043</a>にまとめていますので、興味ありましたらこちらもご一読ください。</p>
+<h1 id="official" style="position:relative;"><a href="#official" aria-label="official permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Official</h1>
+<h2 id="ようこそsyncsketch" style="position:relative;"><a href="#%E3%82%88%E3%81%86%E3%81%93%E3%81%9Dsyncsketch" aria-label="ようこそsyncsketch permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ようこそ、SyncSketch！</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3df9fb65ede44fbb34ddfeffb4052825/0d0e4/00.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 33.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3ElEQVQozwXB+0sTAQDA8Wu3nS/M+Wqb27ntbq+7c3fO28zbdt5jD51O21yUCaGEiARREgQGkVD4i9ZvQdAf++3zEYqlJIVyijV5ldXkEhn5GXl1nWwpj1yQqTs6e4c1Hh5uuTnqoUQFCobB4tIi9oaGU1HxNlQmzSrn3TqC3chR31EwrCxKMY2cT5HMJkjkUqSVDJZdxOtY/Pvzm2NNpdGoMwrbXA4Dftxc8dY1GajLhOtP8dPzCK6v43d0vEDjebuCF9Zx2zUMU8Fp6rzYN3nzqsXPDxeMej0+vzvl0lTp5BN46wv46Tnc5QhBQsJNxBA6fQsvrNDplgn9Ardf33N/94VP12d8//aR16d9fF/j7+Md94+/OHGqXDSKnFg5wjWJg+wMXmYWLzPDSJlFCPo1WkGFVluh6xQYhBZHvS2GnSrH3RrdXYu2a9E77CPnZLaUDHZ8itK8xNp0hHgswookEo9GqC5EERzfpBmYNFyNZqvMyNM5CzcYBwaHgc5xaHIQ2GhGGU1XmQTbDFYkNqUnlKIilSmR8pxIZlokNSUibO8a2E2dLUdnp20wDEwu9mtcHzU4H25zNXaZ7NsMfIODcIfQsThzSlxvJniZjDFOSxgLMQqzEarzIv8BNoThriqxRVAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="00"
+        title="00"
+        src="/static/3df9fb65ede44fbb34ddfeffb4052825/5a190/00.png"
+        srcset="/static/3df9fb65ede44fbb34ddfeffb4052825/772e8/00.png 200w,
+/static/3df9fb65ede44fbb34ddfeffb4052825/e17e5/00.png 400w,
+/static/3df9fb65ede44fbb34ddfeffb4052825/5a190/00.png 800w,
+/static/3df9fb65ede44fbb34ddfeffb4052825/c1b63/00.png 1200w,
+/static/3df9fb65ede44fbb34ddfeffb4052825/0d0e4/00.png 1230w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://blog.unity.com/ja/news/welcome-syncsketch">ようこそ、SyncSketch！ | Unity Blog</a></p>
+<p>Unityがリアルタイムコラボレーションツールの開発元である「SyncSketch」を買収しました。</p>
+<p>SyncSketchを用いると、URLをシェアするだけでコラボレーションできるため、アーティスト間のコラボレーションを容易にします。</p>
+<h2 id="cinemachine-26-のもたらす精密な制御改善されたワークフローそれらが実現するカメラワーク" style="position:relative;"><a href="#cinemachine-26-%E3%81%AE%E3%82%82%E3%81%9F%E3%82%89%E3%81%99%E7%B2%BE%E5%AF%86%E3%81%AA%E5%88%B6%E5%BE%A1%E6%94%B9%E5%96%84%E3%81%95%E3%82%8C%E3%81%9F%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%81%9D%E3%82%8C%E3%82%89%E3%81%8C%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%82%AB%E3%83%A1%E3%83%A9%E3%83%AF%E3%83%BC%E3%82%AF" aria-label="cinemachine 26 のもたらす精密な制御改善されたワークフローそれらが実現するカメラワーク permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cinemachine 2.6 のもたらす精密な制御、改善されたワークフロー、それらが実現するカメラワーク</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/91f139e42fc5aef4761e3f91b2e3689a/1df5b/01.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 33.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB40lEQVQozyXQzUsUYQCA8f1HOoaVuOOswzgzO/POvO/Mzrr77roffWzlGqJCkJhkXxgdCkmELkkQRQVRF8E61Ek6RERSHaKbdlALIhCsWyGE8kTb4Xd9Dk8m1ZJARliOg67XGB6d5uLcS2bvv6c0fI7LNx+wsr7D6o9dvv7aY/XnHhtbf1hf2aBebeAHPvm8j+u6OI5DplxWFAoSFSu0LqB1ncXl7yy92abUnmL0wg3Wtnf5tgMfNn+z9HaLp8ubPLv7ikqphoolUSQRQnSimUFdoFyUDOqEyoCDiCW3H79jaGqeUvsKMwuvubW4xr3nX1hY/Mzco0/cefKRh/MvqOoGUkmCICAMQzzPI3OsXuJkq8nYUIVCbNHV04VIR8iKOs3xq9THLlE9dZ4jp69x/Mx1WpOzjJ2dY7o9Q5oMEEYRUsqOTlBFIa1mkfETKf15g/0H9qFzitiKaKgaZbdATVQYDIoMuAHVIKYpS2gvJJEhsQoJfJ9Q/HvpkXEcFyUFkfDxgzx2v4XrOFi2jdHbS9boxTBzZA0Ts8/CzFn0GCaGaWL0+eTcIpVak0ZrBC9MyAgRkqRFbNvGDwRKJWTtfoxIcdDz6c4HdHv/9fhRR3decMj2iHXK0XaVoVbC5MRhdDXlL9IRIPsXRDsYAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="01"
+        title="01"
+        src="/static/91f139e42fc5aef4761e3f91b2e3689a/5a190/01.png"
+        srcset="/static/91f139e42fc5aef4761e3f91b2e3689a/772e8/01.png 200w,
+/static/91f139e42fc5aef4761e3f91b2e3689a/e17e5/01.png 400w,
+/static/91f139e42fc5aef4761e3f91b2e3689a/5a190/01.png 800w,
+/static/91f139e42fc5aef4761e3f91b2e3689a/c1b63/01.png 1200w,
+/static/91f139e42fc5aef4761e3f91b2e3689a/29007/01.png 1600w,
+/static/91f139e42fc5aef4761e3f91b2e3689a/1df5b/01.png 1999w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://blog.unity.com/ja/technology/the-magic-of-cinemachine-26-in-unity-2020-lts-unparalleled-precision-workflows-and-more">Cinemachine 2.6 のもたらす精密な制御、改善されたワークフロー、それらが実現するカメラワーク | Unity Blog</a></p>
+<p>バーチャルカメラオペレーターライブラリであるCinemachineのアップデートについて取り上げています。</p>
+<p>Cinemachine は2.5で、社内QAやユーザーの検証によって「検証済み」パッケージとなりました。</p>
+<p>Cinemachine 2.6で追加された機能と改善点、新しく追加されたサンプルについてそれぞれ紹介しています。</p>
+<p>2.6では、インパルス伝播速度という機能が追加されました。Impulse Souce（外乱を発生させるソース）とImpulse Listener（外乱の影響を受ける対象）に対して速度の項目が追加されることで、タイミングを下記のように調整でき、表現のリアリティを向上させられます。</p>
+<p><a href="https://blog-api.unity.com/sites/default/files/2020/05/Propagation-speed-1.mp4">https://blog-api.unity.com/sites/default/files/2020/05/Propagation-speed-1.mp4</a></p>
+<p>改善項目として、Lookaheadと入力システムのサポートが向上しました。Lookaheadはよりスムーズに、効率的に動作するように改良されました。</p>
+<p>入力システムとして<code>Cinemachine.AxisState.IInputProvider</code> が新しく用意されました。これまでの <code>CinemachineCore.GetInputAxis(string name)</code> はグローバルのデリゲートで、また呼び出しが文字列ベースでしたが、新しい入力システムはバーチャルカメラごとにそれぞれ個別のプロバイダーを持つことができるようになりました。これにより特定のプレイヤーに特定の設定をマッピングすることが容易になります。</p>
+<p>また、新しい Input System がインストールされていれば、 <code>CinemachineInputProvider</code> をバーチャルカメラに追加するだけでマッピングが可能です。</p>
+<p>新しいサンプルとして、「三人称エイミングリグ」と「Dual-targetリグ」、「カメラを引きつける磁石」が追加されました。それぞれ、「3rd Person Follow Behaviour」と「Cinemachine 3rd Person Aim」コンポーネント、複数コンポーネントを連携させた複雑な動作の実現、CinemachineTargetGroupコンポーネントの使い方についての実例を紹介しています。</p>
+<h2 id="新しい-lookdev-studio-プロトタイプを今すぐお試しください" style="position:relative;"><a href="#%E6%96%B0%E3%81%97%E3%81%84-lookdev-studio-%E3%83%97%E3%83%AD%E3%83%88%E3%82%BF%E3%82%A4%E3%83%97%E3%82%92%E4%BB%8A%E3%81%99%E3%81%90%E3%81%8A%E8%A9%A6%E3%81%97%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84" aria-label="新しい lookdev studio プロトタイプを今すぐお試しください permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>新しい LookDev Studio プロトタイプを今すぐお試しください</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1ba7b9581b40f42544c7f4518993dde8/0d0e4/02.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 33.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9klEQVQozx3Oa09SAQCA4bO1aTU1JEEQMrkkHg8oqByE4lI6URlpikFk5kFRygbNSxqSbR6recFbWrqpbbj1oX7k29bzCx6hx+UilkhxdlXh5MchUy/HmX4RZ/tLieXiGoWFDHMzaTKvk5SWcuSmk8g+GbfXR+BhgGBvF30hH55OJ/eaWxBckpN0JsvPyyuOjveYU1IUF+fZP9jmQ6nI8vssmVfPUFLDrLxTcLvdJCMe5DYLQrWGoM9DvM+Pv9uF6GhFsFgfMF9Y5OL6mnL5GzOpOLtqkfPLc1aKa6jreVYWpshlkmSVFCMRmUp+lNJ4EJPBSL/fQyzsJdDlpENyIJiNJmYW8vz++4fT413W8wpXp3ucXZyztLbKnrrKSVlF3dqgkJvk65txjqajqIlHeFtbCPVIxB/7iIZkJNGBcKe+Aa3xPoH+QUYmEkymJ9jaLLFzUObjxicq31V+nW5zeLjD56VZNt8+ZysZYS4sIVqaaRdthGUX0ZAXr9uJYGvvwGK1I1TXYm7UI1pbqDWYsTk7icafklXSzM5OMTw6ylhiDGViEMluQddo4ma9gZq7BiTR9n8a6nEhhAaGCEaHGIjFGAnLxLsdNBiaqNE1Ybda6W2302a3UKXRIdzWUqc3U601UqUxcEtr5EadHo3exBOvk6BH5B95KAlV0zM9CAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="02"
+        title="02"
+        src="/static/1ba7b9581b40f42544c7f4518993dde8/5a190/02.png"
+        srcset="/static/1ba7b9581b40f42544c7f4518993dde8/772e8/02.png 200w,
+/static/1ba7b9581b40f42544c7f4518993dde8/e17e5/02.png 400w,
+/static/1ba7b9581b40f42544c7f4518993dde8/5a190/02.png 800w,
+/static/1ba7b9581b40f42544c7f4518993dde8/c1b63/02.png 1200w,
+/static/1ba7b9581b40f42544c7f4518993dde8/0d0e4/02.png 1230w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://blog.unity.com/ja/technology/try-the-new-lookdev-studio-prototype-today">新しい LookDev Studio プロトタイプを今すぐお試しください | Unity Blog</a></p>
+<p>Unityのアーティスト向けのプロトタイプツールである「LookDev Studio」の利用方法と、新しいリリースである 0.2.0 の概要、 これまでのリリースである0.1.0の機能ハイライトについて紹介しています。</p>
+<p>0.2.0のアップデートとしてカスタマイズ関連のアップデートと機能改善が行われましたが、大きなトピックスとして、High Definition Render Pipeline（HDRP）に加えて Universal Render Pipeline（URP）バージョンのプロジェクトが利用になりました。</p>
+<h2 id="artengine-の-chrome-ball-ノードによるフォトメトリックステレオを使ってリアルなマテリアルを作る" style="position:relative;"><a href="#artengine-%E3%81%AE-chrome-ball-%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E3%82%88%E3%82%8B%E3%83%95%E3%82%A9%E3%83%88%E3%83%A1%E3%83%88%E3%83%AA%E3%83%83%E3%82%AF%E3%82%B9%E3%83%86%E3%83%AC%E3%82%AA%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E3%83%9E%E3%83%86%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%92%E4%BD%9C%E3%82%8B" aria-label="artengine の chrome ball ノードによるフォトメトリックステレオを使ってリアルなマテリアルを作る permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ArtEngine の Chrome Ball ノードによるフォトメトリックステレオを使って、リアルなマテリアルを作る</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2afde827c19ebfb460f9aca28441dc40/0d0e4/03.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 33.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAACEElEQVQozx3F20uTYQDA4RchEpz6dTBdZirZtFRkuZy5LXJO0vktmKxtmdvKA8XQMDPLzBrW3MgKz5hZQTroqIbJsoOEF5XFSJadFLvpD/kFPTeP6LIcIGgvxafVMJ2g5lmBjjdGG9O6SgLOUgIumeF6FwNlhxgsyGJ0zy5eJhl4nFbC0kgPf38ssB6ZZf3DDH+Ww4gms55rtkqcikRakiWexGcwn1DAi0w9E5Umhhxmet0WxjzlnDfu5bosE9E+oiXFTL3LRjg0xO+lGVajcyx0BhEdFfnctOvRpMXTnm3ls7aP4dR9PHTbGPU66ZA11JXspv+khYCnjE6LFeOWQpS5OtRVzWjL7Fx1V3O7wc6gshpxw6rlSnketpzt+FMamNeH8KstDLqLaTXmcLfnMm/DU0SiXxjrC+CSDcRsEKhLbciuNvYfaaQkNYeZTJkHymLEc+9hQo0VnCjOxZOnolpKx6tVMV6jY2ogwOpahF8/F3m/+IqLXWfxnGkkSZLYkalCoUgkcZuSnRsVXFBl0ZqdjphrNnGvVsf9ejOhJge3akx0H8ygu8FJdG2F71/DLMzewaIvpCglAavZwGYpHiEEMUL8v0pXyNPedia7vIh3fafxWYvIihWM+9pYjq4weamW6XE/31Y+8un1FBPnjlGnyaD/uAGfrCE7WSI/bSub4mJJl+JoP1pO8JSDgLuKf53WLCaSB7jGAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="03"
+        title="03"
+        src="/static/2afde827c19ebfb460f9aca28441dc40/5a190/03.png"
+        srcset="/static/2afde827c19ebfb460f9aca28441dc40/772e8/03.png 200w,
+/static/2afde827c19ebfb460f9aca28441dc40/e17e5/03.png 400w,
+/static/2afde827c19ebfb460f9aca28441dc40/5a190/03.png 800w,
+/static/2afde827c19ebfb460f9aca28441dc40/c1b63/03.png 1200w,
+/static/2afde827c19ebfb460f9aca28441dc40/0d0e4/03.png 1230w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://blog.unity.com/ja/technology/create-realistic-materials-using-photometric-stereo-via-chrome-ball-in-artengine">ArtEngine の Chrome Ball ノードによるフォトメトリックステレオを使って、リアルなマテリアルを作る | Unity Blog</a></p>
+<p>ArtEngineに新しく実装された Chrome Ballノードについて紹介しています。 Chrome Ballノードは、クロムボール（光を反射する球体）を配置して撮影した複数枚の写真を解析して、詳細なアルベドマップと法線マップを自動生成します。</p>
+<p>この記事では、クロムボールを用いた撮影の方法とその仕組み、ArtEngineでの処理についてそれぞれ解説しています。</p>
+<h2 id="より良いチームワークを作り上げるko_op-のバージョン管理活用法" style="position:relative;"><a href="#%E3%82%88%E3%82%8A%E8%89%AF%E3%81%84%E3%83%81%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%92%E4%BD%9C%E3%82%8A%E4%B8%8A%E3%81%92%E3%82%8Bko_op-%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86%E6%B4%BB%E7%94%A8%E6%B3%95" aria-label="より良いチームワークを作り上げるko_op のバージョン管理活用法 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>より良いチームワークを作り上げる、KO_OP のバージョン管理活用法</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8789eddc3a14a20d5092c76209f5a988/0d0e4/04.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 33.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAACCUlEQVQozwXBW0+SAQCA4e8X1ZrNtcrVRbNprpnOlbZGZlmai8ps05kHLvBQY2LZojYoB4KCHPxQEZXE41RcViYqCekIDDRCWZqob88jbB4dEj2CjYMk3vVlfm5HER1GTJZOrE4jdbUSpNkneVxwluzM6+RmlmO12fHu7/FlI4h50IInFmPhT4yleBxh5/CQXeB7KEDvkI1I3Mvi0jgmm4l+lxW1ppmyovPcvJFGaXEt5SUqFA06FsID+LZWcY478CY2WdqO4EtsISQPgvzb0/J1sQ+rox//mpZQyE13r4hlwIyjz0CD4h73K9PRvOrgZaODj2NThJIhVjdXcY71sLLzC992GN9OBOFvooPf4Vpm5gyYe+2MTtuZWxyhsrqCenkNfa5uquqyEcVCZkcUmPUtBGMiwf01fkR9uCdshA92Ce8niCR3EULrTUTXZXz63E6XxcLorAuby8iZ1OM8kN6h0/qBt+8kzAyXMmm/jfgmD51Gimdey+SUlmGnnm/LHvyBeVaWpxH8fhOBgJqxCTW6rk5GZoZoVTWTkZ6GrOEZGq0S91AZnsES1PUZyAovUJGfSpuykTalnEcPb3H50jmqa8qQNT1F0Otb0bS/xmB8j9agQxzuQf6inrslEpQqBY0tT6gqPoXbWoTq+TUKMnMovZpChTSf3CsXycs9TVb6CXKyjiHJS+E/9eKg7UEhx8wAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="04"
+        title="04"
+        src="/static/8789eddc3a14a20d5092c76209f5a988/5a190/04.png"
+        srcset="/static/8789eddc3a14a20d5092c76209f5a988/772e8/04.png 200w,
+/static/8789eddc3a14a20d5092c76209f5a988/e17e5/04.png 400w,
+/static/8789eddc3a14a20d5092c76209f5a988/5a190/04.png 800w,
+/static/8789eddc3a14a20d5092c76209f5a988/c1b63/04.png 1200w,
+/static/8789eddc3a14a20d5092c76209f5a988/0d0e4/04.png 1230w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://blog.unity.com/ja/games/koop-case-study">より良いチームワークを作り上げる、KO_OP のバージョン管理活用法 | Unity Blog</a></p>
+<p>カナダのスタジオのKO_OPによるPlustic SCMの導入事例について紹介しています。</p>
+<p>Plastic SCM導入前のスタジオにおけるアーティストとエンジニア間のコラボレーションの課題と、Plastic SCM導入時のアーティストチームの様子、導入後の様子やほかツールとの連携・統合のためのDevOpsツールの開発についてそれぞれふれています。</p>
+<h2 id="mars-14公開準備完了" style="position:relative;"><a href="#mars-14%E5%85%AC%E9%96%8B%E6%BA%96%E5%82%99%E5%AE%8C%E4%BA%86" aria-label="mars 14公開準備完了 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MARS 1.4、公開準備完了！</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/644a4e79e299df38675b037838873ee5/a878e/05.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 33.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABeklEQVQoz22QMWtTYRSGz/m+++Xe3OQa29TUm6QhtBRisA0d2g6mQaNQIxkcIhVXBRF0ctPBtRRdrJKthVIHHYqgPyCTimuXLh07Ozo+kpuKVTMczoFz3of3vCIiDEtF+T2PKys+VgKK6Tkezj7nQ+8jhwdH7PTf0b2yQXOuRzlXQyKdORXpP300qxisWpz1mMoWuD3ziN3WPt8f7/Fz8I3jzwOuL90kE2YxxiJVr0Wg+b9gQ7dGLFY9PHX41scZx6SLWQvv8Hpxmy8P+py82uLH2zd06s1EZ1SRUuoSE6Z6Bqhj30+cik/J1HlaecH7Gy/5en+TT/eesTLd+BNbyS4SmfyY3P6PoFZY4HK8RMXWWT9/i7vlLs3JFYwEI+DQYSzX8DVzxtUoN6MeRi2qBs+6ZLdabdOe7yY3TkJCyeEkx8Zsh8bF8kh/NXpCzXVIaYiKh5FU0q060n5EPigQu5jIz5H2M4SpiECzhHqOwIQJvHlhmfmJYgL8BcTouYpr4fuAAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="05"
+        title="05"
+        src="/static/644a4e79e299df38675b037838873ee5/5a190/05.png"
+        srcset="/static/644a4e79e299df38675b037838873ee5/772e8/05.png 200w,
+/static/644a4e79e299df38675b037838873ee5/e17e5/05.png 400w,
+/static/644a4e79e299df38675b037838873ee5/5a190/05.png 800w,
+/static/644a4e79e299df38675b037838873ee5/c1b63/05.png 1200w,
+/static/644a4e79e299df38675b037838873ee5/29007/05.png 1600w,
+/static/644a4e79e299df38675b037838873ee5/a878e/05.png 2048w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://blog.unity.com/ja/technology/mars-14-is-ready-for-takeoff">MARS 1.4、公開準備完了！ | Unity Blog</a></p>
+<p>AR/MR 開発のUnity拡張機能である <a href="https://unity.com/products/unity-mars">Unity MARS</a> の 1.4がリリースされました。この記事では、1.4に実装されている機能の紹介と、MARSを学習する上でのリソースが紹介されています。</p>
+<p>また、期間限定で記事中のバーチャーコードを用いてライセンスを50%オフで購入できます。</p>
+<h1 id="articles" style="position:relative;"><a href="#articles" aria-label="articles permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Articles</h1>
+<h2 id="nova-shader-uber-shader-for-particle-system" style="position:relative;"><a href="#nova-shader-uber-shader-for-particle-system" aria-label="nova shader uber shader for particle system permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>NOVA Shader: Uber shader for Particle System</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 580px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0c173e1d7a464764b3197770e6a801bb/b6272/06.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACv0lEQVQozzXSS2tcZQDG8fe8t/POuc2ZOXNpZjLXTGaSSZq00SFJoyFYktYaKy1oR6jU0mCtm4biDcWFQvECWQqCCy97VwrqouKq3Vh15aZdFRXciOAH+EuG+gGeH8/iL4wUOCmItaBqPbYSyeUpxUoi6UeKQd7Qii3HUstW5piOLZXIUAg0SWAIfIWzCudrcjmDmIBKkBiPivWYCzzmQ8koVbzQybFW8Vmt5Oglhk5iaSWWWmwoRZo0UIS+wjcS3yicUwhnJIGR5K2k5HvUnKSdk5xvOfZmQq7OJ+wvFdio+gwLhkFqacaGI5EmCzVJTpOzEmcUvn0IhhPQo+I8pp3HZskwbjneGZX47IkaH2/XGXcDnu8ErJctg9RM0OrkpSawEl9LrJaInPGIrKToJLVA0Q4lu40c3+42+XlvgQevPsLnO3U+2a5zd2/Aa0t5VsuWbqSohYosUJO90x5GeYjQSvK+pJSTNEJNL1ac7Qb8cnGW3y70+OZCj1+vDfnn9RX+fHOFT3eqbGaCfuhR9wVFIwiVwEqB8gQish4F51ENJK1IMZdIri2kfH26zv2Xhny5Xee7p5r8cK7Fvf1lbj3T5OZGiWEkaDpBdghKgfUESghEKVRMxZpGoplNDYPY46OtKW5d6XN73OP7Uw3e6Ee8dyzPnf1l/n57xIfrGYuxoO0EZSOIlcD/H5w+7Cy1dA+xVLFQkJyfCbh+NOGtxZifLvf54rkWBydKfLVT5864w9VBxCAQtK0g8wSREPjiIdgu+PSKlrmiZqGoWc4U6xXNySnNzY2Mu6/M89fBGn/cWOL2uRYfrGZc6hjOLDa49PQprl95kWd3z3D2ydOU0hRxiM1nlqNlw/GKYVTRnDiiOVnTvL9Z5sdxh99vLPHvuyMevDzHwVqRizOOx+sBj06nPDbscny2xaBZpxA6/gMbkz1ar1ryNgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="06"
+        title="06"
+        src="/static/0c173e1d7a464764b3197770e6a801bb/b6272/06.png"
+        srcset="/static/0c173e1d7a464764b3197770e6a801bb/772e8/06.png 200w,
+/static/0c173e1d7a464764b3197770e6a801bb/e17e5/06.png 400w,
+/static/0c173e1d7a464764b3197770e6a801bb/b6272/06.png 580w"
+        sizes="(max-width: 580px) 100vw, 580px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://github.com/CyberAgentGameEntertainment/NovaShader">CyberAgentGameEntertainment/NovaShader: Multi-functional shader for the Particle System that supports Universal Render Pipeline (URP) of Unity.</a></p>
+<p>Universal Render Pipeline（URP）対応の多機能（Uber）パーティクルシェーダーがリリースされました。</p>
+<p>フローマップ、Flip-Book（連番テクスチャアニメーション）、ディゾルブ、フェード、回転、アニメーション可能なTintマップ、エミッション、ディストーションなど、VFXでよく使われる汎用的な機能をまとめたシェーダーで、現在Unlitに対応しています。</p>
+<h2 id="shadergraphコンパイル後のアセンブリコードを読んでみる" style="position:relative;"><a href="#shadergraph%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%AB%E5%BE%8C%E3%81%AE%E3%82%A2%E3%82%BB%E3%83%B3%E3%83%96%E3%83%AA%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%BF%E3%82%8B" aria-label="shadergraphコンパイル後のアセンブリコードを読んでみる permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ShaderGraphコンパイル後のアセンブリコードを読んでみる</h2>
+<p><a href="https://zenn.dev/r_ngtm/articles/shadergraph-assembly">ShaderGraphコンパイル後のアセンブリコードを読んでみる</a></p>
+<p>UnityのShaderGraphがコンパイル後に実際に吐くアセンブリコード（d3d asm）を評価して、ShaderGraphの計算負荷について調査しています。</p>
+<p>ShaderGraphからアセンブリコードが生成されるまでの仕組みからコンパイルされたコードの確認方法、ShaderGraphとShaderLabの生成するコードについてPassとFragment（Pixel）シェーダー、Vertexシェーダーを比較しています。</p>
+<p>また、生成されるアセンブリコード単位でのShaderGraphのノードを最適化の方法や、ShaderGraphのノードの内、計算負荷が重たいノードについても言及しています。</p>
+<h2 id="square-grid" style="position:relative;"><a href="#square-grid" aria-label="square grid permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Square Grid</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6814457ea0ba4e941f2ab0827d8f5790/2bef9/07.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPklEQVQoz02RW2sTURSF8wdrxiYzk871nLnnMjFtSpNS1D6paJWioLnWXjBtFMQXKQgiCFZb7MUUiw+++UM+TRpqHw57n81Z66y1dib2HMYnkuNqT6tD5EkCTxJ5gnjaB9M+9CT+1bspZnrPRNK+RuaSSB0pm6Rej+2ozVrcIZYttqI268UOsd9iM9ngebyCkBqJ5zLmmAiT9pjwv7LEMwn8Gp7X4r5oc1bs8iDuUXJafIi67Jf7SL9DJ+xyXOlzN6ojpUEycWhPVF5TOP7BQDcfUywMeWkPOAz2SKwBFWPA0N3lc/Qa391l0X7F+/AtH+NnRJ5JdBWbTeYqP2li2RG2VmZVjdl3ynwSFXS9xKIWseOkjIIqNSulZFVYN0uMSg16QYItDBJ5meelZVkg8OZRnSNS+4yn3imnyQ+G8QjF/c4dOaLjn/CrOmItOacgDnmUXDCMj/mZnrEaNxCufmk5FBaxtMjPPWEuv81ttcfA3Obc2+SetUnO2GFeabNhbjGKdug7fXSxR1Xt0hJbnBTfsC8fEkibMVem6FsYcwH5fJ1UqbCWq/LOmuePX6ei1lBnU1ZmU16oVQ6cGt/CJopao6jdYl006WtlfkfL7BZTbGGSCYSNktMRM1mWsgpdTeOroXFkaMwqOcTNHPUbWVoFjS+OwblroM9k8Q2ThazC03yeg0hy4dk0xgoD10Lac8TCpCItGtJkWVosCBNPmJN57BoshS5NfwwyKPkOie8QOgYLgUszFBNM7d+W/wI/PNDgLLKa3gAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="07"
+        title="07"
+        src="/static/6814457ea0ba4e941f2ab0827d8f5790/5a190/07.png"
+        srcset="/static/6814457ea0ba4e941f2ab0827d8f5790/772e8/07.png 200w,
+/static/6814457ea0ba4e941f2ab0827d8f5790/e17e5/07.png 400w,
+/static/6814457ea0ba4e941f2ab0827d8f5790/5a190/07.png 800w,
+/static/6814457ea0ba4e941f2ab0827d8f5790/2bef9/07.png 1024w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://catlikecoding.com/unity/tutorials/procedural-meshes/square-grid/">Square Grid</a></p>
+<p>この記事はCatlike Codingの<a href="https://catlikecoding.com/unity/tutorials/procedural-meshes/">Procedural Meshes</a>シリーズの2記事目で、Advanced Mesh APIとBrust jobを用いてプロシージャルなメッシュ生成を実装するための方法と、正方形グリッドを生成する方法について紹介しています。</p>
+<h2 id="uosc-v2-をリリースしました" style="position:relative;"><a href="#uosc-v2-%E3%82%92%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F" aria-label="uosc v2 をリリースしました permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>uOSC v2 をリリースしました</h2>
+<p><a href="https://tips.hecomi.com/entry/2021/11/29/234527">uOSC v2 をリリースしました - 凹みTips</a></p>
+<p>この記事の著者が開発する <a href="https://github.com/hecomi/uOSC">hecomi/uOSC</a> の v2の紹介記事です。</p>
+<p>パッケージのアップデートの紹介からインストール方法、基本的な利用方法についての紹介、v2に入った機能のTipsについてそれぞれ解説しています。</p>
+<h2 id="mastering-tessellation-shaders-and-their-many-uses-in-unity" style="position:relative;"><a href="#mastering-tessellation-shaders-and-their-many-uses-in-unity" aria-label="mastering tessellation shaders and their many uses in unity permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mastering Tessellation Shaders and Their Many Uses in Unity</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fc3e107472e8bd0b0b57a78632d97af7/c1b63/08.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC7ElEQVQoz3WP209bBQDGz39hjDPuURMlUZcZzcaQWJ1jTl0y2cherAQmsYT50gAZGcaZRdGYuMTMS2jWnlSo3QW3qjCRSj10YFtoOb1BL6ft6eH0DoXAcPoz6/TRL/nye/iSX/IJnls3ueO6hW/yZ/y3J5F+mKC6ugL1DaiUoFp50FoF1mvs6nnW4jI5eYl1JcnfxQK7msqf5RJb3t8RXn7tGEeOHuX148c5efo0LxoM2B0OipUq6VyOpKKQVDINBuQgrplJgvEwhfUKy8kY2YLGf9lZjSPcF/WbzfSaTHR3dTVoMpl49fBhntu/n7dOnMBoNPLumTOcOnWyQaPxbdbrNWqbVWa9s2zefwNsR2SEx598ivfPnmVwcBCz2czAQD99fX10dnbS0dFBT08PbW1tdHd30/teL8Pnh2lvb0cv6dS368wHFigU9QfCaBihubWVgwcOYDAYONTSwsDAIGPj41itVkRRZHR0FOsVK5e+vMTQJ0Nc+PQjvrJ9TbqsoJbzSH6JWCb6r1BGsNhErjm/x+Vy8dnIxyx4PfxfktUUpZ0Sa5s6MT1OtpBlxucmV1Eb+92VGEJaSXHxwgc47FeILkoE593456aJLN1BSUQbrZYLaFoWRUuzqiUo1yvc4x6JbBL3/K+UCiq5XJr09I8IzS3N7Ht2H3v3Pobl28tsVXVkv0Rk0Us4MEdo4TeW//AgTV3HJ88haxHUmsrG9ga+SIDpXyZIhQMkVkIsXxURHn5kD3ZRxPCSgVdaDzJ1w86i142aiqFlEujZFGoqTsAzhcfjIlFKodU1csUswUiAdCKClkmxJIdI3nYhPH/oBR7a8yhPNDVx7M03aHrmaRxXHez+dZdCWUcv5MlrGdR8moDPQ1yJkFATBGUf+bUsWzubSJKH77reYdbyDULQacM21M/Yh+e5MXIRcfgcfruFlYkxZKcN2Wklet1O2GkjNG4hNGYh7BRRp3+iKLkpSjPEb15j5vMRli9/wT9+MrAdud25mAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="08"
+        title="08"
+        src="/static/fc3e107472e8bd0b0b57a78632d97af7/5a190/08.png"
+        srcset="/static/fc3e107472e8bd0b0b57a78632d97af7/772e8/08.png 200w,
+/static/fc3e107472e8bd0b0b57a78632d97af7/e17e5/08.png 400w,
+/static/fc3e107472e8bd0b0b57a78632d97af7/5a190/08.png 800w,
+/static/fc3e107472e8bd0b0b57a78632d97af7/c1b63/08.png 1200w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://nedmakesgames.medium.com/mastering-tessellation-shaders-and-their-many-uses-in-unity-9caeb760150e">Mastering Tessellation Shaders and Their Many Uses in Unity | by NedMakesGames | Nov, 2021 | Medium</a></p>
+<p>この記事ではUnityでテッセレーションシェーダーを用いたテッセレーションの実装方法について、その原理からテッセレーションシェーダーおよびドメインシェーダーの記述方法について紹介しています。</p>
+<p>また、カリングや動的なテッセレーション係数の調整によるテッセレーションの最適化や、メッシュのジオメトリをなめらかにする手法としてフォンテッセレーションの実装の紹介、ハイトマップを用いたテッセレーションについてそれぞれ解説しています。</p>
+<h2 id="making-an-after-image-mesh-effectupdated-for-urp" style="position:relative;"><a href="#making-an-after-image-mesh-effectupdated-for-urp" aria-label="making an after image mesh effectupdated for urp permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Making an After-Image Mesh effect(Updated for URP)</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 560px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/07123e3870e027df75fa83cf7ea935a4/b06ae/09.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 58.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAADEklEQVQozz2PS08bBwCEN2lCKQpqpTRpqSohDlXUJkqVU6oqoqdWKQQpPBKKCERAjA32rne99r6867eNn2uw8RPb2JC0OYRL1Ft/3BeFSD18Gmk0mtEI4yt/Mba9zri4zvjWCl9IG8z4Pfz2TGR2eo2fppe5990C9+4u8eixjzviFpPeRYSdOa5uPuHq+gLXN5cZe/Wc6xvPEaayNl8Xk9yopbldcbgxsnj4j4vTvuBF/ZQd9xy18o7tgy6i2UI26kz717kizjEmLfJ5cIXJssRkVWEi5Uf4sRnn+1aGW50cX41yTA+LzJwVuXaWYKKf4Vo/x5V+ns/aOca7DhOHIW5WRaa6Kt8Oo9xqmXzTsvhykGKimUTw1uK8aKd4cuqw1o2x9K7P7MmI+XaCR8M098/T3B2l+OEiwZ3/dH7+N84vFylmLpLcfJtm6nWWhXObB12b280YwmEpiXvgUMjbuHkHu+Hysl4nX0wSfxMl0kuR6qSxBmmW3+s8vdDRj2OsthP82klzv59iq2Wy7erMVS2EtmPQtDSalkErZtGLWwxTFq1skjeuyNtmkcbpe6rlAqVaglzZppS1OEgbpLMmcsFCzplEkzpaPILQtQxOLIN+1OAsbjFKRBnETIYxi6auoPky7PhGVEybrq3TsDTqZoSqplLRQriaQlFTSEdCJFT5U2EvajJ0LM7i0f/5O2nTyySYfRhj9fExg4TNwDboWjotI0IjHOZIkalKQSqiREkSyYt+hKam0dI1OoZOz9I5jZqcxWxeJx2GiRiaJ8Tv8ypRr0jDDHPiGPQcg05Uo6mHqakhDmUZNyhTkiSEmqJyHFZpRCKXtDSNrq7TNXQGts5xRMWz5GPxzxXm/3jK2sIz9lY3Lv2mHqEeDlFVglTkICVRRCiLIm4weLlyJCscKSHqqkotrFyGP95rm2EOVYVMIEAuIOJ+vKoEOQp90ookUhD3OfDvIWRe7ZLz7JL3eins+Sj7/ZRFP2XJTyUYoCIFcIMSR6rMcVghu7+PtrlNWQxQ8u+T3/OS9e2S8u4S9+zwATl2M3zYr8Y3AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="09"
+        title="09"
+        src="/static/07123e3870e027df75fa83cf7ea935a4/b06ae/09.png"
+        srcset="/static/07123e3870e027df75fa83cf7ea935a4/772e8/09.png 200w,
+/static/07123e3870e027df75fa83cf7ea935a4/e17e5/09.png 400w,
+/static/07123e3870e027df75fa83cf7ea935a4/b06ae/09.png 560w"
+        sizes="(max-width: 560px) 100vw, 560px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://www.patreon.com/posts/making-after-for-58726256">Making an After-Image Mesh effect(Updated for URP) | Minions Art on Patreon</a></p>
+<p>キャラクターの残像メッシュ効果をURPで実装する方法について紹介しています。</p>
+<p>残像のためのメッシュは、アニメーションされたものは <a href="https://docs.unity3d.com/ScriptReference/SkinnedMeshRenderer.BakeMesh.html">SkinnedMeshRenderer.BakeMesh</a> を、アニメーションしないメッシュは <a href="https://docs.unity3d.com/ScriptReference/MeshFilter-sharedMesh.html">MeshFilter.sharedMesh</a> を 取得し、 <a href="https://docs.unity3d.com/ScriptReference/CombineInstance.html">CombilneInstance</a> を用いてメッシュを結合し描画しています。</p>
+<p>また、オブジェクトプールを利用することで残像を生成するごとにメッシュを生成・破棄しないようにしています。</p>
+<h2 id="addressablesのビルド時間の調査" style="position:relative;"><a href="#addressables%E3%81%AE%E3%83%93%E3%83%AB%E3%83%89%E6%99%82%E9%96%93%E3%81%AE%E8%AA%BF%E6%9F%BB" aria-label="addressablesのビルド時間の調査 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Addressablesのビルド時間の調査</h2>
+<p><a href="https://baba-s.hatenablog.com/entry/2021/12/01/090000">【Unity】Addressables のビルドでどこに時間がかかっているのか調べる方法 - コガネブログ</a></p>
+<p><a href="https://baba-s.hatenablog.com/entry/2021/12/03/090000">【Unity】Addressables でアセットバンドルを圧縮するかどうかでビルド時間が変わるか - コガネブログ</a></p>
+<p><a href="https://baba-s.hatenablog.com/entry/2021/12/02/090000">【Unity】Addressables でアセットを変更していないのにビルドに時間がかかる場合 - コガネブログ</a></p>
+<p><a href="https://baba-s.hatenablog.com/entry/2021/11/30/090000">【Unity】Addressables で依存関係が増えるほどビルド時間がどのくらい長くなるか - コガネブログ</a></p>
+<p>これらの記事では、Addressablesのビルド時間がどのような要因でどのように増えるのかについて、その調査方法から依存関係を追加することでどれぐらいビルド時間が長くなるか、アセットバンドルの圧縮設定との関係について検証しています。</p>
+<p>また、カタログの生成時間についても言及しています。</p>
+<h2 id="シーンの初期設定をカスタマイズ出来るテンプレート機能-scene-templates" style="position:relative;"><a href="#%E3%82%B7%E3%83%BC%E3%83%B3%E3%81%AE%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E5%87%BA%E6%9D%A5%E3%82%8B%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E6%A9%9F%E8%83%BD-scene-templates" aria-label="シーンの初期設定をカスタマイズ出来るテンプレート機能 scene templates permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>シーンの初期設定をカスタマイズ出来るテンプレート機能 Scene Templates</h2>
+<p><a href="https://kan-kikuchi.hatenablog.com/entry/Scene_Templates?utm_source=feed">シーンの初期設定をカスタマイズ出来るテンプレート機能 Scene Templates【Unity】 - (:3[kanのメモ帳]</a></p>
+<p>Unity 2020.2から利用できる シーンを新規作成時のシーン情報を設定できる Scene Templates について基本的な使い方について紹介しています。</p>
+<h2 id="unitylocalizationパッケージ入門---アセットをサクッとローカライズする" style="position:relative;"><a href="#unitylocalization%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E5%85%A5%E9%96%80---%E3%82%A2%E3%82%BB%E3%83%83%E3%83%88%E3%82%92%E3%82%B5%E3%82%AF%E3%83%83%E3%81%A8%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%A9%E3%82%A4%E3%82%BA%E3%81%99%E3%82%8B" aria-label="unitylocalizationパッケージ入門   アセットをサクッとローカライズする permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>【Unity】Localizationパッケージ入門 - アセットをサクッとローカライズする</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/698c77bbbdf1fdfdac606ad09c80279f/ef6b9/10.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 63.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACxUlEQVQ4y3WS22scZRjG568x6e7Ozvk8O9km29kds7MrCbWHkI1blZKCDYVcRBBqYg9QlZSiLb3orReiVNtG6vFvqKC5qCKi9kLwqqnZ7iH9yfdtLL1oB3683/fCPLzP97xKnExj2T62G1AqG6iaieX4WLZHWbcwLBfHC4mSafwwwrYtfD+gXNYolVRZBaqqMlNroLROnKPdfY9Wd4N8aZ32a+vkS2fJl94l75yl1T3P9OwCU0mE7/sUiwVmZmo0my3StE6lkhDHFUmaZihHV64yf+oKc8uXmVveZH55k1dOfrjPB7x6+mOqswvoWhHdMFDVEnEckyQVfN/DcWyJ69oYhody6cZ3/PbH3/x0/y9+/mWMOG//+oB727+zvPEptXYXTS2g6zq6rlEoFJiYeInJyQkOHJh8iucFKJ98vc2Lvid7I9659gP58bcIPGt/sgTTNKVoqVSSiPfTNA3LslHu/vgPPBnxuD9gMBhK+oMhw+GQR//2uLZ1n6Mn1/Ack1rtEK7rSkGBEBGCYnIRVqPRQPmzL/SEwIjhaMRoNJJnUXuP+9x7CGc2LmJqJRzXkTbb7Rbr6xusra2xsrLC6uoqi4uLpGmK8tnNz6W9wWAwFpUM2dvbY3d3lyvXr3L42BGiMCSZEnYNSRD4MhQxmcAwdMIwQnn/wnkp2Ov16PcH+/Sl8M7ODm8sLpBEIUEYSrvix3JZlWmPUeW9WCySZRnKR5c3XxwKcOrNExycquB6HtVqVQYTBAFRFGPbjhQ0DBPbtgmCCsrbq2f4/ttv2Lr9JV/duf2Uu1t3uPXFTV7vHCOJAgzTkLsn7IrVEZP+b9+yTNmr1zOUhcNt5pop83n9uXSOzNHM6uStHMsycF0Hzxsj7kJYIJa72cxRmo0qeXZwTOMZ9nsvH4pppDN0Ol1c1ydJhO2EIIjkIoueqGEYk2Wz/Af1TksY8TtqQAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="10"
+        title="10"
+        src="/static/698c77bbbdf1fdfdac606ad09c80279f/5a190/10.png"
+        srcset="/static/698c77bbbdf1fdfdac606ad09c80279f/772e8/10.png 200w,
+/static/698c77bbbdf1fdfdac606ad09c80279f/e17e5/10.png 400w,
+/static/698c77bbbdf1fdfdac606ad09c80279f/5a190/10.png 800w,
+/static/698c77bbbdf1fdfdac606ad09c80279f/ef6b9/10.png 832w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://light11.hatenadiary.com/entry/2021/12/02/200205">【Unity】Localizationパッケージ入門 - アセットをサクッとローカライズする - LIGHT11</a></p>
+<p>Unityの Localizationパッケージについてそのセットアップ方法と、テクスチャと静的・動的な文字列のローカライズ、ローカライズで利用されるアセット（テクスチャ）とAddressablesとの関係についてそれぞれ紹介しています。</p>
+<h2 id="niantic-lightship-ardkの機能調査" style="position:relative;"><a href="#niantic-lightship-ardk%E3%81%AE%E6%A9%9F%E8%83%BD%E8%AA%BF%E6%9F%BB" aria-label="niantic lightship ardkの機能調査 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Niantic Lightship ARDKの機能調査</h2>
+<p><a href="https://qiita.com/Hibiro22/items/ef0e4e29b5492143206f">Niantic Lightship ARDKの機能調査 - Qiita</a></p>
+<p>Niantic Lightship ARDKについて、MappingやUnderstanding、Sharingなどの機能概要についての紹介しています。また、調査時にハマったことや重要な点についても触れています。</p>
+<h2 id="inputsystemmouseのsensitivityはどこ" style="position:relative;"><a href="#inputsystemmouse%E3%81%AEsensitivity%E3%81%AF%E3%81%A9%E3%81%93" aria-label="inputsystemmouseのsensitivityはどこ permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>InputSystem：MouseのSensitivityはどこ・・・？</h2>
+<p><a href="https://qiita.com/LuminousNeco/items/7bfb982b38901efa3193">【Unity】InputSystem：MouseのSensitivityはどこ・・・？ - Qiita</a></p>
+<p>新しいInput Systemで、旧Input Systemの Sensitivity（感度）設定の代替を<a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Processors.html">Processors</a>という機能を用いて実装する方法について紹介しています。</p>
+<h2 id="unityオブジェクトを複製したときにスペース-1などがつくのを変更する" style="position:relative;"><a href="#unity%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E8%A4%87%E8%A3%BD%E3%81%97%E3%81%9F%E3%81%A8%E3%81%8D%E3%81%AB%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9-1%E3%81%AA%E3%81%A9%E3%81%8C%E3%81%A4%E3%81%8F%E3%81%AE%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B" aria-label="unityオブジェクトを複製したときにスペース 1などがつくのを変更する permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>【Unity】オブジェクトを複製したときにスペース「 (1)」などがつくのを変更する</h2>
+<p><a href="https://qiita.com/im0039kp/items/578e4bbcb9bd8b04426f">【Unity】オブジェクトを複製したときにスペース「 (1)」などがつくのを変更する - Qiita</a></p>
+<p>ヒエラルキー上でオブジェクトをコピーしたときのサフィックスの設定を変更するための方法について解説しています。</p>
+<h2 id="scriptable-render-pipline入門" style="position:relative;"><a href="#scriptable-render-pipline%E5%85%A5%E9%96%80" aria-label="scriptable render pipline入門 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scriptable Render Pipline入門</h2>
+<p><a href="https://qiita.com/tsune2ne/items/7e52ba8b15f965042359">Scriptable Render Pipline入門 - Qiita</a></p>
+<p>Scriptable Render Pipeline（SRP）を作成して、Skyboxの描画からカメラ設定の反映、カリング、オブジェクトの描画、半透明オブジェクトの描画タイミングの制御までの実装方法について紹介しています。</p></div></article></div></main><footer class="container max-w-3xl mx-auto pt-10 pb-10"><div class="flex justify-center gap-6"><a class="hover:no-underline text-gray-800" href="/">Home</a><a class="hover:no-underline text-gray-800" href="/profile">Profile</a><a class="hover:no-underline text-gray-800" href="/project/unity-weekly">Unity Weekly</a></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/articles/project/unity-weekly/042/";window.___webpackCompilationHash="fc054c76d935a904d69e";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4bae0ebd19da6d624f9b.js"],"app":["/app-af3c6be3755c0810b80f.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-42660d3ea51266f3e6ca.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-25c83ed41e02527f6e75.js"],"component---src-pages-project-unity-weekly-tsx":["/component---src-pages-project-unity-weekly-tsx-85146e2f653cf86267ba.js"],"component---src-pages-tags-tsx":["/component---src-pages-tags-tsx-7d944f901b66b6d75221.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-5cf0013df3037b91cf03.js"],"component---src-templates-tag-tsx":["/component---src-templates-tag-tsx-5a26138ea8576f0bb25c.js"]};/*]]>*/</script><script src="/polyfill-4bae0ebd19da6d624f9b.js" nomodule=""></script><script src="/app-af3c6be3755c0810b80f.js" async=""></script><script src="/framework-6ad8a8eb04f78e566be1.js" async=""></script><script src="/webpack-runtime-e2204fc0d98161dad324.js" async=""></script></body></html>

@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-tag-tsx","path":"/tags/im-gui/","result":{"data":{"allMarkdownRemark":{"edges":[{"node":{"fields":{"slug":"/articles/2021/01/imgui-opentk/"},"frontmatter":{"date":"January 13, 2021","title":"OpenTKでImGuiを動かす","tags":["OpenTK","ImGui","OpenGL"]}}}]}},"pageContext":{"tag":"ImGui"}},"staticQueryHashes":["1480509143","3159585216"]}
