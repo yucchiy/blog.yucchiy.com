@@ -15,7 +15,9 @@ jobs:
         repository: yucchiy/blogv3
     - uses: actions/checkout@v3
       with:
-        path: articles
+        path: .articles
+    - run: move articles
+      shell: mv -f .articles/articles .
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -37,7 +39,7 @@ jobs:
     - name: Cache Gatsby Public Folder
       uses: actions/cache@v3
       with:
-        path: public/
+        path: ./public
         key: ${{ runner.os }}-public-gatsby-${{ secrets.CACHE_VERSION }}
         restore-keys: |
           ${{ runner.os }}-public-gatsby
