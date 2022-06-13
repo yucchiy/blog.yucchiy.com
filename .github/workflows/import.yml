@@ -1,0 +1,40 @@
+name: import
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  import_markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.2
+        with:
+          token: ${{ secrets.MY_GITHUB_TOKEN }}
+      - name: Export The Notion Database to local markdown files.
+        id: export
+        uses: yucchiy/notion-to-markdown@v0.3.1
+        with:
+          notion_auth_token: ${{ secrets.NOTION_AUTH_TOKEN }}
+          notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
+          output_directory_path_template: "./articles/{{publish|date.to_string('%Y/%m')}}/{{slug}}"
+      - name: Export The Notion Database to local markdown files.
+        id: export_unity_weekly
+        uses: yucchiy/notion-to-markdown@v0.3.1
+        with:
+          notion_auth_token: ${{ secrets.NOTION_AUTH_TOKEN }}
+          notion_database_id: ${{ secrets.NOTION_DATABASE_ID_FOR_UNITY_WEEKLY }}
+          output_directory_path_template: "./articles/project/unity-weekly/{{slug}}"
+      - name: Commit exported markdown files
+        if: ${{ steps.export.outputs.exported_count != '0' || steps.export_unity_weekly.outputs.exported_count != '0' }}
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add ./src/pages
+          git commit -m "Import files from notion database"
+      - name: Push markdown files
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.MY_GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
