@@ -164,12 +164,3 @@ Apple公式が提供するAppleの各種フレームワークのUnityプラグ�
     * アチーブメントやリーダーボードなどを実装できる GameKit のUnityプラグイン。Taskベースで非同期にリクエストが行えるように実装されている。
 * Apple.PHASE
     * [PHASE](https://developer.apple.com/documentation/phase/)（Physical Audio Spatialization Engine）のUnityプラグイン
-
-
-
-
-ical Audio Spatialization Engine）のUnityプラグイン
-
-
-
-
