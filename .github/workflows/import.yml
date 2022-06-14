@@ -14,14 +14,14 @@ jobs:
           token: ${{ secrets.MY_GITHUB_TOKEN }}
       - name: Export The Notion Database to local markdown files.
         id: export
-        uses: yucchiy/notion-to-markdown@v0.3.1
+        uses: yucchiy/notion-to-markdown@v0.3.2
         with:
           notion_auth_token: ${{ secrets.NOTION_AUTH_TOKEN }}
           notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
           output_directory_path_template: "./articles/{{publish|date.to_string('%Y/%m')}}/{{slug}}"
       - name: Export The Notion Database to local markdown files.
         id: export_unity_weekly
-        uses: yucchiy/notion-to-markdown@v0.3.1
+        uses: yucchiy/notion-to-markdown@v0.3.2
         with:
           notion_auth_token: ${{ secrets.NOTION_AUTH_TOKEN }}
           notion_database_id: ${{ secrets.NOTION_DATABASE_ID_FOR_UNITY_WEEKLY }}
