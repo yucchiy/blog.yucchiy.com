@@ -54,7 +54,8 @@
 <p>Unityでは <code>FileUtil.GetUniqueTempPathInProject</code> というメソッドを利用して、一時的なパスを生成できます。</p>
 <div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token class-name"><span class="token keyword">var</span></span> path <span class="token operator">=</span> FileUtil<span class="token punctuation">.</span><span class="token function">GetUniqueTempPathInProject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <p>このメソッドはUnityのプロジェクトルートを起点として、 <code>Temp/UnityTempFile-{uniqueID}</code>  というパスを返却します。 <code>{uniqueID}</code> は、そのプロジェクトでユニークな値が返却されます。</p>
-<p>返却されるのは単にパスなので、そのパスに拡張子をつけて作業用のファイル名にしたり、そのパスでディレクトリを掘って作業用ディレクトリとする、などはユーザー側に委ねられています。（あくまでもパスを返すだけで、ディレクトリを作成するなどはしません。）</p>
+<p>返却されるのは単にパスなので、そのパスに拡張子をつけて作業用のファイル名にしたり、そのパスでディレクトリを掘って作業用ディレクトリとする、などはユーザー側に委ねられています。</p>
+<p>（あくまでもパスを返すだけで、ディレクトリを作成するなどはしません。）</p>
 <p>このメソッドを使って、記事冒頭であげた例のような一時的な作業用ディレクトリを作成は、下記コードで実装できます。</p>
 <div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// 受け取ったパスを、そのまま作業用ディレクトリのパスとして利用する</span>
 <span class="token class-name"><span class="token keyword">var</span></span> workDirectoryPath <span class="token operator">=</span> FileUtil<span class="token punctuation">.</span><span class="token function">GetUniqueTempPathInProject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
