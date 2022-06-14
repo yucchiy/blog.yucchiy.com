@@ -13,6 +13,8 @@ Unityで、例えばファイルの生成が絡むようなテストを行いた
 
 Unityでは `FileUtil.GetUniqueTempPathInProject` というメソッドを利用して、一時的なパスを生成できます。
 
+[https://docs.unity3d.com/ScriptReference/FileUtil.GetUniqueTempPathInProject.html](https://docs.unity3d.com/ScriptReference/FileUtil.GetUniqueTempPathInProject.html)
+
 ```csharp
 var path = FileUtil.GetUniqueTempPathInProject();
 ```
