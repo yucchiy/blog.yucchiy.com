@@ -1,4 +1,4 @@
-﻿---
+---
 type: "tech"
 title: "C#でCustom GitHub Actionを書く"
 description: "C#でCustom GitHub Actionを実装する方法について、notion-to-markdownというツールの実装を交えて紹介します。"
