@@ -103,13 +103,15 @@ Compute Shaderの特徴とUnityでの利用事例、Compute Shaderの基本要�
 
 キャラクターの移動は、マウスの入力を新しいInput Systemでスクリーン座標として読み取り、 `Camera.ScreenPointToRay` でワールド座標に変換し、事前に用意したNavMeshに対して `NavMesh.SamplePosition` でNavMesh上の座標を算出、その座標に対して `NavMeshAgent` で移動するような実装を行っています。
 
+
+
+キャラクター追従カメラは、VirtualCameraのBodyを `Framing Transposer` に設定して実装しています。
+
 ### AssetBundleの互換性を壊さずにasmdefを適用するには？
 
 [【Unity】AssetBundleの互換性を壊さずにasmdefを適用するには？ - Qiita](https://qiita.com/mhama/items/13db54ceb5978805fd2f)
 
 asmdefを適用していないコンポーネントを含んだAssetBundleを、そのコンポーネントにasmdefを適用すると（アセンブリ名が変わるために）AssetBundleを復元できなくなる問題と、内部のロジックをテスト可能にするためにコンポーネント中の一部ロジックを別クラス化するなどでasmdef化する方法などについて紹介しています。
-
-キャラクター追従カメラは、VirtualCameraのBodyを `Framing Transposer` に設定して実装しています。
 
 ### UnityのVisualEffectGraphとShaderGraphを使って剣の軌跡エフェクトを作成する
 
