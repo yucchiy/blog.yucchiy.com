@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="ja"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="twitter:image" content="https://blog.yucchiy.com/static/44b797de68a8679dbd4c84cd85605314/CBD7351EEF45264B3AE7620859AEED1D.png"/><meta data-react-helmet="true" name="twitter:site" content="@yucchiy_"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="og:image" content="https://blog.yucchiy.com/static/44b797de68a8679dbd4c84cd85605314/CBD7351EEF45264B3AE7620859AEED1D.png"/><meta data-react-helmet="true" name="og:url" content="https://blog.yucchiy.com/2022/07/unity-customeditor-gui-on-sceneview/"/><meta data-react-helmet="true" name="og:description" content="シーンビュー上に調整用のGUIを表示することでコンポーネントの調整作業を効率化する方法について紹介します。"/><meta data-react-helmet="true" name="og:title" content="Custom EditorでシーンビューにHandleやGUIを出して調整作業を効率化する | Yucchiy&#x27;s Note"/><meta data-react-helmet="true" name="description" content="シーンビュー上に調整用のGUIを表示することでコンポーネントの調整作業を効率化する方法について紹介します。"/><meta name="generator" content="Gatsby 4.16.0"/><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Yucchiy&#x27;s Note" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=ced7ce5d16d58390b9715f99f691b449" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><title data-react-helmet="true">Custom EditorでシーンビューにHandleやGUIを出して調整作業を効率化する | Yucchiy&#x27;s Note</title><style data-href="/styles.d8874a0c8cedd632d81a.css" data-identity="gatsby-global-css">/*
+! tailwindcss v3.1.2 | MIT License | https://tailwindcss.com
+*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{color:#9ca3af;opacity:1}input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#9ca3af;opacity:1}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.prose{color:var(--tw-prose-body);max-width:65ch}.prose :where([class~=lead]):not(:where([class~=not-prose] *)){color:var(--tw-prose-lead);font-size:1.25em;line-height:1.6;margin-bottom:1.2em;margin-top:1.2em}.prose :where(a):not(:where([class~=not-prose] *)){color:var(--tw-prose-links);font-weight:500;text-decoration:underline}.prose :where(strong):not(:where([class~=not-prose] *)){color:var(--tw-prose-bold);font-weight:600}.prose :where(ol):not(:where([class~=not-prose] *)){list-style-type:decimal;padding-left:1.625em}.prose :where(ol[type=A]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=A s]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a s]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=I]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type=I s]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i s]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type="1"]):not(:where([class~=not-prose] *)){list-style-type:decimal}.prose :where(ul):not(:where([class~=not-prose] *)){list-style-type:disc;padding-left:1.625em}.prose :where(ol>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-counters);font-weight:400}.prose :where(ul>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-bullets)}.prose :where(hr):not(:where([class~=not-prose] *)){border-color:var(--tw-prose-hr);border-top-width:1px;margin-bottom:3em;margin-top:3em}.prose :where(blockquote):not(:where([class~=not-prose] *)){border-left-color:var(--tw-prose-quote-borders);border-left-width:.25rem;color:var(--tw-prose-quotes);font-style:italic;font-weight:500;margin-bottom:1.6em;margin-top:1.6em;padding-left:1em;quotes:"\201C""\201D""\2018""\2019"}.prose :where(blockquote p:first-of-type):not(:where([class~=not-prose] *)):before{content:open-quote}.prose :where(blockquote p:last-of-type):not(:where([class~=not-prose] *)):after{content:close-quote}.prose :where(h1):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.5rem;font-weight:800;line-height:2rem;margin-bottom:.8888889em;margin-top:0}.prose :where(h1 strong):not(:where([class~=not-prose] *)){font-weight:900}.prose :where(h2):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.25rem;font-weight:700;line-height:1.75rem;margin-bottom:1em;margin-top:2em}.prose :where(h2 strong):not(:where([class~=not-prose] *)){font-weight:800}.prose :where(h3):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.125rem;font-weight:600;line-height:1.75rem;margin-bottom:.6em;margin-top:1.6em}.prose :where(h3 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(h4):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;line-height:1.5;margin-bottom:.5em;margin-top:1.5em}.prose :where(h4 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(figure>*):not(:where([class~=not-prose] *)){margin-bottom:0;margin-top:0}.prose :where(figcaption):not(:where([class~=not-prose] *)){color:var(--tw-prose-captions);font-size:.875em;line-height:1.4285714;margin-top:.8571429em}.prose :where(code):not(:where([class~=not-prose] *)){color:var(--tw-prose-code);font-size:.875em;font-weight:600}.prose :where(code):not(:where([class~=not-prose] *)):before{content:"`"}.prose :where(code):not(:where([class~=not-prose] *)):after{content:"`"}.prose :where(a code):not(:where([class~=not-prose] *)){color:var(--tw-prose-links)}.prose :where(pre):not(:where([class~=not-prose] *)){background-color:var(--tw-prose-pre-bg);border-radius:.375rem;color:var(--tw-prose-pre-code);font-size:.875em;font-weight:400;line-height:1.7142857;margin-bottom:1.7142857em;margin-top:1.7142857em;overflow-x:auto;padding:.8571429em 1.1428571em}.prose :where(pre code):not(:where([class~=not-prose] *)){background-color:transparent;border-radius:0;border-width:0;color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;padding:0}.prose :where(pre code):not(:where([class~=not-prose] *)):before{content:none}.prose :where(pre code):not(:where([class~=not-prose] *)):after{content:none}.prose :where(table):not(:where([class~=not-prose] *)){font-size:.875em;line-height:1.7142857;margin-bottom:2em;margin-top:2em;table-layout:auto;text-align:left;width:100%}.prose :where(thead):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-th-borders);border-bottom-width:1px}.prose :where(thead th):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;padding-bottom:.5714286em;padding-left:.5714286em;padding-right:.5714286em;vertical-align:bottom}.prose :where(tbody tr):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-td-borders);border-bottom-width:1px}.prose :where(tbody tr:last-child):not(:where([class~=not-prose] *)){border-bottom-width:0}.prose :where(tbody td):not(:where([class~=not-prose] *)){padding:.5714286em;vertical-align:baseline}.prose{--tw-prose-body:#374151;--tw-prose-headings:#111827;--tw-prose-lead:#4b5563;--tw-prose-links:#111827;--tw-prose-bold:#111827;--tw-prose-counters:#6b7280;--tw-prose-bullets:#d1d5db;--tw-prose-hr:#e5e7eb;--tw-prose-quotes:#111827;--tw-prose-quote-borders:#e5e7eb;--tw-prose-captions:#6b7280;--tw-prose-code:#111827;--tw-prose-pre-code:#e5e7eb;--tw-prose-pre-bg:#1f2937;--tw-prose-th-borders:#d1d5db;--tw-prose-td-borders:#e5e7eb;--tw-prose-invert-body:#d1d5db;--tw-prose-invert-headings:#fff;--tw-prose-invert-lead:#9ca3af;--tw-prose-invert-links:#fff;--tw-prose-invert-bold:#fff;--tw-prose-invert-counters:#9ca3af;--tw-prose-invert-bullets:#4b5563;--tw-prose-invert-hr:#374151;--tw-prose-invert-quotes:#f3f4f6;--tw-prose-invert-quote-borders:#374151;--tw-prose-invert-captions:#9ca3af;--tw-prose-invert-code:#fff;--tw-prose-invert-pre-code:#d1d5db;--tw-prose-invert-pre-bg:rgba(0,0,0,.5);--tw-prose-invert-th-borders:#4b5563;--tw-prose-invert-td-borders:#374151;font-size:1rem;line-height:1.75}.prose :where(p):not(:where([class~=not-prose] *)){margin-bottom:1.25em;margin-top:1.25em}.prose :where(img):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(video):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(figure):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(h2 code):not(:where([class~=not-prose] *)){font-size:.875em}.prose :where(h3 code):not(:where([class~=not-prose] *)){font-size:.9em}.prose :where(li):not(:where([class~=not-prose] *)){margin-bottom:.5em;margin-top:.5em}.prose :where(ol>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose :where(ul>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose>:where(ul>li p):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose>:where(ul>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ul>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose>:where(ol>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ol>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose :where(ul ul,ul ol,ol ul,ol ol):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose :where(hr+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h2+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h3+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h4+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(thead th:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(thead th:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose :where(tbody td:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(tbody td:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose>:where(:first-child):not(:where([class~=not-prose] *)){margin-top:0}.prose>:where(:last-child):not(:where([class~=not-prose] *)){margin-bottom:0}.mx-auto{margin-left:auto;margin-right:auto}.my-6{margin-bottom:1.5rem;margin-top:1.5rem}.my-auto{margin-bottom:auto;margin-top:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.mt-20{margin-top:5rem}.mb-6{margin-bottom:1.5rem}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.block{display:block}.flex{display:flex}.min-h-screen{min-height:100vh}.max-w-3xl{max-width:48rem}.max-w-none{max-width:none}.flex-grow{flex-grow:1}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.justify-start{justify-content:flex-start}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-2{gap:.5rem}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81/var(--tw-border-opacity))}.border-pink-500{--tw-border-opacity:1;border-color:rgb(236 72 153/var(--tw-border-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity))}.p-6{padding:1.5rem}.py-8{padding-bottom:2rem;padding-top:2rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-bottom:.5rem;padding-top:.5rem}.py-10{padding-top:2.5rem}.pb-10,.py-10{padding-bottom:2.5rem}.pt-10{padding-top:2.5rem}.text-center{text-align:center}.font-serif{font-family:ui-serif,Georgia,Cambria,Times New Roman,Times,serif}.text-sm{font-size:.875rem;line-height:1.25rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-xs{font-size:.75rem;line-height:1rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.font-medium{font-weight:500}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity))}.text-pink-500{--tw-text-opacity:1;color:rgb(236 72 153/var(--tw-text-opacity))}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-text-decoration-color,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-text-decoration-color,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}.duration-150,.transition{transition-duration:.15s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}html{font-family:-apple-system,Meiryo,"sans-serif"}body{word-wrap:break-word}.gatsby-resp-image-figcaption{text-align:center}.gatsby-highlight code[class*=language-],.gatsby-highlight pre[class*=language-]{font-size:.8rem}.last\:mb-0:last-child{margin-bottom:0}.hover\:bg-black:hover{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity))}.hover\:bg-opacity-5:hover{--tw-bg-opacity:0.05}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:no-underline:hover{-webkit-text-decoration-line:none;text-decoration-line:none}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.prose-a\:text-emerald-600 :is(:where(a):not(:where([class~=not-prose] *))){--tw-text-opacity:1;color:rgb(5 150 105/var(--tw-text-opacity))}@media (min-width:640px){.sm\:mx-auto{margin-left:auto;margin-right:auto}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><style type="text/css">
+    .header-link.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .header-link.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .header-link svg,
+    h2 .header-link svg,
+    h3 .header-link svg,
+    h4 .header-link svg,
+    h5 .header-link svg,
+    h6 .header-link svg {
+      visibility: hidden;
+    }
+    h1:hover .header-link svg,
+    h2:hover .header-link svg,
+    h3:hover .header-link svg,
+    h4:hover .header-link svg,
+    h5:hover .header-link svg,
+    h6:hover .header-link svg,
+    h1 .header-link:focus svg,
+    h2 .header-link:focus svg,
+    h3 .header-link:focus svg,
+    h4 .header-link:focus svg,
+    h5 .header-link:focus svg,
+    h6 .header-link:focus svg {
+      visibility: visible;
+    }
+  </style></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="flex flex-col bg-slate-100 min-h-screen"><div class="container max-w-3xl mx-auto pb-10 pt-10"><h3 class="text-2xl font-bold text-center"><a class="hover:no-underline text-gray-900 font-serif" href="/">Yucchiy&#x27;s Note</a></h3></div><main class="flex-grow"><div class="container bg-white rounded shadow hover:shadow-md max-w-3xl mx-auto p-6"><article><header class="mb-6"><div><time class="text-sm text-gray-500 mb-1">July 03, 2022</time><h1 class="text-xl font-semibold text-gray-700 mb-2">Custom EditorでシーンビューにHandleやGUIを出して調整作業を効率化する</h1><div class="flex flex-wrap justify-start gap-2"><a class="px-4 py-2 border border-pink-500 text-pink-500 font-medium text-xs leanding-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out hover:no-underline" href="/tags/unity/">Unity</a><a class="px-4 py-2 border border-pink-500 text-pink-500 font-medium text-xs leanding-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out hover:no-underline" href="/tags/エディタ拡張/">エディタ拡張</a></div></div></header><div class=" prose max-w-none prose-a:text-emerald-600 "><p>Unityでコンポーネントのプロパティ値を調整するとき、特に座標値などを扱う場合は、インスペクター上の値とにらめっこしながら調整するより、シーンビュー上にGUIなどを出して直接調整するほうが効率的に作業できることがあります。また、シーンビュー上に調整用のGUIが出ていると何かと便利なこともあります。</p>
+<p>下記のようなコンポーネントの編集を例にとって、これをシーンビュー上で編集するようなGUIを検討してみることにします。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">UnityEngine</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Enemy</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">MonoBehaviour</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> Name <span class="token operator">=></span> _name<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Vector3</span> CameraFollowOffset <span class="token operator">=></span> _hpBarOffset<span class="token punctuation">;</span>
+
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Header</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"敵の名前"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+    <span class="token keyword">private</span> <span class="token class-name"><span class="token keyword">string</span></span> _name<span class="token punctuation">;</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">SerializeField</span></span><span class="token punctuation">]</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Header</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"敵のHPバーを表示する位置オフセット"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+    <span class="token keyword">private</span> <span class="token class-name">Vector3</span> _hpBarOffset<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h2 id="custom-editorの基本形" style="position:relative;"><a href="#custom-editor%E3%81%AE%E5%9F%BA%E6%9C%AC%E5%BD%A2" aria-label="custom editorの基本形 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom Editorの基本形</h2>
+<p>コンポーネントを編集するGUIを制作する方法は様々ですが、今回はCustom Editorを利用してみます。</p>
+<p><a href="https://docs.unity3d.com/Manual/editor-CustomEditors.html">Unity - Manual: Custom Editors</a></p>
+<p>先程の <code>Enemy</code> コンポーネントのCustom Editorの基本形を示します。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">UnityEditor</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">CustomEditor</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token keyword">typeof</span><span class="token punctuation">(</span><span class="token type-expression class-name">Enemy</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EnemyEditor</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">Editor</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">SerializedProperty</span> _name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">SerializedProperty</span> _cameraFollowPosition<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">OnEnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// serializedObjectは、ヒエラルキーで選択中の</span>
+        <span class="token comment">// EnemyコンポーネントのSerializedObject</span>
+        _name <span class="token operator">=</span> serializedObject<span class="token punctuation">.</span><span class="token function">FindProperty</span><span class="token punctuation">(</span><span class="token string">"_name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        _cameraFollowPosition <span class="token operator">=</span> serializedObject<span class="token punctuation">.</span><span class="token function">FindProperty</span><span class="token punctuation">(</span><span class="token string">"_cameraFollowPosition"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">override</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">OnInspectorGUI</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// インスペクターの表示をカスタマイズしたいときはこっちで行う</span>
+
+        <span class="token comment">// これを呼び出すと、標準で用意されるインスペクターがそのまま表示される</span>
+        <span class="token keyword">base</span><span class="token punctuation">.</span><span class="token function">OnInspectorGUI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 独自のインスペクター表示を行いたいときは、上記を呼び出さずに</span>
+        <span class="token comment">// 自前でビューをつくるなどする</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">OnSceneGUI</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// シーンビューでGUIを描画したいときはこっちで行う</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Custom Editorは編集したいコンポーネントに対して1対1で作成します。今回は <code>Enemy</code> コンポーネントと対となる <code>EnemyEditor</code> を作成しています。<code>UnityEditor.Editor</code> クラスを継承し、さらに <code>CustomEditor</code> 属性を指定しておきます。</p>
+<p><code>OnEnable</code> でCustom Editorで編集したいシリアライズ可能なフィールドから <code>SerializedProperty</code> を初期化しておきます。フィールドやセッターが <code>public</code> であれば直接して編集しても良いのですが、エディター実装だけのためにそれらを <code>public</code> にするのは良くないので、特別な理由がない限りは <code>SerializedProperty</code> でフィールドを編集するようにします。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">OnEnable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// serializedObjectは、ヒエラルキーで選択中の</span>
+    <span class="token comment">// EnemyコンポーネントのSerializedObject</span>
+    _name <span class="token operator">=</span> serializedObject<span class="token punctuation">.</span><span class="token function">FindProperty</span><span class="token punctuation">(</span><span class="token string">"_name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    _cameraFollowPosition <span class="token operator">=</span> serializedObject<span class="token punctuation">.</span><span class="token function">FindProperty</span><span class="token punctuation">(</span><span class="token string">"_cameraFollowPosition"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>あとは <code>OnInspectorGUI</code> や <code>OnSceneGUI</code> を実装してインスペクターなどの見た目をカスタマイズしていきます。今回は、シーンビュー上でコンポーネントを編集するビューを作成していきたいので、 <code>OnSceneGUI</code> に処理を記述していきます。</p>
+<h2 id="handles" style="position:relative;"><a href="#handles" aria-label="handles permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Handles</h2>
+<p>Unityにはシーンビュー上で座標値やスケールなどを調整する3D GUIを描画する Handles という機能が標準で提供されています。</p>
+<p><a href="https://docs.unity3d.com/ScriptReference/Handles.html">Unity - Scripting API: Handles</a></p>
+<p>名前を聞くと馴染みがないかもしれませんが、ゲームオブジェクトの位置や回転などを調整するときに出てくるxyz方向に向いた矢印のGUIもHandlesによって提供されています。</p>
+<p>（コードそのものを確認できていませんが、Handlesに同じGUIを描画する機能があるのでおそらく同じ機能を呼び出しているはず…）</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 779px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/81988d986b556a28e6f58c9ddcad38a5/96e92/87882D94D5CE8A33DE6DADFE614712B0.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 70.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACTklEQVQ4y3WP60tTYRzHz7/kVEZkrc1LEEOCanM7z7nv3DaVpBEEK8gSolcVREUhgTpDw21uYwuyQAzykkxLtqgFSb6oNxH4/hvPueTZXC8+/G7f3/f5PQzhJQyfv4DTgSD6+sM42RdAKNQPv/8Eunzd8HX3WHT5etDb60cwGMKZ0CBODYStPBAaQvDsMAaGzmEwfAnM6ucm1r79wGrzAG+bP7HS2MdK/TsqO19Q+lDH8tYeChufkF/fRX7jI8rbdZS2GyjVvqJSa1i6MtXWdpBb3wXzZnML5bV3WKhUsVitWnG+VEa2WEJ2uYi5QgGz+bzFTI6Sc3IaC5grlrCQe4nn8y/wdLEI5u7UbWSupiHGolB5ApVjoXJxJBxorvGsherUtoaFyrNI8Cx0gWBcUyERFkxKk2EqAkY1GSlV8iDaaBJUkbMwvf0WrYRRXYYh82AULoZUQoCp8McwZA4GF8WtTAqTmRTGZdbqddImFQGqyNqGSdqUCUwqdqCLYwkWlaUsDg9/4c/vA8w+e4ikNAJTcXVHO0mFgyrEqWHUKuyhDa11iWBCI6i+eo3NvSYezywhfW0KlxMx+0qP3kUVYmAUctzQlIi1lBQjKD55gPe1Om7en8bElRtIyQSGZGv+b0i/KLEw2zDEONKGgOlH93Bn8jrGxAgM0ashto7m1JB3DZ1ls4MpFankIpJCFLp49FBHLTcCRmYjlmHLZR6sWibQ23qusYv9+Ij7ZdIy1Gn0GNi13W+fGZ6LHcMITNle0v8te43YjrWr915NDf8Cr+yH+q+OUlYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="87882D94D5CE8A33DE6DADFE614712B0"
+        title="87882D94D5CE8A33DE6DADFE614712B0"
+        src="/static/81988d986b556a28e6f58c9ddcad38a5/96e92/87882D94D5CE8A33DE6DADFE614712B0.png"
+        srcset="/static/81988d986b556a28e6f58c9ddcad38a5/772e8/87882D94D5CE8A33DE6DADFE614712B0.png 200w,
+/static/81988d986b556a28e6f58c9ddcad38a5/e17e5/87882D94D5CE8A33DE6DADFE614712B0.png 400w,
+/static/81988d986b556a28e6f58c9ddcad38a5/96e92/87882D94D5CE8A33DE6DADFE614712B0.png 779w"
+        sizes="(max-width: 779px) 100vw, 779px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>この機能はユーザーも利用できます。さきほどの <code>Enemy</code> クラスの <code>_hpBarOffset</code> の位置調整を、上図の位置調整用のHandleを用いて行えるようにしてみます。まずはコード全文を示します。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">OnSceneGUI</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// シーンビューでGUIを描画したいときはこっちで行う</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> enemy <span class="token operator">=</span> target <span class="token keyword">as</span> <span class="token class-name">Enemy</span><span class="token punctuation">;</span>
+
+    serializedObject<span class="token punctuation">.</span><span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name"><span class="token keyword">var</span></span> hpBarOffsetWorldPosition <span class="token operator">=</span>
+        enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position <span class="token operator">+</span>
+        enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>localToWorldMatrix<span class="token punctuation">.</span><span class="token function">MultiplyVector</span><span class="token punctuation">(</span>enemy<span class="token punctuation">.</span>HPBarOffset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    EditorGUI<span class="token punctuation">.</span><span class="token function">BeginChangeCheck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> newHPBarOffset <span class="token operator">=</span> Handles<span class="token punctuation">.</span><span class="token function">PositionHandle</span><span class="token punctuation">(</span>
+        hpBarOffsetWorldPosition<span class="token punctuation">,</span>
+        enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>rotation
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>EditorGUI<span class="token punctuation">.</span><span class="token function">EndChangeCheck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Undo<span class="token punctuation">.</span><span class="token function">RecordObject</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token string">"Change Hp Bar Offset Position"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        _hpBarOffset<span class="token punctuation">.</span>vector3Value <span class="token operator">=</span>
+            enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>worldToLocalMatrix<span class="token punctuation">.</span><span class="token function">MultiplyVector</span><span class="token punctuation">(</span>
+                newHPBarOffset <span class="token operator">-</span> enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    serializedObject<span class="token punctuation">.</span><span class="token function">ApplyModifiedProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>位置調整のGUIは <code>Handles.PositionHandle</code> を呼び出すことで利用できます。</p>
+<p><a href="https://docs.unity3d.com/ScriptReference/Handles.PositionHandle.html">Unity - Scripting API: Handles.PositionHandle</a></p>
+<p>引数として現在の位置とGUIの回転をそれぞれ<strong>ワールド座標</strong>で取り、戻り値としてユーザー操作によって移動した後の位置をワールド座標で返却します。</p>
+<p>このとき、実際に移動したかどうかを <code>EditorGUI.BeginChangeCheck</code> と <code>EditorGUI.EndChangeCheck</code> によって判定できるので、移動後のみ値を更新するようにします。また、Undo用の設定も合わせて行います。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token class-name"><span class="token keyword">var</span></span> hpBarOffsetWorldPosition <span class="token operator">=</span>
+    enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position <span class="token operator">+</span>
+    <span class="token comment">// 現在のenemyの位置+オフセットにenemyの位置を反映させる</span>
+    enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>localToWorldMatrix<span class="token punctuation">.</span><span class="token function">MultiplyVector</span><span class="token punctuation">(</span>
+        enemy<span class="token punctuation">.</span>HPBarOffset
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> newHPBarOffset <span class="token operator">=</span> Handles<span class="token punctuation">.</span><span class="token function">PositionHandle</span><span class="token punctuation">(</span>
+    hpBarOffsetWorldPosition<span class="token punctuation">,</span>
+    enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>rotation
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 更新検知</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>EditorGUI<span class="token punctuation">.</span><span class="token function">EndChangeCheck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Undo用のコマンドをつんでおく</span>
+    Undo<span class="token punctuation">.</span><span class="token function">RecordObject</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token string">"Change Hp Bar Offset Position"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// ローカルオフセットに戻す</span>
+    <span class="token comment">// hpBarOffsetWorldPositionの逆操作</span>
+    _hpBarOffset<span class="token punctuation">.</span>vector3Value <span class="token operator">=</span>
+        enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>worldToLocalMatrix<span class="token punctuation">.</span><span class="token function">MultiplyVector</span><span class="token punctuation">(</span>
+            newHPBarOffset <span class="token operator">-</span> enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>これで実装ができました。実際に <code>Handles.PositionHandle</code> によってオフセットを調整する様子を下図に示します。</p>
+<p><img src="/6bbf155311b994101b009eee51a31f4b/FD71B4E6371BED9DE7192F19CC2A8ADB.gif" alt=""></p>
+<h3 id="handlesdrawingscope-でオブジェクトのローカル座標で処理を記述する" style="position:relative;"><a href="#handlesdrawingscope-%E3%81%A7%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E5%BA%A7%E6%A8%99%E3%81%A7%E5%87%A6%E7%90%86%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B" aria-label="handlesdrawingscope でオブジェクトのローカル座標で処理を記述する permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Handles.DrawingScope</code> でオブジェクトのローカル座標で処理を記述する</h3>
+<p>オフセット更新のために <code>Handles.PositionHandle</code> に渡す引数の位置や回転、戻り値の位置がすべてワールド座標なのでオフセットからワールド座標に変換して、また、受け取る座標もワールド座標なのでそこからローカル座標に戻してオフセットに代入していました。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// PositionHandleの座標値はワールド座標なので座標変換</span>
+<span class="token class-name"><span class="token keyword">var</span></span> hpBarOffsetWorldPosition <span class="token operator">=</span>
+    enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position <span class="token operator">+</span>
+    <span class="token comment">// 現在のenemyの位置+オフセットにenemyの位置を反映させる</span>
+    enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>localToWorldMatrix<span class="token punctuation">.</span><span class="token function">MultiplyVector</span><span class="token punctuation">(</span>
+        enemy<span class="token punctuation">.</span>HPBarOffset
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> newHPBarOffset <span class="token operator">=</span> Handles<span class="token punctuation">.</span><span class="token function">PositionHandle</span><span class="token punctuation">(</span>
+    hpBarOffsetWorldPosition<span class="token punctuation">,</span>
+    enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>rotation
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// オフセットはそのオブジェクトのローカル座標なので</span>
+<span class="token comment">// ワールド座標からローカル座標に変換して代入</span>
+_hpBarOffset<span class="token punctuation">.</span>vector3Value <span class="token operator">=</span>
+    enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>worldToLocalMatrix<span class="token punctuation">.</span><span class="token function">MultiplyVector</span><span class="token punctuation">(</span>
+        newHPBarOffset <span class="token operator">-</span> enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position
+    <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>上記のコードのように<strong>ローカルとワールド座標の変換を意識してコードを書くと煩雑になって</strong>分かりづらくなります。</p>
+<p>これを解決するために <code>Handles</code> には <code>Handles.matrix</code> というstaticな変数が用意されています。ここに値を代入しておくと、 <code>Handles</code> の操作に <code>Handles.matrix</code> の行列（または逆行列）が乗算されます。</p>
+<p>利用例としてはゲームオブジェクトの <code>Transform.localToWorldMatrix</code> を代入すると、ハンドルに渡す座標や回転を、そのゲームオブジェクトのローカル座標で扱われるようになるなどです。</p>
+<p>ちょっとややこしいのですが、さきほどのオフセットの編集の実装を <code>Handles.matrix</code> を用いると、下記コードで置き換えることができます。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">Handles<span class="token punctuation">.</span>DrawingScope</span><span class="token punctuation">(</span>enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>localToWorldMatrix<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// このusingスコープ中は、Handles.matrixに</span>
+    <span class="token comment">// enemy.transform.localToWorldMatrixが代入されている</span>
+
+    <span class="token comment">// 座標・回転・スケールは enemy のローカル空間で扱う事ができる</span>
+    EditorGUI<span class="token punctuation">.</span><span class="token function">BeginChangeCheck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> newHpBarOffset <span class="token operator">=</span> Handles<span class="token punctuation">.</span><span class="token function">PositionHandle</span><span class="token punctuation">(</span>
+        _hpBarOffset<span class="token punctuation">.</span>vector3Value<span class="token punctuation">,</span>
+        Quaternion<span class="token punctuation">.</span>identity
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Handles<span class="token punctuation">.</span><span class="token function">Label</span><span class="token punctuation">(</span>_hpBarOffset<span class="token punctuation">.</span>vector3Value<span class="token punctuation">,</span> <span class="token string">"HP Bar Offset"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>EditorGUI<span class="token punctuation">.</span><span class="token function">EndChangeCheck</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Undo<span class="token punctuation">.</span><span class="token function">RecordObject</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token string">"Change Hp Bar Offset Position"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        _hpBarOffset<span class="token punctuation">.</span>vector3Value <span class="token operator">=</span> newHpBarOffset<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>usingスコープ中はハンドルの操作がすべて <code>enemy</code> のローカル座標で行われるため、<strong>ワールド座標とローカル座標の変換がコード中から消えて</strong>、かなりすっきりとしたかと思います。</p>
+<h2 id="シーンビューにguiを出す" style="position:relative;"><a href="#%E3%82%B7%E3%83%BC%E3%83%B3%E3%83%93%E3%83%A5%E3%83%BC%E3%81%ABgui%E3%82%92%E5%87%BA%E3%81%99" aria-label="シーンビューにguiを出す permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>シーンビューにGUIを出す</h2>
+<p>次に、シーンビュー上にGUIを出して、コンポーネント編集の効率化してみたいと思います。</p>
+<p>シーンビュー上にGUIを出す方法もいくつかありますが、 <code>OnSceneGUI</code> 中  <code>Handles.BeginGUI</code> を呼び出すと、 <code>Handles.EndGUI</code> を呼び出す間はIMGUIの表示を行えるようになります。</p>
+<p>試しに、下図のような <code>Enemy._name</code> をシーンビュー上で直接編集するGUIを作ってみます。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 632px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b99c22c27ae058161143ec59e079344b/084e2/CD0FC504D4750897F4D5192355C3AF76.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 66%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB0klEQVQ4y32ST4vTQBjG8+3WRlqk2zZt/kxmMpPJZJK4sFp01xX/YG96UkRXUFnYBW+Ke1ERL4KKB8W7R737CR7JJM2OtvTwY8jkl+d95504ZZailKKjqEkFSsUxP2DQot2THMbNUvPc+Gm3V2YSpZJwtKBYS0pRVQQ6iaB5jEJQyDiAosF6XzCDk3OC/1Gc4GJKcHknh0wrKCnA/BGePXmEl6dvIeI6NG7gFiKGkycRViGQxMNuQXBJV7iRMSTBGJ++fMXh8WvwcApdF09I41vNOHkSoiEyq+YRRDTD/cUcb949xr6mqMgYmod4fnSMvYNbkGSK9Y1EdmCLiKH8C/j98zt+/PqDvWt3oKhv3mU0wIpvw9cEqoSgJNv49vkDHp68wnx3HyWdQtWX055iE07OQjQ0N6hYiCwc4+P7U9x9+gK3dySu+30T2HksMOuGwKBDJwFyOsODxRXcW9zEVU1QsQAF/9c7IzQFVFvAMfOxhPqXILMJpsMByGiAYDKEPxkiCb32FP5KoP3sLKXl4Geeh35/gF7PRc89D9d1sbV1Dt5oG7qece21LMMVOytiOly2nLVC/WHBo45SkCas9ZQVZjdU43RSG7gJ21X25Vij+AuqnzvCtjkuawAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="CD0FC504D4750897F4D5192355C3AF76"
+        title="CD0FC504D4750897F4D5192355C3AF76"
+        src="/static/b99c22c27ae058161143ec59e079344b/084e2/CD0FC504D4750897F4D5192355C3AF76.png"
+        srcset="/static/b99c22c27ae058161143ec59e079344b/772e8/CD0FC504D4750897F4D5192355C3AF76.png 200w,
+/static/b99c22c27ae058161143ec59e079344b/e17e5/CD0FC504D4750897F4D5192355C3AF76.png 400w,
+/static/b99c22c27ae058161143ec59e079344b/084e2/CD0FC504D4750897F4D5192355C3AF76.png 632w"
+        sizes="(max-width: 632px) 100vw, 632px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>まずはコード全文を示します。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// ワールド座標からGUI座標を取得する</span>
+<span class="token class-name"><span class="token keyword">var</span></span> enemyGUIPosition <span class="token operator">=</span> HandleUtility<span class="token punctuation">.</span><span class="token function">WorldToGUIPoint</span><span class="token punctuation">(</span>
+    enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// BeginGUI~EndGUI間ではGUI描画を行うことができる</span>
+Handles<span class="token punctuation">.</span><span class="token function">BeginGUI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 試しにEnemy._nameを編集するGUIをシーンビュー上に配置</span>
+_name<span class="token punctuation">.</span>stringValue <span class="token operator">=</span> EditorGUI<span class="token punctuation">.</span><span class="token function">TextField</span><span class="token punctuation">(</span>
+    <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Rect</span><span class="token punctuation">(</span>
+        <span class="token comment">// 3Dの位置から少し下に表示してみる</span>
+        enemyGUIPosition <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Vector2</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Vector2</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    _name<span class="token punctuation">.</span>stringValue
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Handles<span class="token punctuation">.</span><span class="token function">EndGUI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>GUIで、3Dオブジェクトの位置を基準になにか出す、ということを行うには、3Dオブジェクトのワールド座標から対応するGUI座標の位置を取得する必要があります。</p>
+<p><code>HandleUtility.WorldToGUIPoint</code> を用いると、ゲームオブジェクトの位置から対応するGUI座標上の位置を取得できます。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// 対象のenemyのワールド座標からGUI座標上の位置を取得している</span>
+<span class="token class-name"><span class="token keyword">var</span></span> enemyGUIPosition <span class="token operator">=</span> HandleUtility<span class="token punctuation">.</span><span class="token function">WorldToGUIPoint</span><span class="token punctuation">(</span>
+    enemy<span class="token punctuation">.</span>transform<span class="token punctuation">.</span>position
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>あとはGUI描画を行います。 テキストフィールドを描画して <code>Enemy._name</code> を編集できるようにしてみます。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// BeginGUI~EndGUI間ではGUI描画を行うことができる</span>
+Handles<span class="token punctuation">.</span><span class="token function">BeginGUI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+_name<span class="token punctuation">.</span>stringValue <span class="token operator">=</span> EditorGUI<span class="token punctuation">.</span><span class="token function">TextField</span><span class="token punctuation">(</span>
+    <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Rect</span><span class="token punctuation">(</span>
+        <span class="token comment">// 3Dの位置から少し下に表示してみる</span>
+        enemyGUIPosition <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Vector2</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Vector2</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    _name<span class="token punctuation">.</span>stringValue
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Handles<span class="token punctuation">.</span><span class="token function">EndGUI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>上記の実装で、下図のように名前編集のテキストフィールドをシーンビュー上に表示することができました。</p>
+<p><img src="/7372dcdfe37a6e48c2dacd6b707e68c5/12F37EC3646DB75018DAA502D8521842.gif" alt=""></p>
+<h2 id="まとめ" style="position:relative;"><a href="#%E3%81%BE%E3%81%A8%E3%82%81" aria-label="まとめ permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>まとめ</h2></div></article></div></main><footer class="mt-20 bg-gray-800 px6 py-8"><div class="container max-w-3xl mx-auto"><div class="flex justify-center mb-6 text-sm hover:no-underline gap-6"><a class="text-gray-300 hover:underline" href="/">Home</a><a class="text-gray-300 hover:underline" href="/profile">Profile</a><a class="text-gray-300 hover:underline" href="/project/unity-weekly">Unity Weekly</a></div></div><hr class="my-6 sm:mx-auto border-gray-700"/><span class="block text-sm text-center text-gray-400">© 2022 Yucchiy&#x27;s Note. All Rights Reserved.</span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-36940311-7', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2022/07/unity-customeditor-gui-on-sceneview/";window.___webpackCompilationHash="25ae3349d07d089a133f";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4bae0ebd19da6d624f9b.js"],"app":["/app-52c9c314edeb4a0d0eb2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-42660d3ea51266f3e6ca.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-891810a218b514421cec.js"],"component---src-pages-project-unity-weekly-tsx":["/component---src-pages-project-unity-weekly-tsx-1be7ba23d9d42729df3f.js"],"component---src-pages-tags-tsx":["/component---src-pages-tags-tsx-5e368e2f25546d0b1e4b.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-2dc491133e45eaa1b6b3.js"],"component---src-templates-tag-tsx":["/component---src-templates-tag-tsx-725cd6ba0aab60bc54d4.js"]};/*]]>*/</script><script src="/polyfill-4bae0ebd19da6d624f9b.js" nomodule=""></script><script src="/app-52c9c314edeb4a0d0eb2.js" async=""></script><script src="/framework-6ad8a8eb04f78e566be1.js" async=""></script><script src="/webpack-runtime-31e58c7c93ee841e57d2.js" async=""></script></body></html>
