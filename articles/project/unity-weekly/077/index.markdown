@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
-title: "Unity 2021 LTSにおけるSerializeReference、ironSource合弁、ハーフトーンシェーダー - Unity Weekly 077"
-description: "2022/07/19週のUnity Weeklyです。Unity 2021 LTSにおけるSerializeReference、ironSource合弁、ハーフトーンシェーダーなどについて紹介しています。"
+title: "Unity 2021 LTSにおけるSerializeReference、ironSource、ハーフトーンシェーダー - Unity Weekly 077"
+description: "2022/07/19週のUnity Weeklyです。Unity 2021 LTSにおけるSerializeReference、ironSource、ハーフトーンシェーダーなどについて紹介しています。"
 tags: ["Unity Weekly","Unity"]
 date: "2022-07-18T21:00:00"
 
@@ -136,4 +136,6 @@ MVVMおよびデータバインディングフレームワーク。
 [joebinns/stylised-character-controller: A stylised physics based character controller made in Unity 3D.](https://github.com/joebinns/stylised-character-controller)
 
 物理ベースなキャラクターコントローラの実装。
+
+�実装。
 
