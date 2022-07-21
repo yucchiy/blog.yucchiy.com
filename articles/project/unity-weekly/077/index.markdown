@@ -136,6 +136,3 @@ MVVMおよびデータバインディングフレームワーク。
 [joebinns/stylised-character-controller: A stylised physics based character controller made in Unity 3D.](https://github.com/joebinns/stylised-character-controller)
 
 物理ベースなキャラクターコントローラの実装。
-
-�実装。
-
