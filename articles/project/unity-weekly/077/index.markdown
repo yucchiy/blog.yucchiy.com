@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity 2021 LTSにおけるSerializeReference、ironSource、ハーフトーンシェーダー - Unity Weekly 077"
-description: "2022/07/19週のUnity Weeklyです。Unity 2021 LTSにおけるSerializeReference、ironSource、ハーフトーンシェーダーなどについて紹介しています。"
+description: "2022/07/19週のUnity Weeklyです。Unity 2021 LTSにおけるSerializeReference、ironSource、ハーフトーンシェーダーなどについてとりあげました。"
 tags: ["Unity Weekly","Unity"]
 date: "2022-07-18T21:00:00"
 
