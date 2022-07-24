@@ -2,6 +2,10 @@ name: import
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 20 * * *'
+    - cron: '0 5 * * *'
+    - cron: '0 11 * * *'
 
 jobs:
   import_markdown:
