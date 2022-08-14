@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Microsoft Cloud Partnership、Strand based Hair、Lion Demo - Unity Weekly 081"
-description: "2022/08/08週のUnity Weeklyです。 Microsoft Cloud Partnership、Strand based Hair、Lion Demoなどについてとりあげました。"
+description: "2022/08/15週のUnity Weeklyです。 Microsoft Cloud Partnership、Strand based Hair、Lion Demoなどについてとりあげました。"
 tags: ["Unity","Unity Weekly"]
 date: "2022-08-14T15:00:00"
 
