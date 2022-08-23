@@ -1,6 +1,6 @@
 ---
 type: "unity-weekly"
-title: "Unity Weekly 082"
+title: "URP eBook、グラフィックス新常識、Unity パフォーマンスチューニングバイブル - Unity Weekly 082"
 description: "2022/08/22週のUnity Weeklyです。 URP eBook、グラフィックス新常識、Unity パフォーマンスチューニングバイブルなどについて取り上げました。"
 tags: ["Unity Weekly","Unity"]
 date: "2022-08-22T15:00:00"
