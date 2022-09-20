@@ -73,6 +73,12 @@ CEDEC 2022で登壇された「[3Dデータを持ち込めるcross-platformメ�
 
 メタバースプラットフォーム cluster での技術的挑戦として「3Dデータをどう扱うか」(自動リダクション・配信パイプライン)、「位置情報をどう扱うか」(データ形式と通信でのLOD)の設計事例や、サーバー・クライアント全体のアーキテクチャの変遷、未来における改善余地などについて解説しています。
 
+### Unityでどこまでノーコーディングでカメラワークを実現できるか
+
+[Unityでどこまでノーコーディングでカメラワークを実現できるか – Unity for Pro](https://forpro.unity3d.jp/unity_pro_tips/2022/09/14/3923/)
+
+Cinemachineの基本的な利用方法からCinemachineを用いたカメラワーク設計、Visual Scriptingを用いてノーコディングでカメラワークを実装する方法について解説しています。
+
 ### Unity で AOP(アスペクト指向プログラミング) をしよう
 
 [[C#の黒魔術 IL Weaving] Unity で AOP(アスペクト指向プログラミング) をしよう │ Aiming 開発者ブログ](https://developer.aiming-inc.com/programming/aop-and-il-weaving/)
