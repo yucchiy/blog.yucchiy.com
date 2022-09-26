@@ -21,6 +21,16 @@ Unityでマルチプレイヤーなゲームを制作する際に利用できる
 
 このサンプルはPhoton社と連携して開発されていて、ネットワークの実装以外にも、武器システムや投擲システム、リコイル、キャラクターコントローラー、アニメーション同期実装など様々な実装を含みます。
 
+### GPUインスタンシングでペンライト演出を作る！
+
+[【Unity】GPUインスタンシングでペンライト演出を作る！](https://youtu.be/5BPezehWwOA)
+
+ライブで観客がペンライトを振るような演出を題材に、GPUインスタンシングで同じメッシュを色や姿勢を変えて大量に描画する方法について紹介しています。
+
+
+
+基本的なGPUインスタンシングによるオブジェクトの描画方法からStructured Bufferを介してインスタンスごとにパラメータを渡す方法、カリングの粒度をある程度保ちつつ1024個以上のインスタンスを描画するための描画の工夫についてそれぞれ解説しています。
+
 ### Scriptable Render Pipeline Dev Blitz Day 2022 - Q&A - Unity Forum
 
 [Official - Scriptable Render Pipeline Dev Blitz Day 2022 - Q&A - Unity Forum](https://forum.unity.com/threads/scriptable-render-pipeline-dev-blitz-day-2022-q-a.1339088/)
