@@ -95,7 +95,7 @@ Microsoftが開発するWindows環境向けのパフォーマンスチューニ�
 
 ## Repositories
 
-### Dream Textures
+### Unity Plane Mesh Splitter
 
 [artnas/Unity-Plane-Mesh-Splitter: Split large meshes in Unity into smaller submeshes](https://github.com/artnas/Unity-Plane-Mesh-Splitter)
 
@@ -126,6 +126,4 @@ UIToolkit向けのフロントエンドフレームワーク。UIToolkitで再�
 [su10/AutoScreen-for-Unity2021: A smart solution for Safe Area in Unity.](https://github.com/su10/AutoScreen-for-Unity2021)
 
 Unity 2021以降向けのセーフエリア実装。このライブラリの提供するコンポーネントを用いることで、エディターの再生・非再生中に関わらず、（Device Simulatorの）シミュレーションウインドウによってデバイスのセーフエリアを考慮した配置を簡単に確認できます。
-
-
 
