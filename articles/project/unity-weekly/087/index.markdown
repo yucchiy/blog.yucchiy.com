@@ -55,7 +55,7 @@ Unityの特定チームのエンジニアがRedditフォーラムの質問に集
 
 ### MessagePipeを触ってみる1 概要・導入編
 
-[【Unity】MessagePipeを触ってみる1 ~概要・導入編~ - Qiita](https://qiita.com/toRisouP/items/4775f15a6612ab765892)
+[【Unity】MessagePipeを触ってみる1 概要・導入編 - Qiita](https://qiita.com/toRisouP/items/4775f15a6612ab765892)
 
 ハイパフォーマンスなメッセージングライブラリ「[MessagePipe](https://github.com/Cysharp/MessagePipe)」について概要から導入について紹介しています。　
 
@@ -126,4 +126,6 @@ UIToolkit向けのフロントエンドフレームワーク。UIToolkitで再�
 [su10/AutoScreen-for-Unity2021: A smart solution for Safe Area in Unity.](https://github.com/su10/AutoScreen-for-Unity2021)
 
 Unity 2021以降向けのセーフエリア実装。このライブラリの提供するコンポーネントを用いることで、エディターの再生・非再生中に関わらず、（Device Simulatorの）シミュレーションウインドウによってデバイスのセーフエリアを考慮した配置を簡単に確認できます。
+
+
 
