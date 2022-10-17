@@ -77,6 +77,8 @@ C# / .NET に特化したバイナリー形式(メモリー表現のまま)の�
 
 ### UnityDataTools
 
+[Unity-Technologies/UnityDataTools: Experimental tools and libraries for reading and analyzing Unity data files.](https://github.com/Unity-Technologies/UnityDataTools)
+
 UnityFileSystemApiでなにができるのかについて紹介するコマンドラインツールセット。
 
 
