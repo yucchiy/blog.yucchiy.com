@@ -1,13 +1,23 @@
 ---
 type: "unity-weekly"
-title: "Unity toolsets and workflows for technical artists、XR、Block Shader - Unity Weekly 092"
-description: "2022/10/24週のUnity Weeklyです。テクニカルアーティストのためのUnityツールセットとワークフローに関するeBook、XRフォーカス、Block Shaderリリースなどについて取り上げました。"
+title: "SYNC 2022、Unity toolsets and workflows for technical artists、XR、Block Shader - Unity Weekly 092"
+description: "2022/10/24週のUnity Weeklyです。SYNC 2022、テクニカルアーティストのためのUnityツールセットとワークフローに関するeBook、XRフォーカス、Block Shaderリリースなどについて取り上げました。"
 tags: ["Unity Weekly","Unity"]
 date: "2022-10-23T15:00:00"
 
 ---
 
 ## Unity Officials
+
+## SYNC 2022
+
+[SYNC 2022](https://events.unity3d.jp/sync/)
+
+Unity主催の大規模カンファレンスが今週火曜日と水曜日（2022/10/25と10/26）で開催されます。
+
+
+
+SYNC 2022はオンライン開催で、無料で視聴できます。参加申込は[こちら](https://meetup.unity3d.jp/jp/events/1370)から行えます。
 
 ### テクニカルアーティストのための Unity ツールセットとワークフローを網羅したガイドのご紹介
 
