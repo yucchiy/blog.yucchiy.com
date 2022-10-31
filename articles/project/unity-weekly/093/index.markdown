@@ -71,6 +71,18 @@ GitHub Actions上でGameCIのアクションを活用して複数プラットフ
 
 C# 8.0から利用できる `IAsyncEnumrable` による非同期ストリームの簡単な利用方法について紹介しています。
 
+### uLipSync 内の AudioClip をトリミング・再生するスクリプトの解説
+
+[uLipSync 内の AudioClip をトリミング・再生するスクリプトの解説 - 凹みTips](https://tips.hecomi.com/entry/2022/10/31/021957)
+
+[uLipSync](https://github.com/hecomi/uLipSync)でのAudioClipをトリミングおよび再生するエディタおよびランタイムスクリプトの機能の実装について解説しています。
+
+### Unity Test Framework learning materialsをやってみた
+
+[Unity Test Framework learning materialsをやってみた - やらなイカ？](https://www.nowsprinting.com/entry/2022/10/31/064105)
+
+Unity Test Framework v1.3に含まれている、Unity Test Frameworkでテストを書く方法をサンプルを通じて学ぶことのできる [Unity Test Framework learning materials](https://docs.unity3d.com/Packages/com.unity.test-framework@1.3/manual/course/overview.html) について紹介しています。
+
 ## Repositories
 
 [EricHu33/uPlayableAnimation: An animation plugin based on Playables API](https://github.com/EricHu33/uPlayableAnimation)
@@ -118,4 +130,6 @@ UI Toolkitで再利用可能なコンポーネントを提供するライブラ�
 
 
 `ReorderableManipulator` や `TabGroup` 、UXMLからC#のボイラープレートの生成やスタイルシートのエクスポートなどの実装を含んでいます。
+
+
 
