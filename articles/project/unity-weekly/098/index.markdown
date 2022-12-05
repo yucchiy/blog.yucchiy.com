@@ -205,7 +205,7 @@ Doozy UI ManagerでUI制御を行う際に知っておくべきコンポーネ�
 
 ### **SPAJAM 2022 決勝戦で `Unity (C#)` で `Speech-to-Text API` と `DeepL API` を使ったので紹介するよ**
 
-[SPAJAM 2022 決勝戦で ](https://qiita.com/dacchan/items/f80d035d637eddc81d6c)`[Unity (C#)](https://qiita.com/dacchan/items/f80d035d637eddc81d6c)`[ で ](https://qiita.com/dacchan/items/f80d035d637eddc81d6c)`[Speech-to-Text API](https://qiita.com/dacchan/items/f80d035d637eddc81d6c)`[ と ](https://qiita.com/dacchan/items/f80d035d637eddc81d6c)`[DeepL API](https://qiita.com/dacchan/items/f80d035d637eddc81d6c)`[ を使ったので紹介するよ - Qiita](https://qiita.com/dacchan/items/f80d035d637eddc81d6c)
+[SPAJAM 2022 決勝戦で `Unity (C#)` で `Speech-to-Text API` と `DeepL API` を使ったので紹介するよ](https://qiita.com/dacchan/items/f80d035d637eddc81d6c)
 
 UnityでSpeech-to-Text APIやDeepL APIを利用する方法について紹介しています。
 
@@ -288,6 +288,14 @@ Position Based Dynamics＋各種コンストレイント、コリジョンシス
 [RobProductions/OpenGraphGUI: An open-source Editor GUI for use with Unity's URP ShaderGraphs. This project aims to clean up the look of Material Properties while providing ease-of-use to developers via tagging](https://github.com/RobProductions/OpenGraphGUI)
 
 URPのShader Graphからマテリアルプロパティのインスペクターの外観を、ShaderのBlackboardにあるプロパティ名に指定した文字を指定できるツール。
+
+### WSNet2
+
+[KLab/wsnet2: モバイルオンラインゲーム向けのリアルタイム通信システム](https://github.com/KLab/wsnet2)
+
+WebSocketベースなモバイルゲーム向けリアルタイム通信システム。クライアントにUnity実装が用意されています。
+
+�指定した文字を指定できるツール。
 
 ### WSNet2
 
