@@ -17,7 +17,7 @@ URP（Universal Render Pipeline）の設定のうち、特にライティング�
 
 また、URPのレンダリングパスや扱うことのできるライティングモデルについてもそれぞれ紹介しています。
 
-### **Unity 2022 New Feature! Splines Introduction**
+### ****Unity 2022 New Feature! Splines Introduction****
 
 [Unity 2022 New Feature! Splines Introduction - YouTube](https://www.youtube.com/watch?v=5IrKqVnvP6M)
 
@@ -135,7 +135,7 @@ AirTestとPocoを用いたUIの自動テスト環境の構築方法とテスト�
 
 lizardというpythonライブラリを用いてプログラムの複雑度を循環的複雑度で計測する方法と、Unityエディタ上からライブラリを呼び出してエディタ上で結果を確認する方法について紹介しています。
 
-### **Unityエディタ上でスクリーンショットを撮る**
+### ****Unityエディタ上でスクリーンショットを撮る****
 
 [Unityエディタ上でスクリーンショットを撮る - Qiita](https://qiita.com/tanikura/items/d46507946e23f1b7fe6f)
 
@@ -203,7 +203,7 @@ Unity YAMLのビューワーの独自実装を、YamlDotNetでのYamlパース�
 
 Doozy UI ManagerでUI制御を行う際に知っておくべきコンポーネントやフローグラフ、Signal/Streamという仕組み、便利コンポーネントの紹介と、実際にDoozy UI Managerを用いた簡単な画面遷移の実装について解説しています。
 
-### **SPAJAM 2022 決勝戦で `Unity (C#)` で `Speech-to-Text API` と `DeepL API` を使ったので紹介するよ**
+### ****SPAJAM 2022 決勝戦で `Unity (C#)` で `Speech-to-Text API` と `DeepL API` を使ったので紹介するよ****
 
 [SPAJAM 2022 決勝戦で `Unity (C#)` で `Speech-to-Text API` と `DeepL API` を使ったので紹介するよ](https://qiita.com/dacchan/items/f80d035d637eddc81d6c)
 
@@ -221,7 +221,7 @@ CinemachineのVirtual Cameraを用いてOrbital Camera（対象オブジェク�
 
 VRMモデルをFBXに変換してからMayaで読み込む方法、そのモデルをMayaのHumanIKに対応する方法（とスクリプトでの自動化）、モーションの転写方法、UniVRM経由でUnity上でモーションを再生する方法についてまとめています。
 
-### **Unityで動画を再生する様々な方法**
+### ****Unityで動画を再生する様々な方法****
 
 [Unityで動画を再生する様々な方法 - Qiita](https://qiita.com/broken55/items/f235497c7b4b2a46b926)
 
@@ -294,14 +294,3 @@ URPのShader Graphからマテリアルプロパティのインスペクター�
 [KLab/wsnet2: モバイルオンラインゲーム向けのリアルタイム通信システム](https://github.com/KLab/wsnet2)
 
 WebSocketベースなモバイルゲーム向けリアルタイム通信システム。クライアントにUnity実装が用意されています。
-
-�を指定できるツール。
-
-### WSNet2
-
-[KLab/wsnet2: モバイルオンラインゲーム向けのリアルタイム通信システム](https://github.com/KLab/wsnet2)
-
-WebSocketベースなモバイルゲーム向けリアルタイム通信システム。クライアントにUnity実装が用意されています。
-
-��
-
