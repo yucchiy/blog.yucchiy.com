@@ -287,7 +287,7 @@ Position Based Dynamics＋各種コンストレイント、コリジョンシス
 
 [RobProductions/OpenGraphGUI: An open-source Editor GUI for use with Unity's URP ShaderGraphs. This project aims to clean up the look of Material Properties while providing ease-of-use to developers via tagging](https://github.com/RobProductions/OpenGraphGUI)
 
-URPのShader Graphからマテリアルプロパティのインスペクターの外観を、ShaderのBlackboardにあるプロパティ名に指定した文字を指定できるツール。
+URPのShader Graphからマテリアルプロパティのインスペクターの外観を、ShaderのBlackboardにあるプロパティ名に特定の文字を入力することで調整できるツール。
 
 ### WSNet2
 
@@ -295,7 +295,7 @@ URPのShader Graphからマテリアルプロパティのインスペクター�
 
 WebSocketベースなモバイルゲーム向けリアルタイム通信システム。クライアントにUnity実装が用意されています。
 
-�指定した文字を指定できるツール。
+�を指定できるツール。
 
 ### WSNet2
 
