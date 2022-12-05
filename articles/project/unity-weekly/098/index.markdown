@@ -105,9 +105,9 @@ Nianticが提供するARライブラリ[ARDK](https://lightship.dev/)にExperime
 
 ブログ著者がUnityを使い続けるモチベーションやメリットなどについて紹介しています。
 
-### Unity WebGL で <canvas> で文字を描画する
+### Unity WebGL で canvas で文字を描画する
 
-[Unity WebGL で <canvas> で文字を描画する - Qiita](https://qiita.com/gtk2k/items/18575dcc2b5d7ad65368)
+[Unity WebGL で canvas で文字を描画する - Qiita](https://qiita.com/gtk2k/items/18575dcc2b5d7ad65368)
 
 UnityのWebGLアプリケーションで、TextMeshProなどを用いずにcanvasで文字を描画する方法の紹介とメリット・デメリットについてまとめています。
 
@@ -294,4 +294,6 @@ URPのShader Graphからマテリアルプロパティのインスペクター�
 [KLab/wsnet2: モバイルオンラインゲーム向けのリアルタイム通信システム](https://github.com/KLab/wsnet2)
 
 WebSocketベースなモバイルゲーム向けリアルタイム通信システム。クライアントにUnity実装が用意されています。
+
+��
 
