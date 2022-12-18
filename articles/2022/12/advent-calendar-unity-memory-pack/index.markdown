@@ -3,7 +3,7 @@ type: "tech"
 title: "UnityでMemoryPackを利用してみる"
 description: "Unityで、C#に特化した高速なシリアライザーであるMemoryPackを導入する方法についてまとめています。"
 tags: ["Unity","MemoryPack"]
-date: "2022-12-19T00:00:00"
+date: "2022-12-18T15:00:00"
 
 ---
 
