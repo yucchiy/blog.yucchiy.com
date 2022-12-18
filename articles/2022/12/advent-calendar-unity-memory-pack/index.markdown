@@ -3,7 +3,7 @@ type: "tech"
 title: "UnityでMemoryPackを利用してみる"
 description: "Unityで、C#に特化した高速なシリアライザーであるMemoryPackを導入する方法についてまとめています。"
 tags: ["Unity","MemoryPack"]
-date: "2022-12-18T15:00:00"
+date: "2022-12-19T00:00:00"
 
 ---
 
@@ -28,7 +28,7 @@ MemoryPackの特徴として、他シリアライザーと比べて処理が速�
 * [C#11 による世界最速バイナリシリアライザー「MemoryPack」の作り方 - Speaker Deck](https://speakerdeck.com/neuecc/c-number-11-niyorushi-jie-zui-su-bainarisiriaraiza-memorypack-nozuo-rifang)
 MemoryPackは「Zero encoding extreme performance binary serializer for C# and Unity.」ということで、つまりシリアライズのために他シリアライザーで一般的に行われるようなエンコーディングをC#に特化したバイナリフォーマットを選定によって避け、その高速化を実現しています。
 
-通常シリアライザーは、シリアライズしたいインスタンスの各メンバーを何かしらのテキストまたはバイナリ表現に変換します（エンコーディング）。たとえば`int`のシリアライズでは、JSONでは数値を1~11バイトの文字列として、MessagepackやProtocol Buffersなどのシリアライザーでは、サイズ節約のために1~5バイトの可変長なバイナリとしてエンコーディングします（著者の[ブログから引用](https://neue.cc/2022/11/04_memorypack.html)させていただいています）。
+通常シリアライザーは、シリアライズしたいインスタンスの各メンバーを何かしらのテキストまたはバイナリ表現に変換します（エンコーディング）。たとえば`int`のシリアライズでは、JSONでは数値を1〜11バイトの文字列として、MessagepackやProtocol Buffersなどのシリアライザーでは、サイズ節約のために1〜5バイトの可変長なバイナリとしてエンコーディングします（著者の[ブログから引用](https://neue.cc/2022/11/04_memorypack.html)させていただいています）。
 
 一方MemoryPackでは、インスタンスのメモリ上のデータを直接引っ張ってきます。そのため、たとえば`int`は、C#のメモリ表現をそのままコピーしてくるので4バイト固定のシリアライズになります。
 
