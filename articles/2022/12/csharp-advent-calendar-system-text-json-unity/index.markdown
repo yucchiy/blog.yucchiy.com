@@ -404,21 +404,21 @@ public void SimplePerson_Serialize_SourceGenerator_Check()
 
 まずシリアライズについてです。単位はミリ秒です。それぞれのクラスで最も速かったシリアライズに対して**太字**を付けました。
 
-|                            |     `Person` |   `Primitives` |     `NestCase` |
-| :------------------------- | -----------: | -------------: | -------------: |
-| `JsonSerializer`           |       3.93   |        18.66   |        66.15   |
-| `JsonSerializerSrcGen`     |       1.84   |         7.93   |        30.76   |
-| `JsonSerializerSrcGenUtf8` |     **1.80** |         7.45   |      **28.92** |
-| `JsonUtility`              |       2.86   |       **5.67** |        29.94   |
+|                          |    Person | Primitives |  NestCase |
+| :----------------------- | --------: | ---------: | --------: |
+| JsonSerializer           |    3.93   |    18.66   |   66.15   |
+| JsonSerializerSrcGen     |    1.84   |     7.93   |   30.76   |
+| JsonSerializerSrcGenUtf8 |  **1.80** |     7.45   | **28.92** |
+| JsonUtility              |    2.86   |   **5.67** |   29.94   |
 
 次にデシリアライズです。
 
-|                            | `Person` | `Primitives` | `NestCase` |
-| :------------------------- | -------: | -----------: | ---------: |
-| `JsonSerializer`           |   3.63   |       7.93   |    47.20   |
-| `JsonSerializerSrcGen`     |   1.44   |       7.27   |    45.24   |
-| `JsonSerializerSrcGenUtf8` | **1.29** |       6.89   |    44.08   |
-| `JsonUtility`              |   2.91   |     **4.86** |  **28.48** |
+|                          |  Person  |  Primitives  |  NestCase  |
+| :----------------------- | -------: | -----------: | ---------: |
+| JsonSerializer           |   3.63   |       7.93   |    47.20   |
+| JsonSerializerSrcGen     |   1.44   |       7.27   |    45.24   |
+| JsonSerializerSrcGenUtf8 | **1.29** |       6.89   |    44.08   |
+| JsonUtility              |   2.91   |     **4.86** |  **28.48** |
 
 上記の結果から、下記のことが言えそうです。
 
