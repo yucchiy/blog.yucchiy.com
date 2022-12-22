@@ -406,21 +406,49 @@ public void SimplePerson_Serialize_SourceGenerator_Check()
 
 まずシリアライズについてです。単位はミリ秒です。それぞれのクラスで最も速かったシリアライズに対して**太字**を付けました。
 
-|                          |    Person | Primitives |  NestCase |
-| :----------------------- | --------: | ---------: | --------: |
-| JsonSerializer           |    3.93   |    18.66   |   66.15   |
-| JsonSerializerSrcGen     |    1.84   |     7.93   |   30.76   |
-| JsonSerializerSrcGenUtf8 |  **1.80** |     7.45   | **28.92** |
-| JsonUtility              |    2.86   |   **5.67** |   29.94   |
+|                          |    Person |
+| :----------------------- | --------: |
+| JsonSerializer           |    3.93   |
+| JsonSerializerSrcGen     |    1.84   |
+| JsonSerializerSrcGenUtf8 |  **1.80** |
+| JsonUtility              |    2.86   |
+                                 
+|                          | Primitives |
+| :----------------------- | ---------: |
+| JsonSerializer           |    18.66   |
+| JsonSerializerSrcGen     |     7.93   |
+| JsonSerializerSrcGenUtf8 |     7.45   |
+| JsonUtility              |   **5.67** |
+                                 
+|                          |  NestCase |
+| :----------------------- | --------: |
+| JsonSerializer           |   66.15   |
+| JsonSerializerSrcGen     |   30.76   |
+| JsonSerializerSrcGenUtf8 | **28.92** |
+| JsonUtility              |   29.94   |
 
 次にデシリアライズです。
 
-|                          |  Person  |  Primitives  |  NestCase  |
-| :----------------------- | -------: | -----------: | ---------: |
-| JsonSerializer           |   3.63   |       7.93   |    47.20   |
-| JsonSerializerSrcGen     |   1.44   |       7.27   |    45.24   |
-| JsonSerializerSrcGenUtf8 | **1.29** |       6.89   |    44.08   |
-| JsonUtility              |   2.91   |     **4.86** |  **28.48** |
+|                          |  Person  |
+| :----------------------- | -------: |
+| JsonSerializer           |   3.63   |
+| JsonSerializerSrcGen     |   1.44   |
+| JsonSerializerSrcGenUtf8 | **1.29** |
+| JsonUtility              |   2.91   |
+
+|                          | Primitives  |
+| :----------------------- |-----------: |
+| JsonSerializer           |      7.93   |
+| JsonSerializerSrcGen     |      7.27   |
+| JsonSerializerSrcGenUtf8 |      6.89   |
+| JsonUtility              |    **4.86** |
+
+|                          |  NestCase  |
+| :----------------------- | ---------: |
+| JsonSerializer           |    47.20   |
+| JsonSerializerSrcGen     |    45.24   |
+| JsonSerializerSrcGenUtf8 |    44.08   |
+| JsonUtility              |  **28.48** |
 
 上記の結果から、下記のことが言えそうです。
 
