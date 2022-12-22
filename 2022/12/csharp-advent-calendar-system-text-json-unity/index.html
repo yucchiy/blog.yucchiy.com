@@ -1,0 +1,605 @@
+<!DOCTYPE html><html lang="ja"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="twitter:image" content="https://blog.yucchiy.com/static/defaultImage-f5bea02abcd0450bed97462f084558b8.png"/><meta data-react-helmet="true" name="twitter:site" content="@yucchiy_"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="og:image" content="https://blog.yucchiy.com/static/defaultImage-f5bea02abcd0450bed97462f084558b8.png"/><meta data-react-helmet="true" name="og:url" content="https://blog.yucchiy.com/2022/12/csharp-advent-calendar-system-text-json-unity/"/><meta data-react-helmet="true" name="og:description" content="UnityでSource Generator対応したSystem.Text.Jsonについて、その紹介と導入方法、シリアライズとデシリアライズ方法、パフォーマンスに比較、いくつかの最適化手法について紹介します。"/><meta data-react-helmet="true" name="og:title" content="System.Text.Jsonのソース生成をUnityで試す | Yucchiy&#x27;s Note"/><meta data-react-helmet="true" name="description" content="UnityでSource Generator対応したSystem.Text.Jsonについて、その紹介と導入方法、シリアライズとデシリアライズ方法、パフォーマンスに比較、いくつかの最適化手法について紹介します。"/><meta name="generator" content="Gatsby 4.16.0"/><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Yucchiy&#x27;s Note" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=ced7ce5d16d58390b9715f99f691b449" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><title data-react-helmet="true">System.Text.Jsonのソース生成をUnityで試す | Yucchiy&#x27;s Note</title><style data-href="/styles.d8874a0c8cedd632d81a.css" data-identity="gatsby-global-css">/*
+! tailwindcss v3.1.2 | MIT License | https://tailwindcss.com
+*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{color:#9ca3af;opacity:1}input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#9ca3af;opacity:1}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.prose{color:var(--tw-prose-body);max-width:65ch}.prose :where([class~=lead]):not(:where([class~=not-prose] *)){color:var(--tw-prose-lead);font-size:1.25em;line-height:1.6;margin-bottom:1.2em;margin-top:1.2em}.prose :where(a):not(:where([class~=not-prose] *)){color:var(--tw-prose-links);font-weight:500;text-decoration:underline}.prose :where(strong):not(:where([class~=not-prose] *)){color:var(--tw-prose-bold);font-weight:600}.prose :where(ol):not(:where([class~=not-prose] *)){list-style-type:decimal;padding-left:1.625em}.prose :where(ol[type=A]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=A s]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a s]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=I]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type=I s]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i s]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type="1"]):not(:where([class~=not-prose] *)){list-style-type:decimal}.prose :where(ul):not(:where([class~=not-prose] *)){list-style-type:disc;padding-left:1.625em}.prose :where(ol>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-counters);font-weight:400}.prose :where(ul>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-bullets)}.prose :where(hr):not(:where([class~=not-prose] *)){border-color:var(--tw-prose-hr);border-top-width:1px;margin-bottom:3em;margin-top:3em}.prose :where(blockquote):not(:where([class~=not-prose] *)){border-left-color:var(--tw-prose-quote-borders);border-left-width:.25rem;color:var(--tw-prose-quotes);font-style:italic;font-weight:500;margin-bottom:1.6em;margin-top:1.6em;padding-left:1em;quotes:"\201C""\201D""\2018""\2019"}.prose :where(blockquote p:first-of-type):not(:where([class~=not-prose] *)):before{content:open-quote}.prose :where(blockquote p:last-of-type):not(:where([class~=not-prose] *)):after{content:close-quote}.prose :where(h1):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.5rem;font-weight:800;line-height:2rem;margin-bottom:.8888889em;margin-top:0}.prose :where(h1 strong):not(:where([class~=not-prose] *)){font-weight:900}.prose :where(h2):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.25rem;font-weight:700;line-height:1.75rem;margin-bottom:1em;margin-top:2em}.prose :where(h2 strong):not(:where([class~=not-prose] *)){font-weight:800}.prose :where(h3):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.125rem;font-weight:600;line-height:1.75rem;margin-bottom:.6em;margin-top:1.6em}.prose :where(h3 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(h4):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;line-height:1.5;margin-bottom:.5em;margin-top:1.5em}.prose :where(h4 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(figure>*):not(:where([class~=not-prose] *)){margin-bottom:0;margin-top:0}.prose :where(figcaption):not(:where([class~=not-prose] *)){color:var(--tw-prose-captions);font-size:.875em;line-height:1.4285714;margin-top:.8571429em}.prose :where(code):not(:where([class~=not-prose] *)){color:var(--tw-prose-code);font-size:.875em;font-weight:600}.prose :where(code):not(:where([class~=not-prose] *)):before{content:"`"}.prose :where(code):not(:where([class~=not-prose] *)):after{content:"`"}.prose :where(a code):not(:where([class~=not-prose] *)){color:var(--tw-prose-links)}.prose :where(pre):not(:where([class~=not-prose] *)){background-color:var(--tw-prose-pre-bg);border-radius:.375rem;color:var(--tw-prose-pre-code);font-size:.875em;font-weight:400;line-height:1.7142857;margin-bottom:1.7142857em;margin-top:1.7142857em;overflow-x:auto;padding:.8571429em 1.1428571em}.prose :where(pre code):not(:where([class~=not-prose] *)){background-color:transparent;border-radius:0;border-width:0;color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;padding:0}.prose :where(pre code):not(:where([class~=not-prose] *)):before{content:none}.prose :where(pre code):not(:where([class~=not-prose] *)):after{content:none}.prose :where(table):not(:where([class~=not-prose] *)){font-size:.875em;line-height:1.7142857;margin-bottom:2em;margin-top:2em;table-layout:auto;text-align:left;width:100%}.prose :where(thead):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-th-borders);border-bottom-width:1px}.prose :where(thead th):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;padding-bottom:.5714286em;padding-left:.5714286em;padding-right:.5714286em;vertical-align:bottom}.prose :where(tbody tr):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-td-borders);border-bottom-width:1px}.prose :where(tbody tr:last-child):not(:where([class~=not-prose] *)){border-bottom-width:0}.prose :where(tbody td):not(:where([class~=not-prose] *)){padding:.5714286em;vertical-align:baseline}.prose{--tw-prose-body:#374151;--tw-prose-headings:#111827;--tw-prose-lead:#4b5563;--tw-prose-links:#111827;--tw-prose-bold:#111827;--tw-prose-counters:#6b7280;--tw-prose-bullets:#d1d5db;--tw-prose-hr:#e5e7eb;--tw-prose-quotes:#111827;--tw-prose-quote-borders:#e5e7eb;--tw-prose-captions:#6b7280;--tw-prose-code:#111827;--tw-prose-pre-code:#e5e7eb;--tw-prose-pre-bg:#1f2937;--tw-prose-th-borders:#d1d5db;--tw-prose-td-borders:#e5e7eb;--tw-prose-invert-body:#d1d5db;--tw-prose-invert-headings:#fff;--tw-prose-invert-lead:#9ca3af;--tw-prose-invert-links:#fff;--tw-prose-invert-bold:#fff;--tw-prose-invert-counters:#9ca3af;--tw-prose-invert-bullets:#4b5563;--tw-prose-invert-hr:#374151;--tw-prose-invert-quotes:#f3f4f6;--tw-prose-invert-quote-borders:#374151;--tw-prose-invert-captions:#9ca3af;--tw-prose-invert-code:#fff;--tw-prose-invert-pre-code:#d1d5db;--tw-prose-invert-pre-bg:rgba(0,0,0,.5);--tw-prose-invert-th-borders:#4b5563;--tw-prose-invert-td-borders:#374151;font-size:1rem;line-height:1.75}.prose :where(p):not(:where([class~=not-prose] *)){margin-bottom:1.25em;margin-top:1.25em}.prose :where(img):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(video):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(figure):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(h2 code):not(:where([class~=not-prose] *)){font-size:.875em}.prose :where(h3 code):not(:where([class~=not-prose] *)){font-size:.9em}.prose :where(li):not(:where([class~=not-prose] *)){margin-bottom:.5em;margin-top:.5em}.prose :where(ol>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose :where(ul>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose>:where(ul>li p):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose>:where(ul>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ul>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose>:where(ol>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ol>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose :where(ul ul,ul ol,ol ul,ol ol):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose :where(hr+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h2+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h3+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h4+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(thead th:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(thead th:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose :where(tbody td:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(tbody td:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose>:where(:first-child):not(:where([class~=not-prose] *)){margin-top:0}.prose>:where(:last-child):not(:where([class~=not-prose] *)){margin-bottom:0}.mx-auto{margin-left:auto;margin-right:auto}.my-6{margin-bottom:1.5rem;margin-top:1.5rem}.my-auto{margin-bottom:auto;margin-top:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.mt-20{margin-top:5rem}.mb-6{margin-bottom:1.5rem}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.block{display:block}.flex{display:flex}.min-h-screen{min-height:100vh}.max-w-3xl{max-width:48rem}.max-w-none{max-width:none}.flex-grow{flex-grow:1}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.justify-start{justify-content:flex-start}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-2{gap:.5rem}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81/var(--tw-border-opacity))}.border-pink-500{--tw-border-opacity:1;border-color:rgb(236 72 153/var(--tw-border-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity))}.p-6{padding:1.5rem}.py-8{padding-bottom:2rem;padding-top:2rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-bottom:.5rem;padding-top:.5rem}.py-10{padding-top:2.5rem}.pb-10,.py-10{padding-bottom:2.5rem}.pt-10{padding-top:2.5rem}.text-center{text-align:center}.font-serif{font-family:ui-serif,Georgia,Cambria,Times New Roman,Times,serif}.text-sm{font-size:.875rem;line-height:1.25rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-xs{font-size:.75rem;line-height:1rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.font-medium{font-weight:500}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity))}.text-pink-500{--tw-text-opacity:1;color:rgb(236 72 153/var(--tw-text-opacity))}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-text-decoration-color,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-text-decoration-color,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}.duration-150,.transition{transition-duration:.15s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}html{font-family:-apple-system,Meiryo,"sans-serif"}body{word-wrap:break-word}.gatsby-resp-image-figcaption{text-align:center}.gatsby-highlight code[class*=language-],.gatsby-highlight pre[class*=language-]{font-size:.8rem}.last\:mb-0:last-child{margin-bottom:0}.hover\:bg-black:hover{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity))}.hover\:bg-opacity-5:hover{--tw-bg-opacity:0.05}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:no-underline:hover{-webkit-text-decoration-line:none;text-decoration-line:none}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.prose-a\:text-emerald-600 :is(:where(a):not(:where([class~=not-prose] *))){--tw-text-opacity:1;color:rgb(5 150 105/var(--tw-text-opacity))}@media (min-width:640px){.sm\:mx-auto{margin-left:auto;margin-right:auto}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><style type="text/css">
+    .header-link.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .header-link.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .header-link svg,
+    h2 .header-link svg,
+    h3 .header-link svg,
+    h4 .header-link svg,
+    h5 .header-link svg,
+    h6 .header-link svg {
+      visibility: hidden;
+    }
+    h1:hover .header-link svg,
+    h2:hover .header-link svg,
+    h3:hover .header-link svg,
+    h4:hover .header-link svg,
+    h5:hover .header-link svg,
+    h6:hover .header-link svg,
+    h1 .header-link:focus svg,
+    h2 .header-link:focus svg,
+    h3 .header-link:focus svg,
+    h4 .header-link:focus svg,
+    h5 .header-link:focus svg,
+    h6 .header-link:focus svg {
+      visibility: visible;
+    }
+  </style></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="flex flex-col bg-slate-100 min-h-screen"><div class="container max-w-3xl mx-auto pb-10 pt-10"><h3 class="text-2xl font-bold text-center"><a class="hover:no-underline text-gray-900 font-serif" href="/">Yucchiy&#x27;s Note</a></h3></div><main class="flex-grow"><div class="container bg-white rounded shadow hover:shadow-md max-w-3xl mx-auto p-6"><article><header class="mb-6"><div><time class="text-sm text-gray-500 mb-1">December 22, 2022</time><h1 class="text-xl font-semibold text-gray-700 mb-2">System.Text.Jsonのソース生成をUnityで試す</h1><div class="flex flex-wrap justify-start gap-2"><a class="px-4 py-2 border border-pink-500 text-pink-500 font-medium text-xs leanding-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out hover:no-underline" href="/tags/unity/">Unity</a><a class="px-4 py-2 border border-pink-500 text-pink-500 font-medium text-xs leanding-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out hover:no-underline" href="/tags/c/">C#</a></div></div></header><div class=" prose max-w-none prose-a:text-emerald-600 "><p>この記事は<a href="https://qiita.com/advent-calendar/2022/csharplang">C# Advent Calendar 2022</a>の23日目の記事です。</p>
+<p>Unity 2021.2 から Source Generatorが利用できるようになりました。</p>
+<p>これによってUnityでも、Microsoftが提供するJsonシリアライザー <code>System.Text.Json</code> のソース生成を利用できるようになりました。</p>
+<p><code>System.Text.Json</code> のソース生成は、C#のSource Generatorを用いてシリアライズおよびデシリアライズのコードをビルド時に生成することで、シリアライザーのパフォーマンスを向上させるものです。</p>
+<p><a href="https://devblogs.microsoft.com/dotnet/try-the-new-system-text-json-source-generator/">Try the new System.Text.Json source generator - .NET Blog</a></p>
+<p>この記事では、Unityで <code>System.Text.Json</code> のソース生成を利用するための環境構築と、実際にコード生成を用いたJSONシリアライズ・デシリアライズの動作確認、最後にUnityアプリとして実機で動かしてそのパフォーマンスを比較してみます。あわせてUnity公式が提供するJSONシリアライザーの <code>JsonUtility</code> ともパフォーマンスの比較を行ってみます。</p>
+<p>検証環境は以下の通りです。</p>
+<ul>
+<li>macOS Monterey 12.5</li>
+<li>MacBookPro（2018）、2.9GHz 6-Core Intel Core i9、32GB</li>
+<li>Unity 2021.3.14f1</li>
+<li>Rider 2022.2</li>
+<li>iPhone X</li>
+</ul>
+<h2 id="systemtextjsonをunityに導入する" style="position:relative;"><a href="#systemtextjson%E3%82%92unity%E3%81%AB%E5%B0%8E%E5%85%A5%E3%81%99%E3%82%8B" aria-label="systemtextjsonをunityに導入する permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>System.Text.JsonをUnityに導入する</h2>
+<p>前述の通り、Unity 2021.2からSource Generatorが利用できるようになりました。</p>
+<p><a href="https://docs.unity3d.com/2021.3/Documentation/Manual/roslyn-analyzers.html">Unity - Manual: Roslyn analyzers and source generators</a></p>
+<p>Unityでは現状<code>System.Text.Json</code>の 6.0.0-previewが利用できます。下記はドキュメントからの抜粋です。</p>
+<p>このバージョンから、ソース生成によるシリアライズとデシリアライズがサポートされています。ちなみに6.0.0でのソース生成は、Unityがサポートしている<a href="https://www.nuget.org/packages/Microsoft.CodeAnalysis.CSharp/3.8.0">Microsoft.CodeAnalysis 3.8</a>よりも後のバージョン（3.11）が利用されているため利用できないようです（おそらく）。</p>
+<p>Unityで<code>System.Text.Json</code>を利用するには、<code>System.Text.Json</code>本体とそれが依存するパッケージをすべてnugetから持ってくる必要があります。具体的には下記のパッケージをすべてインストールする必要があります。</p>
+<ul>
+<li><a href="https://www.nuget.org/packages/System.Text.Json/6.0.0-preview.7.21377.19">System.Text.Json</a></li>
+<li><a href="https://www.nuget.org/packages/System.Text.Encodings.Web/6.0.0-preview.7.21377.19">System.Text.Encodings.Web</a></li>
+<li><a href="https://www.nuget.org/packages/System.Runtime.CompilerServices.Unsafe/">System.Runtime.CompilerServices.Unsafe</a></li>
+<li><a href="https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces/6.0.0">Microsoft.Bcl.AsyncInterfaces</a></li>
+</ul>
+<p>それぞれ上記のページに飛んで「Download package」をクリックしてnupkgを落としてきます。</p>
+<p>次にnupkgをzipとして解凍します。Macであればファイル名末尾にzipを付けたあとにそのファイルをダブルクリックで解凍できます。解凍後のフォルダをひらくと、<code>lib/netstandard2.0</code>または <code>lib/netstandard2.1</code>フォルダ内にパッケージ名と同じ名前のdllがあるので、Unityプロジェクト配下に配置します（下図は<code>System.Text.Json</code>パッケージの例）。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 757px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f25ae9e4b5757e419b0ee0689034ab00/1fbe8/09ACD05FCE95B9E3B2D55CB764D9B6D7.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 40%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABfElEQVQoz12Py27UQBBF/f2DFEVKxCZrpGSIFFiwzBcgkWxgwTywJ35022177Ha/G92oa2AEWRxV162q21XZ2M9YZoO65Mj3LzjkFYpfJV6KGkVeUn7IS4h2RN8dMY0LWtaDN4K0RMrlpKmeaeMg+gFGG4QQ4ZwnvPOw1sH7QPk0zUTwATFEaG1Ij/E3FrnQbNKzblIoqgZSzpjmGcYk4wAfwjl67zGMA4ZhgFIKPnhCaUV50mcpYaxFdhAznn78xG67Qdt1UFrDWkvFxN83YxydEFiUOuvJTEoJxjnG4xFaa2TbUuD5+wacs9MZ3lOzdY5OPsVkyMB5Swak/UEuC+qmoS2dc8jaSePrpkTLGXyI583ekobShm91bQzVknH6IJuNxbd9jf1uA8YahOAQE/EfgkMvWkzT8H8tOOrvRQdrFGL0yD48dlitc1x93OJyvcPNF4aL+xqr2wrv7iqs7lKscbEucP1Q4uqhOem3FfW9/9zg8v6A60/pzfAKKA5XQ6hQGo0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="09ACD05FCE95B9E3B2D55CB764D9B6D7"
+        title="09ACD05FCE95B9E3B2D55CB764D9B6D7"
+        src="/static/f25ae9e4b5757e419b0ee0689034ab00/1fbe8/09ACD05FCE95B9E3B2D55CB764D9B6D7.png"
+        srcset="/static/f25ae9e4b5757e419b0ee0689034ab00/772e8/09ACD05FCE95B9E3B2D55CB764D9B6D7.png 200w,
+/static/f25ae9e4b5757e419b0ee0689034ab00/e17e5/09ACD05FCE95B9E3B2D55CB764D9B6D7.png 400w,
+/static/f25ae9e4b5757e419b0ee0689034ab00/1fbe8/09ACD05FCE95B9E3B2D55CB764D9B6D7.png 757w"
+        sizes="(max-width: 757px) 100vw, 757px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>上記のDLLをすべてUnityプロジェクトに配置すると、いままでのリフレクションベースな <code>System.Text.Json</code>が利用できます。下記コードのように<code>JsonSerializer</code>の<code>Serialize</code>と<code>Deserialize</code>を呼び出すことで、クラスとJSONの相互変換ができます。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">int</span></span> Age <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> Name <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Person</span>
+<span class="token punctuation">{</span>
+    Age <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">,</span>
+    Name <span class="token operator">=</span> <span class="token string">"John"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// シリアライズ</span>
+<span class="token class-name"><span class="token keyword">var</span></span> json <span class="token operator">=</span> JsonSerializer<span class="token punctuation">.</span><span class="token function">Serialize</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {"Age":40,"Name":"John"}</span>
+Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">$"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">json</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// デシリアライズ</span>
+<span class="token class-name"><span class="token keyword">var</span></span> val <span class="token operator">=</span> JsonSerializer<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Deserialize</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Person<span class="token punctuation">></span></span></span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 40, John</span>
+Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">$"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">val<span class="token punctuation">.</span>Age</span><span class="token punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">val<span class="token punctuation">.</span>Name</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>次に、<code>System.Text.Json</code>のソース生成機能をUnityに持ってきます。さきほど解凍した<code>System.Text.Json</code>のnupkgの中に、下図のようにSystem.Text.Json.SourceGeneration.dllがあるので、これをUnityプロジェクトに配置します。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 585px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5ceecd61553cd2cc6a19109208384718/78a22/62E0EC4E0F305E035E1C50CA79BE7EA6.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 51.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXklEQVQoz5XS3UobQRjG8blyD3oDhV5BoRILgtVCoUW7Ww8KBSExtiSiSbNfNibrzuxnZrOz2X+JRlEJRAd+88x7Ng8zQskYGSmW6boenus/4XsBruPdpuf5BP7d7IxckjglS3PSJCNN7whjalSSEIYhj1fTLLcVnp1Xc10vqOv6CSFzzeU4Io0VuiwpigKtNcYYKlNR3eZ6Zg0xTQpOzh3+/D5jOHLxgysm4Q0zPaeYaYpZ+SB/AUEz5+JG8tcbYbRa9aqBag2zkbDbCW9a17w9CNg9VuzYMR8OI7aPJC1LsmMrPtqK998i3u2HGwmrq9hqDflsDdj+0mfvR4B1mmOf5lidjKN2wvdOwteTmE8/FfsbiOU1PSnpXfQZ+wOmY4dKx5SFpDH5qsorKlflnK4z4Ve7S6/X53IwZDINCa7+EUnFrLx/nJcRMlScdc4ZT67JsuzZX2yoFwsWr/Af63nukqdzDnkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="62E0EC4E0F305E035E1C50CA79BE7EA6"
+        title="62E0EC4E0F305E035E1C50CA79BE7EA6"
+        src="/static/5ceecd61553cd2cc6a19109208384718/78a22/62E0EC4E0F305E035E1C50CA79BE7EA6.png"
+        srcset="/static/5ceecd61553cd2cc6a19109208384718/772e8/62E0EC4E0F305E035E1C50CA79BE7EA6.png 200w,
+/static/5ceecd61553cd2cc6a19109208384718/e17e5/62E0EC4E0F305E035E1C50CA79BE7EA6.png 400w,
+/static/5ceecd61553cd2cc6a19109208384718/78a22/62E0EC4E0F305E035E1C50CA79BE7EA6.png 585w"
+        sizes="(max-width: 585px) 100vw, 585px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>次にプロジェクトビューでSystem.Text.Json.SourceGenerator.dllを選択して、インスペクター上で下記の設定を行います。</p>
+<ol>
+<li>「Select platforms for plugin」ですべてのプラットフォームのチェックを外す</li>
+<li>「Asset Labels」に「RoslynAnalyzer」を設定する</li>
+</ol>
+<p>具体的には、下図のように設定します。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 762px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5a9a066a8b653955be6a35e758a44805/a016c/B102B22AF45A7E5C6473C0DB73AD26C6.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 91.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAACaElEQVQ4y5WUT2sTQRjG34r2C9hubcjBbDbzP5mdTXZTCYVQhKZSD+Kn8CIeeq9+CkEw4EUq+G0qRcEk5FIvRfBm2DQj7ySzJLXYuvDj3Xdn9tlnHmYWTp7uwYukXj04kIcPFd2XTPS4ED0hRI9z7uh2uw7fL48JIfaFEIeMMdLpdADevnoJu1q/6+ymVmhtKSGWUuoghDjq9brD937cz8EaRdHHo6MjAGstcKXeZ9mO1Vr/VkpNESnldPleCFH0CGNsSimdEkImaZpaKeUJAKzBr4sLiKKor7W2jLGcMTbjnBdc7ZefL8byJElwBZ+c4NnZGVQqlb4xxhpjciEE2nfUarUbiaIoxyqEmAsOh0MIw9A5jOM4x4p5Mcb+yus6CCE55xyXPBccDAZOsNls2jRNcxRDlyi2cHCTyxyFC4ej0cgJLnLADG21Wi2Elu99FFdYFRyPx06w0Wg4+2EYrjhDQS96K0GfYRzHzqFS6sbcbp1hlmU5CkspbwVmrZRyuReCp6enbtssvpj703D1VCz3mDNWXE2r1cpxYyul5oLn5z8grFadQ1zywr6bjHg3vkdX/iPeIW61QvD7ty8QhpV+MzFWSZkbY2btdnvWaDRmUsoVlFLulFBK3SnBihmiY87ZXBDPMqGi38w61rR2JpzzSynlJVZK6bUwxpb7CefCRjU6F/z60wLh+kOcda0yj6zWcfF3+Re4zeLY4A/F6jixop58Bn8Fmxt75dKD18Hm/eNyuXy8tbVVEATBCv4ZVpxbKpWOt7e33wTBxj4A3IHnzw7BWQW4CwDrAHDvP1lfvLv2pPcY/gBuj8wyt3MEXQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="B102B22AF45A7E5C6473C0DB73AD26C6"
+        title="B102B22AF45A7E5C6473C0DB73AD26C6"
+        src="/static/5a9a066a8b653955be6a35e758a44805/a016c/B102B22AF45A7E5C6473C0DB73AD26C6.png"
+        srcset="/static/5a9a066a8b653955be6a35e758a44805/772e8/B102B22AF45A7E5C6473C0DB73AD26C6.png 200w,
+/static/5a9a066a8b653955be6a35e758a44805/e17e5/B102B22AF45A7E5C6473C0DB73AD26C6.png 400w,
+/static/5a9a066a8b653955be6a35e758a44805/a016c/B102B22AF45A7E5C6473C0DB73AD26C6.png 762w"
+        sizes="(max-width: 762px) 100vw, 762px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>これでソース生成を含めた<code>System.Text.Json</code>の導入が完了しました。</p>
+<h2 id="ソース生成でのjson" style="position:relative;"><a href="#%E3%82%BD%E3%83%BC%E3%82%B9%E7%94%9F%E6%88%90%E3%81%A7%E3%81%AEjson" aria-label="ソース生成でのjson permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ソース生成でのJSON</h2>
+<p>のシリアライズ・デシリアライズを試す</p>
+<p>それではSource Generatorでのソース生成とシリアライズ・デシリアライズを試してみます。ソース生成経由でのシリアライズは、下記ドキュメントに詳細が記載されています。</p>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/source-generation?pivots=dotnet-6-0">How to use source generation in System.Text.Json | Microsoft Learn</a></p>
+<p>また、下記ブログでも利用方法が説明されています。</p>
+<p><a href="https://devblogs.microsoft.com/dotnet/try-the-new-system-text-json-source-generator/">Try the new System.Text.Json source generator - .NET Blog</a></p>
+<p>実際に、先程の<code>Person</code>クラスをソース生成経由でシリアライズとデシリアライズしてみます。大まかには下記の手順です。</p>
+<ol>
+<li><code>JsonSerializeContext</code>を継承したpartialなクラスを作る</li>
+<li>1.で作ったクラスに<code>JsonSerializable</code>属性を指定する</li>
+<li>2.で作成したクラスにSource Generator経由で<code>JsonTypeInfo&#x3C;T></code>の実装などが生成されるので、それをシリアライズ・デシリアライズの引数に渡す</li>
+</ol>
+<p>具体的には、シリアライズしたいクラスをさきほどの<code>Person</code>として、下記のようなクラスを用意します。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">JsonSerializable</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token keyword">typeof</span><span class="token punctuation">(</span><span class="token type-expression class-name">Person</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+<span class="token keyword">internal</span> <span class="token keyword">partial</span> <span class="token keyword">class</span> <span class="token class-name">PersonJsonContext</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">JsonSerializerContext</span></span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre></div>
+<p>このクラスを用いて、ソース生成を用いたシリアライズは下記のように行います。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token class-name"><span class="token keyword">var</span></span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Person</span>
+<span class="token punctuation">{</span>
+    Age <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">,</span>
+    Name <span class="token operator">=</span> <span class="token string">"John"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// シリアライズ</span>
+<span class="token class-name"><span class="token keyword">var</span></span> json <span class="token operator">=</span> JsonSerializer<span class="token punctuation">.</span><span class="token function">Serialize</span><span class="token punctuation">(</span>
+    p<span class="token punctuation">,</span>
+    <span class="token comment">// 生成されたJsonTypeInfoを渡す</span>
+    PersonJsonContext<span class="token punctuation">.</span>Default<span class="token punctuation">.</span>Person
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {"Age":40,"Name":"John"}</span>
+Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">$"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">json</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// デシリアライズ</span>
+<span class="token class-name"><span class="token keyword">var</span></span> val <span class="token operator">=</span> JsonSerializer<span class="token punctuation">.</span><span class="token function">Deserialize</span><span class="token punctuation">(</span>
+    json<span class="token punctuation">,</span>
+    <span class="token comment">// こっちも同様</span>
+    PersonJsonContext<span class="token punctuation">.</span>Default<span class="token punctuation">.</span>Person
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 40, John</span>
+Debug<span class="token punctuation">.</span><span class="token function">Log</span><span class="token punctuation">(</span><span class="token interpolation-string"><span class="token string">$"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">val<span class="token punctuation">.</span>Age</span><span class="token punctuation">}</span></span><span class="token string">, </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">val<span class="token punctuation">.</span>Name</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>シリアライズおよびデシリアライズ時に生成された<code>JsonTypeInfo&#x3C;T></code>（上記だと<code>PersonJsonContext.Default.Person</code>）渡します。それ以外は特に変わりません。簡単ですね。</p>
+<h2 id="パフォーマンス比較" style="position:relative;"><a href="#%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E6%AF%94%E8%BC%83" aria-label="パフォーマンス比較 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>パフォーマンス比較</h2>
+<p>ここまででソース生成によるシリアライズとデシリアライズの方法を紹介したので、ソース生成の有無によるパフォーマンスを比較してみます。下記の３種類のクラスをそれぞれシリアライズ・デシリアライズしたときの速度を計測してみます。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// サンプルで取り上げたシンプルなケース</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">int</span></span> Age <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> Name <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 一通りの基本型を持ったクラス</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Primitives</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">short</span></span> Short <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">int</span></span> Int <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">long</span></span> Long <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">byte</span></span> Byte <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">bool</span></span> Bool <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">char</span></span> Char <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">float</span></span> Float <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">double</span></span> Double <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> String <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// クラスがネストするケース</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NestCase</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Inner</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">int</span></span> Int <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">double</span></span> Double <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> String <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token return-type class-name">Inner</span> A <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Inner</span> B <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Inner</span> C <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Inner</span> D <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Inner</span> E <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Inner</span> F <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Inner</span> G <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Inner</span> H <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name">Inner</span> I <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="実機上でのパフォーマンス計測について" style="position:relative;"><a href="#%E5%AE%9F%E6%A9%9F%E4%B8%8A%E3%81%A7%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E8%A8%88%E6%B8%AC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-label="実機上でのパフォーマンス計測について permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>実機上でのパフォーマンス計測について</h3>
+<p>計測はiOSの実機上で行います。実機上でのパフォーマンス計測には<a href="https://docs.unity3d.com/Packages/com.unity.test-framework.performance@2.8/manual/index.html">Performance Testing Extension</a>という、Unity Test Runner上でパフォーマンス計測を行ってくれるツールを用いました。</p>
+<p>たとえば下記のようなコードを記述して、</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Test</span><span class="token punctuation">,</span> <span class="token class-name">Performance</span></span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">SimplePerson_Serialize_SourceGenerator_Check</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Measure<span class="token punctuation">.</span><span class="token function">Method</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            JsonSerializer<span class="token punctuation">.</span><span class="token function">Serialize</span><span class="token punctuation">(</span>
+                PersonTests<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> PersonJsonContext<span class="token punctuation">.</span>Default<span class="token punctuation">.</span>Person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Test Runnerを実行することで、上記の<code>Measure.Method</code>に渡したメソッドの処理を、複数回実行して計測し、その平均や分散などを下図のように報告してくれます。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2c50e216244e00b3bc868ea873740d69/96220/8C9B13DD254F5B30CAA532C92A7F95E6.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHUlEQVQoz5XOy3LSUBgH8DPj0LhxXDDDoG2gkcAhFHIOuZAQUjgJCbRWF+6ccRF9i/oktLDpY6hv4cpVdXyCXhKqSDifA23xsmPxm///XL6ZD7UfSQ9fhObrmlp7V3omRxWMo0rlDsYRxjgyzVZk2XaEcTWqKkpUrf5FUaJypfJWluU3kiQ9Rk9yeXnf7fBWywRD14ASFYjaWOdeTYFGfW9l2f9XUxRoUgKGoUOhULDR0+1tbLks7rAQuv3h3GVh6np/2K6XGu1uajq91HK91N73VyyXpe1ldtjc6QULq9OdFQsFB4mFIra854k7eAW2f7Qwewe8xQ75fbZ6B7zpDnjD9nnd8jlxgjXqBLxhewvaGQBte7+KxaKDdpYbmnpiWyb4fsA9z4d+P4QwHEIQDoAxD4IghOHwEHy/v7J8X/5jzIejo5fcYwy0Jp0riuKgXUnCtbqaDIYHcHF5xZPpDcTJFJLkNuN4CtfxFH78nMF1nKx6nNys+sXlFQAA//DxEzDPm5fLZQeJoogbDTXpuC6MRiM+Ho/h9PR07f48mUz+uV86ORnB2dkZf398DI7j3G6Yy+UqhJCYEAKyLKeyLC82USqVUoyrXNO0GSGkjfL5fJVSOm82m6Dr+sYMwwBN01adEOKibDa7q6rqZ0rpd0LIOSHk64bOKaXf6vX6F1EUCUIIPchkMtuCIEhbW1u7giBs5G5GQgjtIIQyvwE6GlL+aJ05AAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="8C9B13DD254F5B30CAA532C92A7F95E6"
+        title="8C9B13DD254F5B30CAA532C92A7F95E6"
+        src="/static/2c50e216244e00b3bc868ea873740d69/5a190/8C9B13DD254F5B30CAA532C92A7F95E6.png"
+        srcset="/static/2c50e216244e00b3bc868ea873740d69/772e8/8C9B13DD254F5B30CAA532C92A7F95E6.png 200w,
+/static/2c50e216244e00b3bc868ea873740d69/e17e5/8C9B13DD254F5B30CAA532C92A7F95E6.png 400w,
+/static/2c50e216244e00b3bc868ea873740d69/5a190/8C9B13DD254F5B30CAA532C92A7F95E6.png 800w,
+/static/2c50e216244e00b3bc868ea873740d69/96220/8C9B13DD254F5B30CAA532C92A7F95E6.png 1165w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>Performance Testing Extensionについては下記の記事にてインストール方法や利用方法を記載していますので、興味があればご確認ください。</p>
+<p><a href="https://blog.yucchiy.com/2021/09/unity-performance-testing/">Performance Testing Extensionを用いてUnityで実機でパフォーマンス計測をおこなう | Yucchiy's Note</a></p>
+<h3 id="計測対象について" style="position:relative;"><a href="#%E8%A8%88%E6%B8%AC%E5%AF%BE%E8%B1%A1%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-label="計測対象について permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>計測対象について</h3>
+<p>今回は下記の４つでパフォーマンスを比較しました。</p>
+<ul>
+<li>ソースコード生成なしの<code>System.Text.Json</code>での文字列へのシリアライズとデシリアライズ</li>
+<li>ソースコード生成ありの<code>System.Text.Json</code>での文字列へのシリアライズとデシリアライズ</li>
+<li>ソースコード生成ありの<code>System.Text.Json</code>でのUTF-8 バイト配列へのシリアライズとデシリアライズ</li>
+<li><code>JsonUtility</code>での文字列へのシリアライズとデシリアライズ</li>
+</ul>
+<h3 id="jsonutilityについて" style="position:relative;"><a href="#jsonutility%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-label="jsonutilityについて permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JsonUtilityについて</h3>
+<p><code>JsonUtility</code>はUnityが標準で用意するJSONシリアライザーです。<code>System.Text.Json</code>と比べると、たとえばシリアライズの対象がシリアライズ可能なフィールドのみなどと自由度が低いというデメリットはありますが、高速にシリアライズ・デシリアライズが行えるなどのメリットがあります。</p>
+<p><a href="https://docs.unity3d.com/ja/2020.3/Manual/JSONSerialization.html">JSON 形式へのシリアル化 - Unity マニュアル</a></p>
+<p><code>JsonUtility</code>の使い方については下記の記事にて紹介していますので、こちらも興味があればご確認ください。</p>
+<p><a href="https://blog.yucchiy.com/2022/06/jsonutility-serialize-deserialize-unity-object/">JsonUtilityでオブジェクトをシリアライズしたりデシリアライズしたりする | Yucchiy's Note</a></p>
+<h3 id="serializetoutf8bytesによるutf-8バイト配列のシリアライズ" style="position:relative;"><a href="#serializetoutf8bytes%E3%81%AB%E3%82%88%E3%82%8Butf-8%E3%83%90%E3%82%A4%E3%83%88%E9%85%8D%E5%88%97%E3%81%AE%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%A9%E3%82%A4%E3%82%BA" aria-label="serializetoutf8bytesによるutf 8バイト配列のシリアライズ permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SerializeToUtf8BytesによるUTF-8バイト配列のシリアライズ</h3>
+<p><a href="https://learn.microsoft.com/ja-jp/dotnet/standard/serialization/system-text-json/how-to?pivots=dotnet-6-0#serialize-to-utf-8">C# を使用して JSON をシリアル化および逆シリアル化する方法 - .NET | Microsoft Learn</a></p>
+<p>今回<code>System.Text.Json</code>が用意する <code>JsonSerializer</code>で、UTF-8 バイト配列へのシリアライズとUTF-8 バイト配列からのデシリアライズもパフォーマンス計測の対象に入れました。</p>
+<p>C#の文字列はその内部フォーマットがUTF-16なため、たとえば <code>JsonSerializer.Serialize</code>を呼び出して結果を<code>string</code>で受け取る場合は、一度UTF-8としてシリアライズした後に<code>string</code>に変換するため際にUTF-16へのエンコーディングが行われます。</p>
+<p>JSONは文字コードがUTF-8を想定しているため、たとえばJSONフォーマットなAPI通信をUnity標準のHTTPクライアント<a href="https://docs.unity3d.com/ScriptReference/Networking.UnityWebRequest.html">UnityWebRequest</a>を用いると、下記のようなコードを書くことになります。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// requestはAPIのリクエストを表すインスタンスだとする</span>
+<span class="token comment">// シリアライズしてUTF-8バイト配列から文字列（UTF-16）に変換</span>
+<span class="token class-name"><span class="token keyword">var</span></span> json <span class="token operator">=</span> JsonSerializer<span class="token punctuation">.</span><span class="token function">Serialize</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 文字列（UTF-16）からUTF-8にバイト配列に再度変換</span>
+<span class="token class-name"><span class="token keyword">var</span></span> data <span class="token operator">=</span> System<span class="token punctuation">.</span>Text<span class="token punctuation">.</span>Encoding<span class="token punctuation">.</span>UTF8<span class="token punctuation">.</span><span class="token function">GetBytes</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ここからUnityWebRequest</span>
+<span class="token class-name"><span class="token keyword">var</span></span> uwr <span class="token operator">=</span> UnityWebRequest<span class="token punctuation">.</span><span class="token function">Post</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+uwr<span class="token punctuation">.</span>uploadHandler <span class="token operator">=</span> <span class="token punctuation">(</span>UploadHandler<span class="token punctuation">)</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">UploadHandlerRaw</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+uwr<span class="token punctuation">.</span><span class="token function">SetRequestHandler</span><span class="token punctuation">(</span><span class="token string">"Content-Type"</span><span class="token punctuation">,</span> <span class="token string">"application/json"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// リクエスト結果待ち</span>
+yeld <span class="token keyword">return</span> uwr<span class="token punctuation">.</span><span class="token function">SendWebRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>シリアライズ時にUTF-8バイト配列からUTF-16に変換したのち、さらにUTF-8バイト配列にエンコードしなおしてリクエストする必要があります。つまり文字列を挟むと2度余計な変換をしていることになります。</p>
+<p>これを<code>SerializeToUtf8Bytes</code>を用いると下記のように記述できます。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// シリアライズ結果をそのままUTF-8バイト配列を受け取る</span>
+<span class="token class-name"><span class="token keyword">var</span></span> data <span class="token operator">=</span> JsonSerializer<span class="token punctuation">.</span><span class="token function">SerializeToUtf8Bytes</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// UnityWebRequest</span>
+<span class="token class-name"><span class="token keyword">var</span></span> uwr <span class="token operator">=</span> UnityWebRequest<span class="token punctuation">.</span><span class="token function">Post</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// そのままUTF-8バイト配列を渡せる</span>
+uwr<span class="token punctuation">.</span>uploadHandler <span class="token operator">=</span> <span class="token punctuation">(</span>UploadHandler<span class="token punctuation">)</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">UploadHandlerRaw</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+uwr<span class="token punctuation">.</span>downloadHandler <span class="token operator">=</span> <span class="token punctuation">(</span>DownloadHandler<span class="token punctuation">)</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">DownloadHandlerBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+uwr<span class="token punctuation">.</span><span class="token function">SetRequestHandler</span><span class="token punctuation">(</span><span class="token string">"Content-Type"</span><span class="token punctuation">,</span> <span class="token string">"application/json"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// リクエスト結果待ち</span>
+uwr<span class="token punctuation">.</span><span class="token function">SendWebRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>このように直接UTF-8バイト配列を受け取ることで無駄なエンコーディングを省くことができます。</p>
+<p>ちなみにこれはデシリアライズ時にも同じことが言えます。  <code>UnityWebRequest</code>の<code>DownloadHandler</code>は、レスポンスを<code>data</code>と<code>text</code>とというメソッド経由で取得でき、それぞれレスポンスのコピーとレスポンス文字列に変換したデータが受け取れます。それぞれ <code>JsonSerizlier</code> でデシリアライズでの下記のコードで行えます。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// 文字列（UTF-16）をデシリアライズ</span>
+Profiler<span class="token punctuation">.</span><span class="token function">BeginSample</span><span class="token punctuation">(</span><span class="token string">"From Text"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> text <span class="token operator">=</span> handler<span class="token punctuation">.</span>text<span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> p <span class="token operator">=</span> JsonSerializer<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Deserialize</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Product<span class="token punctuation">></span></span></span><span class="token punctuation">(</span>
+    text<span class="token punctuation">,</span> ProductJsonContext<span class="token punctuation">.</span>Default<span class="token punctuation">.</span>Product<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Profiler<span class="token punctuation">.</span><span class="token function">EndSample</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// UTF-8バイト配列をデシリアライズ</span>
+<span class="token comment">// JSONの場合はUTF-8という前提で</span>
+Profiler<span class="token punctuation">.</span><span class="token function">BeginSample</span><span class="token punctuation">(</span><span class="token string">"From UTF-8 Bytes"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> utf8Bytes <span class="token operator">=</span> handler<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+p <span class="token operator">=</span> JsonSerializer<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Deserialize</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Product<span class="token punctuation">></span></span></span><span class="token punctuation">(</span>
+    utf8Bytes<span class="token punctuation">,</span>
+    ProductJsonContext<span class="token punctuation">.</span>Default<span class="token punctuation">.</span>Product<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Profiler<span class="token punctuation">.</span><span class="token function">EndSample</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p><code>text</code>をデシリアライズすると、元データ（UTF-8バイト配列）→ 文字列（UTF-16）→ UTF-8バイト配列に変換 → デシリアライズとなりますが、<code>data</code>をデシリアライズすると、UTF-8バイト配列を直接デシリアライズできるため、無駄な処理を省くことができます。</p>
+<p>ちなみに <code>DownloadHandler</code>には<code>nativeData</code>という、元データを<code>NativeArray&#x3C;byte></code>をリードオンリーで参照できるプロパティが存在します。 <code>data</code>は呼び出しごとにこの<code>nativeData</code> をコピーしてしまうのですが、 <code>nativeData</code>を参照することでコピーを避ける事ができます。また<code>JsonSerializer</code>の <code>Deserialize</code>は<code>ReadOnlySpan&#x3C;byte></code>を直接みてデシリアライズできます。</p>
+<p>これを組み合わせると、Unsafeなコードにはなりますが<code>ReadOnlySpan&#x3C;byte></code>を介して、元データのコピーを行わずそのままデシリアライズが可能です。具体的には、下記のように<code>NativeArray&#x3C;T></code>から<code>ReadOnlySpan&#x3C;T></code>を引き抜いて、それを<code>Deserialize</code>に渡すことで実現できます。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// UTF-8バイト配列を、元のデータを直接参照してデシリアライズ</span>
+<span class="token comment">// このとき元配列をコピーしないので、その分アロケーションコストが抑えられる</span>
+Profiler<span class="token punctuation">.</span><span class="token function">BeginSample</span><span class="token punctuation">(</span><span class="token string">"From UTF-8 Bytes With Native Array"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">unsafe</span>
+<span class="token punctuation">{</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> utf8BytesSpan <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">ReadOnlySpan<span class="token punctuation">&lt;</span><span class="token keyword">byte</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>
+        handler<span class="token punctuation">.</span>nativeData<span class="token punctuation">.</span><span class="token function">GetUnsafeReadOnlyPtr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        handler<span class="token punctuation">.</span>nativeData<span class="token punctuation">.</span>Length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    p <span class="token operator">=</span> JsonSerializer<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Deserialize</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Product<span class="token punctuation">></span></span></span><span class="token punctuation">(</span>
+        utf8BytesSpan<span class="token punctuation">,</span> ProductJsonContext<span class="token punctuation">.</span>Default<span class="token punctuation">.</span>Product<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+Profiler<span class="token punctuation">.</span><span class="token function">EndSample</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>上の３つのデシリアライズのプロファイリングを取ると下図のようになりました。<code>nativeData</code>経由だと、特にGC Allocが小さくなっているのが確認できます。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d6e86e797a3aa87538638513c21a79d6/66caf/ED3DEAB5B24E6396C6D5ECE01FB5237B.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 16%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAoklEQVQI1z2O2w6CMBBE+aLGXqhtuZQUFAiGiLHKk/7/V4zZTfBhs5OZ2ewpYozo+x4hBFRVhbqu4b1HWZY8pNu2hbWWc2MMtNbcI5+2c443ZYWMK4btg+HxRZh3nK8Z9vKEThtUusONGdX8hkl3hClDNDeIZmGvWXb4McOkDWF64RRXFFJKJkwpoeu6/0fyhRD8lcgOQqUUZ6Spd1DTHZH/ALjQZrZjsZjtAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ED3DEAB5B24E6396C6D5ECE01FB5237B"
+        title="ED3DEAB5B24E6396C6D5ECE01FB5237B"
+        src="/static/d6e86e797a3aa87538638513c21a79d6/5a190/ED3DEAB5B24E6396C6D5ECE01FB5237B.png"
+        srcset="/static/d6e86e797a3aa87538638513c21a79d6/772e8/ED3DEAB5B24E6396C6D5ECE01FB5237B.png 200w,
+/static/d6e86e797a3aa87538638513c21a79d6/e17e5/ED3DEAB5B24E6396C6D5ECE01FB5237B.png 400w,
+/static/d6e86e797a3aa87538638513c21a79d6/5a190/ED3DEAB5B24E6396C6D5ECE01FB5237B.png 800w,
+/static/d6e86e797a3aa87538638513c21a79d6/66caf/ED3DEAB5B24E6396C6D5ECE01FB5237B.png 853w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>余談ですが、 Unity 2022.2では <code>NativeArray&#x3C;T></code>から<code>Span&#x3C;T></code>を生成するAPIが用意されました。</p>
+<p><a href="https://docs.unity3d.com/2022.2/Documentation/ScriptReference/Unity.Collections.NativeArray_1.AsSpan.html">Unity - Scripting API: Unity.Collections.NativeArray_1.AsSpan</a></p>
+<p><a href="https://www.hanachiru-blog.com/entry/2022/12/19/120000">【Unity】NativeArray<T>からSpan<T>へ変換する方法(2022.2以前はunsafe, 2022.2以降はAsSpan) - はなちるのマイノート</a></p>
+<p>こちらを用いることで、下記のようにUnsafeなしに、さらにシンプルにコードが記述できるようになります。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token comment">// UTF-8バイト配列を、元のデータを直接参照してデシリアライズ</span>
+<span class="token comment">// このとき元配列をコピーしないので、その分アロケーションコストが抑えられる</span>
+Profiler<span class="token punctuation">.</span><span class="token function">BeginSample</span><span class="token punctuation">(</span><span class="token string">"From UTF-8 Bytes With Native Array2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// unsafeも外せるしシンプル</span>
+<span class="token class-name"><span class="token keyword">var</span></span> utf8BytesSpan <span class="token operator">=</span> handler<span class="token punctuation">.</span>nativeData<span class="token punctuation">.</span><span class="token function">AsSpan</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> p <span class="token operator">=</span> JsonSerializer<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">Deserialize</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>Product<span class="token punctuation">></span></span></span><span class="token punctuation">(</span>
+    utf8BytesSpan<span class="token punctuation">,</span> ProductJsonContext<span class="token punctuation">.</span>Default<span class="token punctuation">.</span>Product<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Profiler<span class="token punctuation">.</span><span class="token function">EndSample</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<h3 id="パフォーマンス計測結果" style="position:relative;"><a href="#%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E8%A8%88%E6%B8%AC%E7%B5%90%E6%9E%9C" aria-label="パフォーマンス計測結果 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>パフォーマンス計測結果</h3>
+<p>改めて、下記４つのシリアライズ、デシリアライズのパフォーマンスについて、 <code>Person</code> ・ <code>Primitives</code> ・ <code>NestCase</code> の３つのクラスでのパフォーマンスの計測結果を比較します。</p>
+<ul>
+<li>ソースコード生成なしの<code>System.Text.Json</code>での文字列へのシリアライズとデシリアライズ
+<ul>
+<li><code>JsonSerializer</code>と表記</li>
+</ul>
+</li>
+<li>ソースコード生成ありの<code>System.Text.Json</code>での文字列へのシリアライズとデシリアライズ
+<ul>
+<li><code>JsonSerializerSrcGen</code>と表記</li>
+</ul>
+</li>
+<li>ソースコード生成ありの<code>System.Text.Json</code>でのUTF-8 バイト配列へのシリアライズとデシリアライズ
+<ul>
+<li><code>JsonSerializerSrcGenUtf8</code>と表記</li>
+</ul>
+</li>
+<li><code>JsonUtility</code>での文字列へのシリアライズとデシリアライズ
+<ul>
+<li><code>JsonUtility</code>と表記</li>
+</ul>
+</li>
+</ul>
+<p>上記のクラスのインスタンスをそれぞれ1000回シリアライズ・デシリアライズを1計測として、それを10回繰り返し、その平均を算出しました。例えば<code>Person</code>クラス<code>JsonSerializerSrcGen</code>の計測コードは下記の通りです。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Test</span><span class="token punctuation">,</span> <span class="token class-name">Performance</span></span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">SimplePerson_Serialize_SourceGenerator_Check</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Measure<span class="token punctuation">.</span><span class="token function">Method</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            JsonSerializer<span class="token punctuation">.</span><span class="token function">Serialize</span><span class="token punctuation">(</span>
+                <span class="token comment">// PersonTests[i]は事前に生成したものを利用</span>
+                <span class="token comment">// すべてランダムな値を入れている。</span>
+                <span class="token comment">// 文字列は1~9、a-zA-Zでランダムな文字列を利用</span>
+                <span class="token comment">// （本当はユニコードも入れるべき...）</span>
+                PersonTests<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> PersonJsonContext<span class="token punctuation">.</span>Default<span class="token punctuation">.</span>Person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token comment">// 計測は10回繰り返す</span>
+        <span class="token punctuation">.</span><span class="token function">MeasurementCount</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>まずシリアライズについてです。単位はミリ秒です。それぞれのクラスで最も速かったシリアライズに対して<strong>太字</strong>を付けました。</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="right"><code>Person</code></th>
+<th align="right"><code>Primitives</code></th>
+<th align="right"><code>NestCase</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>JsonSerializer</code></td>
+<td align="right">3.93</td>
+<td align="right">18.66</td>
+<td align="right">66.15</td>
+</tr>
+<tr>
+<td align="left"><code>JsonSerializerSrcGen</code></td>
+<td align="right">1.84</td>
+<td align="right">7.93</td>
+<td align="right">30.76</td>
+</tr>
+<tr>
+<td align="left"><code>JsonSerializerSrcGenUtf8</code></td>
+<td align="right"><strong>1.80</strong></td>
+<td align="right">7.45</td>
+<td align="right"><strong>28.92</strong></td>
+</tr>
+<tr>
+<td align="left"><code>JsonUtility</code></td>
+<td align="right">2.86</td>
+<td align="right"><strong>5.67</strong></td>
+<td align="right">29.94</td>
+</tr>
+</tbody>
+</table>
+<p>次にデシリアライズです。</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="right"><code>Person</code></th>
+<th align="right"><code>Primitives</code></th>
+<th align="right"><code>NestCase</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>JsonSerializer</code></td>
+<td align="right">3.63</td>
+<td align="right">7.93</td>
+<td align="right">47.20</td>
+</tr>
+<tr>
+<td align="left"><code>JsonSerializerSrcGen</code></td>
+<td align="right">1.44</td>
+<td align="right">7.27</td>
+<td align="right">45.24</td>
+</tr>
+<tr>
+<td align="left"><code>JsonSerializerSrcGenUtf8</code></td>
+<td align="right"><strong>1.29</strong></td>
+<td align="right">6.89</td>
+<td align="right">44.08</td>
+</tr>
+<tr>
+<td align="left"><code>JsonUtility</code></td>
+<td align="right">2.91</td>
+<td align="right"><strong>4.86</strong></td>
+<td align="right"><strong>28.48</strong></td>
+</tr>
+</tbody>
+</table>
+<p>上記の結果から、下記のことが言えそうです。</p>
+<ul>
+<li><code>System.Text.Json</code>ではソース生成を行うことで、速度改善が見られた。
+<ul>
+<li>シリアライズ処理に対しては概ね2〜2.5倍程度の速度向上が見られた。</li>
+<li>デシリアライズは〜2倍程度。シリアライズ処理よりは大きな速度改善は見られなかった。</li>
+</ul>
+</li>
+<li>UTF-8バイト配列にシリアライズ、またはUTF-8バイト配列をデシリアライズすることで若干の速度改善は見られた。
+<ul>
+<li>こちらはGC Allocも合わせて改善した。</li>
+</ul>
+</li>
+<li><code>System.Text.Json</code>のソース生成&#x26;UTF-8バイト配列による処理と<code>JsonUtility</code>による処理については、ケースによって結果が前後したが、特にデシリアライズは<code>JsonUtility</code>が高速な傾向あった。</li>
+</ul>
+<h2 id="まとめ" style="position:relative;"><a href="#%E3%81%BE%E3%81%A8%E3%82%81" aria-label="まとめ permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>まとめ</h2>
+<p>Unity2021.2でSource Generatorが利用できるようになったので、Source Generatorによる最適化が入った<code>System.Text.Json</code>の紹介とその導入方法、シリアライズとデシリアライズ方法、パフォーマンスについて比較しました。</p>
+<p>また、<code>System.Text.Json</code>でUTF-8バイト配列を直接シリアライザーに渡す・受け取ることで、UTF-16へのエンコーディング処理を省く最適化と、UnityWebRequestの<code>NativeArray&#x3C;T></code>と<code>Span&#x3C;T></code>を用いたアロケーション削減についても触れました。</p>
+<p>テストケースが少ないのであまりはっきりとしたことは言いづらいですが、Unityで利用できるJsonUtilityは、高速な反面カスタマイズや、UTF-8バイト配列を直接受け取る方法がないなどのデメリットがあるため、とくに通信APIなどでのJSONシリアライザーとして<code>System.Text.Json</code>の利用は、カスタマイズ製やGC削減などの最適化の観点で、ありなのかなという感じがしました。</p>
+<p>書いてみて（C# Advent Calendarの記事なのに）C#成分が少なくて、どっちかというとUnity Advent Calendarネタ感があり申し訳ない感じもしますが、Unityへの<code>System.Text.Json</code>のSource Generator導入について扱っているブログが少なかった（調べた感じではなかった）ので、記事にさせていただきました。</p>
+<p><code>System.Text.Json</code>をUnityで導入することを検討しておられる方の参考になれば幸いです。</p></div></article></div></main><footer class="mt-20 bg-gray-800 px6 py-8"><div class="container max-w-3xl mx-auto"><div class="flex justify-center mb-6 text-sm hover:no-underline gap-6"><a class="text-gray-300 hover:underline" href="/">Home</a><a class="text-gray-300 hover:underline" href="/profile">Profile</a><a class="text-gray-300 hover:underline" href="/project/unity-weekly">Unity Weekly</a></div></div><hr class="my-6 sm:mx-auto border-gray-700"/><span class="block text-sm text-center text-gray-400">© 2022 Yucchiy&#x27;s Note. All Rights Reserved.</span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-36940311-7', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2022/12/csharp-advent-calendar-system-text-json-unity/";window.___webpackCompilationHash="60122b9736136e5e9ed5";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4bae0ebd19da6d624f9b.js"],"app":["/app-52c9c314edeb4a0d0eb2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-42660d3ea51266f3e6ca.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-891810a218b514421cec.js"],"component---src-pages-project-unity-weekly-tsx":["/component---src-pages-project-unity-weekly-tsx-1be7ba23d9d42729df3f.js"],"component---src-pages-tags-tsx":["/component---src-pages-tags-tsx-5e368e2f25546d0b1e4b.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-2dc491133e45eaa1b6b3.js"],"component---src-templates-tag-tsx":["/component---src-templates-tag-tsx-725cd6ba0aab60bc54d4.js"]};/*]]>*/</script><script src="/polyfill-4bae0ebd19da6d624f9b.js" nomodule=""></script><script src="/app-52c9c314edeb4a0d0eb2.js" async=""></script><script src="/framework-6ad8a8eb04f78e566be1.js" async=""></script><script src="/webpack-runtime-31e58c7c93ee841e57d2.js" async=""></script></body></html>
