@@ -10,7 +10,6 @@ date: "2022-12-22T15:00:00"
 この記事は[C# Advent Calendar 2022](https://qiita.com/advent-calendar/2022/csharplang)の23日目の記事です。
 
 
-
 Unity 2021.2 から Source Generatorが利用できるようになりました。
 
 これによってUnityでも、Microsoftが提供するJsonシリアライザー `System.Text.Json` のソース生成を利用できるようになりました。
@@ -18,7 +17,6 @@ Unity 2021.2 から Source Generatorが利用できるようになりました�
 `System.Text.Json` のソース生成は、C#のSource Generatorを用いてシリアライズおよびデシリアライズのコードをビルド時に生成することで、シリアライザーのパフォーマンスを向上させるものです。
 
 [Try the new System.Text.Json source generator - .NET Blog](https://devblogs.microsoft.com/dotnet/try-the-new-system-text-json-source-generator/)
-
 
 
 この記事では、Unityで `System.Text.Json` のソース生成を利用するための環境構築と、実際にコード生成を用いたJSONシリアライズ・デシリアライズの動作確認、最後にUnityアプリとして実機で動かしてそのパフォーマンスを比較してみます。あわせてUnity公式が提供するJSONシリアライザーの `JsonUtility` ともパフォーマンスの比較を行ってみます。
@@ -30,6 +28,10 @@ Unity 2021.2 から Source Generatorが利用できるようになりました�
 * Unity 2021.3.14f1
 * Rider 2022.2
 * iPhone X
+
+ちなみに、Unity 2022.2.0b16では動作が確認できませんでした。
+（おそらく内部のSource Generatorのバージョンが変わった？）
+
 ## System.Text.JsonをUnityに導入する
 
 前述の通り、Unity 2021.2からSource Generatorが利用できるようになりました。
