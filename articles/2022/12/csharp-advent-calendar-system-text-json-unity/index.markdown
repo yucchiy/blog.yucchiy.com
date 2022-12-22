@@ -376,6 +376,7 @@ Profiler.EndSample();
     * `JsonSerializerSrcGenUtf8`と表記
 * `JsonUtility`での文字列へのシリアライズとデシリアライズ
     * `JsonUtility`と表記
+    
 上記のクラスのインスタンスをそれぞれ1000回シリアライズ・デシリアライズを1計測として、それを10回繰り返し、その平均を算出しました。例えば`Person`クラス`JsonSerializerSrcGen`の計測コードは下記の通りです。
 
 ```csharp
