@@ -317,6 +317,93 @@ Debug<span class="token punctuation">.</span><span class="token function">Log</s
         I <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
+<p>ただし、<code>JsonUtility</code>ではフィールドのみシリアライズの対象のため、上記のクラスをシリアライズできません。</p>
+<p>今回の計測では、できるだけ同様なJSONをシリアライズ・デシリアライズするような下記の型を用意して、
+<code>JsonUtility</code>の計測ではこちらを利用して計測を行いました。</p>
+<div class="gatsby-highlight" data-language="csharp"><pre class="language-csharp"><code class="language-csharp"><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Serializable</span></span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PersonForJsonUtility</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">int</span></span> Age<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">string</span></span> Name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Serializable</span></span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PrimitivesForJsonUtility</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">short</span></span> Short<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">int</span></span> Int<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">long</span></span> Long<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">byte</span></span> Byte<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">bool</span></span> Bool<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">char</span></span> Char<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">float</span></span> Float<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">double</span></span> Double<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">string</span></span> String<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">InitializePrimitives</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> rnd <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">System<span class="token punctuation">.</span>Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Short <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">short</span><span class="token punctuation">)</span> rnd<span class="token punctuation">.</span><span class="token function">Next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Int <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> rnd<span class="token punctuation">.</span><span class="token function">Next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Long <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">short</span><span class="token punctuation">)</span> rnd<span class="token punctuation">.</span><span class="token function">Next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Byte <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">)</span> rnd<span class="token punctuation">.</span><span class="token function">Next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Char <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span> rnd<span class="token punctuation">.</span><span class="token function">Next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Float <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span> rnd<span class="token punctuation">.</span><span class="token function">NextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Double <span class="token operator">=</span> rnd<span class="token punctuation">.</span><span class="token function">NextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String <span class="token operator">=</span> StringUtils<span class="token punctuation">.</span><span class="token function">GeneratePassword</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Serializable</span></span><span class="token punctuation">]</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NestCaseForJsonUtility</span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Serializable</span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Inner</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">int</span></span> Int<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">double</span></span> Double<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name"><span class="token keyword">string</span></span> String<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">SetInner</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token class-name"><span class="token keyword">var</span></span> rnd <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">System<span class="token punctuation">.</span>Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Int <span class="token operator">=</span> rnd<span class="token punctuation">.</span><span class="token function">Next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Double <span class="token operator">=</span> rnd<span class="token punctuation">.</span><span class="token function">NextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            String <span class="token operator">=</span> StringUtils<span class="token punctuation">.</span><span class="token function">GeneratePassword</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">Inner</span> A<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Inner</span> B<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Inner</span> C<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Inner</span> D<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Inner</span> E<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Inner</span> F<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Inner</span> G<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Inner</span> H<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Inner</span> I<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">InitializeNestCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        A <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        A<span class="token punctuation">.</span><span class="token function">SetInner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        B <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        B<span class="token punctuation">.</span><span class="token function">SetInner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        C <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        C<span class="token punctuation">.</span><span class="token function">SetInner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        D <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        D<span class="token punctuation">.</span><span class="token function">SetInner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        E <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        E<span class="token punctuation">.</span><span class="token function">SetInner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        F <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        F<span class="token punctuation">.</span><span class="token function">SetInner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        G <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        G<span class="token punctuation">.</span><span class="token function">SetInner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        H <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        H<span class="token punctuation">.</span><span class="token function">SetInner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        I <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Inner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        I<span class="token punctuation">.</span><span class="token function">SetInner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
 <h3 id="実機上でのパフォーマンス計測について" style="position:relative;"><a href="#%E5%AE%9F%E6%A9%9F%E4%B8%8A%E3%81%A7%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E8%A8%88%E6%B8%AC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" aria-label="実機上でのパフォーマンス計測について permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>実機上でのパフォーマンス計測について</h3>
 <p>計測はiOSの実機上で行います。実機上でのパフォーマンス計測には<a href="https://docs.unity3d.com/Packages/com.unity.test-framework.performance@2.8/manual/index.html">Performance Testing Extension</a>という、Unity Test Runner上でパフォーマンス計測を行ってくれるツールを用いました。</p>
 <p>たとえば下記のようなコードを記述して、</p>
