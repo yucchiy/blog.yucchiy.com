@@ -238,6 +238,97 @@ public class NestCase
 }
 ```
 
+ただし、`JsonUtility`ではフィールドのみシリアライズの対象のため、上記のクラスをシリアライズできません。
+
+今回の計測では、できるだけ同様なJSONをシリアライズ・デシリアライズするような下記の型を用意して、
+`JsonUtility`の計測ではこちらを利用して計測を行いました。
+
+```csharp
+[Serializable]
+public class PersonForJsonUtility
+{
+    public int Age;
+    public string Name;
+}
+
+[Serializable]
+public class PrimitivesForJsonUtility
+{
+    public short Short;
+    public int Int;
+    public long Long;
+    public byte Byte;
+    public bool Bool;
+    public char Char;
+    public float Float;
+    public double Double;
+    public string String;
+
+    public void InitializePrimitives()
+    {
+        var rnd = new System.Random();
+        Short = (short) rnd.Next();
+        Int = (int) rnd.Next();
+        Long = (short) rnd.Next();
+        Byte = (byte) rnd.Next();
+        Char = (char) rnd.Next();
+        Float = (float) rnd.NextDouble();
+        Double = rnd.NextDouble();
+        String = StringUtils.GeneratePassword(100);
+    }
+}
+
+[Serializable]
+public class NestCaseForJsonUtility
+{
+    [Serializable]
+    public class Inner
+    {
+        public int Int;
+        public double Double;
+        public string String;
+        public void SetInner()
+        {
+            var rnd = new System.Random();
+            Int = rnd.Next();
+            Double = rnd.NextDouble();
+            String = StringUtils.GeneratePassword(100);
+        }
+    }
+    
+    public Inner A;
+    public Inner B;
+    public Inner C;
+    public Inner D;
+    public Inner E;
+    public Inner F;
+    public Inner G;
+    public Inner H;
+    public Inner I;
+
+    public void InitializeNestCase()
+    {
+        A = new Inner();
+        A.SetInner();
+        B = new Inner();
+        B.SetInner();
+        C = new Inner();
+        C.SetInner();
+        D = new Inner();
+        D.SetInner();
+        E = new Inner();
+        E.SetInner();
+        F = new Inner();
+        F.SetInner();
+        G = new Inner();
+        G.SetInner();
+        H = new Inner();
+        H.SetInner();
+        I = new Inner();
+        I.SetInner();
+    }
+}
+```
 
 ### 実機上でのパフォーマンス計測について
 
