@@ -170,15 +170,29 @@ public class Person
 // 一通りの基本型を持ったクラス
 public class Primitives
 {
-    public short Short { get; }
-    public int Int { get; }
-    public long Long { get; }
-    public byte Byte { get; }
-    public bool Bool { get; }
-    public char Char { get; }
-    public float Float { get; }
-    public double Double { get; }
-    public string String { get; }
+    public short Short { get; set; }
+    public int Int { get; set; }
+    public long Long { get; set; }
+    public byte Byte { get; set; }
+    public bool Bool { get; set; }
+    public char Char { get; set; }
+    public float Float { get; set; }
+    public double Double { get; set; }
+    public string String { get; set; }
+    
+    // シリアライズ前に呼ぶ
+    public void InitializerPrimitives()
+    {
+        var rnd = new System.Random();
+        Short = (short) rnd.Next();
+        Int = (int) rnd.Next();
+        Long = (short) rnd.Next();
+        Byte = (byte) rnd.Next();
+        Char = (char) rnd.Next();
+        Float = (float) rnd.NextDouble();
+        Double = rnd.NextDouble();
+        String = StringUtils.GeneratePassword(100);
+    }
 }
 
 // クラスがネストするケース
@@ -186,20 +200,41 @@ public class NestCase
 {
     public class Inner
     {
-        public int Int { get; }
-        public double Double { get; }
-        public string String { get; }
+        public int Int { get; set; }
+        public double Double { get; set; }
+        public string String { get; set; }
+        public Inner()
+        {
+            var rnd = new System.Random();
+            Int = rnd.Next();
+            Double = rnd.NextDouble();
+            String = StringUtils.GeneratePassword(100);
+        }
     }
     
-    public Inner A { get; }
-    public Inner B { get; }
-    public Inner C { get; }
-    public Inner D { get; }
-    public Inner E { get; }
-    public Inner F { get; }
-    public Inner G { get; }
-    public Inner H { get; }
-    public Inner I { get; }
+    public Inner A { get; set; }
+    public Inner B { get; set; }
+    public Inner C { get; set; }
+    public Inner D { get; set; }
+    public Inner E { get; set; }
+    public Inner F { get; set; }
+    public Inner G { get; set; }
+    public Inner H { get; set; }
+    public Inner I { get; set; }
+
+    // シリアライズ前に呼ぶ
+    public void InitializeNestCase()
+    {
+        A = new Inner();
+        B = new Inner();
+        C = new Inner();
+        D = new Inner();
+        E = new Inner();
+        F = new Inner();
+        G = new Inner();
+        H = new Inner();
+        I = new Inner();
+    }
 }
 ```
 
@@ -408,47 +443,47 @@ public void SimplePerson_Serialize_SourceGenerator_Check()
 
 |                          |    Person |
 | :----------------------- | --------: |
-| JsonSerializer           |    3.93   |
-| JsonSerializerSrcGen     |    1.84   |
-| JsonSerializerSrcGenUtf8 |  **1.80** |
-| JsonUtility              |    2.86   |
+| JsonSerializer           |    5.09   |
+| JsonSerializerSrcGen     |    2.29   |
+| JsonSerializerSrcGenUtf8 |  **2.18** |
+| JsonUtility              |    3.27   |
                                  
 |                          | Primitives |
 | :----------------------- | ---------: |
-| JsonSerializer           |    18.66   |
-| JsonSerializerSrcGen     |     7.93   |
-| JsonSerializerSrcGenUtf8 |     7.45   |
-| JsonUtility              |   **5.67** |
+| JsonSerializer           |    24.38   |
+| JsonSerializerSrcGen     |     9.38   |
+| JsonSerializerSrcGenUtf8 |     8.83   |
+| JsonUtility              |   **5.77** |
                                  
 |                          |  NestCase |
 | :----------------------- | --------: |
-| JsonSerializer           |   66.15   |
-| JsonSerializerSrcGen     |   30.76   |
-| JsonSerializerSrcGenUtf8 | **28.92** |
-| JsonUtility              |   29.94   |
+| JsonSerializer           |   74.22   |
+| JsonSerializerSrcGen     |   29.92   |
+| JsonSerializerSrcGenUtf8 | **28.48** |
+| JsonUtility              |   28.93   |
 
 次にデシリアライズです。
 
 |                          |  Person  |
 | :----------------------- | -------: |
-| JsonSerializer           |   3.63   |
-| JsonSerializerSrcGen     |   1.44   |
-| JsonSerializerSrcGenUtf8 | **1.29** |
-| JsonUtility              |   2.91   |
+| JsonSerializer           |   4.49   |
+| JsonSerializerSrcGen     |   1.56   |
+| JsonSerializerSrcGenUtf8 | **1.36** |
+| JsonUtility              |   3.03   |
 
 |                          | Primitives  |
 | :----------------------- |-----------: |
-| JsonSerializer           |      7.93   |
-| JsonSerializerSrcGen     |      7.27   |
-| JsonSerializerSrcGenUtf8 |      6.89   |
-| JsonUtility              |    **4.86** |
+| JsonSerializer           |     19.23   |
+| JsonSerializerSrcGen     |      5.48   |
+| JsonSerializerSrcGenUtf8 |    **4.99** |
+| JsonUtility              |      5.90   |
 
 |                          |  NestCase  |
 | :----------------------- | ---------: |
-| JsonSerializer           |    47.20   |
-| JsonSerializerSrcGen     |    45.24   |
-| JsonSerializerSrcGenUtf8 |    44.08   |
-| JsonUtility              |  **28.48** |
+| JsonSerializer           |    71.76   |
+| JsonSerializerSrcGen     |    44.34   |
+| JsonSerializerSrcGenUtf8 |    42.88   |
+| JsonUtility              |  **24.45** |
 
 上記の結果から、下記のことが言えそうです。
 
@@ -458,6 +493,7 @@ public void SimplePerson_Serialize_SourceGenerator_Check()
 * UTF-8バイト配列にシリアライズ、またはUTF-8バイト配列をデシリアライズすることで若干の速度改善は見られた。
     * こちらはGC Allocも合わせて改善した。
 * `System.Text.Json`のソース生成&UTF-8バイト配列による処理と`JsonUtility`による処理については、ケースによって結果が前後したが、特にデシリアライズは`JsonUtility`が高速な傾向あった。
+    * とくに`NestCase`が顕著だった。
 ## まとめ
 
 Unity2021.2でSource Generatorが利用できるようになったので、Source Generatorによる最適化が入った`System.Text.Json`の紹介とその導入方法、シリアライズとデシリアライズ方法、パフォーマンスについて比較しました。
