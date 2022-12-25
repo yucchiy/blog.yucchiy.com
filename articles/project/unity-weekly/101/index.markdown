@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 101"
-description: "2022/12/19週のUnity Weeklyです。Splinesパッケージ、UGSのバックエンド機能、DirectX12 and Graphics Job Improvements、アドカレ2022などについて取り上げています。"
+description: "2022/12/26週のUnity Weeklyです。2022.2以降のGIアップデート、Anime Toolbox、アドカレ2022などについて取り上げています。"
 tags: ["Unity Weekly","Unity"]
 date: "2022-12-26T00:00:00"
 ---
@@ -74,11 +74,25 @@ Anime Toolboxの概要から導入方法、利用例として「3Dモデルと2D
 
 ## Articles
 
-### UnityWebGLビルド開発時の日本語テキストの表示周りについて
+### ShaderVariant番外編その２
 
-[UnityWebGLビルド開発時の日本語テキストの表示周りについて - Qiita](https://qiita.com/kazuki_kuriyama/items/fe0c30ff6a4f762b3635)
+[[Unity]ShaderVariant番外編その２｜黒河優介｜note](https://note.com/wotakuro/n/nd482241bd389)
 
-UnityのWebGLビルドで日本語を表示する際の注意点をまとめています。
+ブログの著者が開発する、シェーダーのコンパイル時の各種情報を表示するUnity Profilerのモジュール[ProfilerModuleForShaderCompile](https://github.com/wotakuro/ProfilerModuleForShaderCompile)で、
+シェーダーコンパイル時の情報を取得する方法や、コンパイル時の各種情報を取得する方法について紹介しています。
+
+### Fake Liquid Shader Graph (URP) 
+
+[Fake Liquid Shader Graph (URP) | Minions Art](https://www.patreon.com/posts/fake-liquid-urp-75665057)
+
+URPとShader Graphを用いて、Fake Liquid Shader（物理的シミュレーションは行わない、シェーダーでの容器の中の液体を表現するシェーダー）を実装する方法を紹介しています。
+Shader Graphの実際のグラフと、それぞれのノードがどのような表現に利用されているか解説しています。
+
+### JSON advanced parsing in Unity
+
+[JSON advanced parsing in Unity - Pav Creations](https://pavcreations.com/json-advanced-parsing-in-unity/)
+
+Unity C#でJSONファイルを扱うための方法として、`JsonUtility`と`Newtonsoft.Json`の利用方法をそれぞれ紹介しています。
 
 ### ADX for Unityで音量コンフィグを実装
 
@@ -92,12 +106,11 @@ ADX for Unityを用いて、BGM・SE・UIといったカテゴリごとに音声
 
 OpenCV for Unityで、自作したMNIST学習モデルで、手書き文字の推論（画像中にどの文字が書かれているかを推論）を行う実装を紹介しています。
 
-### ShaderVariant番外編その２
+### UnityWebGLビルド開発時の日本語テキストの表示周りについて
 
-[[Unity]ShaderVariant番外編その２｜黒河優介｜note](https://note.com/wotakuro/n/nd482241bd389)
+[UnityWebGLビルド開発時の日本語テキストの表示周りについて - Qiita](https://qiita.com/kazuki_kuriyama/items/fe0c30ff6a4f762b3635)
 
-ブログの著者が開発する、シェーダーのコンパイル時の各種情報を表示するUnity Profilerのモジュール[ProfilerModuleForShaderCompile](https://github.com/wotakuro/ProfilerModuleForShaderCompile)で、
-シェーダーコンパイル時の情報を取得する方法や、コンパイル時の各種情報を取得する方法について紹介しています。
+UnityのWebGLビルドで日本語を表示する際の注意点をまとめています。
 
 ### NativeArray<T>からSpan<T>へ変換する方法(2022.2以前はunsafe, 2022.2以降はAsSpan)
 
@@ -136,19 +149,6 @@ MemoryProfilerを用いずにメモリの状態を比較するエディター拡
 [【Unity】Unity公式パッケージ『Dependency Viewer』でアセットの依存関係を簡単に可視化する - LIGHT11](https://light11.hatenadiary.com/entry/2022/12/21/193109)
 
 Unity公式が提供する[Search Extensions](https://github.com/Unity-Technologies/com.unity.search.extensions)の1機能である「Dependency Viewer」によって、アセットの参照・被参照アセットの一覧を表示する方法などの基本的な使い方について紹介しています。
-
-### Fake Liquid Shader Graph (URP) 
-
-[Fake Liquid Shader Graph (URP) | Minions Art](https://www.patreon.com/posts/fake-liquid-urp-75665057)
-
-URPとShader Graphを用いて、Fake Liquid Shader（物理的シミュレーションは行わない、シェーダーでの容器の中の液体を表現するシェーダー）を実装する方法を紹介しています。
-Shader Graphの実際のグラフと、それぞれのノードがどのような表現に利用されているか解説しています。
-
-### JSON advanced parsing in Unity
-
-[JSON advanced parsing in Unity - Pav Creations](https://pavcreations.com/json-advanced-parsing-in-unity/)
-
-Unity C#でJSONファイルを扱うための方法として、`JsonUtility`と`Newtonsoft.Json`の利用方法をそれぞれ紹介しています。
 
 ### ECSを勉強する。【ECS for Unity】
 
