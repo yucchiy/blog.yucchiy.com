@@ -3,7 +3,7 @@ type: "unity-weekly"
 title: "Unity Weekly 102"
 description: "2023/01/02週のUnity Weeklyです。Unity UI開発のeBook、Questパススルー、URPモーションブラー、Unity2022でのProfilerアップデート、MemoryPackなどについて取り上げています。"
 tags: ["Unity Weekly","Unity"]
-date: "2023-01-03T00:00:00"
+date: "2023-01-02T00:00:00"
 ---
 
 ## Unity Officials
