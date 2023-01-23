@@ -221,7 +221,7 @@ public class SnapshotWithVersioningFormatter
             throw new ApplicationVersionException();
         }
 
-        // TemporarySavedata2のデシリアライズ
+        // Snapshot2のデシリアライズ
         reader.ReadPackable<Snapshot2>();
     }
 }
@@ -233,6 +233,8 @@ public class SnapshotWithVersioningFormatter
 // アプリの初期化時などで一度だけ呼び出す
 MemoryPackFormatterProvider.Register(
     new SnapshotWithVersioningFormatter());
+
+// シリアライズ
 var val = new Snapshot2(10, 20);
 var bin = MemoryPackSerializer.Serialize(val);
 
@@ -241,11 +243,14 @@ MyApplication.Version = 3;
 
 try
 {
+    // デシリアライズ時に、シリアライズ時とバージョンが違っていると
+    // ApplicationVersionExceptionを投げる。
     val = MemoryPackSerializer.Deserialize<Snapshot2>(bin);
     Debug.Log($"{val.Hp}, {val.Mp}");
 }
 catch (ApplicationVersionException e)
 {
+    // バージョンのミスマッチが発覚
     Debug.LogException(e);
 }
 ```
