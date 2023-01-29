@@ -133,6 +133,12 @@ GameObjectを2Dゲームシーンへの配置を行うためのペイントツ�
 
 ヒープのネイティブコレクション実装。
 
+### GiLight2D
+
+[NullTale/GiLight2D: 2D light for Unity Urp with raytracing](https://github.com/NullTale/GiLight2D?)
+
+2DのグローバルイルミネーションのURP Render Feature実装。
+
 ### ZeroAllocJobScheduler
 
 [genaray/ZeroAllocJobScheduler: A high-performance alloc free c# Jobscheduler.](https://github.com/genaray/ZeroAllocJobScheduler?)
