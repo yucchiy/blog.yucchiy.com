@@ -50,7 +50,7 @@ Unity JapanがYouTube上に配信した動画のうち、作品の完成度を�
 2022/02/03に[CA.unity #6](https://meetup.unity3d.jp/jp/events/1387)が開催されました。一部登壇者様より、スライドが公開されています。
 
 * [Unityでのチート対策を簡単かつ高品質に行う為の取り組み - Speaker Deck](https://speakerdeck.com/trapezoid/unitydenotitodui-ce-wojian-dan-katugao-pin-zhi-nixing-uwei-noqu-rizu-mi)
-* [存在しないアセットへの参照と 未公開アセットでのネタバレにどう立ち向かうか / How to prevent missing assets and spoilers by assets - Speaker Deck](https://speakerdeck.com/orgachem/how-to-prevent-missing-assets-and-spoilers-by-assets)j
+* [存在しないアセットへの参照と未公開アセットでのネタバレにどう立ち向かうか / How to prevent missing assets and spoilers by assets - Speaker Deck](https://speakerdeck.com/orgachem/how-to-prevent-missing-assets-and-spoilers-by-assets)
 * [Unity+C#で学ぶ！ メモリレイアウトとvtableのすゝめ 〜動的ポリモーフィズムを実現する仕組み〜 - Speaker Deck](https://speakerdeck.com/rossam/unity-plus-c-number-dexue-bu-memorireiautotovtablenosu-me-dong-de-porimohuizumuwoshi-xian-surushi-zu-mi)
 
 ## Articles
@@ -80,6 +80,12 @@ Unity JapanがYouTube上に配信した動画のうち、作品の完成度を�
 [Addressables × Play Asset Deliveryの調査メモ - Qiita](https://qiita.com/mad_khaki/items/69d836bc7bfbb146b81a)
 
 Goole Play公式のアセット配信システムPlay Asset Delivery（PAD）についてその概要とUnityのアセット管理システムAddressablesでPADに対応する方法についてそれぞれまとめています。
+
+### StreamingAssetsをもう少し柔軟に運用したい
+
+[[Unity]StreamingAssetsをもう少し柔軟に運用したい｜黒河優介｜note](https://note.com/wotakuro/n/n85786444b3da)
+
+Unity 2021から追加された[BuildPlayerContext.AddAdditionalPathToStreamingAssets](https://docs.unity3d.com/ScriptReference/Build.BuildPlayerContext.AddAdditionalPathToStreamingAssets.html)を用いて、ビルド時に動的にStreamingAssetsを追加する方法について紹介しています。
 
 ### 変数の値を画面上にデバッグ表示できるOSS『Runtime Monitoring』紹介
 
