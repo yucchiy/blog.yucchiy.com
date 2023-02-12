@@ -73,6 +73,12 @@ Energy Shield Hologram（詳細はリンクにて）をShader Graphで実装す�
 
 アバターの衣装きせかえシステムを、衣装にボーンを持たせて、着用時にアバター側の指定のボーンに設定し直すことで実現する方法を紹介しています。
 
+### Input Systemで連打防止を実現するInteraction 
+
+[【Unity】Input Systemで連打防止を実現するInteraction | ねこじゃらシティ](https://nekojara.city/unity-input-system-prevent-button-mashing)
+
+Input Systemの[Interaction](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Interactions.html)を用いて、ボタン連打を防止する機能の実装について紹介しています。
+
 ### Localizing Unity Games As An Indie Dev
 
 [Localizing Unity Games As An Indie Dev | BJ Malicoat](https://www.bjmalicoat.com/projects/localizingunitygames)
@@ -180,3 +186,9 @@ UnityのAlembicをVATに変換するライブラリ。
 [acoppes/unity-refactoring-tools: Code + examples for Refactoring Data stored in Unity Prefabs, Scenes and other Assets](https://github.com/acoppes/unity-refactoring-tools?)
 
 プロジェクト上のプレハブやシーン、その他のアセットをリファクタリングするためのライブラリ。
+
+### Lucid Editor
+
+[AnnulusGames/LucidEditor: Powerful Editor Extensions for Unity](https://github.com/AnnulusGames/LucidEditor)
+
+Inspector拡張用の属性と独自拡張、SerializeReferenceのインターフェイスと抽象クラスを選択、EditorGUIを拡張する機能などを含む、Unityのエディター拡張ライブラリ。
