@@ -2,7 +2,7 @@
 type: "tech"
 title: ".NET Standard 2.1のArrayPool<T>を用いたレイキャスト（Physics.RaycastNonAlloc）の最適化"
 description: ".NET Standard 2.1のArrayPool<T>を用いてPhysics.RaycastNonAllocに渡す配列を事前確保＆再利用する方法について紹介します。"
-tags: ["Unity",".NET Standard 2.1","Physics"]
+tags: ["Unity",".NET Standard 2.1","Physics","最適化"]
 date: "2023-02-06T00:00:00"
 
 ---
