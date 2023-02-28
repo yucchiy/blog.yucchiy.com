@@ -71,7 +71,7 @@ movieRecorderSettings.imageInputSettings = new GameViewInputSettings() {outputWi
 // 音声も録画対象に含めます
 movieRecorderSettings.audioInputSettings.preserveAudio = true;
 // 動画のファイル名を指定します。撮影された動画は、プロジェクトルート直下に、このファイル名で保存されます
-movieRecorderSettings.outputFile = "dark-movie-recording";
+movieRecorderSettings.outputFile = "movie-recording";
 // 動画のフォーマットを指定します。MP4とWEBMのどちらかを指定します。
 movieRecorderSettings.outputFormat = VideoRecorderOutputFormat.MP4;
 // レコーダーを有効にします
