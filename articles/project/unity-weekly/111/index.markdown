@@ -11,6 +11,8 @@ date: "2023-03-06T00:00:01"
 
 ### 【Unity】FindObjectsOfTypeが高速化！？ FindObjects"By"Typeの紹介
 
+[【Unity】FindObjectsOfTypeが高速化！？ FindObjects"By"Typeの紹介 - YouTube](https://www.youtube.com/watch?v=QJcU7jO5HZ8)
+
 FindObjectsOfTypeより高速なFindObjectsByTypeの紹介と、その理由としてインスタンスIDによるソートの省略について解説しています。
 
 また、FindObjectsOfTypeがUnity2023で非推奨となる点についても言及しています。
