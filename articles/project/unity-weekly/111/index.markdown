@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 111"
-description: "2023/03/06週のUnity Weeklyです。FindObjectsByType、DeNA TechCon 2023などを取り上げています。"
+description: "2023/03/06週のUnity Weeklyです。FindObjectsByType、Dynamic Addressables Network Prefab（NetCode Bitesize Samples）、DeNA TechCon 2023などを取り上げています。"
 tags: ["Unity Weekly","Unity"]
 date: "2023-03-06T00:00:01"
 
@@ -14,6 +14,14 @@ date: "2023-03-06T00:00:01"
 FindObjectsOfTypeより高速なFindObjectsByTypeの紹介と、その理由としてインスタンスIDによるソートの省略について解説しています。
 
 また、FindObjectsOfTypeがUnity2023で非推奨となる点についても言及しています。
+
+### Dynamic Addressables Network Prefabs (com.unity.multiplayer.samples.bitesize v1.2.1)
+
+[Release v1.2.0 · Unity-Technologies/com.unity.multiplayer.samples.bitesize](https://github.com/Unity-Technologies/com.unity.multiplayer.samples.bitesize/releases/tag/v1.2.0)
+
+NetCodeのBitesize Samplesに、Dynamic Addressables Network Prefabsが追加されました。
+
+ランタイムで動的にAddressablesで管理されたプレハブのロードを同期するサンプルです。デバッグのための意図的な遅延やタイムアウトのテストも、設定を介してかんたんに行えるようになっています。
 
 ## Slides
 
