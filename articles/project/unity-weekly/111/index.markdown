@@ -139,6 +139,12 @@ Unityエディターのツールバー部分を拡張し、独自のUIをUIEleme
 
 RustからC# FFIを生成し、ネイティブコードとCネイティブライブラリを.NETとUnityに自動的に生成するためのライブラリ。
 
+### FFTConvolutionBloom
+
+[AKGWSB/FFTConvolutionBloom: Bloom using FFT to accelerate convolution, with Unity URP](https://github.com/AKGWSB/FFTConvolutionBloom)
+
+FFTを利用したBloomの高速化実装。
+
 ### UniTask Supplement
 
 [su10/UniTask-Supplement: Supplemental codes for UniTask.](https://github.com/su10/UniTask-Supplement)
