@@ -13,7 +13,7 @@ date: "2023-03-13T00:00:01"
 
 [GDC で Unity の出展を見逃すべきでない 3 つの理由 | Unity Blog](https://blog.unity.com/ja/news/3-reasons-why-unity-at-gdc-is-all-about-you)
 
-GDC2023でのUnity公式のセッションやブース出展、Unityで開発されたゲームｎセッション情報を紹介しています。
+GDC2023でのUnity公式のセッションやブース出展、Unityで開発されたゲームのセッション情報を紹介しています。
 
 ### CTO の Luc Barthelet が語る、ゲームへの情熱と継続的な学習こそが Unity が次のフェーズへ進む鍵となる理由
 
