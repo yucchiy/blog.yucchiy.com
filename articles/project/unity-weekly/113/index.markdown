@@ -3,7 +3,7 @@ type: "unity-weekly"
 title: "Unity Weekly 113"
 description: "2023/03/20週のUnity Weeklyです。 2023 Unity Gaming Report、UGS、HLSL、Async/Await、csbindgen などについて取り上げています。"
 tags: ["Unity Weekly","Unity"]
-date: "2023-03-19T00:00:01"
+date: "2023-03-20T00:00:01"
 
 ---
 
@@ -65,6 +65,14 @@ Visual Studio 2022. v17.6 Preview 2に「HLSL Tools Extensions」が追加され
 
 C#のasync/awaitについて、非同期の実装がそこに至るまでの背景や、async/awaitが内部的にどのようなコードに展開されるのかその動作原理について詳細に解説しています。
 
+
+### Unity DOTS support in Rider 2023.1
+
+[Unity DOTS support in Rider 2023.1 | The .NET Tools Blog](https://blog.jetbrains.com/dotnet/2023/03/16/unity-dots-support-in-rider-2023-1/)
+
+Rider 2023.1でUnity DOTSがサポートされました。
+
+DOTS向けの新しいファイルテンプレートやボイラープレートコードの生成、インスペクションやクイックフィックスなどの機能が追加されています。
 
 ### csbindgen - C#のためのネイティブコード呼び出し自動生成、或いはC#からのネイティブコード呼び出しの現代的手法について
 
@@ -145,6 +153,12 @@ URPでカメラに写っている画面をキャプチャして処理を行う�
 
 UnityでHTTP/3通信を行うためのライブラリ。[cloudflare/quiche](https://github.com/cloudflare/quiche) を独自のC/C++ラッパーqwfsでラップし、qwfsをC#から操作している。現在、Windows（x64）とAndroid（arm64-v8a）に対応。
 
+
+### AICommand
+
+[keijiro/AICommand: ChatGPT integration with Unity Editor](https://github.com/keijiro/AICommand)
+
+ChatGPTを用いて、自然言語によるプロンプトでUnity Editorを操作するパッケージ。
 
 ### Borderless-Unity
 
