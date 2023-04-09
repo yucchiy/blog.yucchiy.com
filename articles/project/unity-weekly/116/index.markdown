@@ -164,6 +164,13 @@ Assembly Definitionの各種設定についてまとめています。
 
 ## Repositories
 
+### handzlikchris/FastScriptReload
+
+[handzlikchris/FastScriptReload: Hot Reload implementation for Unity. Iterate on code insanely fast without breaking play session. Supports any editor. 1. Play 2. Make change 3. See results](https://github.com/handzlikchris/FastScriptReload)
+
+Asset Storeで人気のホットリロードライブラリ「FastScriptReload」がOSSとして公開されました。
+
+
 ### CyberAgentGameEntertainment/SmartAddresser
 
 [CyberAgentGameEntertainment/SmartAddresser: Automate Addressing, Labeling, and Version Control for Unity's Addressable Asset System.](https://github.com/CyberAgentGameEntertainment/SmartAddresser)
@@ -177,6 +184,12 @@ Addressableアセットシステムのアドレスやラベルの付与を自動
 
 スカイボックス画像をAIプロンプトで生成するプロジェクト。
 
+
+### AnnulusGames/UnityCodeGen
+
+[AnnulusGames/UnityCodeGen: Code Generation Library for Unity Editor](https://github.com/AnnulusGames/UnityCodeGen)
+
+Unityエディター上でのコード生成を効率化するライブラリ。 `ICodeGenerator`を継承した独自のGeneratorを定義することで、コードの生成を自動的に行うことができる。
 
 ### NullTale/LutLight2D
 
