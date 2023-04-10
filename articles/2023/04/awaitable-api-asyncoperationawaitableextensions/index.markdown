@@ -38,7 +38,7 @@ Unityで非同期処理を行うメソッドの多くは`AsyncOperation`か、�
 たとえばコルーチンを用いてUnityWebRequestのリクエストを非同期で行うには、下記のように記述できます。
 
 ```csharp
-IEnumerator Start(string name)
+IEnumerator Start()
 {
     using var request = UnityWebRequest.Get(_uri);
     AsyncOperation operation = request.SendWebRequest();
@@ -133,7 +133,7 @@ async void Start()
 
 ## 余談: UniTaskでのGetAwaiter
 
-UniTaskでもUnityWebRequestを下記のようにawaitできます。
+UniTaskでもUnityWebRequestを下記のようにawaitできます（参考: [Basics of UniTask and AsyncOperation](https://github.com/Cysharp/UniTask#basics-of-unitask-and-asyncoperation)）。
 
 ```csharp
 var txt = (await UnityWebRequest.Get("https://...").SendWebRequest())
