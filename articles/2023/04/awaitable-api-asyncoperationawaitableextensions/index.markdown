@@ -160,8 +160,6 @@ namespace Cysharp.Threading.Tasks
 #endif
 ```
 
-（つまりUnity 2023.1以降は、本来`UniTask`に変換される箇所が`Awaitable`に変換されるので地味に困る場所がある？）
-
 ## まとめ
 
 `AsyncOperation`を`Awaitable`に変換することでawait可能にする`AsyncOperationAwaitableExtensions.GetAwaiter`メソッドの紹介と、その動作について解説しました。
