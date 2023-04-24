@@ -85,9 +85,9 @@ Unity 2021 LTSに追加されたShader VariantのPreFilterとDynamic Shader Load
 UniTaskには `UniTask[]` などに `GetAwaiter` が実装されているため、 `List<T>` で定義したタスクを直接 `await` すると `UniTask.WhenAll` として実行される挙動について解説しています。
 
 
-### C#で Dictionary<A, List<B>> を IReadOnlyDictionary<A, IReadOnlyList<B>> として公開する
+### C#で Dictionary&lt;A, List&lt;B&gt;&gt; を IReadOnlyDictionary&lt;A, IReadOnlyList&lt;B&gt;&gt; として公開する
 
-[C#で Dictionary<A, List<B>> を IReadOnlyDictionary<A, IReadOnlyList<B>> として公開する - きゅぶろぐ](https://blog.kyubuns.dev/entry/2023/04/22/201156)
+[C#で Dictionary&lt;A, List&lt;B&gt;&gt; を IReadOnlyDictionary&lt;A, IReadOnlyList&lt;B&gt;&gt;> として公開する - きゅぶろぐ](https://blog.kyubuns.dev/entry/2023/04/22/201156)
 
 `Dictionary<A, List<B>>` を、要素の書き換えをさせないように `IReadOnlyDictionary<A, IReadOnlyList<B>>` として公開する方法について紹介しています。
 
