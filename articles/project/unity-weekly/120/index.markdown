@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 120"
-description: "2023/05/08週のUnity Weeklyです。"
+description: "2023/05/08週のUnity Weeklyです。SpeedTree、Multiplayer game、Native GPU Profiling Webinar、Unity Answerなどについてまとめています。"
 tags: ["Unity Weekly","Unity"]
 date: "2023-05-08T00:00:01"
 
@@ -64,3 +64,17 @@ UnityEventの購読解除を、IDisposableを用いて行う実装と、UniRxの
 `Time.deltaTime`と速度を元に位置を足し込むことでフレームレートに依存しない移動処理の実現方法について解説しています。
 
 また、経過時間をパラメーターとした現在位置を算出する計算式を用いることで、フレームレートのばらつきがあったとしても移動値に誤差の出ない移動処理の実現方法についても言及しています。
+
+## Repositories
+
+### JohannesDeml/UnityWebGL-LoadingTest
+
+[JohannesDeml/UnityWebGL-LoadingTest: Measure loading speed and build size of WebGL builds for different Unity versions](https://github.com/JohannesDeml/UnityWebGL-LoadingTest)
+
+複数のUnityバージョンとプラットフォームで、UnityのWebGLのアプリサイズとロード時間をテストするプロジェクト。
+
+### XJINE/Unity_FakeStructuralColorShader
+
+[XJINE/Unity_FakeStructuralColorShader: SurfaceShader based fake structural color shader.](https://github.com/XJINE/Unity_FakeStructuralColorShader)
+
+SurfaceShaderベースな構造色を表現するシェーダー実装。
