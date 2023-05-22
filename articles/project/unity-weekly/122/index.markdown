@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 122"
-description: "2023/05/22週のUnity Weeklyです。"
+description: "2023/05/22週のUnity Weeklyです。UI Mask、Memory Profiler 1.1.0-pre.1、Dev Blitz Dayなどについて取り上げています。"
 tags: ["Unity Weekly","Unity"]
 date: "2023-05-22T00:00:01"
 
@@ -31,7 +31,6 @@ Unityの開発者がその日質問に答えるDev Blitz Dayの今後の開催�
 
 [Using DevOps to scale multiplatform | Unity Blog](https://blog.unity.com/games/using-devops-to-scale-multiplatform)
 
-
 Unity Gaming Servicesで提供されるDevOpsツールを活用したマルチプラットフォームの立ち上げについてのラウンドテーブル形式の[Webinar](https://resources.unity.com/games/using-devops-to-scale-multiplatform-webinar)の中から、いくつかの内容をピックアップして紹介しています。
 
 ### How to make killer creatives for your hypercasual game 
@@ -47,6 +46,12 @@ Unity Gaming Servicesで提供されるDevOpsツールを活用したマルチ�
 [Knot Puzzle 解説 - Imaginantia](https://phi16.hatenablog.com/entry/2023/05/21/230737)
 
 VRChatのワールド「Knot Puzzle」についてその制作やパズルの実装ロジックについて解説しています。
+
+### Cinemachineカメラをスプラインに沿って動かす 
+
+[【Unity】Cinemachineカメラをスプラインに沿って動かす | ねこじゃらシティ](https://nekojara.city/unity-cinemachine-splines)
+
+CinemachineのカメラをSplineパッケージを用いて曲線上に動かす実装を、Cinemachine 2.xによる実装と、Cinemachine 3から利用できる標準のスプラインパッケージを用いた実装の2通り紹介しています。
 
 ### キャラクタートゥーンシェーダの表現手法をまとめる(Lambert二値化)
 
@@ -66,17 +71,17 @@ VRChatのワールド「Knot Puzzle」についてその制作やパズルの実
 
 オブジェクトプールパターンがプロジェクトに必要な理由の紹介とオブジェクトプールの実装方法とその利用方法について紹介しています。
 
+### Unityでノーマルマッピング (バンプマッピング)
+
+[Unityでノーマルマッピング (バンプマッピング) - 3Dゲーム開発備忘録](https://daiki-eguchi.hatenablog.com/entry/2023/05/17/094939)
+
+Unityでバンプマッピングを実装する方法について紹介しています。
+
 ### そろそろShaderをやるパート89　-URP編- LEDディスプレイっぽい表現 
 
 [そろそろShaderをやるパート89　-URP編- LEDディスプレイっぽい表現](https://zenn.dev/kento_o/articles/08e83802ebcb91)
 
 URPでLEDパネルに出力されたような映像を表現する方法について、その実装を紹介しています。
-
-### Cinemachineカメラをスプラインに沿って動かす 
-
-[【Unity】Cinemachineカメラをスプラインに沿って動かす | ねこじゃらシティ](https://nekojara.city/unity-cinemachine-splines)
-
-CinemachineのカメラをSplineパッケージを用いて曲線上に動かす実装を、Cinemachine 2.xによる実装と、Cinemachine 3から利用できる標準のスプラインパッケージを用いた実装の2通り紹介しています。
 
 ### WheelColliderを自作した
 
@@ -123,3 +128,29 @@ Unity上でYouTube Data API v3とYouTube Live Streaming APIを叩いてYouTube L
 Unity上で複数の状態を持つウィンドウを実装するためのライブラリ。利用方法の詳細は下記ブログにて紹介されています。
 
 [StatefulUI: A Unity UI Library Based on States and Markup | HackerNoon](https://hackernoon.com/statefului-a-unity-ui-library-based-on-states-and-markup?source=rss)
+
+### pzmudzinski/UnitySpeechRecognizer
+
+[pzmudzinski/UnitySpeechRecognizer](https://github.com/pzmudzinski/UnitySpeechRecognizer)
+
+Unityで、iOSとAndroidのそれぞれのOSの音声認識を利用するためのネイティブプラグイン実装。
+
+### Post-Processing-Wireframe-Outlines
+
+[MirzaBeig/Post-Processing-Wireframe-Outlines: A simple post-processing outline effect that uses depth-based edge detection.](https://github.com/MirzaBeig/Post-Processing-Wireframe-Outlines)
+
+ポストプロセッシングワイヤフレームとアウトラインをレンダリングするUnity用ワイヤフレームとアウトライン（2in1）エフェクト。
+
+### Macoron/whisper.unity
+
+[Macoron/whisper.unity: Bindings of whisper.cpp speech to text model for Unity3d running on your local machine](https://github.com/Macoron/whisper.unity)
+
+whisper.cppをUnity上で実行するネイティブラッパー。
+
+https://github.com/alisahanyalcin/UnitySkinnedMeshTransferTool
+
+### alisahanyalcin/UnitySkinnedMeshTransferTool
+
+[alisahanyalcin/UnitySkinnedMeshTransferTool: Unity Skinned Mesh Transfer Tool for Vroid Models](https://github.com/alisahanyalcin/UnitySkinnedMeshTransferTool)
+
+Vroidモデル用のスキンメッシュトランスフォームツール。あるモデルの一分のパーツを別モデルへ転写できる。
