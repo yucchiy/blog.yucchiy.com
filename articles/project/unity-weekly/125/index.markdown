@@ -8,6 +8,9 @@ date: "2023-06-12T00:00:01"
 ---
 
 
+WWDC 2023が開催され、空間コンピュータApple Vision Proが発表されました。また、このアプリケーションをUnityで制作するためのベータプログラムの受け付けが開始されました。
+
+また、ArmベースなWindowsへの対応状況についてのブログ記事の投稿がありました。2023.1からはArmネイティブなWindowsアプリが開発できるのと、近日中にArmネイティブなエディターもリリース予定とのことです。
 
 ## Unity Officials
 
@@ -33,7 +36,7 @@ WWDC2023での発表のうち、UnityでApple Vision Proのアプリケーショ
 
 [Unity でメモリリーク？ Memory Profiler で Leaked Managed Shell をチェックしてみよう！ - YouTube](https://www.youtube.com/watch?v=UIwQmpQTtA4)
 
-`GameObject.Destroy1を行ったときに、ネイティブ側のメモリが破棄されているが、マネージド領域で参照が外れずにリークする問題（Leaked Managed Shell）についての概要やGameObjectのnull挙動、Memory Profiler1.1でこれを確認する方法などについてそれぞれ解説しています。
+`GameObject.Destroy`を行ったときに、ネイティブ側のメモリが破棄されているが、マネージド領域で参照が外れずにリークする問題（Leaked Managed Shell）についての概要やGameObjectのnull挙動、Memory Profiler1.1でこれを確認する方法などについてそれぞれ解説しています。
 
 ## Articles
 
