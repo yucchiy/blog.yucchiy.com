@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 127"
-description: "2023/06/26週のUnity Weeklyです。Meta Quest3、Ziva VFX、Persecなどについてまとめています。"
+description: "2023/06/26週のUnity Weeklyです。Meta Quest3、Ziva VFX、Parsecなどについてまとめています。"
 tags: ["Unity Weekly","Unity"]
 date: "2023-06-26T00:00:01"
 
@@ -28,7 +28,7 @@ Ziva VFXを用いてフィルムクオリティのデフォルメキャラクタ
 
 [リモートデスクトップで Unity 開発！？ Parsec を使ってみよう！ - YouTube](https://www.youtube.com/watch?v=mueyyOy4QX0)
 
-Unityが提供するリモートデスクトップソリューションPersecの概要や特徴、活用事例について紹介しています。
+Unityが提供するリモートデスクトップソリューションParsecの概要や特徴、活用事例について紹介しています。
 
 また、リモートデスクトップ環境を構築する上で便利なEDIDドングルやRemote button pusherなどのtipsについても紹介しています。
 
