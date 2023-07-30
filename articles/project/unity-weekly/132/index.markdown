@@ -39,6 +39,12 @@ Unite 2023で取り上げられる予定のコンテンツや、参加方法に�
 
 UGSのマルチプレイヤーゲーム制作に関するサービスに追加された AWS S3からゲームサーバーのビルドを直接アップロードする機能 と、 UGSのCLIツールのリリースについて紹介しています。
 
+### Unity ECS で高速化！とりあえずキャラを 5,000 体出してみよう！
+
+[Unity ECS で高速化！とりあえずキャラを 5,000 体出してみよう！ - YouTube](https://www.youtube.com/watch?v=zn3m6ZFppdQ)
+
+[はじめての Unity ECS - Entity Component System を使ってみよう！](https://www.youtube.com/watch?v=vzF00Wb6wNY)で利用したサンプルプロジェクトのダンサーの体数を5000体に増やし、さらにスポーン処理とダンサーのアニメーション処理を高速化する方法について解説しています。
+
 ## Articles
 
 ### Unity用のHTTP/2(gRPC) Client、YetAnotherHttpHandlerを公開しました
@@ -58,6 +64,12 @@ Unityで利用できる HTTP/2 Client、 [YetAnotherHttpHandler](https://github.
 [Unityでもgrpc-dotnetを使ったgRPCがしたい - Synamon’s Engineer blog](https://synamon.hatenablog.com/entry/grpc-dotnet-unity)
 
 grpc-dotnet-unityを用いてUnity上でgRPC通信を行う方法についてまとめています。
+
+### AnimatorやPlayableGraphからも卒業！？スキニング・スケルタルアニメーションの独自実装をして全局面で勝つ・前編
+
+[【Unity】AnimatorやPlayableGraphからも卒業！？スキニング・スケルタルアニメーションの独自実装をして全局面で勝つ・前編【中級者向け】](https://www.infiniteloop.co.jp/tech-blog/2023/07/animatorreplacepart1/)
+
+BurstとBatchRendererGroupによる独自のスケルタルアニメーション実装の概要と、Unity標準のアニメーション再生とのパフォーマンス比較の結果を紹介しています。
 
 ### Unity公式LoggingのConfigurationを理解する
 
