@@ -53,6 +53,12 @@ UGSのマルチプレイヤーゲーム制作に関するサービスに追加�
 
 Unityで利用できる HTTP/2 Client、 [YetAnotherHttpHandler](https://github.com/Cysharp/YetAnotherHttpHandler) がリリースされました。このライブラリの実装背景から技術スタックについて紹介しています。
 
+### Unityが提供する、モバイルハードでも美しく表現する描画方式「URP」とは何か。Unityの人に訊いてみた
+
+[Unityが提供する、モバイルハードでも美しく表現する描画方式「URP」とは何か。Unityの人に訊いてみた - AUTOMATON](https://automaton-media.com/articles/reportjp/20230729-257473/)
+
+URPの特徴について、HDRPと比較しつつUnityの中の人が紹介しています。
+
 ### あてっこ！ぷにまるずを支える技術紹介 〜モバイルWebGLの開発事例〜
 
 [あてっこ！ぷにまるずを支える技術紹介 〜モバイルWebGLの開発事例〜 - Mirrativ Tech Blog](https://tech.mirrativ.stream/entry/2023/07/26/160551?utm_source=feed)
