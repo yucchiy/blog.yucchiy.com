@@ -115,8 +115,6 @@ Android上でUaaLを起動する方法について紹介しています。
 
 アセットのプレビュー画像を取得する `AssetPreview.GetAssetPreview` について紹介しています。
 
-## Slides
-
 ## Repositories
 
 ### PrimeTween
