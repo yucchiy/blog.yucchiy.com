@@ -3,7 +3,7 @@ type: "unity-weekly"
 title: "Unity Weekly 143"
 description: "2023/10/16週のUnity Weeklyです。ECSキャラクターコントローラー、XPDB、Render Graph、UI Toolkitなどについて取り上げています。"
 tags: ["Unity Weekly","Unity"]
-date: "2023-10-10T00:00:01"
+date: "2023-10-16T00:00:01"
 
 ---
 
