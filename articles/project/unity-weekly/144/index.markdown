@@ -24,7 +24,7 @@ UI Builderの使い方、レイアウトを整えるためのFlexの挙動やPos
 unity1week online共有会 #13の動画と資料が公開されています。
 
 * [📣 unity1week online共有会 #13 - YouTube](https://www.youtube.com/watch?v=COFWY3BrDEw)
-* [u1w共有会 23_10_14 | ドクセル](https://www.docswell.com/s/yousanz/ZP9X68-2023-10-14-214148)
+* [u1w共有会 「チーム開発でのGoogle Sheetを 使ったマスターデータの管理」 | ドクセル](https://www.docswell.com/s/yousanz/ZP9X68-2023-10-14-214148)
 * [⌨️ a Key is Landmine 💣のデザイン / Design of "a Key is Landmine" - Speaker Deck](https://speakerdeck.com/lycoris102/design-of-a-key-is-landmine)
 * [こわくないエディター拡張入門 - Speaker Deck](https://speakerdeck.com/gameshalico/kowakunaiedeitakuo-zhang-ru-men)
 * [unity1week_online共有会13_オープンソースゲーム開発のススメ - Speaker Deck](https://speakerdeck.com/mathken029/unity1week-onlinegong-you-hui-13-opunsosugemukai-fa-nosusume)
