@@ -138,6 +138,8 @@ Unity Sentisを用いて独自のモデル（Yolov5）を動かす方法につ�
 
 ## Advent Calendar 2023
 
+2023年のAdvent Calendarが12/1より開始しました。Unity Weeklyではその中からUnityに関係する記事を（可能な限り）取り上げます。
+
 ### URPとShaderGraphで光学迷彩シェーダーを作る
 
 [[Unity]URPとShaderGraphで光学迷彩シェーダーを作る](https://zenn.dev/kd_gamegikenblg/articles/6227f6ad7ece9a)
