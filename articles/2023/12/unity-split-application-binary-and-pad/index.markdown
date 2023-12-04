@@ -2,7 +2,7 @@
 type: "tech"
 title: "Unityの「Split Application Binary」を用いて、GooglePlay Storeで150MBより大きいアプリケーションを配信する"
 description: "この記事では、「Split Application Binary」の概要からこの機能で内部的に利用されている「Play Asset Delivery」、UnityやGradleプロジェクト上でどのような扱いになっているのかを説明します。また、Unityアプリでの「Play Asset Delivery」の活用の個人的な所感についても触れます。"
-tags: ["Unity", "Android", "Play Asset Delivery"]
+tags: ["Unity", "Android", "Play Asset Delivery", "Advent Calendar 2023"]
 date: "2023-12-04T00:00:00"
 
 ---
