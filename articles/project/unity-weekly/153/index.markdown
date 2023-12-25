@@ -326,7 +326,7 @@ toio SDK for UnityとAR Foundationを組み合わせて、AR上でタップし�
 
 [４頂点の色を指定できるRawImageの派生コンポーネント　RawImage4Color #Unity - Qiita](https://qiita.com/ScreenPocket/items/4556ba0e408332946f5e)
 
-タイトル通り4頂点を指定できる独自のRawImage派生コンポーネントの実装についてその詳細を解説しています。
+4頂点を指定できる独自のRawImage派生コンポーネントの実装についてその詳細を解説しています。
 
 ### UnityでOpenPose風のアバタースケルトンを表示する仕組みを作ってみた
 
@@ -363,7 +363,7 @@ MasterMemoryで扱うマスターデーターを、バイナリ化する前に�
 
 [SpriteRenderer の裏をぼかすシェーダ - 実践ゲーム製作メモ帳2](https://eiki.hatenablog.jp/entry/2023/12/24/114240)
 
-タイトル通り`SpriteRenderer`の裏側をぼかすシェーダーの実装を紹介しています。
+`SpriteRenderer`の裏側をぼかすシェーダーの実装を紹介しています。
 
 ### Unity Loggingのハマりポイントまとめ
 
