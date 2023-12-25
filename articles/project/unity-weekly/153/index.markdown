@@ -15,10 +15,10 @@ date: "2023-12-25T00:00:01"
 Unite 2023の基調講演全文とそれぞれのセクションでの発表の日本語翻訳が公開されています。
 
 - [Unite 2023 基調講演 - YouTube](https://www.youtube.com/watch?v=RwdaCm3g4BA)
-- [Unity を使ったゲーム開発の未来像 - YouTube](https://www.youtube.com/watch?v=1URmjb44yU4&t=3s)
+- [Unity を使ったゲーム開発の未来像 - YouTube](https://www.youtube.com/watch?v=1URmjb44yU4)
 - [UI Toolkit でより美しく、素早く作成できるエディターとゲームインターフェース - YouTube](https://www.youtube.com/watch?v=lG5eR9NVv68)
 - [新しいメモリプロファイラーでアプリのパフォーマンスを改善する - YouTube](https://www.youtube.com/watch?v=ragQZpWkWiA)
-- [Unity Muse でゲームレベルのプロトタイプを 20 分で作成する - YouTube](https://www.youtube.com/watch?v=dBDksSAwzPI&t=36s)
+- [Unity Muse でゲームレベルのプロトタイプを 20 分で作成する - YouTube](https://www.youtube.com/watch?v=dBDksSAwzPI)
 - [Unity で作成したゲームをより多くのプレイヤーに瞬時に届ける - YouTube](https://www.youtube.com/watch?v=Rr9jW_TFtE8)
 - [Unity PolySpatial + visionOS について知っておきたいすべてのこと - YouTube](https://www.youtube.com/watch?v=o8EfcQHbJqo)
 
