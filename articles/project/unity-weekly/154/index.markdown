@@ -2,7 +2,7 @@
 type: "unity-weekly"
 title: "Unity Weekly 154"
 description: "2024/01/08週のUnity Weeklyです。Unityフォルダー構造、CEDEC2023講演動画公開、Unity URP 完全に理解した勉強会、R3などについて取り上げています。"
-tags: ["Unity Weekly", "Unity", "Advent Calendar 2023"]
+tags: ["Unity Weekly", "Unity"]
 date: "2024-01-09T00:00:01"
 
 ---
