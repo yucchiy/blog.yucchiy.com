@@ -43,13 +43,19 @@ Custom SRP（Scriptable Render Pipeline）のチュートリアル記事で、�
 
 ### 深掘りTextMeshPro：SDFフォントデータによる文字描画実装（第１回：ＳＤＦの仕組み）
 
-[#unity 深掘りTextMeshPro：SDFフォントデータによる文字描画実装（第１回：ＳＤＦの仕組み） - 土屋つかさの技術ブログは今か無しか](https://someiyoshino.info/entry/2024/01/13/174636?utm_source=feed)
+[#unity 深掘りTextMeshPro：SDFフォントデータによる文字描画実装（第１回：ＳＤＦの仕組み） - 土屋つかさの技術ブログは今か無しか](https://someiyoshino.info/entry/2024/01/13/174636)
 
 TextMeshProのフォント描画で使われているSDFの仕組みについて解説しています。
 
+### 次世代のUniRx「R3」を導入してみる
+
+[【Unity】次世代のUniRx「R3」を導入してみる - octo127’s blog](https://octo127.hatenablog.com/entry/2024/01/11/235940)
+
+次世代のUniRx「R3」について、Unityプロジェクトへの導入方法を紹介しています。
+
 ### Unity 2022.3.16f1 で iOS アプリ起動後に黒い画面が一瞬表示される
 
-[【Unity】Unity 2022.3.16f1 で iOS アプリ起動後に黒い画面が一瞬表示される - コガネブログ](https://baba-s.hatenablog.com/entry/2024/01/09/144628?utm_source=feed)
+[【Unity】Unity 2022.3.16f1 で iOS アプリ起動後に黒い画面が一瞬表示される - コガネブログ](https://baba-s.hatenablog.com/entry/2024/01/09/144628)
 
 Unity 2022.3.16f1でiOSアプリが起動後に黒い画面が一瞬表示される不具合について紹介しています。
 
@@ -69,7 +75,7 @@ UMP（User Messaging Platform）SDKを利用して、GDPR対応を行うため�
 
 ### GiLight2D
 
-[NullTale/GiLight2D: 𝙀𝙓𝙋𝙀𝙍𝙄𝙈𝙀𝙉𝙏𝘼𝙇 2D Raytracing for Unity Urp](https://github.com/NullTale/GiLight2D?)
+[NullTale/GiLight2D: 𝙀𝙓𝙋𝙀𝙍𝙄𝙈𝙀𝙉𝙏𝘼𝙇 2D Raytracing for Unity Urp](https://github.com/NullTale/GiLight2D)
 
 URPのRender Featureを用いた、2Dのグローバルイルミネーション実装。
 
@@ -81,6 +87,6 @@ URPのRender Featureを用いた、2Dのグローバルイルミネーション�
 
 ### UnitySettingsFramework
 
-[xZenvin/UnitySettingsFramework: This package aims to provide a comprehensible, simple and expandable way of creating in-game settings for any Unity game.](https://github.com/xZenvin/UnitySettingsFramework?)
+[xZenvin/UnitySettingsFramework: This package aims to provide a comprehensible, simple and expandable way of creating in-game settings for any Unity game.](https://github.com/xZenvin/UnitySettingsFramework)
 
 ゲーム内の設定を理解しやすく、シンプルに、拡張可能なかたちで提供することを目的にした設定管理のフレームワーク実装。
