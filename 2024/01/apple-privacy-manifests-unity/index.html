@@ -1,0 +1,372 @@
+<!DOCTYPE html><html lang="ja"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="twitter:image" content="https://blog.yucchiy.com/static/defaultImage-f5bea02abcd0450bed97462f084558b8.png"/><meta data-react-helmet="true" name="twitter:site" content="@yucchiy_"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="og:image" content="https://blog.yucchiy.com/static/defaultImage-f5bea02abcd0450bed97462f084558b8.png"/><meta data-react-helmet="true" name="og:url" content="https://blog.yucchiy.com/2024/01/apple-privacy-manifests-unity/"/><meta data-react-helmet="true" name="og:description" content="Unityアプリ向けのApple Privacy Manifests対応についてのまとめます"/><meta data-react-helmet="true" name="og:title" content="UnityアプリでのApple Privacy Manifests対応まわりについて | Yucchiy&#x27;s Note"/><meta data-react-helmet="true" name="description" content="Unityアプリ向けのApple Privacy Manifests対応についてのまとめます"/><meta name="generator" content="Gatsby 4.16.0"/><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Yucchiy&#x27;s Note" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=ced7ce5d16d58390b9715f99f691b449" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=ced7ce5d16d58390b9715f99f691b449"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><title data-react-helmet="true">UnityアプリでのApple Privacy Manifests対応まわりについて | Yucchiy&#x27;s Note</title><style data-href="/styles.d8874a0c8cedd632d81a.css" data-identity="gatsby-global-css">/*
+! tailwindcss v3.1.2 | MIT License | https://tailwindcss.com
+*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}html{-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4}body{line-height:inherit;margin:0}hr{border-top-width:1px;color:inherit;height:0}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-collapse:collapse;border-color:inherit;text-indent:0}button,input,optgroup,select,textarea{color:inherit;font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{color:#9ca3af;opacity:1}input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#9ca3af;opacity:1}input::placeholder,textarea::placeholder{color:#9ca3af;opacity:1}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{height:auto;max-width:100%}*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::-webkit-backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.prose{color:var(--tw-prose-body);max-width:65ch}.prose :where([class~=lead]):not(:where([class~=not-prose] *)){color:var(--tw-prose-lead);font-size:1.25em;line-height:1.6;margin-bottom:1.2em;margin-top:1.2em}.prose :where(a):not(:where([class~=not-prose] *)){color:var(--tw-prose-links);font-weight:500;text-decoration:underline}.prose :where(strong):not(:where([class~=not-prose] *)){color:var(--tw-prose-bold);font-weight:600}.prose :where(ol):not(:where([class~=not-prose] *)){list-style-type:decimal;padding-left:1.625em}.prose :where(ol[type=A]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=A s]):not(:where([class~=not-prose] *)){list-style-type:upper-alpha}.prose :where(ol[type=a s]):not(:where([class~=not-prose] *)){list-style-type:lower-alpha}.prose :where(ol[type=I]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type=I s]):not(:where([class~=not-prose] *)){list-style-type:upper-roman}.prose :where(ol[type=i s]):not(:where([class~=not-prose] *)){list-style-type:lower-roman}.prose :where(ol[type="1"]):not(:where([class~=not-prose] *)){list-style-type:decimal}.prose :where(ul):not(:where([class~=not-prose] *)){list-style-type:disc;padding-left:1.625em}.prose :where(ol>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-counters);font-weight:400}.prose :where(ul>li):not(:where([class~=not-prose] *))::marker{color:var(--tw-prose-bullets)}.prose :where(hr):not(:where([class~=not-prose] *)){border-color:var(--tw-prose-hr);border-top-width:1px;margin-bottom:3em;margin-top:3em}.prose :where(blockquote):not(:where([class~=not-prose] *)){border-left-color:var(--tw-prose-quote-borders);border-left-width:.25rem;color:var(--tw-prose-quotes);font-style:italic;font-weight:500;margin-bottom:1.6em;margin-top:1.6em;padding-left:1em;quotes:"\201C""\201D""\2018""\2019"}.prose :where(blockquote p:first-of-type):not(:where([class~=not-prose] *)):before{content:open-quote}.prose :where(blockquote p:last-of-type):not(:where([class~=not-prose] *)):after{content:close-quote}.prose :where(h1):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.5rem;font-weight:800;line-height:2rem;margin-bottom:.8888889em;margin-top:0}.prose :where(h1 strong):not(:where([class~=not-prose] *)){font-weight:900}.prose :where(h2):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.25rem;font-weight:700;line-height:1.75rem;margin-bottom:1em;margin-top:2em}.prose :where(h2 strong):not(:where([class~=not-prose] *)){font-weight:800}.prose :where(h3):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-size:1.125rem;font-weight:600;line-height:1.75rem;margin-bottom:.6em;margin-top:1.6em}.prose :where(h3 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(h4):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;line-height:1.5;margin-bottom:.5em;margin-top:1.5em}.prose :where(h4 strong):not(:where([class~=not-prose] *)){font-weight:700}.prose :where(figure>*):not(:where([class~=not-prose] *)){margin-bottom:0;margin-top:0}.prose :where(figcaption):not(:where([class~=not-prose] *)){color:var(--tw-prose-captions);font-size:.875em;line-height:1.4285714;margin-top:.8571429em}.prose :where(code):not(:where([class~=not-prose] *)){color:var(--tw-prose-code);font-size:.875em;font-weight:600}.prose :where(code):not(:where([class~=not-prose] *)):before{content:"`"}.prose :where(code):not(:where([class~=not-prose] *)):after{content:"`"}.prose :where(a code):not(:where([class~=not-prose] *)){color:var(--tw-prose-links)}.prose :where(pre):not(:where([class~=not-prose] *)){background-color:var(--tw-prose-pre-bg);border-radius:.375rem;color:var(--tw-prose-pre-code);font-size:.875em;font-weight:400;line-height:1.7142857;margin-bottom:1.7142857em;margin-top:1.7142857em;overflow-x:auto;padding:.8571429em 1.1428571em}.prose :where(pre code):not(:where([class~=not-prose] *)){background-color:transparent;border-radius:0;border-width:0;color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit;line-height:inherit;padding:0}.prose :where(pre code):not(:where([class~=not-prose] *)):before{content:none}.prose :where(pre code):not(:where([class~=not-prose] *)):after{content:none}.prose :where(table):not(:where([class~=not-prose] *)){font-size:.875em;line-height:1.7142857;margin-bottom:2em;margin-top:2em;table-layout:auto;text-align:left;width:100%}.prose :where(thead):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-th-borders);border-bottom-width:1px}.prose :where(thead th):not(:where([class~=not-prose] *)){color:var(--tw-prose-headings);font-weight:600;padding-bottom:.5714286em;padding-left:.5714286em;padding-right:.5714286em;vertical-align:bottom}.prose :where(tbody tr):not(:where([class~=not-prose] *)){border-bottom-color:var(--tw-prose-td-borders);border-bottom-width:1px}.prose :where(tbody tr:last-child):not(:where([class~=not-prose] *)){border-bottom-width:0}.prose :where(tbody td):not(:where([class~=not-prose] *)){padding:.5714286em;vertical-align:baseline}.prose{--tw-prose-body:#374151;--tw-prose-headings:#111827;--tw-prose-lead:#4b5563;--tw-prose-links:#111827;--tw-prose-bold:#111827;--tw-prose-counters:#6b7280;--tw-prose-bullets:#d1d5db;--tw-prose-hr:#e5e7eb;--tw-prose-quotes:#111827;--tw-prose-quote-borders:#e5e7eb;--tw-prose-captions:#6b7280;--tw-prose-code:#111827;--tw-prose-pre-code:#e5e7eb;--tw-prose-pre-bg:#1f2937;--tw-prose-th-borders:#d1d5db;--tw-prose-td-borders:#e5e7eb;--tw-prose-invert-body:#d1d5db;--tw-prose-invert-headings:#fff;--tw-prose-invert-lead:#9ca3af;--tw-prose-invert-links:#fff;--tw-prose-invert-bold:#fff;--tw-prose-invert-counters:#9ca3af;--tw-prose-invert-bullets:#4b5563;--tw-prose-invert-hr:#374151;--tw-prose-invert-quotes:#f3f4f6;--tw-prose-invert-quote-borders:#374151;--tw-prose-invert-captions:#9ca3af;--tw-prose-invert-code:#fff;--tw-prose-invert-pre-code:#d1d5db;--tw-prose-invert-pre-bg:rgba(0,0,0,.5);--tw-prose-invert-th-borders:#4b5563;--tw-prose-invert-td-borders:#374151;font-size:1rem;line-height:1.75}.prose :where(p):not(:where([class~=not-prose] *)){margin-bottom:1.25em;margin-top:1.25em}.prose :where(img):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(video):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(figure):not(:where([class~=not-prose] *)){margin-bottom:2em;margin-top:2em}.prose :where(h2 code):not(:where([class~=not-prose] *)){font-size:.875em}.prose :where(h3 code):not(:where([class~=not-prose] *)){font-size:.9em}.prose :where(li):not(:where([class~=not-prose] *)){margin-bottom:.5em;margin-top:.5em}.prose :where(ol>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose :where(ul>li):not(:where([class~=not-prose] *)){padding-left:.375em}.prose>:where(ul>li p):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose>:where(ul>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ul>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose>:where(ol>li>:first-child):not(:where([class~=not-prose] *)){margin-top:1.25em}.prose>:where(ol>li>:last-child):not(:where([class~=not-prose] *)){margin-bottom:1.25em}.prose :where(ul ul,ul ol,ol ul,ol ol):not(:where([class~=not-prose] *)){margin-bottom:.75em;margin-top:.75em}.prose :where(hr+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h2+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h3+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(h4+*):not(:where([class~=not-prose] *)){margin-top:0}.prose :where(thead th:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(thead th:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose :where(tbody td:first-child):not(:where([class~=not-prose] *)){padding-left:0}.prose :where(tbody td:last-child):not(:where([class~=not-prose] *)){padding-right:0}.prose>:where(:first-child):not(:where([class~=not-prose] *)){margin-top:0}.prose>:where(:last-child):not(:where([class~=not-prose] *)){margin-bottom:0}.mx-auto{margin-left:auto;margin-right:auto}.my-6{margin-bottom:1.5rem;margin-top:1.5rem}.my-auto{margin-bottom:auto;margin-top:auto}.mx-6{margin-left:1.5rem;margin-right:1.5rem}.mt-20{margin-top:5rem}.mb-6{margin-bottom:1.5rem}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.block{display:block}.flex{display:flex}.min-h-screen{min-height:100vh}.max-w-3xl{max-width:48rem}.max-w-none{max-width:none}.flex-grow{flex-grow:1}.list-inside{list-style-position:inside}.list-disc{list-style-type:disc}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.justify-start{justify-content:flex-start}.justify-center{justify-content:center}.gap-6{gap:1.5rem}.gap-2{gap:.5rem}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81/var(--tw-border-opacity))}.border-pink-500{--tw-border-opacity:1;border-color:rgb(236 72 153/var(--tw-border-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity))}.p-6{padding:1.5rem}.py-8{padding-bottom:2rem;padding-top:2rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-bottom:.5rem;padding-top:.5rem}.py-10{padding-top:2.5rem}.pb-10,.py-10{padding-bottom:2.5rem}.pt-10{padding-top:2.5rem}.text-center{text-align:center}.font-serif{font-family:ui-serif,Georgia,Cambria,Times New Roman,Times,serif}.text-sm{font-size:.875rem;line-height:1.25rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-xs{font-size:.75rem;line-height:1rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.font-medium{font-weight:500}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity))}.text-pink-500{--tw-text-opacity:1;color:rgb(236 72 153/var(--tw-text-opacity))}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-text-decoration-color,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-text-decoration-color,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}.duration-150,.transition{transition-duration:.15s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}html{font-family:-apple-system,Meiryo,"sans-serif"}body{word-wrap:break-word}.gatsby-resp-image-figcaption{text-align:center}.gatsby-highlight code[class*=language-],.gatsby-highlight pre[class*=language-]{font-size:.8rem}.last\:mb-0:last-child{margin-bottom:0}.hover\:bg-black:hover{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity))}.hover\:bg-opacity-5:hover{--tw-bg-opacity:0.05}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:no-underline:hover{-webkit-text-decoration-line:none;text-decoration-line:none}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.prose-a\:text-emerald-600 :is(:where(a):not(:where([class~=not-prose] *))){--tw-text-opacity:1;color:rgb(5 150 105/var(--tw-text-opacity))}@media (min-width:640px){.sm\:mx-auto{margin-left:auto;margin-right:auto}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><style type="text/css">
+    .header-link.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .header-link.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .header-link svg,
+    h2 .header-link svg,
+    h3 .header-link svg,
+    h4 .header-link svg,
+    h5 .header-link svg,
+    h6 .header-link svg {
+      visibility: hidden;
+    }
+    h1:hover .header-link svg,
+    h2:hover .header-link svg,
+    h3:hover .header-link svg,
+    h4:hover .header-link svg,
+    h5:hover .header-link svg,
+    h6:hover .header-link svg,
+    h1 .header-link:focus svg,
+    h2 .header-link:focus svg,
+    h3 .header-link:focus svg,
+    h4 .header-link:focus svg,
+    h5 .header-link:focus svg,
+    h6 .header-link:focus svg {
+      visibility: visible;
+    }
+  </style></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="flex flex-col bg-slate-100 min-h-screen"><div class="container max-w-3xl mx-auto pb-10 pt-10"><h3 class="text-2xl font-bold text-center"><a class="hover:no-underline text-gray-900 font-serif" href="/">Yucchiy&#x27;s Note</a></h3></div><main class="flex-grow"><div class="container bg-white rounded shadow hover:shadow-md mx-auto p-6"><article><header class="mb-6"><div><time class="text-sm text-gray-500 mb-1">January 24, 2024</time><h1 class="text-xl font-semibold text-gray-700 mb-2">UnityアプリでのApple Privacy Manifests対応まわりについて</h1><div class="flex flex-wrap justify-start gap-2"><a class="px-4 py-2 border border-pink-500 text-pink-500 font-medium text-xs leanding-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out hover:no-underline" href="/tags/unity/">Unity</a><a class="px-4 py-2 border border-pink-500 text-pink-500 font-medium text-xs leanding-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out hover:no-underline" href="/tags/i-os/">iOS</a><a class="px-4 py-2 border border-pink-500 text-pink-500 font-medium text-xs leanding-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out hover:no-underline" href="/tags/apple/">Apple</a><a class="px-4 py-2 border border-pink-500 text-pink-500 font-medium text-xs leanding-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out hover:no-underline" href="/tags/privacy-manifests/">Privacy Manifests</a></div></div></header><div class=" prose max-w-none prose-a:text-emerald-600 "><p>仕事でもApple Privacy Manifestsの対応周りがホットなので、個人的なUnityアプリ向けのApple Privacy Manifests対応についてのメモ代わりに記事として放流します。</p>
+<p>もし間違い等あれば、<a href="https://twitter.com/yucchiy_">@yuccchiy_</a>までご連絡いただけるとたすかります。</p>
+<p>UnityにおけるPrivacy Manifestsのための対応方針は下記ドキュメントから確認できます。</p>
+<p><a href="https://docs.unity3d.com/2021.3/Documentation/Manual/apple-privacy-manifest-policy.html">Unity - Manual: Apple’s privacy manifest policy requirements</a></p>
+<p><a href="https://blog.yucchiy.com/project/unity-weekly/156/">今週のUnity Weekly</a>でも触れていますが、UnityのPrivacy Manifestsの対応は現在も進行中で、下記フォーラムにて詳細を確認できます。</p>
+<p><a href="https://forum.unity.com/threads/apple-privacy-manifest-updates-for-unity-engine.1529026/">Official - Apple privacy manifest updates for Unity Engine - Unity Forum</a></p>
+<p>基本的にはこのフォーラムの情報を参考にしつつ対応するのが良さそうです。</p>
+<h2 id="やることのまとめ" style="position:relative;"><a href="#%E3%82%84%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AE%E3%81%BE%E3%81%A8%E3%82%81" aria-label="やることのまとめ permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>やることのまとめ</h2>
+<p>まずはじめに、Privacy Manifestsで、アプリ側での対応をまとめます。</p>
+<ul>
+<li>Xcode15で <code>PrivacyInfo.xcprivacy</code> を用意し、<code>Assets/Plugins/iOS</code> などに配置して、アプリに <code>PrivacyInfo.xcprivacy</code> を含めるようにする
+<ul>
+<li>参考: <a href="https://docs.unity3d.com/2021.3/Documentation/Manual/apple-privacy-manifest-policy.html">Unity - Manual: Apple’s privacy manifest policy requirements</a></li>
+<li>ただし、Unityエンジン側のアップデートで、この対応に対するソリューションが提供されるかも？（<a href="https://forum.unity.com/threads/apple-privacy-manifest-updates-for-unity-engine.1529026/">Official - Apple privacy manifest updates for Unity Engine - Unity Forum</a>）</li>
+</ul>
+</li>
+<li>自身のアプリ内のコードで、<a href="https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api">Required Reason API</a>を利用しているものは、<code>PrivacyInfo.xcprivacy</code> に記述する
+<ul>
+<li>参考: <a href="https://docs.unity3d.com/2021.3/Documentation/Manual/apple-privacy-manifest-policy.html">Unity - Manual: Apple’s privacy manifest policy requirements</a></li>
+<li>ただし、Unityエンジン側のアップデートで、この対応に対するソリューションが提供されるかも？（<a href="https://forum.unity.com/threads/apple-privacy-manifest-updates-for-unity-engine.1529026/">Official - Apple privacy manifest updates for Unity Engine - Unity Forum</a>）</li>
+</ul>
+</li>
+<li>トラッキングを行っている場合は、<code>PrivacyInfo.xcprivacy</code> にトラッキングに用いるドメインを記述する</li>
+<li><a href="https://developer.apple.com/support/third-party-SDK-requirements/">Privacy-Impacting SDKs</a>に指定されているSDKの、Privacy Manifests対応が行われたバージョンへのアップデートを行う
+<ul>
+<li>UnityFrameworkもSDKに指定されているため、<em>Unity 2021 LTS以降の最新版にアップデートを行う必要がある</em>（かも）</li>
+</ul>
+</li>
+</ul>
+<p>個人的に対応が重たいと感じるのは<a href="https://developer.apple.com/support/third-party-SDK-requirements/">Privacy-Impacting SDKs</a>で、基本的には<strong>UnityやサードパーティSDKの対応を待ってアプデが必要な点</strong>です。</p>
+<h2 id="apple-privacy-manifestsの概要" style="position:relative;"><a href="#apple-privacy-manifests%E3%81%AE%E6%A6%82%E8%A6%81" aria-label="apple privacy manifestsの概要 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Apple Privacy Manifestsの概要</h2>
+<p>2024/04までに、下記項目の対応が必要になります。</p>
+<ul>
+<li>Privacy Manifest</li>
+<li>Required Reason API</li>
+<li>Tracking Domain</li>
+<li>Code sign</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>アプリ開発者</th>
+<th>SDK開発者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Privacy Manifest</td>
+<td>Appleが定めるプライバシーデータをアプリ上で扱う場合は記述が必要</td>
+<td>Privacy-Impacting SDKsに該当する場合は対応が必要</td>
+</tr>
+<tr>
+<td>Required Reason API</td>
+<td>Required Reason APIを使う場合は対応が記述が必要</td>
+<td>Required Reason APIを使う場合は対応が記述が必要</td>
+</tr>
+<tr>
+<td>Tracking Domain</td>
+<td>トラッキングを行う場合は対応が必要</td>
+<td>トラッキングを行う場合は対応が必要</td>
+</tr>
+<tr>
+<td>コード署名</td>
+<td>対応不要</td>
+<td>Privacy-Impacting SDKsに該当する場合は対応が必要</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="https://developer.apple.com/support/third-party-SDK-requirements/">Privacy-Impacting SDKs</a></li>
+<li><a href="https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api">Required Reason API</a></li>
+<li><a href="https://developer.apple.com/app-store/app-privacy-details/">Appleが定めるプライバシーデーター</a></li>
+</ul>
+<p>アプリ開発者側は、主に「Privacy Manifest」と「Required Reason API」の対応を行います。</p>
+<p>また、「Privacy-Impacting SDK」に指定されたSDKを利用している場合は、そのSDKがこれらの対応を行っているかの確認を行い、対応が完了したバージョンのSDKにアップデートが必要です。</p>
+<h2 id="privacy-manifest" style="position:relative;"><a href="#privacy-manifest" aria-label="privacy manifest permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Privacy Manifest</h2>
+<p>アプリやSDKがAppleの定めるデータを扱う場合に、データを扱う旨をマニフェストに定義が必要になりました。対象になるデータは下記リンクに記載されています。</p>
+<p><a href="https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests">Describing data use in privacy manifests | Apple Developer Documentation</a></p>
+<p>アプリ開発者（つまり我々ゲーム開発者）は対応が必須で、サードパーティSDKについてはAppleがリストアップするSDKは対応されている必要があります。このリストは2023/12/29現在では下記ページから確認できます。</p>
+<p><a href="https://developer.apple.com/support/third-party-SDK-requirements/">Upcoming third-party SDK requirements - Support - Apple Developer</a></p>
+<h3 id="privacy-manifestの対応方法" style="position:relative;"><a href="#privacy-manifest%E3%81%AE%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95" aria-label="privacy manifestの対応方法 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Privacy Manifestの対応方法</h3>
+<p>具体的な対応としては、アプリ配下に <code>PrivacyInfo.xcprivacy</code> を配置して、下記を設定します。ちなみに <code>PrivacyInfo.xcprivacy</code> は、Xcode15以降で作成できます。</p>
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NSPrivacyTracking</code></td>
+<td>App Tracking Transparencyフレームワークの下で定義された、トラッキングのためにデータを利用するかどうか。</td>
+</tr>
+<tr>
+<td><code>NSPrivacyTrackingDomains</code></td>
+<td>トラッキングを行う際のドメインのリスト。</td>
+</tr>
+<tr>
+<td><code>NSPrivacyCollectedDataTypes</code></td>
+<td>収集するデータの一覧と用途。</td>
+</tr>
+</tbody>
+</table>
+<p><code>NSPrivacyCollectedDataTypes</code> は、収集するデータごとに下記のプロパティを設定します。</p>
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NSPrivacyCollectedDataType</code></td>
+<td>収集するデータの種類。</td>
+</tr>
+<tr>
+<td><code>NSPrivacyCollectedDataTypeLinked</code></td>
+<td>このデータを用いてユーザーの特定を行うかどうか。</td>
+</tr>
+<tr>
+<td><code>NSPrivacyCollectedDataTypeTracking</code></td>
+<td>このデータをトラッキングに利用するかどうか。</td>
+</tr>
+<tr>
+<td><code>NSPrivacyCollectedDataTypePurposes</code></td>
+<td>このデータを収集する理由の一覧。</td>
+</tr>
+</tbody>
+</table>
+<p>このデータの詳細は、下記リンクから確認できます。</p>
+<p><a href="https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests">Describing data use in privacy manifests | Apple Developer Documentation</a></p>
+<h2 id="required-reason-api" style="position:relative;"><a href="#required-reason-api" aria-label="required reason api permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required Reason API</h2>
+<p>Appleが定めるAPIを利用する場合に、その理由の記載が必要になりました。APIの一覧は下記ページから確認できます。</p>
+<p><a href="https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api">Describing use of required reason API | Apple Developer Documentation</a></p>
+<h3 id="required-reason-apiの対応方法" style="position:relative;"><a href="#required-reason-api%E3%81%AE%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95" aria-label="required reason apiの対応方法 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required Reason APIの対応方法</h3>
+<p>Privacy Manifestと同様に <code>PrivacyInfo.xcprivacy</code> に、利用しているAPIとその理由を記載します。</p>
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NSPrivacyAccessedAPITypes</code></td>
+<td>対象のAPIとその利用用途を記述した辞書。</td>
+</tr>
+</tbody>
+</table>
+<p>Unityが出力するプロジェクトには <code>PrivacyInfo.xcprivacy</code> が存在しないので、アプリ開発者の対応が必要です。
+Unity公式による対応方針は下記ドキュメントに記載されています。</p>
+<p><a href="https://docs.unity3d.com/2021.3/Documentation/Manual/apple-privacy-manifest-policy.html">Unity - Manual: Apple’s privacy manifest policy requirements</a></p>
+<p>対応方法としては、上記ドキュメントの「C# .Net framework APIs in Unity」または「Unity Engine privacy manifest」のAPIをUnityで利用している場合に、<code>PrivacyInfo.xcprivacy</code> を用意し、適切な設定を行います。</p>
+<p>（API利用は静的解析によって検知される可能性があるため、もしかすると利用の有無にかかわらずマニフェストを用意したほうがいいかもしれません。）</p>
+<p><code>PrivacyInfo.xcprivacy</code> を用意する方法はいくつかありますが、UnityとしてはXcodeで <code>PrivacyInfo.xcprivacy</code> を作成と設定を行った後にそのファイルを <code>Assets/Plugins</code> 配下に配置し、インスペクター上でプラットフォーム設定を「iOS」に設定する方法を紹介しています。</p>
+<h3 id="unityエンジン側の対応" style="position:relative;"><a href="#unity%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E5%81%B4%E3%81%AE%E5%AF%BE%E5%BF%9C" aria-label="unityエンジン側の対応 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unityエンジン側の対応</h3>
+<p>ドキュメントには上記の対応方針で記載されていますが、Required Reason APIへのエンジン側の対応は、現在進行形で行われているようです。下記フォーラムにて確認ができます。</p>
+<p><a href="https://forum.unity.com/threads/apple-privacy-manifest-updates-for-unity-engine.1529026/">Official - Apple privacy manifest updates for Unity Engine - Unity Forum</a></p>
+<p>具体的には、下記の実装がエンジン側で行われる＆対応予定で、これを利用するには <em>Unity 2021 LTS</em> 以降の最新版へのアップデートが必要になります。</p>
+<ul>
+<li>Unity Engine側のRequired Reasonsの対応は2021.3.34f1、2022.3.16f1、2023.2.5f1にリリース予定</li>
+<li>Unityプラグインやパッケージ、プロジェクトのPrivacy Manifestsを取り込むソリューションが2021.3.35f1、2022.3.18f1、2023.2.7f1にリリース予定。リリースノートには「Add Apple Privacy Manifest support」と記載される</li>
+</ul>
+<h2 id="tracking-domain" style="position:relative;"><a href="#tracking-domain" aria-label="tracking domain permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tracking Domain</h2>
+<p>アプリやSDKユーザーのトラッキングを行う場合は、トラッキングに用いるドメインの一覧を列挙する必要があります。</p>
+<h3 id="tracking-domainの対応方法" style="position:relative;"><a href="#tracking-domain%E3%81%AE%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95" aria-label="tracking domainの対応方法 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tracking Domainの対応方法</h3>
+<p><code>PrivacyInfo.xcprivacy</code> を配置して、下記を設定します。</p>
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NSPrivacyTracking</code></td>
+<td>App Tracking Transparencyフレームワークの下で定義された、トラッキングのためにデータを利用するかどうか。</td>
+</tr>
+<tr>
+<td><code>NSPrivacyTrackingDomains</code></td>
+<td>トラッキングを行う際のドメインのリスト。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="コード署名" style="position:relative;"><a href="#%E3%82%B3%E3%83%BC%E3%83%89%E7%BD%B2%E5%90%8D" aria-label="コード署名 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>コード署名</h2>
+<p>SDKの正当性を証明するために、Privacy-Impacting SDKに指定されたSDKは、コード署名が必要になりました。</p>
+<h3 id="コード署名の対応方法" style="position:relative;"><a href="#%E3%82%B3%E3%83%BC%E3%83%89%E7%BD%B2%E5%90%8D%E3%81%AE%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95" aria-label="コード署名の対応方法 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>コード署名の対応方法</h3>
+<p>基本的にアプリ開発者側での対応はないのですが、Privacy-Imacting SDKに指定されているSDKのうち、自身が利用しているSDKがコード署名を行っているかの確認が必要です。</p>
+<h3 id="unityframeworkのコード署名" style="position:relative;"><a href="#unityframework%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E7%BD%B2%E5%90%8D" aria-label="unityframeworkのコード署名 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UnityFrameworkのコード署名</h3>
+<p>UnityFrameworkが<a href="https://developer.apple.com/support/third-party-SDK-requirements/">Privacy-Impacting SDKs</a>が指定されているため、UnityとしてはUnityFrameworkに対してコード署名を行うという方針で対応が進められているようです。詳細についてはフォーラムにて確認できます。</p>
+<p><a href="https://forum.unity.com/threads/apple-privacy-manifest-updates-for-unity-engine.1529026/">Official - Apple privacy manifest updates for Unity Engine - Unity Forum</a></p>
+<p>この作業は現在作業中で、この対応を取り込むには <strong>Unity 2021 LTS</strong> 以降の最新版へのアップデートが必要になることが告知されています。</p>
+<h2 id="各種sdkの対応状況" style="position:relative;"><a href="#%E5%90%84%E7%A8%AEsdk%E3%81%AE%E5%AF%BE%E5%BF%9C%E7%8A%B6%E6%B3%81" aria-label="各種sdkの対応状況 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>各種SDKの対応状況</h2>
+<p>ゲーム開発でよく利用するSDKのうち、「Privacy-Impacting SDK」に指定されているものと、対応状況をまとめます。</p>
+<ul>
+<li>Facebook SDK
+<ul>
+<li>該当SDK
+<ul>
+<li>FBAEMKit</li>
+<li>FBSDKCoreKit</li>
+<li>FBSDKCoreKit</li>
+<li>FBSDKCoreKit_Basics</li>
+<li>FBSDKLoginKit</li>
+<li>FBSDKShareKit</li>
+</ul>
+</li>
+<li>対応: x
+<ul>
+<li><a href="https://github.com/facebook/facebook-ios-sdk/issues/2264">Feature Request: Support App Privacy Manifest · Issue #2264 · facebook/facebook-ios-sdk</a>
+<ul>
+<li>一部SDKは対応している？（<a href="https://github.com/facebook/facebook-ios-sdk/issues/2264#issuecomment-1867928714">https://github.com/facebook/facebook-ios-sdk/issues/2264#issuecomment-1867928714</a>）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Firebase
+<ul>
+<li>該当SDK
+<ul>
+<li>FirebaseABTesting</li>
+<li>FirebaseAuth</li>
+<li>FirebaseCore</li>
+<li>FirebaseCoreDiagnostics</li>
+<li>FirebaseCoreExtension</li>
+<li>FirebaseCoreInternal</li>
+<li>FirebaseCrashlytics</li>
+<li>FirebaseDynamicLinks</li>
+<li>FirebaseFirestore</li>
+<li>FirebaseInstallations</li>
+<li>FirebaseMessaging</li>
+<li>FirebaseRemoteConfig</li>
+</ul>
+</li>
+<li>対応: x
+<ul>
+<li><a href="https://github.com/firebase/firebase-ios-sdk/issues/11490">[FR]: Support App Privacy Manifest · Issue #11490 · firebase/firebase-ios-sdk</a>
+<ul>
+<li>対応中</li>
+<li><del>Firebase 10のマイナーバージョン以降での対応を予定しているが、場合によっては11以降のみの対応になる可能性がある。</del></li>
+<li>Firebase 10のマイナーバージョンでの対応を予定している。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>FBLPromises
+<ul>
+<li>対応: ?
+<ul>
+<li><a href="https://github.com/google/promises/issues/225">Privacy manifest for sensitive APIs · Issue #225 · google/promises</a>
+<ul>
+<li>Issueだけ上がっている</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="おわりに" style="position:relative;"><a href="#%E3%81%8A%E3%82%8F%E3%82%8A%E3%81%AB" aria-label="おわりに permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>おわりに</h2>
+<p>Apple Privacy Manifestsの、とくにUnityアプリでの対応をまとめてみました。</p>
+<p>サードパーティSDK側の対応が後手に回っていて、本当に大丈夫なのか...？ とおもいつつ、できるところからこまめに対応していこうと思っています。</p>
+<p>間違い等あればご指摘いただだけると幸いです。この情報がなにかの参考になれば幸いです。</p>
+<h2 id="参考" style="position:relative;"><a href="#%E5%8F%82%E8%80%83" aria-label="参考 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>参考</h2>
+<ul>
+<li>公式ドキュメント
+<ul>
+<li><a href="https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_data_use_in_privacy_manifests">Describing data use in privacy manifests | Apple Developer Documentation</a></li>
+<li><a href="https://developer.apple.com/videos/play/wwdc2023/10060/">Get started with privacy manifests - WWDC23 - Videos - Apple Developer</a></li>
+<li><a href="https://developer.apple.com/support/third-party-SDK-requirements/">Upcoming third-party SDK requirements - Support - Apple Developer</a></li>
+</ul>
+</li>
+<li>ニュース
+<ul>
+<li><a href="https://developer.apple.com/jp/news/?id=av1nevon">App Storeのプライバシーに関する最新情報 - 最新ニュース - Apple Developer</a></li>
+</ul>
+</li>
+<li>参考記事
+<ul>
+<li><a href="https://zenn.dev/kamimi01/articles/f8acb9cf2a8461">【WWDC23】2024年春以降に Apple 審査を通過するために対応すべきプライバシーの変更点</a></li>
+<li><a href="https://qiita.com/YokohamaHori/items/f54e9f2c74f7f6bfe268">[WWDC23] Xcode15からPrivacy Manifestsが導入 #Swift - Qiita</a></li>
+</ul>
+</li>
+<li>Unity側の対応
+<ul>
+<li><a href="https://docs.unity3d.com/2021.3/Documentation/Manual/apple-privacy-manifest-policy.html">Unity - Manual: Apple’s privacy manifest policy requirements</a></li>
+<li><a href="https://forum.unity.com/threads/apple-privacy-manifest-updates-for-unity-engine.1529026/">Official - Apple privacy manifest updates for Unity Engine - Unity Forum</a></li>
+</ul>
+</li>
+<li>対応事例
+<ul>
+<li><a href="https://techblog.openwork.co.jp/entry/ios-privacymanifest">プライバシーマニフェスト対応　Appleの審査が通ったのでまとめてみた - OpenWork Tech Blog</a></li>
+</ul>
+</li>
+</ul></div></article></div></main><footer class="mt-20 bg-gray-800 px6 py-8"><div class="container max-w-3xl mx-auto"><div class="flex justify-center mb-6 text-sm hover:no-underline gap-6"><a class="text-gray-300 hover:underline" href="/">Home</a><a class="text-gray-300 hover:underline" href="/profile">Profile</a><a class="text-gray-300 hover:underline" href="/project/unity-weekly">Unity Weekly</a></div></div><hr class="my-6 sm:mx-auto border-gray-700"/><span class="block text-sm text-center text-gray-400">© 2022 Yucchiy&#x27;s Note. All Rights Reserved.</span></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-36940311-7', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2024/01/apple-privacy-manifests-unity/";window.___webpackCompilationHash="8ad0777d421effb823c0";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4bae0ebd19da6d624f9b.js"],"app":["/app-52c9c314edeb4a0d0eb2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-42660d3ea51266f3e6ca.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-891810a218b514421cec.js"],"component---src-pages-project-unity-weekly-tsx":["/component---src-pages-project-unity-weekly-tsx-24b0baaf4ac54667d6ea.js"],"component---src-pages-tags-tsx":["/component---src-pages-tags-tsx-5e368e2f25546d0b1e4b.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-060bf53b3d2821b43e8a.js"],"component---src-templates-tag-tsx":["/component---src-templates-tag-tsx-f14f38137be3e215c8b3.js"]};/*]]>*/</script><script src="/polyfill-4bae0ebd19da6d624f9b.js" nomodule=""></script><script src="/app-52c9c314edeb4a0d0eb2.js" async=""></script><script src="/framework-6ad8a8eb04f78e566be1.js" async=""></script><script src="/webpack-runtime-edfe1526eb9386172df9.js" async=""></script></body></html>
