@@ -3,7 +3,7 @@ type: "unity-weekly"
 title: "Unity Weekly 158"
 description: "2024/02/05週のUnity Weeklyです。Apple Vision Pro、Native Windows on Arm beta Supportなどについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
-date: "2024-01-29T00:00:01"
+date: "2024-02-05T00:00:01"
 
 ---
 
