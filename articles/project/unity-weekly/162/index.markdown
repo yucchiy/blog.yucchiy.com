@@ -73,6 +73,8 @@ R3の `ForEachAsync` の概要と、これを用いた応用例として、 `Uni
 
 またこの機能を用いて、リモートデバイス上で指定したメソッドを実行する [DebugCommandExecutor](https://github.com/kyubuns/DebugCommandExecutor) も合わせて紹介しています。
 
+### llama.cppをUnityで扱う
+
 [llama.cppをUnityで扱う - e.blog](https://edom18.hateblo.jp/entry/2024/03/02/135858)
 
 llama.cppをUnityで扱うための、Swiftパッケージでのllama.cppのラップライブラリの作成から、iOS/macOS向けのビルド手順、このライブラリのUnity上での呼び出し方について解説しています。
@@ -93,7 +95,7 @@ UniRxからR3へ移行する際に必要なコードの書き換えを、各プ�
 
 [ゲームエンジンUnity中国版では、「仮想ジオメトリ」などグローバル版にない機能がある。miHoYoなど現地企業の協力・提携もあってか“独自進化” - AUTOMATON](https://automaton-media.com/articles/newsjp/20240301-284376/)
 
-Unity Chainaによる独自のUnity実装について、ソーシャル上で話題になっていました。この記事では話題になった経緯やUnity Chainaの提供する独自のUnity実装に備わる機能や現地企業との協力などについて紹介しています。
+Unity Chinaによる独自のUnity実装について、ソーシャル上で話題になっていました。この記事では話題になった経緯やUnity Chinaの提供する独自のUnity実装に備わる機能や現地企業との協力などについて紹介しています。
 
 ### R3でダブルクリック検出処理を実装する
 
