@@ -1,12 +1,11 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 162"
-description: "2024/03/04週のUnity Weeklyです。Weekly Publisher Sale、R3、Apple Vision Pro Live Webinarなどについて取り上げています。"
+description: "2024/03/04週のUnity Weeklyです。Weekly Publisher Sale、R3、Unityプログラミング・バイブル R6号、Apple Vision Pro Live Webinarなどについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
 date: "2024-03-04T00:00:01"
 
 ---
-
 
 ## Unity Officials
 
@@ -29,6 +28,14 @@ date: "2024-03-04T00:00:01"
 [Weekly Publisher Sale - All Stars - 2024 - Asset Store](https://assetstore.unity.com/publisher-sale?aid=1011l8NVc&utm_campaign=unity_affiliate&utm_medium=affiliate&utm_source=partnerize-linkmaker)
 
 Asset Store上でパブリッシャーセールが開催されています。
+
+## Books
+
+### Unityプログラミング・バイブル R6号
+
+[Unityプログラミング・バイブル R6号 | 河合 宜文, 安原 祐二, 黒河 優介, 室星 亮太, 井本 大登, 岩本 拓也, 梁瀬 貞裕, 岡田 祥一, したかみ, mao, 打田 恭平, 森 哲哉, 吉谷 幹人, 悴田 悠太, 村上 雅裕, 中地 功貴, 相良 拓哉, 飯田 泰明 |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/4862465900)
+
+Unityプログラミング・バイブルR6号が、2024/02/29より販売開始しています。
 
 ## Articles
 
