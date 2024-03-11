@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 163"
-description: "2024/03/11週のUnity Weeklyですなどについて取り上げています。Unity Muse、マツダパートナーシップ契約、GDC2024、CAGC2024などについて取り上げています。"
+description: "2024/03/11週のUnity Weeklyです。Unity Muse、マツダパートナーシップ契約、GDC2024、CAGC2024などについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
 date: "2024-03-11T00:00:01"
 
