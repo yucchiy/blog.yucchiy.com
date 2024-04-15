@@ -89,7 +89,7 @@ Cysharpの提供するClaudeクライアント[Claudia](https://github.com/Cysha
 
 [Unityでカメラロールにアクセスしてみる](https://zenn.dev/matsuataru/articles/videokit-share)
 
-NatMLの提供する[VideoKit](https://github.com/natmlx/videokit)を用いて、OSの提供するカメラロールにアクセスし、Unityで作成した画像を保存する方法について紹介しています。
+NatMLの提供する[VideoKit](https://github.com/natmlx/videokit)に内包されるNatShareを用いて、OSの提供するカメラロールにアクセスし、Unityで作成した画像を保存する方法について紹介しています。
 
 ### 【UI Toolkit】マウス操作やジェスチャに関する処理を切り離して実装できるManipulatorの使い方
 
