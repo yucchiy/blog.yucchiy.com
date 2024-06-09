@@ -28,6 +28,12 @@ date: "2024-06-10T00:00:01"
 
 シェーダープログラミングにおける処理分岐として静的分岐と動的分岐の違いや、動的分岐におけるGPU上での処理の流れ、これらを踏まえた上で最適化のためのコーディング指針について紹介しています。
 
+### 学園アイドルマスターの眉毛のShaderをUnityで再現してみた
+
+[学園アイドルマスターの眉毛のShaderをUnityで再現してみた | gam0022.net](https://gam0022.net/blog/2024/05/29/gakumasu-mayuge-shader/)
+
+学園アイドルマスターの眉毛の表現をURP上で再現する方法について、モデルの準備からStencilを使うパターンとDepth Offsetを使うパターンの2つの方法を紹介しています。
+
 ### Custom SRP 3.0.0
 
 [Custom SRP 3.0.0](https://catlikecoding.com/unity/custom-srp/3-0-0/)
