@@ -54,6 +54,8 @@ ShaderGraphに対してasmrefを介して独自のTargetを追加する方法を
 - [[Unity]UnityNetcodeのマルチプレイヤーで位置を同期してみる #NetCode - Qiita](https://qiita.com/kazuma_f/items/bd57bc2c18fd0dfa9c71)
 - [[Unity]UnityNetcodeのマルチプレイヤーで変数を同期してみる #NetCode - Qiita](https://qiita.com/kazuma_f/items/907b01705e78bd199fdd)
 
+Netcodeによるマルチプレイヤーの実装についていくつかの機能の検証を紹介しています。
+
 ### 2Dゲームで対象を追いかける動き(Steering Behaviour)
 
 [【Unity】2Dゲームで対象を追いかける動き(Steering Behaviour) #C# - Qiita](https://qiita.com/mojomojopon/items/5b1905d46050e7e52b76)
