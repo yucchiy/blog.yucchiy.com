@@ -3,7 +3,7 @@ type: "unity-weekly"
 title: "Unity Weekly 179"
 description: "2024/07/01週のUnity Weeklyです。GraphicsStateCollection Tracing and Warmup、Unity 2022 LTS日本語ローカライゼーションなどについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
-date: "2024--07-01T00:00:01"
+date: "2024-07-01T00:00:01"
 ---
 
 ## Unity Officials
