@@ -28,6 +28,12 @@ Runtime Fee撤回の発表に伴って[Unityエディターソフトウェア規
 
 ## Articles
 
+### CEDEC2024 UnityのHumanoidと共存するキャラクタジョイント制御と制作ワークフロー 
+
+[CEDEC2024 UnityのHumanoidと共存するキャラクタジョイント制御と制作ワークフロー | QualiArtsエンジニアブログ](https://technote.qualiarts.jp/article/82/)
+
+CEDEC 2024で発表された「UnityのHumanoidと共存するキャラクタジョイント制御と制作ワークフロー」についての講演内容と、この講演の補足や時間の都合上カットされた内容について解説しています。
+
 ### Unityで取得できるAppleVisionPro のハンドジェスチャーの実現方法
 
 [【Unity】Unityで取得できるAppleVisionPro のハンドジェスチャーの実現方法【VisionOS】 #handtracking - Qiita](https://qiita.com/Cova8bitdot/items/9b8817cae59486914b75)
@@ -66,3 +72,9 @@ Unity AcceleratorをDockerコンテナ上で立ち上げて、エディター上
 [AnnulusGames/Lua-CSharp: High performance Lua interpreter implemented in C# for .NET and Unity](https://github.com/AnnulusGames/Lua-CSharp)
 
 C#実装の低アロケーションかつハイパフォーマンスなLuaインタプリター。
+
+### lilEditorToolbox
+
+[【無料】lilEditorToolbox - lilLab - BOOTH](https://lilxyzw.booth.pm/items/6166069)
+
+エディターに様々な便利機能を追加するライブラリ。
