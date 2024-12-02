@@ -1,7 +1,7 @@
 ---
 type: "tech"
 title: "AndroidJNIクラスとstackallocを用いたAndroidメソッド呼び出しのGC.Alloc削減について"
-description: "Unityアプリ向けのApple Privacy Manifests対応についてのまとめます"
+description: "AndroidJNIクラスとstackallocを用いて、Androidネイティブメソッド呼び出し時のGC.Allocを削減する方法について紹介しています。"
 tags: ["Unity", "Android", "Advent Calendar 2024"]
 date: "2024-12-02T00:00:00"
 
