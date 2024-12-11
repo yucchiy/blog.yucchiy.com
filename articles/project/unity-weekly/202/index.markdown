@@ -92,6 +92,12 @@ Unity 6から追加されたAndroidに関するAPIについてその概要と基
 
 UnityプロジェクトをGitHub Actions上でアプリビルド際のプラクティスについてまとめています。
 
+### 開発ビルドのアプリアイコンの視認性を高める
+
+[開発ビルドのアプリアイコンの視認性を高める](https://zenn.dev/monry/articles/20241207-process-icon-on-build)
+
+アプリのプリビルド時（`UnityEditor.Build.IPreprocessBuildWithReport`が呼び出されるとき）に、アプリアイコンに特定の画像を上乗せする形で加工することで、開発ビルドのアプリアイコンの視認性を高める方法について紹介しています。
+
 ### Rive Unityを使ってみる
 
 [Rive Unityを使ってみる #Unity - Qiita](https://qiita.com/thammin/items/6136dc5f45f15acea751)
