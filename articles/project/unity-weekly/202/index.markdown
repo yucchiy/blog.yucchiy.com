@@ -1,11 +1,10 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 202"
-description: "2024/12/09週のUnity Weeklyです。Multiplayer Game E-book、CA.unity、Advent Calendarなどについて取り上げています。"
+description: "2024/12/09週のUnity Weeklyです。Multiplayer Game E-book、CA.unity、MessagePack for C# v3、Advent Calendarなどについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
 date: "2024-12-09T00:00:01"
 ---
-
 
 ## Unity Officials
 
@@ -29,9 +28,15 @@ date: "2024-12-09T00:00:01"
 
 また、今回はオフライン（AbemaTowers）とオンラインのハイブリッド開催となります。
 
-現在、両枠の参加を募集しています。
+現在、オンラインとオフラインの両枠の参加を募集しています。
 
 ## Articles
+
+### SourceGenerator対応のMessagePack for C# v3リリースと今後について
+
+[neue cc - SourceGenerator対応のMessagePack for C# v3リリースと今後について](https://neue.cc/2024/12/06_MessagePack_v3.html)
+
+MessagePack for C# v3のリリースに含まれているSource Generator対応と、今後の開発方針について解説しています。
 
 ### フロー解析を実装した静的解析ツールをOSS公開しました
 
@@ -259,3 +264,13 @@ Unity 6でVFXGraphをWebプラットフォーム上でビルドする方法に�
 
 [【UniTask】他のクラスが初期化されるまで待つ - UniTaskCompletionSourceの使用例 #Unity - Qiita](https://qiita.com/watabe_h/items/e3ccd749142cb37616e2)
 `UniTaskCompletionSource` によって、`MonoBehaviour` の初期化完了を待つ実装について紹介しています。
+
+## Repositories
+
+### MessagePack for C# v3
+
+[Release v3.0.3 · MessagePack-CSharp/MessagePack-CSharp](https://github.com/MessagePack-CSharp/MessagePack-CSharp/releases/tag/v3.0.3)
+
+MessagePack for C# v3がリリースされました。
+
+このバージョンから内部のコード生成がSource Generatorで行われるようになり、あわせてUnityでコード生成で必要だったmpcが不要になりました。
