@@ -61,6 +61,12 @@ Unityに新しく登場したBehaviourパッケージを用いて、3Dゲーム�
 
 Unity 6のリリースでのShaderGraphにおけるアップデートの内容をまとめています。
 
+### Unityで非ゲームアプリをクリーンアーキテクチャを意識して作ってみた話
+
+[Unityで非ゲームアプリをクリーンアーキテクチャを意識して作ってみた話 #VRM - Qiita](https://qiita.com/toRisouP/items/e5b312af53c40e1f4a80)
+
+VOICEVOXを用いて生成した音声をVRMアバターにリップシンクさせるアプリを、クリーンアーキテクチャを意識して実装した際のアーキテクチャの設計や実装方法について紹介しています。
+
 ### UnityCsReferenceとMicrosoft.CodeAnalysis.Workspaces.MSBuildを用いたUnityのバージョン間のAPI差分抽出
 
 [UnityCsReferenceとMicrosoft.CodeAnalysis.Workspaces.MSBuildを用いたUnityのバージョン間のAPI差分抽出 | CyberAgent Developers Blog](https://developers.cyberagent.co.jp/blog/archives/53378/)
@@ -91,6 +97,12 @@ UnityのCodeCoveragePackageによって生成されるレポートを、coverlet
 
 TartとTarteletを用いて、macOSのself-hosted runner上でエフェメラルランナー（使い捨てのジョブ実行ごとにクリーンなマシンイメージ上で実行されるランナー）を構築する方法について紹介しています。
 
+### アセットストアのソースコードを書き換えたいとき、ADF（AssemblyDefinitionFiles）の壁はinterfaceを使って超えよう
+
+[アセットストアのソースコードを書き換えたいとき、ADF（AssemblyDefinitionFiles）の壁はinterfaceを使って超えよう | Unity用ビジュアルノベルツール「宴」](https://madnesslabo.net/utage/?page_id=15568)
+
+Assembly definition間にまたがる実装を行う際のインターフェイスの活用方法ついて紹介しています。
+
 ### Unityのレイトレーシングで始める影表現 #RayTracing
 
 [Unityのレイトレーシングで始める影表現 #RayTracing - Qiita](https://qiita.com/AkitsuguHirano/items/e875e2d9b3ef2032ef30)
@@ -103,6 +115,12 @@ TartとTarteletを用いて、macOSのself-hosted runner上でエフェメラル
 - [How to Create a 2D Character Controller in Unity: Part 2 | HackerNoon](https://hackernoon.com/how-to-create-a-2d-character-controller-in-unity-part-2)
 
 2Dゲームにおけるキャラクターの制御を実現するためのデータ構造やPhysics2Dの扱い方からキャラクターの状態制御や具体的な移動の実装、ユーザー入力の扱い方についてそれぞれ解説しています。
+
+### Blender Pythonでドット絵を3Dモデルに自動変換してUnityへ持っていく
+
+[Blender Pythonでドット絵を3Dモデルに自動変換してUnityへ持っていく #Unity - Qiita](https://qiita.com/ttttpzm/items/3a25d7d68c9ccd4b2605)
+
+ドット絵を、Blender Pythonを介して3Dモデルへの変換とUV展開・ベイクなどを行い、Unityで利用する方法について紹介しています。
 
 ### Unityで真面目にOcclusionCullingをやってみた
 
