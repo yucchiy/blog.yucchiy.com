@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 211"
-description: "2025/02/18週のUnity Weeklyです。Rewarded ad system、R3、パストレーシング、Unity ECS、Incremental Source Generatorなどについて取り上げています。"
+description: "2025/02/17週のUnity Weeklyです。Rewarded ad system、R3、パストレーシング、Unity ECS、Incremental Source Generatorなどについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
 date: "2025-02-18T00:00:01"
 ---
