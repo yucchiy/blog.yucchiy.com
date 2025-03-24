@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 216"
-description: "2025/03/24週のUnity Weeklyです。GDC2025で発表された各種ロードマップ、Graph Toolkit などについて取り上げています。"
+description: "2025/03/24週のUnity Weeklyです。GDC2025、各種ロードマップ、Graph Toolkit などについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
 date: "2025-03-24T00:00:01"
 ---
