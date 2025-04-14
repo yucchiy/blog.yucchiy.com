@@ -3,7 +3,7 @@ type: "unity-weekly"
 title: "Unity Weekly 218"
 description: "2025/04/14週のUnity Weeklyです。Mesh LOD、中国版Unityなどについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
-date: "2025-04-08T00:00:01"
+date: "2025-04-14T00:00:01"
 ---
 
 ## Unity Officials
