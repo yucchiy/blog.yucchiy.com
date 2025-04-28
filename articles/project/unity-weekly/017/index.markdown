@@ -41,12 +41,12 @@ tags: ["Unity", "Unity Weekly"]
 - [LT#3 yutopp: Unityで使えるglTFライブラリを作る話](https://www.youtube.com/watch?v=p184TJ5L_88&t=1385s)
     - UnityでglTFライブラリを作った話
     - シリアライザ自体は.NET単体（.NET Standard 2.0）で実装してUnity非依存にしている。また、そのためのプロジェクト設定などについての紹介
-    - UnityとglTFでは座標系が違うので変換が必要。ただしskinningのinverseBindMatricesがアフィン変換行列なため、(exportでは)inverseBindMatricesが単位行列になるようにmeshに焼き込むことで解決した。
+    - UnityとglTFでは座標系が違うので変換が必要。ただしskinning のinverseBindMatricesがアフィン変換行列なため、(exportでは)inverseBindMatricesが単位行列になるようにmeshに焼き込むことで解決した。
     - [yutopp/VGltf: A glTF and GLB serializer/deserializer library written in pure C# with Unity Editor/Runtime support](https://github.com/yutopp/VGltf)
 - [LT#4 Cova@8bitdots: Unityサウンドでできる閉所表現](https://www.youtube.com/watch?v=p184TJ5L_88&t=1992s)
     - ルーティング（BUS）を考えてサウンドを設計する方法とAudioMixerを用いたUnityでの実現方法、実際にサウンドエフェクトを実装する方法の紹介
 - [LT#5 らかん: 初めて1WeekGameJamに参加した話](https://www.youtube.com/watch?v=p184TJ5L_88&t=2517s)
-    - 1WeekGameJamを通してのゲーム開発のち県の共有（モーション作成、UniRxによるGameStateの管理、Cinemachineによるカメラ制御など）
+    - 1WeekGameJamを通してのゲーム開発のち県の共有（モーション作成、UniRx によるGameStateの管理、Cinemachineによるカメラ制御など）
 - [LT#6 (スポンサー枠) Kenta Nagai: Addressablesで大量のリソース管理・ 困りどころと解消法](https://www.youtube.com/watch?v=p184TJ5L_88&t=3360s)
     - 大量のアセットをAddressablesで管理する際の注意点の紹介。アセットの依存関係を最小限にする、命名規則をしっかり決めるてシートで管理する。また運用時での問題について事例共有とその解決方法について
 - [LT#7 KENTO: withARハッカソンに参加した話](https://www.youtube.com/watch?v=p184TJ5L_88&t=4030s)
@@ -74,7 +74,7 @@ tags: ["Unity", "Unity Weekly"]
 [How to make a chunk system in Unity using addressables | by Anthelme Dumont | May, 2021 | Medium](https://anthelme-dumont.medium.com/how-to-make-a-chunk-system-in-unity-using-addressables-aff36956c546)
 
 - この記事では、AddressablesとCullingGroup APIを用いてMinecraftのchunksのようなシステムを実現するための1手法について解説しています。
-- chunk単位でAddressablesのアセットを分割して`AssetReference`を持ち、`CullingGroup`および`BoundingSphere`を用いてカリングの状態をもとにアセットのロードとアンロードを行っています。
+- chunk単位でAddressablesのアセットを分割して`AssetReference`を持ち、`CullingGroup`および`BoundingSphere`を用いてカリングの状態をもとにアセットのロードとアンロードを行っています。
 
 
 ## Cloud Content Delivery を使ってライブゲームコンテンツをデプロイする方法
