@@ -145,7 +145,7 @@
 <ul>
 <li>UnityでglTFライブラリを作った話</li>
 <li>シリアライザ自体は.NET単体（.NET Standard 2.0）で実装してUnity非依存にしている。また、そのためのプロジェクト設定などについての紹介</li>
-<li>UnityとglTFでは座標系が違うので変換が必要。ただしskinningのinverseBindMatricesがアフィン変換行列なため、(exportでは)inverseBindMatricesが単位行列になるようにmeshに焼き込むことで解決した。</li>
+<li>UnityとglTFでは座標系が違うので変換が必要。ただしskinning のinverseBindMatricesがアフィン変換行列なため、(exportでは)inverseBindMatricesが単位行列になるようにmeshに焼き込むことで解決した。</li>
 <li><a href="https://github.com/yutopp/VGltf">yutopp/VGltf: A glTF and GLB serializer/deserializer library written in pure C# with Unity Editor/Runtime support</a></li>
 </ul>
 </li>
@@ -156,7 +156,7 @@
 </li>
 <li><a href="https://www.youtube.com/watch?v=p184TJ5L_88&#x26;t=2517s">LT#5 らかん: 初めて1WeekGameJamに参加した話</a>
 <ul>
-<li>1WeekGameJamを通してのゲーム開発のち県の共有（モーション作成、UniRxによるGameStateの管理、Cinemachineによるカメラ制御など）</li>
+<li>1WeekGameJamを通してのゲーム開発のち県の共有（モーション作成、UniRx によるGameStateの管理、Cinemachineによるカメラ制御など）</li>
 </ul>
 </li>
 <li><a href="https://www.youtube.com/watch?v=p184TJ5L_88&#x26;t=3360s">LT#6 (スポンサー枠) Kenta Nagai: Addressablesで大量のリソース管理・ 困りどころと解消法</a>
@@ -219,7 +219,7 @@
 <p><a href="https://anthelme-dumont.medium.com/how-to-make-a-chunk-system-in-unity-using-addressables-aff36956c546">How to make a chunk system in Unity using addressables | by Anthelme Dumont | May, 2021 | Medium</a></p>
 <ul>
 <li>この記事では、AddressablesとCullingGroup APIを用いてMinecraftのchunksのようなシステムを実現するための1手法について解説しています。</li>
-<li>chunk単位でAddressablesのアセットを分割して<code>AssetReference</code>を持ち、<code>CullingGroup</code>および<code>BoundingSphere</code>を用いてカリングの状態をもとにアセットのロードとアンロードを行っています。</li>
+<li>chunk単位でAddressablesのアセットを分割して<code>AssetReference</code>を持ち、<code>CullingGroup</code>および<code>BoundingSphere</code>を用いてカリングの状態をもとにアセットのロードとアンロードを行っています。</li>
 </ul>
 <h2 id="cloud-content-delivery-を使ってライブゲームコンテンツをデプロイする方法" style="position:relative;"><a href="#cloud-content-delivery-%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%A9%E3%82%A4%E3%83%96%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%82%92%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95" aria-label="cloud content delivery を使ってライブゲームコンテンツをデプロイする方法 permalink" class="header-link before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cloud Content Delivery を使ってライブゲームコンテンツをデプロイする方法</h2>
 <p><span
