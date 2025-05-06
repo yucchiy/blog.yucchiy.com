@@ -1,6 +1,6 @@
 ---
 type: "unity-weekly"
-title: "Unity Weekly 220"
+title: "Unity Weekly 221"
 description: "2025/05/05週のUnity Weeklyです。Physics development status、Unity XR Updates、Vivox 16.6.0、ZLinqアーキテクチャ解説などについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
 date: "2025-05-07T00:00:01"
