@@ -153,7 +153,7 @@ UnityWebRequestをラップして、タイムアウトやリトライ制御、HT
 
 ### ZLinqでString.JoinしたいときはJoinToString
 
-[ZLinqでString.JoinしたいときはJoinToString](https://www.nowsprinting.com/entry/2025/04/30/080000)
+[ZLinqでString.JoinしたいときはJoinToString](https://blog.kyubuns.dev/entry/2025/05/04/165211)
 
 ZLinqで`String.Join`相当の処理を行う際に利用できる`JoinToString`メソッドを紹介しています。
 
