@@ -3,7 +3,7 @@ type: "unity-weekly"
 title: "Unity Weekly 225"
 description: "2025/06/02週のUnity Weeklyです。Unity AI、Behaviour Package 1.0.10、Unite Seoul 2025、Distributed Authorityなどについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
-date: "2025-05-26T00:00:01"
+date: "2025-06-02T00:00:01"
 ---
 
 ## Unity Officials
