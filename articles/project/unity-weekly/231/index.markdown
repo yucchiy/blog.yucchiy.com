@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 231"
-description: "2025/07/14週のUnity Weeklyです。EbookのUinty6対応、Unity IAP 4.13.0リリース、Unity 2D完全に理解した 勉強会アーカイブ公開などについて取り上げています。"
+description: "2025/07/14週のUnity Weeklyです。各種bookのUnity6対応、Unity IAP 4.13.0リリース、Unity 2D完全に理解した 勉強会アーカイブ公開などについて取り上げています。"
 tags: ["Unity Weekly", "Unity"]
 date: "2025-07-14T00:00:01"
 ---
