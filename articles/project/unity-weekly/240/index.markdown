@@ -1,9 +1,9 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 240"
-description: "2025/09/15週のUnity Weeklyです。Unity6.3ベータ版リリースやUnity 6.3の新機能紹介をメインに取り上げています。"
+description: "2025/09/22週のUnity Weeklyです。Unity 6.3の新機能紹介やUnity 6.4における破壊的変更、サバイバルキッズの制作ノウハウ共有、Unity 6活用ウェビナーなどを紹介しています。"
 tags: ["Unity Weekly", "Unity"]
-date: "2025-09-16T00:00:01"
+date: "2025-09-22T00:00:01"
 ---
 
 ## Unity Officials
@@ -93,6 +93,13 @@ Unity 6.4でくる予定の破壊的変更について事前にアナウンス�
 [Finding out what is setting an Object as Dirty - Technical Articles - Unity Discussions](https://discussions.unity.com/t/finding-out-what-is-setting-an-object-as-dirty/1683759)
 
 Unity2022以降に追加された、オブジェクトがDirtyになった際に、どのオブジェクトによってDirtyにされたかを出力するオプション ObjectSetDirty について、この使い方を解説しています。
+
+### Level layout and terrain workflows in Survival Kids
+
+[Level layout and terrain workflows in Survival Kids](https://unity.com/blog/level-layout-and-terrain-workflows-in-survival-kids)
+
+KONAMIとUnityが共同開発するSwitch2向けの[サバイバルキッズ](https://www.konami.com/games/survival_kids/)における地形のレイアウトから、
+制作のために構築した地形制作のワークフローとして、Houdiniで制作した地形メッシュに対してPolybrushを改良してマテリアルをペインティング、アンビエントオクルージョンのベイク、カスタムツールを用いた石や草、花などの小さなオブジェクトの配置についてそれぞれ説明しています。
 
 ### Inside Survival Kids: Tackling Split Screen and GameShare Networking
 
