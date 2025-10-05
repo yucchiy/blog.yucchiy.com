@@ -6,8 +6,6 @@ tags: ["Unity Weekly", "Unity"]
 date: "2025-09-29T00:00:01"
 ---
 
-# Unity Weekly 241
-
 ## Unity Officials
 
 ### New 5 part Cinemachine 3.1 Youtube tutorial series available
