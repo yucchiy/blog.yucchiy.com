@@ -1,7 +1,7 @@
 ---
 type: "unity-weekly"
 title: "Unity Weekly 243"
-description: "2025/10/14週のUnity Weeklyです。Package Managerの署名表示、Build Automation新機能、Render Graph講義資料などを紹介しています。"
+description: "2025/10/13週のUnity Weeklyです。Package Managerの署名表示、Build Automation新機能、Render Graph講義資料などを紹介しています。"
 tags: ["Unity Weekly", "Unity"]
 date: "2025-10-14T00:00:01"
 ---
