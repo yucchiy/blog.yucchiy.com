@@ -11,20 +11,22 @@
 
 ```
 blog.yucchiy.com/
-├── articles/                    # 記事データ（メインコンテンツ）
-│   ├── 2014/～2024/            # 年別の技術記事
-│   ├── project/                # プロジェクト記事
-│   │   └── unity-weekly/       # Unity Weekly（週次まとめ）
-│   ├── profile/                # プロフィールページ
-│   └── styleguide/             # スタイルガイド
-├── scripts/                    # ビルド・セットアップスクリプト
-│   ├── setup-local.sh          # ローカル開発環境セットアップ
-│   ├── setup-ci.sh             # CI環境セットアップ
-│   └── migrate-frontmatter.js  # frontmatter移行スクリプト
-├── .github/workflows/          # GitHub Actionsワークフロー
-│   └── deployment.yml          # デプロイ設定
-├── package.json                # npm scripts定義
-└── README.md                   # このファイル
+├── articles/                         # 記事データ（メインコンテンツ）
+│   ├── 2014/～2024/                 # 年別の技術記事
+│   ├── project/                     # プロジェクト記事
+│   │   ├── unity-weekly/            # Unity Weekly（週次まとめ）
+│   │   ├── directx12-csharp/        # DirectX 12 C#チュートリアル
+│   │   └── opentk-opengl-tutorial/  # OpenTK OpenGLチュートリアル
+│   ├── profile/                     # プロフィールページ
+│   └── styleguide/                  # スタイルガイド
+├── scripts/                         # ビルド・セットアップスクリプト
+│   ├── setup-local.sh               # ローカル開発環境セットアップ
+│   ├── setup-ci.sh                  # CI環境セットアップ
+│   └── migrate-frontmatter.js       # frontmatter移行スクリプト
+├── .github/workflows/               # GitHub Actionsワークフロー
+│   └── deployment.yml               # デプロイ設定
+├── package.json                     # npm scripts定義
+└── README.md                        # このファイル
 ```
 
 ### 記事の構造
@@ -37,11 +39,16 @@ articles/YYYY/MM/article-slug/
 └── [images]                    # 記事内で使用する画像
 ```
 
-Unity Weeklyなどのプロジェクト記事：
+プロジェクト記事：
 
 ```
-articles/project/unity-weekly/NNN/
-└── index.md                    # Unity Weekly #NNN の記事
+articles/project/
+├── unity-weekly/NNN/
+│   └── index.md                # Unity Weekly #NNN の記事
+├── directx12-csharp/
+│   └── index.md                # DirectX 12 C#チュートリアル
+└── opentk-opengl-tutorial/
+    └── index.md                # OpenTK OpenGLチュートリアル
 ```
 
 ## 開発環境のセットアップ
@@ -62,11 +69,13 @@ cd blog.yucchiy.com
 npm install
 
 # ローカル開発サーバーの起動
-# blogv4を自動でcloneし、シンボリックリンクを作成して起動します
+# blogv4を自動でcloneし、記事データをコピーして起動します
 npm run dev
 ```
 
 開発サーバーが起動したら http://localhost:4321 でブログにアクセスできます。
+
+> **Note**: `npm run dev`を実行すると、`scripts/setup-local.sh`が自動的に実行され、blogv4リポジトリのクローンと記事データのコピーが行われます。記事を編集した場合は、再度`npm run dev`を実行して変更を反映してください。
 
 ### ビルド
 
@@ -85,9 +94,12 @@ mainブランチへのpushで自動的にGitHub Pagesへデプロイされます
 ### デプロイフロー
 
 1. `main`ブランチにpush
-2. GitHub Actionsが起動
+2. GitHub Actionsが起動（`.github/workflows/deployment.yml`）
 3. blogv4リポジトリをチェックアウト
-4. 記事データ（articles/）をコピー
+4. `scripts/setup-ci.sh`を実行して記事データ（articles/）をblogv4にコピー
+   - ブログ記事は`src/data/blog/`にコピー（projectディレクトリを除く）
+   - プロジェクト記事は`src/data/projects/`にコピー
+   - 画像などのアセットは`public/assets/images/`にコピー
 5. Astroでビルド
 6. GitHub Pagesにデプロイ
 
@@ -126,8 +138,9 @@ tags: ["Unity", "C#"]
 ---
 ```
 
-**Unity Weeklyの場合:**
+**プロジェクト記事の場合:**
 
+Unity Weekly:
 ```yaml
 ---
 type: "unity-weekly"
@@ -137,3 +150,29 @@ pubDatetime: 2025-11-10T00:00:01
 tags: ["Unity Weekly", "Unity"]
 ---
 ```
+
+DirectX 12 C#:
+```yaml
+---
+type: "directx12-csharp"
+title: "DirectX 12の記事タイトル"
+description: "DirectX 12に関する記事の説明"
+pubDatetime: 2021-08-18T00:00:00
+tags: ["DirectX12", "C#"]
+draft: true  # 公開する場合はfalseに設定
+---
+```
+
+OpenTK OpenGL:
+```yaml
+---
+type: "opentk-opengl"
+title: "OpenGLの記事タイトル"
+description: "OpenGLに関する記事の説明"
+pubDatetime: 2021-02-01T00:00:00
+tags: ["OpenGL", "C#"]
+draft: true  # 公開する場合はfalseに設定
+---
+```
+
+> **Note**: `draft: true`を設定すると、記事はビルドされますがリストには表示されません。公開する場合は`draft: false`に変更するか、フィールドを削除してください。
