@@ -11,18 +11,32 @@ fi
 
 cd system
 
-# src/data のシンボリックリンク作成
-echo "Creating symlinks for src/data..."
+# src/data にコピー
+echo "Copying articles to src/data..."
 rm -rf src/data
-mkdir -p src/data
-ln -sf ../../articles src/data/blog
-ln -sf ../../articles/project src/data/projects
+mkdir -p src/data/blog
 
-# public/assets のシンボリックリンク作成
-echo "Creating symlinks for public/assets..."
+# ブログ記事をコピー（projectディレクトリを除く）
+cp -r ../articles/* src/data/blog/
+rm -rf src/data/blog/project
+
+# プロジェクト記事をコピー
+mkdir -p src/data/projects
+if [ -d "../articles/project" ]; then
+    cp -r ../articles/project/* src/data/projects/
+fi
+
+# public/assets にコピー
+echo "Copying assets to public/assets..."
 rm -rf public/assets
 mkdir -p public/assets/images
-ln -sf ../../../articles public/assets/images/blog
-ln -sf ../../../articles/project public/assets/images/projects
+
+# 記事の画像をコピー
+cp -r ../articles public/assets/images/blog
+
+# プロジェクトの画像をコピー
+if [ -d "../articles/project" ]; then
+    cp -r ../articles/project public/assets/images/projects
+fi
 
 echo "✓ Local development environment setup complete!"
