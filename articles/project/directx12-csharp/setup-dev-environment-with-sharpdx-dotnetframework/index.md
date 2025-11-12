@@ -7,6 +7,7 @@ tags:
   - DirectX12
   - C#
   - SharpDX
+draft: true
 ---
 
 [SharpDX](http://sharpdx.org/)というDirextX APIの.NET Wrapperを用いてDirectX12を触ります。

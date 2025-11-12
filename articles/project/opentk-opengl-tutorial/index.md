@@ -4,6 +4,7 @@ title: OpenTKによるOpenGLチュートリアル
 description: ''
 pubDatetime: 2021-02-01T01:00:00.000Z
 tags: []
+draft: true
 ---
 
 [OpenTK](https://github.com/opentk/opentk)というC#でOpenGLを利用するためのライブラリを利用してグラフィックスプログラミングを行うためのチュートリアルです。
