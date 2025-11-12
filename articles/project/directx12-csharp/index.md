@@ -1,5 +1,5 @@
 ---
-type: unity-weekly
+type: directx12-csharp
 title: C#でDirextX12グラフィックスプログラミング
 description: ''
 pubDatetime: 2021-08-18T01:00:00.000Z

@@ -1,5 +1,5 @@
 ---
-type: unity-weekly
+type: directx12-csharp
 title: SharpDXをインストールして、C#でDirectX12開発環境を構築する (.NET Framework コンソールアプリケーション編）
 description: ''
 pubDatetime: 2021-08-16T15:00:00.000Z

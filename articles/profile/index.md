@@ -1,9 +1,8 @@
 ---
-type: "page"
 title: "プロフィール"
-date: "2021-01-23T10:00:00+09:00"
+description: "向井 祐一郎のプロフィール"
+pubDatetime: 2021-01-23T10:00:00+09:00
 draft: false
-
 ---
 
 ### 氏名

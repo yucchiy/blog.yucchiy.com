@@ -1,5 +1,5 @@
 ---
-type: unity-weekly
+type: opentk-opengl
 title: OpenTKによるOpenGLチュートリアル
 description: ''
 pubDatetime: 2021-02-01T01:00:00.000Z

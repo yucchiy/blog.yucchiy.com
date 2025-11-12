@@ -7,33 +7,55 @@ const ARTICLES_DIR = './articles';
 
 // ブログ記事のfrontmatter変換
 function convertBlogFrontmatter(data, filePath) {
+  // 既に変換済みかチェック
+  if (data.pubDatetime) {
+    return null; // 変換不要
+  }
+
   const newData = {
     title: data.title,
-    description: data.description || '',
+    description: data.description || data.tldr || '',
     pubDatetime: new Date(data.date),
     tags: data.tags || [],
   };
 
   // draft判定
-  if (data.draft) {
-    newData.draft = true;
+  if (data.draft !== undefined) {
+    newData.draft = data.draft;
   }
 
   return newData;
 }
 
-// Unity Weeklyのfrontmatter変換
+// プロジェクト記事のfrontmatter変換
 function convertProjectFrontmatter(data, filePath) {
+  // 既に変換済みかチェック（ただしtypeが正しいかもチェック）
+  const shouldReconvertType = data.type === 'unity-weekly' && !filePath.includes('unity-weekly/');
+
+  if (data.pubDatetime && data.type && !shouldReconvertType) {
+    return null; // 変換不要
+  }
+
+  // ファイルパスからtypeを判定
+  let type = 'unity-weekly'; // デフォルト
+  if (filePath.includes('directx12-csharp/')) {
+    type = 'directx12-csharp';
+  } else if (filePath.includes('opentk-opengl-tutorial/')) {
+    type = 'opentk-opengl';
+  } else if (filePath.includes('unity-weekly/')) {
+    type = 'unity-weekly';
+  }
+
   const newData = {
-    type: 'unity-weekly',
+    type: type,
     title: data.title,
     description: data.description || '',
-    pubDatetime: new Date(data.date),
+    pubDatetime: data.pubDatetime ? new Date(data.pubDatetime) : new Date(data.date),
     tags: data.tags || [],
   };
 
-  if (data.draft) {
-    newData.draft = true;
+  if (data.draft !== undefined) {
+    newData.draft = data.draft;
   }
 
   return newData;
@@ -47,7 +69,7 @@ async function migrateArticles() {
 
   // ブログ記事を処理
   console.log('Processing blog articles...');
-  const blogFiles = await glob(`${ARTICLES_DIR}/20*/**/*.markdown`, { nodir: true });
+  const blogFiles = await glob(`${ARTICLES_DIR}/20*/*/*/index.{md,markdown}`, { nodir: true });
 
   for (const file of blogFiles) {
     try {
@@ -55,6 +77,12 @@ async function migrateArticles() {
       const { data, content: body } = matter(content);
 
       const newData = convertBlogFrontmatter(data, file);
+
+      // 変換不要の場合はスキップ
+      if (newData === null) {
+        continue;
+      }
+
       const newContent = matter.stringify(body, newData);
 
       // .markdown を .md に変更
@@ -74,7 +102,7 @@ async function migrateArticles() {
 
   // Unity Weeklyを処理
   console.log('\nProcessing project articles...');
-  const projectFiles = await glob(`${ARTICLES_DIR}/project/**/*.markdown`, { nodir: true });
+  const projectFiles = await glob(`${ARTICLES_DIR}/project/**/*.{md,markdown}`, { nodir: true });
 
   for (const file of projectFiles) {
     try {
@@ -82,6 +110,12 @@ async function migrateArticles() {
       const { data, content: body } = matter(content);
 
       const newData = convertProjectFrontmatter(data, file);
+
+      // 変換不要の場合はスキップ
+      if (newData === null) {
+        continue;
+      }
+
       const newContent = matter.stringify(body, newData);
 
       const newFile = file.replace('.markdown', '.md');
