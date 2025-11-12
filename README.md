@@ -15,8 +15,6 @@ blog.yucchiy.com/
 │   ├── 2014/～2024/                 # 年別の技術記事
 │   ├── project/                     # プロジェクト記事
 │   │   ├── unity-weekly/            # Unity Weekly（週次まとめ）
-│   │   ├── directx12-csharp/        # DirectX 12 C#チュートリアル
-│   │   └── opentk-opengl-tutorial/  # OpenTK OpenGLチュートリアル
 │   ├── profile/                     # プロフィールページ
 │   └── styleguide/                  # スタイルガイド
 ├── scripts/                         # ビルド・セットアップスクリプト
@@ -31,7 +29,7 @@ blog.yucchiy.com/
 
 ### 記事の構造
 
-各記事は以下の構造で管理されています：
+各記事は以下の構造で管理されています。
 
 ```
 articles/YYYY/MM/article-slug/
@@ -39,7 +37,7 @@ articles/YYYY/MM/article-slug/
 └── [images]                    # 記事内で使用する画像
 ```
 
-プロジェクト記事：
+プロジェクト記事は以下のとおりです。
 
 ```
 articles/project/
@@ -105,19 +103,20 @@ mainブランチへのpushで自動的にGitHub Pagesへデプロイされます
 
 ## システムとコンテンツの分離
 
-このブログは以下のように管理されています：
+このブログは以下のように管理されています。
 
 - **システム** ([blogv4](https://github.com/yucchiy/blogv4)): Astroベースのブログシステム
 - **コンテンツ** (このリポジトリ): 記事データとデプロイ設定
 
-この分離により：
+この分離により、下記を実現しようとしています。
+
 - システムの更新が容易
 - コンテンツの管理がシンプル
 - 再利用性の向上
 
 ## 記事の追加
 
-新しい記事を追加する場合：
+新しい記事を追加する場合、下記のように追加します。
 
 1. `articles/`以下に適切なディレクトリを作成
 2. `index.md`ファイルを作成
@@ -125,7 +124,7 @@ mainブランチへのpushで自動的にGitHub Pagesへデプロイされます
 4. 記事を執筆
 5. コミット & push
 
-### frontmatter例
+### frontmatter
 
 **技術記事の場合:**
 
@@ -141,6 +140,7 @@ tags: ["Unity", "C#"]
 **プロジェクト記事の場合:**
 
 Unity Weekly:
+
 ```yaml
 ---
 type: "unity-weekly"
@@ -148,30 +148,6 @@ title: "Unity Weekly #247"
 description: "2025/11/10週のUnity Weeklyです。"
 pubDatetime: 2025-11-10T00:00:01
 tags: ["Unity Weekly", "Unity"]
----
-```
-
-DirectX 12 C#:
-```yaml
----
-type: "directx12-csharp"
-title: "DirectX 12の記事タイトル"
-description: "DirectX 12に関する記事の説明"
-pubDatetime: 2021-08-18T00:00:00
-tags: ["DirectX12", "C#"]
-draft: true  # 公開する場合はfalseに設定
----
-```
-
-OpenTK OpenGL:
-```yaml
----
-type: "opentk-opengl"
-title: "OpenGLの記事タイトル"
-description: "OpenGLに関する記事の説明"
-pubDatetime: 2021-02-01T00:00:00
-tags: ["OpenGL", "C#"]
-draft: true  # 公開する場合はfalseに設定
 ---
 ```
 
