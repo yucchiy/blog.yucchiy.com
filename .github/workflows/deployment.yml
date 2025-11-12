@@ -35,6 +35,24 @@ jobs:
           cache: 'npm'
           cache-dependency-path: system/package-lock.json
 
+      - name: Cache Astro build artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            system/.astro
+            system/node_modules/.astro
+          key: ${{ runner.os }}-astro-${{ hashFiles('system/src/**', 'system/astro.config.ts') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-
+
+      - name: Cache Pagefind
+        uses: actions/cache@v4
+        with:
+          path: system/dist/pagefind
+          key: ${{ runner.os }}-pagefind-${{ hashFiles('articles/**/*.md') }}
+          restore-keys: |
+            ${{ runner.os }}-pagefind-
+
       - name: Install system dependencies
         run: cd system && npm ci
 
