@@ -1,3 +1,17 @@
-*:Zone.Identifier
+# System directory (checked out separately in CI)
+system/
 
+# Node modules
+node_modules/
+
+# macOS
+*:Zone.Identifier
 .DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
