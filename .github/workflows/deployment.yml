@@ -44,6 +44,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pagefind-
 
+      - name: Cache OG Images
+        uses: actions/cache@v4
+        with:
+          path: system/node_modules/.og_image_cache
+          key: ${{ runner.os }}-og-images-${{ hashFiles('articles/**/*.md') }}
+          restore-keys: |
+            ${{ runner.os }}-og-images-
+
       - name: Install system dependencies
         run: cd system && npm ci
 
