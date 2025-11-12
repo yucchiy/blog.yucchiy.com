@@ -6,49 +6,74 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-      with:
-        repository: yucchiy/blogv3
-    - uses: actions/checkout@v3
-      with:
-        path: .articles
-    - name: move articles
-      run: |
-        mv -f .articles/articles .
-      shell: bash
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    - name: Cache dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - name: Cache Gatsby Cache Folder
-      uses: actions/cache@v3
-      with:
-        path: .cache
-        key: ${{ runner.os }}-cache-gatsby-${{ secrets.CACHE_VERSION }}
-        restore-keys: |
-          ${{ runner.os }}-cache-gatsby
-    - name: Cache Gatsby Public Folder
-      uses: actions/cache@v3
-      with:
-        path: ./public
-        key: ${{ runner.os }}-public-gatsby-${{ secrets.CACHE_VERSION }}
-        restore-keys: |
-          ${{ runner.os }}-public-gatsby
-    - run: npm install
-    - run: npm run build
-    - uses: peaceiris/actions-gh-pages@v3
-      with:
-        cname: blog.yucchiy.com
-        github_token: ${{ secrets.MY_GITHUB_TOKEN }}
-        publish_dir: public
+      - name: Checkout blog.yucchiy.com
+        uses: actions/checkout@v4
+
+      - name: Checkout blogv4
+        uses: actions/checkout@v4
+        with:
+          repository: yucchiy/blogv4
+          path: system
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: system/package-lock.json
+
+      - name: Cache Astro build artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            system/.astro
+            system/node_modules/.astro
+          key: ${{ runner.os }}-astro-${{ hashFiles('system/src/**', 'system/astro.config.ts') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-
+
+      - name: Cache Pagefind
+        uses: actions/cache@v4
+        with:
+          path: system/dist/pagefind
+          key: ${{ runner.os }}-pagefind-${{ hashFiles('articles/**/*.md') }}
+          restore-keys: |
+            ${{ runner.os }}-pagefind-
+
+      - name: Install system dependencies
+        run: cd system && npm ci
+
+      - name: Setup build environment
+        run: npm run setup:ci
+
+      - name: Build
+        run: cd system && npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: system/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

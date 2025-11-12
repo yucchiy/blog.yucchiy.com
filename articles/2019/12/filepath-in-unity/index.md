@@ -1,9 +1,12 @@
 ---
-date: "2019-12-27T07:00:00+09:00"
+title: Unityでファイルパスを扱う上での注意点
+description: ''
+pubDatetime: 2019-12-26T22:00:00.000Z
+tags:
+  - Tips
+  - C#
+  - Unity
 draft: false
-title: "Unityでファイルパスを扱う上での注意点"
-tags: ["Tips", "C#", "Unity"]
-
 ---
 
 ## TL;DR

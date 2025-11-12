@@ -1,9 +1,13 @@
 ---
-date: "2019-12-07T19:00:00+09:00"
+title: .NET CoreでのT4の利用と、実行時テキスト生成の挙動を追ってみる
+description: ''
+pubDatetime: 2019-12-07T10:00:00.000Z
+tags:
+  - Tips
+  - C#
+  - .NET Core
+  - Template Engine
 draft: false
-title: ".NET CoreでのT4の利用と、実行時テキスト生成の挙動を追ってみる"
-tags: ["Tips", "C#", ".NET Core", "Template Engine"]
-
 ---
 
 ## 概要

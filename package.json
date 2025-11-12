@@ -1,0 +1,17 @@
+{
+  "name": "blog.yucchiy.com",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "setup:local": "bash scripts/setup-local.sh",
+    "setup:ci": "bash scripts/setup-ci.sh",
+    "migrate": "node scripts/migrate-frontmatter.js",
+    "dev": "npm run setup:local && cd system && npm run dev",
+    "build": "npm run setup:ci && cd system && npm run build",
+    "preview": "cd system && npm run preview"
+  },
+  "devDependencies": {
+    "glob": "^10.3.10",
+    "gray-matter": "^4.0.3"
+  }
+}
