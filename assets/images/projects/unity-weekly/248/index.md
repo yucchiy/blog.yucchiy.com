@@ -1,6 +1,6 @@
 ---
 type: unity-weekly
-title: Unity Weekly 247
+title: Unity Weekly 248
 description: >-
   2025/11/17週のUnity Weeklyです。Unity Pro・Enterpriseの価格・パッケージ変更、Graphics device filtering、Unity Ads Legacy package Issue impacting、Unity IAP Updatesなどを紹介しています。
 pubDatetime: 2025-11-17T00:00:00+09:00
