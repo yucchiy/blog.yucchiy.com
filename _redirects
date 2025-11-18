@@ -1,3 +1,27 @@
 # Redirect trailing slashes to non-trailing slash URLs
 # Cloudflare Pages redirects
-/*/ /:splat 301
+
+# Top-level pages
+/profile/ /profile 301
+/posts/ /posts 301
+/projects/ /projects 301
+/about/ /about 301
+/archives/ /archives 301
+/search/ /search 301
+/tags/ /tags 301
+
+# Pagination pages
+/posts/:page/ /posts/:page 301
+
+# Tag pages
+/tags/:tag/ /tags/:tag 301
+/tags/:tag/:page/ /tags/:tag/:page 301
+
+# Blog post pages (YYYY/MM/slug pattern)
+/:year/:month/:slug/ /:year/:month/:slug 301
+
+# Project pages
+/project/:slug/ /project/:slug 301
+/project/:project/:slug/ /project/:project/:slug 301
+/project/:project/:slug/:number/ /project/:project/:slug/:number 301
+/project/:project/page/:page/ /project/:project/page/:page 301
