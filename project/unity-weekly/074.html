@@ -1,0 +1,333 @@
+<!DOCTYPE html><html dir="ltr" lang="ja" class="false" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/project/unity-weekly/074.html"><meta name="generator" content="Astro v5.15.5"><!-- General Meta Tags --><title>Frame Timing Manager、Unity Gaming Services、Memory Profiler v1.0.0-pre.2 - Unity Weekly #074 | Yucchiy&#39;s Note</title><meta name="title" content="Frame Timing Manager、Unity Gaming Services、Memory Profiler v1.0.0-pre.2 - Unity Weekly #074 | Yucchiy's Note"><meta name="description" content="2022/06/27週のUnity Weeklyです。Frame Timing Manager、Unity Gaming Services、Memory Profiler v1.0.0-pre.2、Experimental Entities 0.51、Compute Shader などについて取り上げました。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Frame Timing Manager、Unity Gaming Services、Memory Profiler v1.0.0-pre.2 - Unity Weekly #074 | Yucchiy's Note"><meta property="og:description" content="2022/06/27週のUnity Weeklyです。Frame Timing Manager、Unity Gaming Services、Memory Profiler v1.0.0-pre.2、Experimental Entities 0.51、Compute Shader などについて取り上げました。"><meta property="og:url" content="https://blog.yucchiy.com/project/unity-weekly/074.html"><meta property="og:image" content="https://blog.yucchiy.com/project/unity-weekly/074/index.png"><!-- Article Published/Modified time --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/project/unity-weekly/074.html"><meta property="twitter:title" content="Frame Timing Manager、Unity Gaming Services、Memory Profiler v1.0.0-pre.2 - Unity Weekly #074 | Yucchiy's Note"><meta property="twitter:description" content="2022/06/27週のUnity Weeklyです。Frame Timing Manager、Unity Gaming Services、Memory Profiler v1.0.0-pre.2、Experimental Entities 0.51、Compute Shader などについて取り上げました。"><meta property="twitter:image" content="https://blog.yucchiy.com/project/unity-weekly/074/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Frame Timing Manager、Unity Gaming Services、Memory Profiler v1.0.0-pre.2 - Unity Weekly #074 | Yucchiy's Note","image":"https://blog.yucchiy.com/project/unity-weekly/074/index.png","datePublished":"undefined","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com/"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", PUBLIC_GA_MEASUREMENT_ID);
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/about.BZlzkD--.css">
+<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media(prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
+</style><style>[data-astro-transition-scope="astro-ovirr3re-1"] { view-transition-name: frame-timing-manager\3001-unity-gaming-services\3001-memory-profiler-v-1-0-0-pre-2-unity-weekly-074; }@layer astro { ::view-transition-old(frame-timing-manager\3001-unity-gaming-services\3001-memory-profiler-v-1-0-0-pre-2-unity-weekly-074) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(frame-timing-manager\3001-unity-gaming-services\3001-memory-profiler-v-1-0-0-pre-2-unity-weekly-074) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(frame-timing-manager\3001-unity-gaming-services\3001-memory-profiler-v-1-0-0-pre-2-unity-weekly-074) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(frame-timing-manager\3001-unity-gaming-services\3001-memory-profiler-v-1-0-0-pre-2-unity-weekly-074) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-2"] { view-transition-name: unity-weekly; }@layer astro { ::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-3"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-sckkx6r4>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> Yucchiy&#39;s Note </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/projects">
+Projects
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="mx-auto max-w-app px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <div class="mx-auto flex w-full max-w-app items-center justify-start px-2"><a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-2 flex hover:text-foreground/75"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span>Go back</span></a></div><script type="module">function o(){const t=document.querySelector("#back-button"),e=sessionStorage.getItem("backUrl");e&&t&&(t.href=e)}document.addEventListener("astro:page-load",o);o();</script> <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12"> <h1 class="inline-block text-xl font-bold text-accent sm:text-2xl" data-astro-transition-scope="astro-ovirr3re-1"> Frame Timing Manager、Unity Gaming Services、Memory Profiler v1.0.0-pre.2 - Unity Weekly #074 </h1> <div class="flex items-center gap-x-2 opacity-80 my-2"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg>  <time class="text-sm sm:text-base" datetime="2022-06-26T12:00:00.000Z">2022年6月26日</time> </div> <article id="article" class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"> <h2 id="unity-officials">Unity Officials</h2>
+<h3 id="unity-フレームタイミングマネージャーによるパフォーマンスボトルネックの検出">Unity フレームタイミングマネージャーによるパフォーマンスボトルネックの検出</h3>
+<p><a href="https://blog.unity.com/ja/technology/detecting-performance-bottlenecks-with-unity-frame-timing-manager">Unity Frame Timing Managerによるパフォーマンスボトルネックの検出 | Unity Blog</a></p>
+<p>フレーム内のCPU・GPU時間を計測するための <a href="https://docs.unity3d.com/2022.2/Documentation/Manual/frame-timing-manager.html">Frame Timing Manager</a> というAPIについて、このAPIを用いてどのような値を計測できるのか、実際にこのAPIを用いてCPU・GPU時間をHUDで表示したり、フレーム内のボトルネックを検出する方法について紹介しています。</p>
+<p>また、Frame Timing Managerの対応プラットフォームや制限事項、高度なトピックスとしてフレームタイムラインの可視化や他のマーカーとの差分計算に使用できるタイムスタンプ情報の取得する方法などについても言及しています。</p>
+<h3 id="unity-ゲーミングサービスを使って-1-つのモジュール式プラットフォームでライブゲームを構築しよう">Unity ゲーミングサービスを使って 1 つのモジュール式プラットフォームでライブゲームを構築しよう</h3>
+<p><a href="https://blog.unity.com/ja/games/build-your-live-game-in-a-single-modular-platform-with-unity-gaming-services">Unity ゲーミングサービスを使って 1 つのモジュール式プラットフォームでライブゲームを構築しよう | Unity Blog</a></p>
+<p>Unity Gaming Service（UGS）の正式版リリースがアナウンスされました。</p>
+<p>UGSを用いてライブゲーム構築を構築するために、どのような要件をUGSのどの機能を用いると実現できるかについて紹介しています。</p>
+<ul>
+<li>アカウント管理
+<ul>
+<li><a href="https://unity.com/ja/products/authentication">Authentication</a>: ゲームのアカウント管理</li>
+<li><a href="https://unity.com/ja/products/cloud-save">Cloud Save</a>: プレイヤーのアビリティや統計情報などのプレイヤーデータを保存し、デバイスを跨いだアカウントを提供できる。</li>
+</ul>
+</li>
+<li>マルチプレイヤー
+<ul>
+<li><a href="https://unity.com/ja/products/lobby">Lobby</a>: ゲームセッションに参加する前のプレイヤーを公開・非公開ロビーに集めることができる</li>
+<li><a href="https://unity.com/ja/products/relay">Relay</a>: P2Pセッションを構築できる。IPを共有をせず、またゲームトラフィックはDTLSによって暗号化されている。<a href="https://unity.com/ja/products/netcode">Netcode for GameObjects</a> を組み合わせると小規模な協力プレイゲームのプロジェクトを立ち上げることができる</li>
+<li><a href="https://unity.com/ja/products/multiplay">Multiplay</a> と <a href="https://unity.com/ja/products/matchmaker">Matchmaker</a> を組み合わせて協力型ゲームおよび対戦型ゲームを構築できる</li>
+</ul>
+</li>
+<li>コンテンツの設定と管理
+<ul>
+<li><a href="https://unity.com/ja/products/cloud-code">Cloud Code</a>: ステートレスなサーバーレスサービス</li>
+<li><a href="https://unity.com/ja/products/economy">Economy</a>: ゲーム内経済システムを構築できるバックエンドサービス</li>
+</ul>
+</li>
+<li>プレイヤーを理解する
+<ul>
+<li><a href="https://unity.com/ja/products/unity-analytics">Analytics</a>: ゲーム内のプレイヤーの行動やゲームのパフォーマンスを解析できる。また、ExcelやTableau、OpenOfficeなどへのデータエクスポートも可能。</li>
+</ul>
+</li>
+<li>プレイヤーを引き込む
+<ul>
+<li><a href="https://unity.com/ja/solutions/games-operate/engage">Game Overrides</a>: ゲームアップデートを行わずに、管理画面上でプレイヤーごとの設定変更ができるサービス。これを用いてゲーム難易度の変更のスケジュール、ターゲット指定、A/Bテストを行える。<a href="https://docs.unity.com/ccd/UnityCCDGameOverrides.html">Cloud Content Delivery</a>と組み合わせると、プレイヤーグループごとに特定のアセット配信をスケジュールすることもできる</li>
+<li><a href="https://docs.unity.com/push-notifications/WhatArePushNotifications.html">Push Notifications</a>: リモートプッシュ配信サービス</li>
+</ul>
+</li>
+<li>コミュニティーを構築する
+<ul>
+<li><a href="https://unity.com/ja/products/vivox">Vivox</a>: テキストチャットとボイスチャットを構築できるエンジン非依存なサービス</li>
+</ul>
+</li>
+<li>パフォーマンスの監視
+<ul>
+<li><a href="https://unity.com/ja/products/cloud-diagnostics?_ga=2.183389666.532293565.1641834336-1524759146.1613488747">Cloud Diagnostics</a>: リアルタイムのエラーモニタリングを提供するサービス。クラッシュや例外のレポートを行ってくれる。</li>
+</ul>
+</li>
+<li>ユーザーを獲得する
+<ul>
+<li><a href="https://unity.com/ja/solutions/mobile-business/get-users/audience-pinpointer">Audience Pinpointer</a>: ユーザー獲得のための広告ソリューション</li>
+</ul>
+</li>
+<li>ゲームを収益化する
+<ul>
+<li><a href="https://unity.com/ja/products/mediation">Unity Mediation</a>: ゲーム内広告による収益化ソリューション</li>
+</ul>
+</li>
+</ul>
+<h3 id="memory-profiler-100-pre2-released">Memory Profiler 1.0.0-pre.2 Released</h3>
+<p><a href="https://forum.unity.com/threads/memory-profiler-1-0-0-pre-2-released.1298490/">Official - Memory Profiler 1.0.0-pre.2 Released - Unity Forum</a></p>
+<p>Memory Profilerの 1.0.0-pre.2 がリリースされました。</p>
+<ul>
+<li>タブの再構築により機能の整理が行われました</li>
+<li>トータルメモリレポート＆サマリービューの再構築
+<ul>
+<li>Memory Usage On Device: ターゲットデバイスでの利用可能な総物理メモリに対して、アプリケーションが使用している常駐メモリ量の割合を表示します。このビューは、 Unity 2022でのメモリキャプチャのみで利用可能です。</li>
+<li>Total Committed Memory: アプリケーションのコミットメモリサイズと、その内訳（Native、Managed、Graphicsなど）の上位表示。コミットされたメモリは、物理メモリ上かディスクにスワップしているかなどに関わらず、アプリケーションのすべてのメモリを表示しています。</li>
+<li>Managed Memory</li>
+<li>Top Unity Object Categories: 新しいビューでは、アプリケーション中のメモリ使用量の多いカテゴリと、そのカテゴリの詳細を調べるためのリンクをあわせて表示しています。s</li>
+</ul>
+</li>
+<li>2メモリキャプチャ間のオブジェクト差分
+<ul>
+<li>今までの単純なオブジェクトのDiffだけではなく、カテゴリごと（Texture2DやMaterialなど）のグループ化、メモリ使用量の差分なども表示され、より視覚的に理解しやすいビューが実装されています。
+また今回のリリースは、検証済みバージョンである 1.0 に向けての最初のステップとなるリリースという位置づけとなります。また Memory Profiler 1.0は、Unity 2022以降を必要とするパッケージとなる予定とのことです。</li>
+</ul>
+</li>
+</ul>
+<p>それ以前のUnityバージョンのプロジェクトで Memory Profiler 1.0を利用したい場合は、メモリキャプチャ自体はそのバージョンで行い、Unity 2022のエディターでMemory Profilerを開いてスナップショットをインポートすることで利用できます。</p>
+<h3 id="experimental-entities-051-is-available">Experimental Entities 0.51 is Available</h3>
+<p><a href="https://forum.unity.com/threads/experimental-entities-0-51-is-available.1281233/">Official - Experimental Entities 0.51 is Available - Unity Forum</a></p>
+<p>Entities 0.51がリリースされました。このリリースでの主なアップデートは、Unity 2020 LTS と 2021  LTS両方の互換性をサポートしたことです。また、下記リンクに示すEntities 0.50以降のいくつかの問題が修正されています。</p>
+<ul>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.entities@0.51/changelog/CHANGELOG.html">com.unity.entities</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.rendering.hybrid@0.51/changelog/CHANGELOG.html">com.unity.rendering.hybrid</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.netcode@0.51/changelog/CHANGELOG.html">com.unity.netcode</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.physics@0.51/changelog/CHANGELOG.html">com.unity.physics</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.havok.physics@0.51/changelog/CHANGELOG.html">com.havok.physics</a></li>
+</ul>
+<h3 id="gpuの力を解き放てunity-compute-shader入門">GPUの力を解き放て！Unity Compute Shader入門！</h3>
+<p><a href="https://www.youtube.com/watch?v=yiPVxGO-Yg0">GPUの力を解き放て！Unity Compute Shader入門！ - YouTube</a></p>
+<p>UnityでCompute Shaderを使う入門動画です。</p>
+<p>Compute Shaderの特徴とUnityでの利用事例、Compute Shaderの基本要素のおさらい、群衆シミュレーションのアルゴリズムのBoidの実装解説とパフォーマンス比較、BoidアルゴリズムのCompute Shader実装の最適化について解説しています。</p>
+<h2 id="articles">Articles</h2>
+<h3 id="point-to-click-movement-with-the-new-input-system--cinemachine">Point to click movement with the new Input System &#x26; Cinemachine</h3>
+<p><a href="https://gamedev-resources.com/point-to-click-movement-with-the-new-input-system-cinemachine/">Point to click movement with the new Input System &#x26; Cinemachine - GameDev Resources</a></p>
+<p>フィールドをクリックすると、その地点へキャラクターが移動するようなシステムとカメラの追従機能を、新しいInput SystemおよびCinemachineで実装する方法について紹介しています。</p>
+<p>キャラクターの移動は、マウスの入力を新しいInput Systemでスクリーン座標として読み取り、 <code>Camera.ScreenPointToRay</code> でワールド座標に変換し、事前に用意したNavMeshに対して <code>NavMesh.SamplePosition</code> でNavMesh上の座標を算出、その座標に対して <code>NavMeshAgent</code> で移動するような実装を行っています。</p>
+<p>キャラクター追従カメラは、VirtualCameraのBodyを <code>Framing Transposer</code> に設定して実装しています。</p>
+<h3 id="assetbundleの互換性を壊さずにasmdefを適用するには">AssetBundleの互換性を壊さずにasmdefを適用するには？</h3>
+<p><a href="https://qiita.com/mhama/items/13db54ceb5978805fd2f">【Unity】AssetBundleの互換性を壊さずにasmdefを適用するには？ - Qiita</a></p>
+<p>asmdefを適用していないコンポーネントを含んだAssetBundleを、そのコンポーネントにasmdefを適用すると（アセンブリ名が変わるために）AssetBundleを復元できなくなる問題と、内部のロジックをテスト可能にするためにコンポーネント中の一部ロジックを別クラス化するなどでasmdef化する方法などについて紹介しています。</p>
+<h3 id="unityのvisualeffectgraphとshadergraphを使って剣の軌跡エフェクトを作成する">UnityのVisualEffectGraphとShaderGraphを使って剣の軌跡エフェクトを作成する</h3>
+<p><a href="https://gametukurikata.com/effect/visualeffectgraphswordtraileffect">UnityのVisualEffectGraphとShaderGraphを使って剣の軌跡エフェクトを作成する | Unityを使った３Dゲームの作り方（かめくめ）</a></p>
+<p>剣を振った時の軌跡（トレイル）エフェクトの実装方法について紹介しています。</p>
+<p>トレイルエフェクトに使うためのメッシュのBlenderでの作成方法から、Visual Effect Graphを用いて作成したメッシュを剣を振った軌道に合わせて表示する方法、剣を振るアニメーションにアニメーションイベントを仕込み、仕込んだイベントをVisual Effect Graphで受け取ってエフェクトを表示する方法、エフェクトの見た目をShaderGraphを用いて調整する方法についてそれぞれ解説しています。</p>
+<h3 id="animationcontrollerで制御しているキャラクタにanimationclipのアニメーションを割り込ませる">AnimationControllerで制御しているキャラクタにAnimationClipのアニメーションを割り込ませる</h3>
+<p><a href="https://zenn.dev/tyto/articles/1c26d44b516850">AnimationControllerで制御しているキャラクタにAnimationClipのアニメーションを割り込ませる</a></p>
+<p>AnimationControllerで制御しているキャラクターに対して別のAnimationClipの再生を割り込ませる方法について紹介しています。</p>
+<p>AnimationControllerのアニメーション出力を <code>AnimatorControllerPlayable</code> で、追加のAnimationClipの再生を<code>AnimationClipPlayable</code> で行い、 <code>AnimationLayerMixerPlayable</code> で２アニメーション出力を合成することでこれを実装する方法について解説しています。</p>
+<h3 id="lightmapをベイクしたシーンをマルチシーンで追加で読み込んだ時の見た目の差異を解消する">LightMapをベイクしたシーンをマルチシーンで追加で読み込んだ時の見た目の差異を解消する</h3>
+<p><a href="https://qiita.com/nattuhan/items/d21351a5003281cbf0ce">[Unity]LightMapをベイクしたシーンをマルチシーンで追加で読み込んだ時の見た目の差異を解消する - Qiita</a></p>
+<p>LightMapをベイクしたシーンをマルチシーンとして読み込む時と単体シーンとして読み込む時とで見た目が異なる問題を解消する方法として、マルチシーンをアクティブにする方法と、FogやSkybox、Environment Reflectionなどのシーン依存な情報を合わせる方法についてそれぞれ紹介しています。</p>
+<h3 id="single-pass-instancedでgrabpass取得できない時の対処">Single Pass InstancedでGrabPass取得できない時の対処</h3>
+<p><a href="https://zenn.dev/panda_nakami/articles/20220620-unity-grabpass-singlepassinstanced">Single Pass InstancedでGrabPass取得できない時の対処</a></p>
+<p>VRプラットフォームでシングルパスインスタンシングレンダリングを行う際、 <code>GrabPass</code> を利用するようなシェーダーで <code>tex2D</code> によるテクスチャのサンプリングを行うと描画が崩れる（マルチパスレンダリングの場合は壊れない）問題と、<code>UNITY_DECLARE_SCREENSPACE_TEXTURE</code> と <code>UNITY_SAMPLE_SCREENSPACE_TEXTURE</code> を用いて <code>GrabPass</code> の生成するテクスチャをサンプリングすることでこの問題を解決する方法について紹介しています。</p>
+<h3 id="networkedpropertyに相当する機能のすゝめ">NetworkedProperty（に相当する機能）のすゝめ</h3>
+<p><a href="https://synamon.hatenablog.com/entry/2022/06/24/173324">NetworkedProperty（に相当する機能）のすゝめ - Synamon’s Engineer blog</a></p>
+<p>Unityでネットワークマルチプレイを実装する際に、（Photonなどにあるような）Unityのゲームオブジェクト単位で状態の同期を行う NetworkedProperty と、（ネットワークライブラリでよくある）RPC（Remote Procedure Call）との機能的な使い分けの１考察を紹介しています。</p>
+<h3 id="視聴者が次のステージを投票できるゲーム動画配信システムを作る">視聴者が「次のステージを投票」できるゲーム動画配信システムを作る</h3>
+<p><a href="https://qiita.com/Takaaki_Ichijo/items/91520ada5a1e247e2ff7">視聴者が「次のステージを投票」できるゲーム動画配信システムを作る - Qiita</a></p>
+<p><a href="https://www.genvidtech.com/ja/">Genvid</a> SDKを用いた、対戦ゲームなどで「動画の視聴者が投票によって次のステージを選択できる」ようなシステムの試作について紹介しています。</p>
+<p>JavaScrip側での投票機能と、投票機能の結果をUnityで受け取る実装についてそれぞれ解説しています。</p>
+<h3 id="qif-unity_editor-な-scriptableobject-のフィールドはビルド時にどうなる">Q:#if UNITY_EDITOR な ScriptableObject のフィールドはビルド時にどうなる？</h3>
+<p><a href="https://zenn.dev/gok/articles/eac077b628ad4a">Q:#if UNITY_EDITOR な ScriptableObject のフィールドはビルド時にどうなる？</a></p>
+<p>Resources内のアセットの、<code>#if UNITY_EDITOR</code> 囲ったシリアライズ可能なプロパティを持つが、ビルド後にどのように扱われるのかについて実験的に説明しています。</p>
+<h3 id="新input-systemでナビゲーション機能を実装する">新Input Systemでナビゲーション機能を実装する</h3>
+<p><a href="https://zenn.dev/brainvader/articles/c50dfe5ba990ff">新Input Systemでナビゲーション機能を実装する</a></p>
+<p>新しいInput Systemを用いて、マウスホイールによるズームイン・アウト、カスタムコンポジットを用いたドラッグ、Orbit Camera（ターゲットを原点とする球を軌道とするカメラワーク）の実装方法について紹介しています。</p>
+<h3 id="arcore-geospatial-apiの緯度経度の情報を持つarearthmanagerについて調べてみた">ARCore Geospatial APIの緯度経度の情報を持つAREarthManagerについて調べてみた</h3>
+<p><a href="https://qiita.com/iwaken71/items/c6b403b39929dac5bd4b">ARCore Geospatial APIの緯度経度の情報を持つAREarthManagerについて調べてみた - Qiita</a></p>
+<p>Googleの発表したVPS（Visual Positioning Service/System）であるARCore Geospatial APIの中で緯度と経度などを計測できる AREarthManager を用いて取得できる <code>GeospatialPose</code> のそれぞれのプロパティについて解説しています。</p>
+<h2 id="repositories">Repositories</h2>
+<h3 id="runtime-monitoring">Runtime Monitoring</h3>
+<p><a href="https://github.com/JohnBaracuda/Runtime-Monitoring">JohnBaracuda/Runtime-Monitoring: Runtime Monitoring is an easy way for you to monitor the value or state of custom C# members during runtime. Just add the ‘Monitor’ attribute to a field, property, event, method or even class and get its value or state displayed automatically in a customizable and extendable debug UI.</a></p>
+<p>フィールドやプロパティ、イベントに <code>Monitor</code> 属性をつけておくだけで、ランタイムで値の変化などを監視するUIを提供するツール。</p>
+<h3 id="reeseunitydemos">ReeseUnityDemos</h3>
+<p><a href="https://github.com/reeseschultz/ReeseUnityDemos">reeseschultz/ReeseUnityDemos: Unity packages and demos—emphasizing ECS, jobs and the Burst compiler—by Reese and others.</a></p>
+<p>DOTSベースのナビゲーションシステム・パスファインディングなどのパッケージと、それらを用いたデモプロジェクト。</p>
+<h3 id="sorangon-level-up-sketch-open-project">Sorangon Level Up Sketch Open Project</h3>
+<p><a href="https://github.com/Sorangon/Level-Up-Sketch-Open-Project">Sorangon/Level-Up-Sketch-Open-Project</a></p>
+<p>レポジトリの作者が「Real Time VFX monthly sketch challenge #52」に応募した作品の公開プロジェクト。メッシュのボクセル化、ビュー空間でのグリッチエフェクト、データパターントレイルの３つのエフェクトや実際の作品が入ったシーンなどが用意されています。</p>
+<p>また、この作品を作る際に使用した下記ツールも合わせて提供されています。</p>
+<ul>
+<li>Gradient and curve Textures generator</li>
+<li>Gradient mapping shaders</li>
+<li>Height Fog custom render pass</li>
+</ul> </article> <hr class="my-8 border-dashed"> <ul class="mt-4 mb-8 sm:my-8"> <li class="group inline-block group-hover:cursor-pointer my-1 me-2"> <a href="/tags/unity-weekly/" class="relative inline-block rounded-md bg-accent/15 px-2 py-1 text-lg group-hover:-top-0.5 group-hover:bg-accent/30 group-hover:text-accent focus-visible:bg-accent/30 focus-visible:outline-2 focus-visible:outline-offset-2 text-sm px-1.5 py-0.5" data-astro-transition-scope="astro-36ssibgs-2"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 size-4 -me-0.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg> <span>Unity Weekly</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 me-2"> <a href="/tags/unity/" class="relative inline-block rounded-md bg-accent/15 px-2 py-1 text-lg group-hover:-top-0.5 group-hover:bg-accent/30 group-hover:text-accent focus-visible:bg-accent/30 focus-visible:outline-2 focus-visible:outline-offset-2 text-sm px-1.5 py-0.5" data-astro-transition-scope="astro-36ssibgs-3"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 size-4 -me-0.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg> <span>Unity</span> </a> </li> </ul> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
+Back To Top
+</span> </button> </div> <script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script> <div class="flex flex-none flex-col items-center justify-center gap-1 md:items-start"><span class="italic">Share this post on:</span><div class="text-center"><a href="https://x.com/intent/post?url=https://blog.yucchiy.com/project/unity-weekly/074.html&text=Frame%20Timing%20Manager%E3%80%81Unity%20Gaming%20Services%E3%80%81Memory%20Profiler%20v1.0.0-pre.2%20-%20Unity%20Weekly%20%23074" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg><span class="sr-only">Share this post on X</span></a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/project/unity-weekly/074.html" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg><span class="sr-only">Share this post on Facebook</span></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.yucchiy.com/project/unity-weekly/074.html" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg><span class="sr-only">Share this post on LinkedIn</span></a><a href="mailto:?subject=See%20this%20post&#38;body=https://blog.yucchiy.com/project/unity-weekly/074.html" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg><span class="sr-only">Share this post via email</span></a></div></div> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2"> <a href="/project/unity-weekly/075" class="flex w-full gap-1 hover:opacity-75"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div> <span>Previous Post</span> <div class="text-sm text-accent/85">Adaptive Performance 4.0、CppSharp、Photon Fusion - Unity Weekly 075</div> </div> </a> <a href="/project/unity-weekly/073" class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"> <div> <span>Next Post</span> <div class="text-sm text-accent/85">AssetRegulationManager、selective-profiling、ParticleEffectForUGUI 4.0.0-preview.1、Metawire - Unity Weekly #073</div> </div> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </main> <footer class="w-full mt-auto"> <div class="mx-auto max-w-app px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/yucchiy" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on GitHub"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only">Yucchiy&#39;s Note on GitHub</span> </a><a href="https://x.com/yucchiy_" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on X"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Yucchiy&#39;s Note on X</span> </a><a href="https://www.linkedin.com/in/yucchiy/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on LinkedIn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on LinkedIn</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2025 Yucchiy&#39;s Note</span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>All rights reserved.</span> </div> </div> </footer>  </body></html>
