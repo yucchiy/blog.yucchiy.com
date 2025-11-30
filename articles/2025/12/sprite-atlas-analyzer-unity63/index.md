@@ -1,5 +1,5 @@
 ---
-title: Unity 6.3から使えるSprite Atlas Analyzerについて触ってみる
+title: Unity 6.3から使えるSprite Atlas Analyzerを触ってみる
 description: Unity 6.3で追加されたSprite Atlas Analyzerの概要から導入方法、利用方法について紹介します。
 pubDatetime: 2025-12-01T00:00:00+09:00
 tags:
