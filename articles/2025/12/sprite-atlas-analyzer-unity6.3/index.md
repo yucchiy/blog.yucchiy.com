@@ -1,12 +1,13 @@
 ---
 title: Unity 6.3から使えるSprite Atlas Analyzerについて触ってみる
 description: Unity 6.3で追加されたSprite Atlas Analyzerの概要から導入方法、利用方法について紹介します。
-pubDatetime: 2025-12-01T00:00:00.000Z
+pubDatetime: 2025-12-01T00:00:00+09:00
 tags:
   - Unity
   - Unity 6.3
   - 2D
   - Sprite Atlas
+  - Advent Calendar
 ---
 
 [Applibot Advent Calendar 2025](https://qiita.com/advent-calendar/2025/applibot) の1日目の記事です。
