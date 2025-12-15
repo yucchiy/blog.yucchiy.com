@@ -1,0 +1,307 @@
+<!DOCTYPE html><html dir="ltr" lang="ja" class="false" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/project/unity-weekly/252.html"><meta name="generator" content="Astro v5.15.5"><!-- General Meta Tags --><title>Unity Weekly 252 | Yucchiy&#39;s Note</title><meta name="title" content="Unity Weekly 252 | Yucchiy's Note"><meta name="description" content="2025/12/15週のUnity Weeklyです。Unity 6.4ベータリリース、Unity6.5破壊的変更紹介、ECS開発状況などを紹介しています。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Unity Weekly 252 | Yucchiy's Note"><meta property="og:description" content="2025/12/15週のUnity Weeklyです。Unity 6.4ベータリリース、Unity6.5破壊的変更紹介、ECS開発状況などを紹介しています。"><meta property="og:url" content="https://blog.yucchiy.com/project/unity-weekly/252.html"><meta property="og:image" content="https://blog.yucchiy.com/project/unity-weekly/252/index.png"><!-- Article Published/Modified time --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/project/unity-weekly/252.html"><meta property="twitter:title" content="Unity Weekly 252 | Yucchiy's Note"><meta property="twitter:description" content="2025/12/15週のUnity Weeklyです。Unity 6.4ベータリリース、Unity6.5破壊的変更紹介、ECS開発状況などを紹介しています。"><meta property="twitter:image" content="https://blog.yucchiy.com/project/unity-weekly/252/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity Weekly 252 | Yucchiy's Note","image":"https://blog.yucchiy.com/project/unity-weekly/252/index.png","datePublished":"undefined","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", PUBLIC_GA_MEASUREMENT_ID);
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/about.BZlzkD--.css">
+<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media(prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
+</style><style>[data-astro-transition-scope="astro-ovirr3re-1"] { view-transition-name: unity-weekly-252; }@layer astro { ::view-transition-old(unity-weekly-252) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly-252) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly-252) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly-252) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-2"] { view-transition-name: unity-weekly; }@layer astro { ::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-3"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-sckkx6r4>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> Yucchiy&#39;s Note </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/projects">
+Projects
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="mx-auto max-w-app px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <div class="mx-auto flex w-full max-w-app items-center justify-start px-2"><a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-2 flex hover:text-foreground/75"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span>Go back</span></a></div><script type="module">function o(){const t=document.querySelector("#back-button"),e=sessionStorage.getItem("backUrl");e&&t&&(t.href=e)}document.addEventListener("astro:page-load",o);o();</script> <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12"> <h1 class="inline-block text-xl font-bold text-accent sm:text-2xl" data-astro-transition-scope="astro-ovirr3re-1"> Unity Weekly 252 </h1> <div class="flex items-center gap-x-2 opacity-80 my-2"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg>  <time class="text-sm sm:text-base" datetime="2025-12-15T00:00:00.000Z">2025年12月15日</time> </div> <article id="article" class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"> <h2 id="unity-officials">Unity Officials</h2>
+<h3 id="unity-64-beta-is-now-available">Unity 6.4 Beta is now available</h3>
+<p><a href="https://discussions.unity.com/t/unity-6-4-beta-is-now-available/1690610/7">Unity 6.4 Beta is now available - Unity Engine - Unity Discussions</a></p>
+<p>Unity6.4ベータ版リリースが、ディスカッションにてアナウンスされています。</p>
+<h3 id="64-beta-sweepstakes---your-chance-to-win-one-of-three-gpus">6.4 Beta Sweepstakes - Your chance to win one of three GPUs</h3>
+<p><a href="https://discussions.unity.com/t/6-4-beta-sweepstakes-your-chance-to-win-one-of-three-gpus/1698426">6.4 Beta Sweepstakes - Your chance to win one of three GPUs - Unity Engine - Unity Discussions</a></p>
+<p>Unity6.4ベータでのバグレポートで、オリジナルなバグと認定されたら、NvidiaのGPUが貰えるチャンスを獲得できる「6.4 Beta Sweepstakes」というコンテストが開催されていることを告知するディスカッションです。</p>
+<p>来年の2/23まで開催しており、それぞれ下記のGPUがもらえるとのことです。</p>
+<ul>
+<li>First winner: ASUS Dual GeForce RTX 5070</li>
+<li>Second winner: ASUS Dual GeForce RTX 4070 Super</li>
+<li>Third winner: ASUS Dual GeForce RTX 5060 Ti</li>
+</ul>
+<h3 id="planned-breaking-changes-in-unity-65">Planned breaking changes in Unity 6.5</h3>
+<p><a href="https://discussions.unity.com/t/planned-breaking-changes-in-unity-6-5/1694205">Planned breaking changes in Unity 6.5 - Unity Engine - Unity Discussions</a></p>
+<p>Unity6.5における破壊的変更をアナウンスするディスカッションです。</p>
+<p>このバージョンにおける主要な破壊的変更として、下記の変更とその概要を紹介しています。</p>
+<ul>
+<li>Android APIの最小バージョンが26(8.0)に変更</li>
+<li>RenderGraphの互換性モードが削除される</li>
+<li>Android Navigation Barがフルスクリーンステートから分離され、それに踏まえてそれぞれの状態を管理するための新たなAPIが追加</li>
+<li>Rendering DebuggerがUI Toolkitベースの実装に置き換えられる</li>
+<li>VR Moduleの削除</li>
+<li>Entitiess1.4でのForEachとAspects APIの削除に合わせて今後このAPIが削除、<code>SystemAPI.Query</code>に移行する必要がある</li>
+<li>ModelImporter APIの一部APIを利用するとコンパイルエラーするように</li>
+<li>ReplayKitのサポート廃止</li>
+<li>Editor.logのデフォルトパスが変更される</li>
+<li>「ECS for all」の一環として行われるInstanceIDのEntityIdへの移行の一環として、6.5ではInstanceIDを利用するとコンパイルエラーとなる</li>
+</ul>
+<h3 id="ecs-development-status---december-2025">ECS Development Status - December 2025</h3>
+<p><a href="https://discussions.unity.com/t/ecs-development-status-december-2025/1699284">ECS Development Status - December 2025 - Unity Engine - Unity Discussions</a></p>
+<p>ECSの2025/12時点での開発状況を伝えるディスカッションです。</p>
+<p>Unity 6.4に入る変更として、ECS関連のパッケージのコアパッケージ化（エディターに付属するパッケージとなる）や、エディター側にECS側のEntityIdとGameObject側のInstanceIDの両方をもつEntityID型が新たに追加され、合わせて既存のInstanceIDが非推奨になる（オブジェクトを識別するIDとしてEntityIdの利用が推奨される）ことを告知しています。</p>
+<p>また、今後のUnity6において、「ECS for All」に基づいてGameObjectにECSのコンポーネントデータをアタッチできる対応が入ることもアナウンスしています。</p>
+<h3 id="unity-63---addressables-and-http2-support">Unity 6.3 - Addressables and HTTP/2 support</h3>
+<p><a href="https://discussions.unity.com/t/unity-6-3-addressables-and-http-2-support/1698805">Unity 6.3 - Addressables and HTTP/2 support - Unity Engine - Unity Discussions</a></p>
+<p>Unity 6.3で、UnityWebRequestがHTTP/2を標準でサポートすることから、Addressablesでも実質HTTP/2をサポートしていることを伝えるディスカッションです。</p>
+<h3 id="unity-learn--2d-adventure-game-robot-repair-revamp">Unity Learn | 2D Adventure Game: Robot Repair REVAMP!</h3>
+<p><a href="https://discussions.unity.com/t/unity-learn-2d-adventure-game-robot-repair-revamp/1699617">Unity Learn | 2D Adventure Game: Robot Repair REVAMP! - Learn Content - Unity Discussions</a></p>
+<p>Unity Learnに「<a href="https://learn.unity.com/course/2D-adventure-robot-repair?version=6.3">2D Adventure Game: Robot Repair</a>」という新しい2Dの学習リソースが追加されたことを告知するディスカッションです。</p>
+<h2 id="articles">Articles</h2>
+<h3 id="unity63から64への現時点での更新内容まとめ">Unity6.3から6.4への現時点での更新内容まとめ</h3>
+<p><a href="https://zenn.dev/aakei/articles/unity-api-6_4">Unity6.3から6.4への現時点での更新内容まとめ</a></p>
+<p>Unity 6.4の現時点のchangelogやapiの差分について、その内訳を説明しています。</p>
+<h3 id="unity-63-rsuv-で描画を軽量化する">Unity 6.3: RSUV で描画を軽量化する</h3>
+<p><a href="https://zenn.dev/ruccho/articles/6938101ba6696b">Unity 6.3: RSUV で描画を軽量化する</a></p>
+<p>Unity6.3から使えるRenderer Shader User Valueについて、この仕組みが登場した背景から使い方、ProfilerやMemoryProfilerやCPUやメモリ使用量やPIXを用いた描画パスの改善などの各種計測結果を紹介しています。</p>
+<h3 id="unity-as-a-library-再入門-android編-unity-63--jetpack-compose">Unity as a Library 再入門 (Android編: Unity 6.3 + Jetpack Compose)</h3>
+<p><a href="https://zenn.dev/reality_tech/articles/1134aca88503a9">Unity as a Library 再入門 (Android編: Unity 6.3 + Jetpack Compose)</a></p>
+<p>簡単なUnityアプリをUaaL化し、Jetpack ComposeベースのAndroidプロジェクトに取り込んで動かす方法から、Unityアプリケーションに対してSendMessageベースでメソッドを呼び出す方法についてそれぞれ解説しています。</p>
+<h3 id="スクリプト言語ベースのadvシステムとスクリプト中のセーブロードホットリロードの実装例luacsharp">スクリプト言語ベースのADVシステムとスクリプト中のセーブ&#x26;ロード、ホットリロードの実装例【LuaCSharp】</h3>
+<p><a href="https://qiita.com/watabe_h/items/8de97b021a433b32857f">【Unity】スクリプト言語ベースのADVシステムとスクリプト中のセーブ&#x26;ロード、ホットリロードの実装例【LuaCSharp】 #Unity - Qiita</a></p>
+<p>LuaCsharp で（Luaスクリプトの）ホットロードに対応したADVエンジンを実装する方法を解説しています。</p>
+<h3 id="いろいろな参照の形-unityyaml">いろいろな参照の形 (UnityYAML)</h3>
+<p><a href="https://qiita.com/caramel_cafe/items/8d410bfea362e396bef6">いろいろな参照の形 (UnityYAML) #Unity - Qiita</a></p>
+<p>Unityのmetaファイルを覗いて、アセットの参照方法としてGUIDとFileIDの形式や、それぞれがどのようにアセットを引いているのかについて説明しています。</p>
+<h3 id="型によるswitchの網羅漏れを検出するroslynanalyzerexhaustiveswitchを作った">型によるswitchの「網羅漏れ」を検出するRoslynAnalyzer「ExhaustiveSwitch」を作った</h3>
+<p><a href="https://zenn.dev/gameshalico/articles/4ab267ca7e74a4">【Unity】型によるswitchの「網羅漏れ」を検出するRoslynAnalyzer「ExhaustiveSwitch」を作った</a></p>
+<p>型スイッチにおいて、その抽象型が実装されてる具体型を網羅していない場合にエラーとするRoslyn Analyzerの実装を紹介しています。</p>
+<h3 id="unityのツールバーにgitの現在のブランチを表示するついでにブランチ一覧も引いてきて表示する">Unityのツールバーにgitの現在のブランチを表示する。ついでにブランチ一覧も引いてきて表示する。</h3>
+<p><a href="https://qiita.com/ScreenPocket/items/5065cd020ad4649b9115">Unityのツールバーにgitの現在のブランチを表示する。ついでにブランチ一覧も引いてきて表示する。 #Git - Qiita</a></p>
+<p>Unity6.3から使える、メインツールバーをカスタマイズできるMainToolbarElementAttributeを用いて、そのプロジェクトの現在のgitブランチを表示する実装を紹介しています。</p>
+<h3 id="イベントレポ-uday-tokyo-2025">【イベントレポ】: U/Day Tokyo 2025</h3>
+<p><a href="https://raspberly.hateblo.jp/entry/UDayTokyo2025">【イベントレポ】: U/Day Tokyo 2025 - Raspberlyのブログ</a></p>
+<p>このブログの著者によru、U/Day Tokyo 2025の参加レポートです。</p>
+<h3 id="インフレ系ゲームの天文学的な数値はどう管理されているのか調べてみた">インフレ系ゲームの天文学的な数値はどう管理されているのか調べてみた</h3>
+<p><a href="https://qiita.com/kapi_takahashi/items/5a06599af29f66785544">インフレ系ゲームの天文学的な数値はどう管理されているのか調べてみた #C# - Qiita</a></p>
+<p>放置系ゲームなどである、longなどでは桁落ちしてしまうような数値を扱うためのBigIntegerやサードパーティ製のライブラリを紹介しています。</p>
+<h3 id="memoryprofilerでメモリ蓄積を調査する手順">MemoryProfilerでメモリ蓄積を調査する手順</h3>
+<p><a href="https://qiita.com/_EorF/items/c7421babb060d3dd31f7">【Unity】MemoryProfilerでメモリ蓄積を調査する手順 #Unity - Qiita</a></p>
+<p>MemoryProfilerを用いてメモリリークを特定して対応していく方法を、簡単なリークを題材に、ステップバイステップで説明しています。</p>
+<h3 id="claude-code-での-unity-開発の振り返り-2025年">Claude Code での Unity 開発の振り返り (2025年)</h3>
+<p><a href="https://tsgcpp.hateblo.jp/entry/cluster_advent_calendar_2025">Claude Code での Unity 開発の振り返り (2025年) - すぎしーのXRと3DCG</a></p>
+<p>Unity開発でのClaude Codeの活用事例として、UnityEditor向けのツール制作やInputActionの編集、エラー通知（Sentry MCP Server）からの修正案の提案などの活用方法を紹介しています。</p>
+<h3 id="unity-webglとフロントエンドを繋ぐ型安全なメッセージングの設計と実装">Unity WebGLとフロントエンドを繋ぐ型安全なメッセージングの設計と実装</h3>
+<p><a href="https://qiita.com/iori_yuki/items/11d4ccf5197e7ff5e332">Unity WebGLとフロントエンドを繋ぐ型安全なメッセージングの設計と実装 #TypeScript - Qiita</a></p>
+<p>Avatar Makerで行っているWebGLビルドしたUnityアプリからWebフロントエンドと疎通する際のメッセージについて、実行時に型を検証、確定して安全にメッセージを疎通し合うための設計や実装、非同期処理の考慮などそれぞれ説明しています。</p>
+<h3 id="ugui対応のlinerendererを作成してみた">uGUI対応のLineRendererを作成してみた</h3>
+<p><a href="https://qiita.com/xeon_lagunas/items/26020b3d30ef93c8d25d">uGUI対応のLineRendererを作成してみた #C# - Qiita</a></p>
+<p>uGUIで、独自のLineRendererを実装するためのコンポーネントの準備から、線を破綻なく綺麗に描画するために使えるテクニックとして「マイター結合」や「ベベル結合」についてそれぞれ解説しています。</p>
+<h3 id="uguiで長さが変わるテキストボックスを作りたい">uGUIで長さが変わるテキストボックスを作りたい</h3>
+<p><a href="https://zenn.dev/livetoon/articles/9a4ad96bcbfbe8">【Unity】uGUIで長さが変わるテキストボックスを作りたい</a></p>
+<p>uGUIの自動レイアウトを用いて、チャットUIのような、横固定で縦が可変なテキストボックスを実装する方法を具体的なコンポーネントの設定の説明も踏まえつつ紹介しています。</p>
+<h3 id="unity63のuitoolkitの新機能を触ってみる">Unity6.3のUIToolkitの新機能を触ってみる</h3>
+<p><a href="https://qiita.com/Sakutaro111/items/780fb3ddeb904b9d6bec">Unity6.3のUIToolkitの新機能を触ってみる #Shader - Qiita</a></p>
+<p>Unity 6.3のUI Toolkitで利用できる機能の中から、Shader GraphによるカスタムUIシェーダーとFilter（ポストプロセス）の実装のについてそれぞれ紹介しています。</p>
+<h3 id="unity-test-framework完全攻略ガイド-第3版">Unity Test Framework完全攻略ガイド 第3版</h3>
+<p><a href="https://www.nowsprinting.com/entry/2025/12/13/180623">Unity Test Framework完全攻略ガイド 第3版 - やらなイカ？</a></p>
+<p>ブログの著者が執筆しているTest Frameworkを使ったUnityのテストに関する書籍「Unity Test Framework完全攻略ガイド 第3版」の目次と各章の概要を紹介しています。</p>
+<h3 id="uitoolkitをテストできるui-test-frameworkが追加されたよ">UIToolkitをテストできるUI Test Frameworkが追加されたよ！</h3>
+<p><a href="https://qiita.com/tamutamuta/items/589f5dff68825ea4b4dc">【Unity6.3】UIToolkitをテストできるUI Test Frameworkが追加されたよ！ #Unity - Qiita</a></p>
+<p>Unity 6.3から利用できる、UIToolkitのテストを行うためのライブラリ「UI Test Framework」の導入方法から簡単に使い方を紹介しています。</p>
+<h3 id="uitoolkitをworldspaceで表示する">UIToolkitをWorldSpaceで表示する</h3>
+<p><a href="https://qiita.com/tamutamuta/items/a0c45af98db79d5c598f">【Unity】UIToolkitをWorldSpaceで表示する #Unity - Qiita</a></p>
+<p>Unity 6.2から使えるUI Toolkit のWorld Space上への配置について、その設定方法を紹介しています。</p>
+<h3 id="vrmモデルをランタイムロードして表情体口を動かす">VRMモデルをランタイムロードして表情・体・口を動かす</h3>
+<p><a href="https://qiita.com/dokudami/items/75c0a8e17af94c0e57c0">【Unity】VRMモデルをランタイムロードして表情・体・口を動かす #UniVRM - Qiita</a></p>
+<p>ランタイム上でロードしたVRMのフェイシャルの変更や、PlayableGraphを用いたボディのアニメーション制御、uLipSyncを用いたリップシンクなどの実装を紹介しています。</p>
+<h3 id="アニメーション遷移行列">アニメーション遷移行列</h3>
+<p><a href="https://qiita.com/nZm31/items/d2777973a2022cca1bbd">【Unity】アニメーション遷移行列 #Unity - Qiita</a></p>
+<p>アニメーション制御のための独自の遷移制御スクリプトおよびエディター拡張の実装を紹介しています。</p>
+<h3 id="adaptive-probe-volumesと他ライティング手法のルック比較">Adaptive Probe Volumesと他ライティング手法のルック比較</h3>
+<ul>
+<li><a href="https://zenn.dev/ambr_inc/articles/83d28c7b123a8a">【Unity】Adaptive Probe Volumesと他ライティング手法のルック比較</a></li>
+<li><a href="https://zenn.dev/ambr_inc/articles/357109cfbc142e">【Unity】Adaptive Probe Volumesと他ライティング手法の負荷比較</a></li>
+</ul>
+<p>Adaptive Probe Volumesと、Unity標準のライトマップやリアルタイムライティング、サードパーティアセットBaleryなどでのルックや処理負荷を比較しています。</p>
+<h3 id="armのプロファイリングツールstreamlineでオーバードローを計測してみた">Armのプロファイリングツール『Streamline』でオーバードローを計測してみた</h3>
+<p><a href="https://qiita.com/ayaha401/items/7e831806ff2e2ebbafdb">Armのプロファイリングツール『Streamline』でオーバードローを計測してみた #Unity - Qiita</a></p>
+<p>Arm製のプロファイリングツール「Streamline」を用いてAndroidの実機上でUnityアプリをプロファイリングする方法を紹介しています。</p>
+<h3 id="unityeditorのアイコンを画像に差し替えるossuniconを作ってみた">UnityEditorのアイコンを画像に差し替えるOSS「Unicon」を作ってみた</h3>
+<p><a href="https://zenn.dev/matsuataru/articles/unicon_adcale_2025">UnityEditorのアイコンを画像に差し替えるOSS「Unicon」を作ってみた</a></p>
+<p>ブログの著者が開発する、UnityEditorのアイコンを差し替える「Unicon（<a href="https://github.com/AtaruMatsudaira/Unicon/%EF%BC%89%E3%80%8D%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%80%81%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E5%B7%AE%E3%81%97%E6%9B%BF%E3%81%88%E3%81%AE%E5%AE%9F%E8%A3%85%E3%82%92%E7%B4%B9%E4%BB%8B%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82">https://github.com/AtaruMatsudaira/Unicon/）」について、アイコン差し替えの実装を紹介しています。</a></p>
+<h3 id="unityで3d地図をロードできるgeotileloaderを作りましたstyly-world-canvasでも利用">Unityで3D地図をロードできるGeoTileLoaderを作りました【STYLY World Canvasでも利用】</h3>
+<p><a href="https://qiita.com/mhama/items/4e9f654d0b1a5656ec8a">Unityで3D地図をロードできるGeoTileLoaderを作りました【STYLY World Canvasでも利用】 #Geolocation - Qiita</a></p>
+<p>STYLY 社が開発する3D Tiles形式の3D地図をロードするための「<a href="https://qiita.com/mhama/items/4e9f654d0b1a5656ec8a">GeoTileLoader</a>」について、3D Tiles形式の概要から同様のライブラリ「Cesium for Unity」との違い、このライブラリの使い方をそれぞれまとめています。</p>
+<h3 id="visionproでbluetoothlowenergybleを用いた自作デバイスを利用する方法">VisionProでBluetoothLowEnergy(BLE)を用いた自作デバイスを利用する方法</h3>
+<p><a href="https://qiita.com/SAyanada9/items/85b8709fa581dd779e52">VisionProでBluetoothLowEnergy(BLE)を用いた自作デバイスを利用する方法 #Swift - Qiita</a></p>
+<p>Vision ProでBlueTooth通信を用いたデバイスとの双方向通信について、ネイティブプラグインやポストプロセスビルドの実装方法を説明しています。</p>
+<h3 id="openxrとmeta-questではじめるarmrアプリの現実世界との位置合わせ---arアンカーの共有編-">OpenXRとMeta Questではじめる！AR/MRアプリの現実世界との位置合わせ - ARアンカーの共有編 -</h3>
+<p><a href="https://zenn.dev/meson_tech_blog/articles/openxr-meta-shared-anchor">OpenXRとMeta Questではじめる！AR/MRアプリの現実世界との位置合わせ - ARアンカーの共有編 -</a></p>
+<p>OpenXRとAR Foundationを用いて、グループベース共有での共有アンカー（Shared Anchor）を利用する方法について、その基本的なセットアップから実装までを紹介しています。</p>
+<h3 id="xreal-air-2-ultra--beam-pro-開発入門-unityで作るarクリスマスリース">XREAL Air 2 Ultra + Beam Pro 開発入門 〜Unityで作るARクリスマスリース〜</h3>
+<p><a href="https://zenn.dev/jigjp_engineer/articles/674d1f7134ea2f">XREAL Air 2 Ultra + Beam Pro 開発入門 〜Unityで作るARクリスマスリース〜</a></p>
+<p>UnityでXREAL Air 2 Ultra + Beam Pro 向けのアプリケーションを作るための導入を紹介しています。</p> </article> <hr class="my-8 border-dashed"> <ul class="mt-4 mb-8 sm:my-8"> <li class="group inline-block group-hover:cursor-pointer my-1 me-2"> <a href="/tags/unity-weekly" class="relative inline-block rounded-md bg-accent/15 px-2 py-1 text-lg group-hover:-top-0.5 group-hover:bg-accent/30 group-hover:text-accent focus-visible:bg-accent/30 focus-visible:outline-2 focus-visible:outline-offset-2 text-sm px-1.5 py-0.5" data-astro-transition-scope="astro-36ssibgs-2"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 size-4 -me-0.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg> <span>Unity Weekly</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 me-2"> <a href="/tags/unity" class="relative inline-block rounded-md bg-accent/15 px-2 py-1 text-lg group-hover:-top-0.5 group-hover:bg-accent/30 group-hover:text-accent focus-visible:bg-accent/30 focus-visible:outline-2 focus-visible:outline-offset-2 text-sm px-1.5 py-0.5" data-astro-transition-scope="astro-36ssibgs-3"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 size-4 -me-0.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg> <span>Unity</span> </a> </li> </ul> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
+Back To Top
+</span> </button> </div> <script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script> <div class="flex flex-none flex-col items-center justify-center gap-1 md:items-start"><span class="italic">Share this post on:</span><div class="text-center"><a href="https://x.com/intent/post?url=https://blog.yucchiy.com/project/unity-weekly/252.html&text=Unity%20Weekly%20252" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg><span class="sr-only">Share this post on X</span></a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/project/unity-weekly/252.html" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg><span class="sr-only">Share this post on Facebook</span></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.yucchiy.com/project/unity-weekly/252.html" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg><span class="sr-only">Share this post on LinkedIn</span></a><a href="mailto:?subject=See%20this%20post&#38;body=https://blog.yucchiy.com/project/unity-weekly/252.html" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg><span class="sr-only">Share this post via email</span></a></div></div> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">  <a href="/project/unity-weekly/251" class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"> <div> <span>Next Post</span> <div class="text-sm text-accent/85">Unity Weekly 251</div> </div> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </main> <footer class="w-full mt-auto"> <div class="mx-auto max-w-app px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/yucchiy" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on GitHub"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg> <span class="sr-only">Yucchiy&#39;s Note on GitHub</span> </a><a href="https://x.com/yucchiy_" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on X"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg> <span class="sr-only">Yucchiy&#39;s Note on X</span> </a><a href="https://www.linkedin.com/in/yucchiy/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on LinkedIn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on LinkedIn</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2025 Yucchiy&#39;s Note</span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>All rights reserved.</span> </div> </div> </footer>  </body></html>
