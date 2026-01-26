@@ -99,6 +99,12 @@ Unity 6.3から利用できるPlatform Toolkitについて、実績管理の仕�
 
 XR案件において、Unityによる実装工程に負荷が偏る原因やその対策について紹介しています。
 
+### ミアレシティのホログラムをUnityちゃんで再現してみた
+
+[【Unity】ミアレシティのホログラムをUnityちゃんで再現してみた【Shader芸】 #ポケモン - Qiita](https://qiita.com/Cova8bitdot/items/d741426096c8be3ec50a)
+
+Pokémon LEGENDS Z-Aに登場するホログラム演出をShader Graphで再現するためのノード構築や工夫点などを紹介しています。
+
 ### Unityのアニメーション制御が、気づくと複雑になる理由
 
 [Unityのアニメーション制御が、気づくと複雑になる理由](https://zenn.dev/ruskworks/articles/9498d32019c1f2)
