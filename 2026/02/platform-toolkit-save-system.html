@@ -1,0 +1,590 @@
+<!DOCTYPE html><html dir="ltr" lang="ja" class="scroll-smooth" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/2026/02/platform-toolkit-save-system.html"><meta name="generator" content="Astro v5.15.5"><!-- General Meta Tags --><title>Platform Toolkitのセーブシステムについてシステムについて | Yucchiy&#39;s Note</title><meta name="title" content="Platform Toolkitのセーブシステムについてシステムについて | Yucchiy's Note"><meta name="description" content="Platform Toolkitで利用できるセーブシステムについて、この概要から基本的な操作方法、DataStore APIなどについて説明しています。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Platform Toolkitのセーブシステムについてシステムについて | Yucchiy's Note"><meta property="og:description" content="Platform Toolkitで利用できるセーブシステムについて、この概要から基本的な操作方法、DataStore APIなどについて説明しています。"><meta property="og:url" content="https://blog.yucchiy.com/2026/02/platform-toolkit-save-system.html"><meta property="og:image" content="https://blog.yucchiy.com/2026/02/platform-toolkit-save-system/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2026-02-04T01:00:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/2026/02/platform-toolkit-save-system.html"><meta property="twitter:title" content="Platform Toolkitのセーブシステムについてシステムについて | Yucchiy's Note"><meta property="twitter:description" content="Platform Toolkitで利用できるセーブシステムについて、この概要から基本的な操作方法、DataStore APIなどについて説明しています。"><meta property="twitter:image" content="https://blog.yucchiy.com/2026/02/platform-toolkit-save-system/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Platform Toolkitのセーブシステムについてシステムについて | Yucchiy's Note","image":"https://blog.yucchiy.com/2026/02/platform-toolkit-save-system/index.png","datePublished":"2026-02-04T01:00:00.000Z","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", PUBLIC_GA_MEASUREMENT_ID);
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/about.DFDVyLGI.css">
+<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media(prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
+</style><style>[data-astro-transition-scope="astro-fam6wyqg-1"] { view-transition-name: platform-toolkit\306E\30BB\30FC\30D6\30B7\30B9\30C6\30E0\306B\3064\3044\3066\30B7\30B9\30C6\30E0\306B\3064\3044\3066; }@layer astro { ::view-transition-old(platform-toolkit\306E\30BB\30FC\30D6\30B7\30B9\30C6\30E0\306B\3064\3044\3066\30B7\30B9\30C6\30E0\306B\3064\3044\3066) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(platform-toolkit\306E\30BB\30FC\30D6\30B7\30B9\30C6\30E0\306B\3064\3044\3066\30B7\30B9\30C6\30E0\306B\3064\3044\3066) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(platform-toolkit\306E\30BB\30FC\30D6\30B7\30B9\30C6\30E0\306B\3064\3044\3066\30B7\30B9\30C6\30E0\306B\3064\3044\3066) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(platform-toolkit\306E\30BB\30FC\30D6\30B7\30B9\30C6\30E0\306B\3064\3044\3066\30B7\30B9\30C6\30E0\306B\3064\3044\3066) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fam6wyqg-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-2"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-3"] { view-transition-name: platform-toolkit; }@layer astro { ::view-transition-old(platform-toolkit) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(platform-toolkit) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(platform-toolkit) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(platform-toolkit) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-sckkx6r4>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> Yucchiy&#39;s Note </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/projects">
+Projects
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="mx-auto max-w-app px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <div class="mx-auto flex w-full max-w-app items-center justify-start px-2"><a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-2 flex hover:text-foreground/75"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span>Go back</span></a></div><script type="module">function o(){const t=document.querySelector("#back-button"),e=sessionStorage.getItem("backUrl");e&&t&&(t.href=e)}document.addEventListener("astro:page-load",o);o();</script> <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12" data-pagefind-body> <h1 class="inline-block text-xl font-bold text-accent sm:text-2xl" data-astro-transition-scope="astro-fam6wyqg-1"> Platform Toolkitのセーブシステムについてシステムについて </h1> <div class="my-2 flex items-center gap-2"> <div class="flex items-center gap-x-2 opacity-80"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 min-w-[1.375rem]"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg>  <time class="text-sm sm:text-base" datetime="2026-02-04T01:00:00.000Z">2026年2月4日</time> </div> <span aria-hidden="true" class="max-sm:hidden hidden">|</span>  </div> <article id="article" class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"> <p>この記事では、Platform Toolkitのセーブシステムに焦点を当てて説明します。</p>
+<p>Platform Toolkitのその他の内容については別記事で扱っています。</p>
+<ul>
+<li><a href="https://blog.yucchiy.com/2026/01/intro-platform-toolkit">Unity6.3から利用できるPlatform Toolkitについて</a></li>
+<li><a href="https://blog.yucchiy.com/2026/01/platform-toolkit-acccount-system">Platform Toolkitのアカウントシステムについて</a></li>
+<li><a href="https://blog.yucchiy.com/2026/01/platform-toolkit-achievement-system">Platform Toolkitのアチーブメントシステムについて</a></li>
+</ul>
+<h2 id="セーブシステムへのアクセス">セーブシステムへのアクセス</h2>
+<p>Platform Toolkitは、下記の2種類のセーブシステムを提供しています。</p>
+<ul>
+<li><strong>アカウントセーブ</strong>: プラットフォームアカウントに紐づくセーブデータ
+<ul>
+<li>アカウントでサインインしていれば、別のデバイスからも同じセーブデータにアクセス可能</li>
+</ul>
+</li>
+<li><strong>ローカルセーブ</strong>: デバイスローカルに保存されるセーブデータ
+<ul>
+<li>アカウントに依存しないため、サインインなしでも利用可能</li>
+</ul>
+</li>
+</ul>
+<p>どちらのセーブシステムも <code>ISavingSystem</code> インターフェイスを実装しているため、共通のAPIでセーブデータを操作できます。</p>
+<p>アカウントセーブが使えない場合にローカルセーブにフォールバックする実装例を下記に示します。</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="csharp"><code><span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB">ISavingSystem</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> savingSystem;</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// アカウントセーブを優先</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">if</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">PlatformToolkit</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">Capabilities</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">AccountSaving</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">    savingSystem </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> account</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">GetSavingSystem</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">();</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">else</span><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic"> if</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">PlatformToolkit</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">Capabilities</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">LocalSaving</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    // フォールバック: ローカルセーブ</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> PlatformToolkit</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">LocalSaving</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">else</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    throw</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB"> NotSupportedException</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span></span>
+<span class="line"><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">        "</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">Neither account saving nor local saving is supported on this platform.</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">    );</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<p>どちらのセーブシステムも <code>ISavingSystem</code> インターフェイスを実装しているため、共通のAPIでセーブデータを操作できます。</p>
+<h2 id="セーブデータの構造">セーブデータの構造</h2>
+<p>Platform Toolkitのセーブシステムは、下記に示すような構造になっています。</p>
+<ul>
+<li><strong>Save</strong>: セーブデータの単位。複数のファイルを含むことができる</li>
+<li><strong>File</strong>: Save内に保存される個々のファイル</li>
+</ul>
+<p><img alt="セーブシステムの構造" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1974px) 1974px, 100vw"  data-astro-image="constrained" width="1974" height="1074" src="/_astro/structures-of-saving-system.pHbf_IDV_Z1jwYx8.webp" srcset="/_astro/structures-of-saving-system.pHbf_IDV_14jTJt.webp 640w, /_astro/structures-of-saving-system.pHbf_IDV_Z2n3tRW.webp 750w, /_astro/structures-of-saving-system.pHbf_IDV_2vRtM2.webp 828w, /_astro/structures-of-saving-system.pHbf_IDV_Z1o821k.webp 1080w, /_astro/structures-of-saving-system.pHbf_IDV_Z16kO30.webp 1280w, /_astro/structures-of-saving-system.pHbf_IDV_Z26m5Nc.webp 1668w, /_astro/structures-of-saving-system.pHbf_IDV_Z1jwYx8.webp 1974w"></p>
+<p>この構造により、1つのセーブに複数のファイル（例えばプレイヤーデータ、インベントリデータ、設定データなど）を保存できます。</p>
+<h2 id="セーブデータの操作">セーブデータの操作</h2>
+<p>セーブデータを操作する方法について説明します。</p>
+<h3 id="セーブデータの書き込み">セーブデータの書き込み</h3>
+<p>セーブデータの書き込みを行うには、まず <code>ISavingSystem.OpenSaveWritable</code> で書き込み用の <code>ISaveWritable</code> を取得します。</p>
+<p><code>ISaveWritable.WriteFile</code> でデータをファイルを書き込み、最後に <code>ISaveWritable.Commit</code> で書き込みを確定させます。</p>
+<p>簡単なセーブデータのファイル書き込みを下記に示します。</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="csharp"><code><span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// セーブ保存対象のクラス</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// SerializableなのでJsonUtilityによってJSON文字列に変換可能</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">[</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB">Serializable</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">]</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">public</span><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic"> sealed</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA"> class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB8B"> Player</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    public</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA"> string</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> name;</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    public</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA"> int</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> level;</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    public</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA"> int</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> power;</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">[</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB">Serializable</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">]</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">public</span><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic"> sealed</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA"> class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#FFCB8B"> PlayerInventory</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    public</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA"> int</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">[] weaponIds;</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// シリアライズ用のメソッド</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 簡単のため、JsonUtilityでJSON → UTF8文字列をbyte[]に変換</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">private</span><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic"> static</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA"> byte</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">[] </span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Serialize</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">object</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> obj) </span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">=></span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> Encoding</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">UTF8</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">GetBytes</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">JsonUtility</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">ToJson</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(obj));</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 保存するデータ</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> player </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB"> Player</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> { name </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">taro</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> level </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> 10</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> power </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> };</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> inventory </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> new</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB"> PlayerInventory</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> { weaponIds </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> new</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">[] { </span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C">1</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> 2</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> 3</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> } };</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// セーブシステム</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> savingSystem </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> account</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">GetSavingSystem</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">();</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// ISaveWritableの取得</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> writable </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> savingSystem</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">OpenSaveWritable</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">SAVE_DATA</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 書き込み</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> writable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">WriteFile</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">player</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> Serialize</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(player));</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> writable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">WriteFile</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">inventory</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> Serialize</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(inventory));</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 確定</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> writable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Commit</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">();</span></span></code></pre>
+<p>簡単のためインスタンスのシリアライズは、<code>JsonUtility.ToJson</code>によってJSON文字列に変換し、その文字列を<code>Encoding.UTF8.GetBytes</code> によって <code>byte[]</code> に変換しています。</p>
+<p>シリアライズの実装は、他にも <a href="https://msgpack.org/ja.html">MessagePack</a> として <code>byte[]</code> にしたり、 Cysharp社の提供する <a href="https://github.com/Cysharp/MemoryPack">MemoryPack</a> を用いることもできます。
+MemoryPackについては、私も「<a href="https://blog.yucchiy.com/2022/12/advent-calendar-unity-memory-pack.html">UnityでMemoryPackを利用してみる</a>」 という記事を書いているので、よければ参考にしてください。</p>
+<h3 id="コミットの挙動について">コミットの挙動について</h3>
+<p><code>Commit</code> メソッドはアトミックなオペレーションです。
+つまり、全てのファイルの書き込みが成功するか、全て失敗するかのどちらかになります。</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="csharp"><code><span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// セーブシステム</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> savingSystem </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> account</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">GetSavingSystem</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">();</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// ISaveWritableの取得</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> writable </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> savingSystem</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">OpenSaveWritable</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">SAVE_DATA</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 2つのファイルを書き込み</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> writable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">WriteFile</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">player</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> Serialize</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(player));</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> writable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">WriteFile</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">inventory</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> Serialize</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(inventory));</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// Commit()が成功すれば、全てのファイルが保存される</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// Commit()が失敗すれば、全てのファイルの変更が破棄される</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> writable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Commit</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">();</span></span></code></pre>
+<p>そのため、ストレージ容量が足りないなどでCommitが正常に行われない場合、全ての変更が破棄されます。
+この挙動によって、中途半端な状態にならないため、ユーザーのセーブデータが壊れるリスクが低減されます。</p>
+<p><code>Commit</code>は、最低1つ以上ファイルを書き込まないと失敗します。
+書き込むファイルが1つも存在しない、または存在する全てのファイルを削除したような変更を適用しようとすると、<code>Commit</code> が <code>InvalidOperationException</code> を投げて失敗します。</p>
+<p>また、<code>Commit</code> が完了すると、<code>ISaveWritable</code> は自動的に破棄され、再利用できなくなります。</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="csharp"><code><span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> writable </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> savingSystem</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">OpenSaveWritable</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">SAVE_DATA</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> writable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">WriteFile</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">player</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> data);</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> writable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Commit</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// writable は再利用できない</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> writable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">WriteFile</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">inventory</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> data); </span><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// エラー</span></span></code></pre>
+<h3 id="セーブデータの読み込み">セーブデータの読み込み</h3>
+<p>セーブデータの読み込みは、<code>ISavingSystem.OpenSaveReadable()</code> でハンドラを取得し、<code>ISaveReadable.ReadFile()</code> でファイルを読み込みます。</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="csharp"><code><span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// デシリアライズ用のメソッド</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 簡単のため、byte[] → UTF8文字列 → JsonUtilityでデシリアライズ</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">private</span><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic"> static</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB"> T</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> Deserialize</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">&#x3C;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB">T</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">>(</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">byte</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">[] data) </span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">=></span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> JsonUtility</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">FromJson</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">&#x3C;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB">T</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">>(</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">Encoding</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">UTF8</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">GetString</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(data));</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// セーブの存在確認</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">if</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">!</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> savingSystem</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">SaveExists</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">SAVE_DATA</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">))</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">    Debug</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">LogError</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">Save does not exist: SAVE_DATA</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    return</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">;</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// ISaveReadableの取得</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> readable </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> savingSystem</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">OpenSaveReadable</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">SAVE_DATA</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// ファイルの存在確認</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">if</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> readable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">ContainsFile</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">player</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">))</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    // 読み込み</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">    var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> playerData </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> readable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">ReadFile</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">player</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">    var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> player </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> Deserialize</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">&#x3C;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB">Player</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">>(playerData);</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">    Debug</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Log</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">$"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">Player loaded: </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">{</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">player</span><span style="--shiki-light:#22863A;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">name</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">}</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">, Level </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">{</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">player</span><span style="--shiki-light:#22863A;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">level</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">}</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 同様に...</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">if</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> readable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">ContainsFile</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">inventory</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">))</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">    var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> inventoryData </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> readable</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">ReadFile</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">inventory</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">    var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> inventory </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic"> Deserialize</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">&#x3C;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB">PlayerInventory</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">>(inventoryData);</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">    Debug</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Log</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">$"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">Inventory loaded: </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">{</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">inventory</span><span style="--shiki-light:#22863A;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">weaponIds</span><span style="--shiki-light:#22863A;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">Length</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">}</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D"> weapons</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<p>セーブ・ファイルともにそれぞれ <code>ISavingSystem.SaveExists</code> と <code>ISaveReadable.ContainsFile</code> で存在を確認できます。</p>
+<p><code>ISaveReadable.ReadFile</code> では、そのファイルに保存したデータが <code>byte[]</code> で取得できます。
+先ほどの書き込みの例ではJSON文字列として保存していたので、その逆の処理としてJSON文字列を <code>JsonUtility.FromJson</code> でデシリアライズしています。</p>
+<h3 id="セーブの列挙">セーブの列挙</h3>
+<p><code>ISavingSystem.EnumerateSaves()</code> を使用することで、保存されているセーブ名のリストを取得できます。</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="csharp"><code><span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// セーブリストを取得</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> saveNames </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> savingSystem</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">EnumerateSaves</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">Debug</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Log</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">$"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">Total saves: </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">{</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">saveNames</span><span style="--shiki-light:#22863A;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">Count</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">}</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">foreach</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> saveName </span><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">in</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> saveNames)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">    Debug</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Log</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">$"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">  - </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">{</span><span style="--shiki-light:#22863A;--shiki-dark:#D6DEEB">saveName</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">}</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<p>ただし、セーブの列挙はセーブファイルが開かれていない場合のみ実行できます。</p>
+<p>下記のように、セーブデータを開いた状態で列挙を行うと <code>InvalidOperationException</code> が投げられます。</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="csharp"><code><span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// セーブを開く</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> writable </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> savingSystem</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">OpenSaveWritable</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">SAVE_DATA</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">try</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">    // InvalidOperationException を吐く</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">    var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> saves </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> savingSystem</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">EnumerateSaves</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(); </span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">catch</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> (</span><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB">InvalidOperationException</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> e)</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">    Debug</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">LogError</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">$"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">Cannot enumerate saves while a save is open: </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">{</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">e</span><span style="--shiki-light:#22863A;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#1976D2;--shiki-light-font-style:inherit;--shiki-dark:#FAF39F;--shiki-dark-font-style:italic">Message</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">}</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">    throw</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> e;</span></span>
+<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<h2 id="datastore-api">DataStore API</h2>
+<p>DataStore APIは、キー・バリュー方式でセーブデータを保存できるシステムです。</p>
+<p>セーブデータの読み書きでは、データを <code>byte[]</code> に変換する必要があり、実運用では独自のシリアライズの実装が必要になりますが、
+DataStore APIを用いることで、キー・バリュー形式のセーブデータの読み書きについては、独自のシリアライズ実装を行わなくとも実現できます。</p>
+<p>DataStore APIは、以下の型をサポートしています。</p>
+<ul>
+<li><code>string</code></li>
+<li><code>int</code></li>
+<li><code>float</code></li>
+</ul>
+<h3 id="datastore-apiの使い方">DataStore APIの使い方</h3>
+<p>下記に、DataStore APIの使い方を示します。</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="csharp"><code><span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 書き込み</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// DataStoreインスタンスの作成</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 第3引数は、セーブが存在しなければ作成するかどうかを指定</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#D6DEEB">DataStore</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> dataStore </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA"> await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> DataStore</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Load</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(savingSystem</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">SETTINGS</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#1976D2;--shiki-dark:#FF5874"> true</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 書き込み</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">dataStore</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">SetFloat</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">volume</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> 0.8f</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">dataStore</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">SetInt</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">difficulty</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> 2</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">dataStore</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">SetString</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">player_name</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">Player1</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 保存</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">await</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> dataStore</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Save</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(savingSystem</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">SETTINGS</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 読み込み</span></span>
+<span class="line"><span style="--shiki-light:#C2C3C5;--shiki-light-font-style:inherit;--shiki-dark:#637777;--shiki-dark-font-style:italic">// 第2引数は、存在しない場合のデフォルト値</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> volume </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> dataStore</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">GetFloat</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">volume</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> 0.5f</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> difficulty </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> dataStore</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">GetInt</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">difficulty</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> 1</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">var</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> playerName </span><span style="--shiki-light:#D32F2F;--shiki-dark:#C792EA">=</span><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6"> dataStore</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">GetString</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">player_name</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#1976D2;--shiki-dark:#B2CCD6">Debug</span><span style="--shiki-light:#24292EFF;--shiki-light-font-style:inherit;--shiki-dark:#C792EA;--shiki-dark-font-style:italic">.</span><span style="--shiki-light:#6F42C1;--shiki-light-font-style:inherit;--shiki-dark:#82AAFF;--shiki-dark-font-style:italic">Log</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">(</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">$"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">volume: </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">{</span><span style="--shiki-light:#22863A;--shiki-dark:#D6DEEB">volume</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">}</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">, difficulty: </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">{</span><span style="--shiki-light:#22863A;--shiki-dark:#D6DEEB">difficulty</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">}</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">, player_name: </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">{</span><span style="--shiki-light:#22863A;--shiki-dark:#D6DEEB">playerName</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">}</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">);</span></span></code></pre>
+<h3 id="datastore-apiの内部実装">DataStore APIの内部実装</h3>
+<p><code>DataStore.Load</code> の第2引数では、セーブ名を指定します。
+セーブ名は、<code>OpenSaveWritable</code> や <code>OpenSaveReadable</code> の引数で指定する文字列です。</p>
+<p>また、DataStore APIでは、指定したセーブに対して、<code>pt-datastore</code> というファイル名でデータを書き出します。</p>
+<p>セーブデータのシリアライズは、下記に示す <code>DataStoreSave</code> クラスのインスタンスを <code>JsonUtility</code> によってJSON文字列に変換し、<code>Encoding.UTF8.GetBytes</code> で <code>byte[]</code> に変換しています。</p>
+<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>private class DataStoreSave</span></span>
+<span class="line"><span>{</span></span>
+<span class="line"><span>    public int Version;</span></span>
+<span class="line"><span>    // SerializableDictionaryはPlatformToolkitの独自実装</span></span>
+<span class="line"><span>    public SerializableDictionary&#x3C;string, string> Strings;</span></span>
+<span class="line"><span>    public SerializableDictionary&#x3C;string, int> Ints;</span></span>
+<span class="line"><span>    public SerializableDictionary&#x3C;string, float> Floats;</span></span>
+<span class="line"><span>}</span></span></code></pre>
+<h2 id="例外処理とエラーハンドリング">例外処理とエラーハンドリング</h2>
+<p>セーブシステムを使用する際は、下記の例外を適切にハンドリングする必要があります。</p>
+<ul>
+<li><code>InvalidAccountException</code>: アカウントセーブを使用する際、サインアウトしていてアカウントが無効な状態
+<ul>
+<li>タイトルバックなどで再度サインインが必要</li>
+</ul>
+</li>
+<li><code>InvalidSystemException</code>:いくつかのプラットフォームの都合で発生する、<code>ISavingSystem</code> が無効で利用できないことを表す
+<ul>
+<li><code>GetSavingSystem</code> によってシステムの再取得が必要。別デバイスでセーブが変更されている可能性を考慮する</li>
+</ul>
+</li>
+<li><code>NotEnoughSpaceException</code>: ストレージ容量が不足している場合に発生
+<ul>
+<li>ユーザーに空き容量の確保を促す</li>
+</ul>
+</li>
+<li><code>SaveCorruptException</code>: セーブデータのメタデータが破損している場合に発生
+<ul>
+<li>破損したセーブの削除や、ユーザーへの通知が必要</li>
+</ul>
+</li>
+</ul>
+<h2 id="play-mode-controlsでのテスト">Play Mode Controlsでのテスト</h2>
+<p>Play Mode Controlsを使用することで、エディター上でセーブシステムの動作をテストできます。
+エディターのメニューから <code>Window > Platform Toolkit > Play Mode Controls</code> を選択してウインドウを開きます。</p>
+<p>下図に示す通り「Test Account Data」タブをクリックし、ユーザーの「Saves」というプルダウンから、現在のセーブデータの状況の確認や、セーブデータのインポート・エクスポート・削除ができます。</p>
+<p><img alt="Play Mode Controlsでのテストアカウントのセーブデータの状況の確認" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 2718px) 2718px, 100vw"  data-astro-image="constrained" width="2718" height="1448" src="/_astro/savingsystem-play-mode-controls.mzRnPDpA_1oQrY3.webp" srcset="/_astro/savingsystem-play-mode-controls.mzRnPDpA_KRnxf.webp 640w, /_astro/savingsystem-play-mode-controls.mzRnPDpA_eboN4.webp 750w, /_astro/savingsystem-play-mode-controls.mzRnPDpA_Z2t43zm.webp 828w, /_astro/savingsystem-play-mode-controls.mzRnPDpA_Z2rbBcz.webp 1080w, /_astro/savingsystem-play-mode-controls.mzRnPDpA_1eFnnB.webp 1280w, /_astro/savingsystem-play-mode-controls.mzRnPDpA_1a0V0S.webp 1668w, /_astro/savingsystem-play-mode-controls.mzRnPDpA_ZggcmB.webp 2048w, /_astro/savingsystem-play-mode-controls.mzRnPDpA_ZRm91a.webp 2560w, /_astro/savingsystem-play-mode-controls.mzRnPDpA_1oQrY3.webp 2718w"></p>
+<p>また、下記に示すように「Play Mode Controls」タブをクリックし、「System Controls > Storage」で、ストレージ容量の不足をシミュレートできます。</p>
+<p><img alt="Play Mode Controlsでのストレージ容量不足のシミュレート" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 2718px) 2718px, 100vw"  data-astro-image="constrained" width="2718" height="1448" src="/_astro/savingsystem-play-mode-controls-storage-full.DGU8y44s_Z2ayiLm.webp" srcset="/_astro/savingsystem-play-mode-controls-storage-full.DGU8y44s_1lo6co.webp 640w, /_astro/savingsystem-play-mode-controls-storage-full.DGU8y44s_2d4OrY.webp 750w, /_astro/savingsystem-play-mode-controls-storage-full.DGU8y44s_Z29GhI5.webp 828w, /_astro/savingsystem-play-mode-controls-storage-full.DGU8y44s_ZjCXbt.webp 1080w, /_astro/savingsystem-play-mode-controls-storage-full.DGU8y44s_ZXJbqa.webp 1280w, /_astro/savingsystem-play-mode-controls-storage-full.DGU8y44s_1x7G3.webp 1668w, /_astro/savingsystem-play-mode-controls-storage-full.DGU8y44s_ZF0Ai.webp 2048w, /_astro/savingsystem-play-mode-controls-storage-full.DGU8y44s_1VuvKC.webp 2560w, /_astro/savingsystem-play-mode-controls-storage-full.DGU8y44s_Z2ayiLm.webp 2718w"></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.platformtoolkit@1.0/manual/savedata/access-save-system.html">Access a save system | Platform Toolkit | 1.0.0</a></li>
+<li><a href="https://docs.unity3d.com/Packages/com.unity.platformtoolkit@1.0/manual/savedata/manage-save-files.html">Manage save files | Platform Toolkit | 1.0.0</a></li>
+</ul> </article> <hr class="my-8 border-dashed">  <ul class="mt-4 mb-8 sm:my-8"> <li class="group inline-block group-hover:cursor-pointer my-1 me-2"> <a href="/tags/unity" class="relative inline-block rounded-md bg-accent/15 px-2 py-1 text-lg group-hover:-top-0.5 group-hover:bg-accent/30 group-hover:text-accent focus-visible:bg-accent/30 focus-visible:outline-2 focus-visible:outline-offset-2 text-sm px-1.5 py-0.5" data-astro-transition-scope="astro-36ssibgs-2"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 size-4 -me-0.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg> <span>Unity</span> </a> </li><li class="group inline-block group-hover:cursor-pointer my-1 me-2"> <a href="/tags/platform-toolkit" class="relative inline-block rounded-md bg-accent/15 px-2 py-1 text-lg group-hover:-top-0.5 group-hover:bg-accent/30 group-hover:text-accent focus-visible:bg-accent/30 focus-visible:outline-2 focus-visible:outline-offset-2 text-sm px-1.5 py-0.5" data-astro-transition-scope="astro-36ssibgs-3"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block opacity-80 size-4 -me-0.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 9l14 0" /><path d="M5 15l14 0" /><path d="M11 4l-4 16" /><path d="M17 4l-4 16" /></svg> <span>Platform Toolkit</span> </a> </li> </ul> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
+Back To Top
+</span> </button> </div> <script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script> <div class="flex flex-none flex-col items-center justify-center gap-1 md:items-start"><span class="italic">Share this post on:</span><div class="text-center"><a href="https://x.com/intent/post?url=https://blog.yucchiy.com/2026/02/platform-toolkit-save-system.html&text=Platform%20Toolkit%E3%81%AE%E3%82%BB%E3%83%BC%E3%83%96%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on X"><svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg><span class="sr-only">Share this post on X</span></a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/2026/02/platform-toolkit-save-system.html" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Hatena Bookmark"><svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg><span class="sr-only">Share this post on Hatena Bookmark</span></a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/2026/02/platform-toolkit-save-system.html" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on Facebook"><svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg><span class="sr-only">Share this post on Facebook</span></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://blog.yucchiy.com/2026/02/platform-toolkit-save-system.html" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post on LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg><span class="sr-only">Share this post on LinkedIn</span></a><a href="mailto:?subject=See%20this%20post&#38;body=https://blog.yucchiy.com/2026/02/platform-toolkit-save-system.html" class="group inline-block hover:text-accent scale-90 p-2 hover:rotate-6 sm:p-1" title="Share this post via email"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg><span class="sr-only">Share this post via email</span></a></div></div> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">  <a href="/2026/01/project-auditor-programming" class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"> <div> <span>Next Post</span> <div class="text-sm text-accent/85">Project Auditorをプログラムやコマンドラインで実行する</div> </div> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </main> <footer class="w-full mt-auto"> <div class="mx-auto max-w-app px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/yucchiy" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on GitHub"> <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg> <span class="sr-only">Yucchiy&#39;s Note on GitHub</span> </a><a href="https://x.com/yucchiy_" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on X"> <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on X</span> </a><a href="https://www.linkedin.com/in/yucchiy/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on LinkedIn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on LinkedIn</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2026 Yucchiy&#39;s Note</span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>All rights reserved.</span> </div> </div> </footer>  </body></html> <!-- GLightbox CSS --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"> <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script> <script data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      // Check if --file-name-offset custom property exists
+      const computedStyle = getComputedStyle(codeBlock);
+      const hasFileNameOffset =
+        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
+
+      // Determine the top positioning class
+      const topClass = hasFileNameOffset
+        ? "top-(--file-name-offset)"
+        : "-top-3";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Initialize GLightbox for image zoom functionality */
+  function initializeLightbox() {
+    const images = document.querySelectorAll('.app-prose img');
+
+    images.forEach((img) => {
+      // data属性を設定してライトボックス対象として識別（個別表示）
+      img.setAttribute('data-glightbox', '');
+
+      // alt属性があればタイトルとして表示
+      if (img.alt) {
+        img.setAttribute('title', img.alt);
+      }
+    });
+
+    // GLightboxインスタンス作成
+    const lightbox = GLightbox({
+      selector: '[data-glightbox]',
+      descPosition: 'bottom',
+      touchNavigation: true, // ピンチズームを有効化するためtrueに設定（個別表示のため実質スワイプ切り替えなし）
+      keyboardNavigation: false, // 矢印キー切り替えなし
+      closeOnOutsideClick: true,
+      openEffect: 'zoom',
+      closeEffect: 'zoom',
+      zoomable: true, // ピンチインアウトによるズームを有効化
+      draggable: true, // ドラッグによる移動を有効化
+    });
+  }
+  initializeLightbox();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () => {
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+
+    // GLightbox を再初期化
+    initializeLightbox();
+  });
+</script>
