@@ -1,5 +1,5 @@
 ---
-title: Platform Toolkitのセーブシステムについてシステムについて
+title: Platform Toolkitのセーブシステムについて
 description: Platform Toolkitで利用できるセーブシステムについて、この概要から基本的な操作方法、DataStore APIなどについて説明しています。
 pubDatetime: 2026-02-04T10:00:00+09:00
 tags:
