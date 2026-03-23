@@ -2,7 +2,7 @@
 type: unity-weekly
 title: Unity Weekly 265
 description: >-
-  2026/03/16週のUnity Weeklyです。Unity6.4リリース、Cinemachine2の今後のサポート、Unity Ads SDK 4.17.0、Unity Studioなどを紹介しています。
+  2026/03/23週のUnity Weeklyです。Unity6.4リリース、Cinemachine2の今後のサポート、Unity Ads SDK 4.17.0、Unity Studioなどを紹介しています。
 pubDatetime: 2026-03-23T09:00:00+09:00
 tags:
   - Unity Weekly
