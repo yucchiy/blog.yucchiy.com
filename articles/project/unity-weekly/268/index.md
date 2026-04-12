@@ -17,7 +17,7 @@ tags:
 
 RenderGraphに移行するためのチュートリアルシリーズで、Render Graphについて用意されているサンプルについて、それぞれ用意されているサンプルについて構築されているRenderGraphやそのコードについてそれぞれ解説しています。
 
-### Migrating to Render Graph tutorial: The Render Graph viewer 
+### Migrating to Render Graph tutorial: The Render Graph viewer
 
 [Migrating to Render Graph tutorial: The Render Graph viewer - Technical Articles - Unity Discussions](https://discussions.unity.com/t/migrating-to-render-graph-tutorial-the-render-graph-viewer/1715694)
 
@@ -41,7 +41,7 @@ LevelPlayの入札機能が拡張され、サポートネットワークにPubMa
 
 ### ユナイト2026：ゲーム開発者・クリエイター向けカンファレンス
 
-[ユナイト2026：ゲーム開発者・クリエイター向けカンファレンス | Unity](https://unity.com/ja/events/unite-2026?utm_source=twitter&utm_medium=social&utm_campaign=x-unity-japan-2026-4-unite-tokyo-2026)
+[ユナイト2026：ゲーム開発者・クリエイター向けカンファレンス | Unity](https://unity.com/ja/events/unite-2026)
 
 2026/11/17にUnite Tokyo 2026が開催されることが発表されまし
 
