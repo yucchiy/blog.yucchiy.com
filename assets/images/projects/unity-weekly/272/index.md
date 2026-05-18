@@ -2,7 +2,7 @@
 type: unity-weekly
 title: Unity Weekly 272
 description: >-
-  2026/05/18週のUnity Weeklyです。Lighting Search、Preprocessor Directives in ShaderGraph、Albion Online開発事例、Ignitement開発事例などを紹介しています。
+  2026/05/18週のUnity Weeklyです。Lighting Search、Preprocessor Directives in ShaderGraph、Android LTO、Albion Online開発事例、Ignitement開発事例などを紹介しています。
 pubDatetime: 2026-05-18T09:00:00+09:00
 tags:
   - Unity Weekly
@@ -28,6 +28,14 @@ Unity 6.6(6000.6.0a5)からShader GraphにPreprocessor Directivesという仕組
 Preprocessor Directivesは、Shader GraphのGraph Settingsの一番下から設定できます。
 
 このディスカッションでは例として、Preprocessor DirectivesでパーティクルシェーダーのGPUインスタンスを有効にする例を紹介しています。
+
+### ⚡ Boosting Android Performance with LTO optimizations in Unity 6.5
+
+[⚡ Boosting Android Performance with LTO optimizations in Unity 6.5 - Technical Articles - Unity Discussions](https://discussions.unity.com/t/boosting-android-performance-with-lto-optimizations-in-unity-6-5/1720008)
+
+Unity 6.5から入るAndroid向けのパフォーマンス改善としてLTO(Link Time Optimization)による最適化を紹介しています。
+
+このディスカッションでは、LTOとこのアップデートで利用できる[ThinLTO](https://clang.llvm.org/docs/ThinLTO.html)や、この機能を有効にした場合のアプリ起動時間や実行時パフォーマンスの改善やビルド時間の増加のトレードオフ、この機能を有効にする方法についてそれぞれ説明しています。
 
 ### Prediction in GameObject Netcode
 
