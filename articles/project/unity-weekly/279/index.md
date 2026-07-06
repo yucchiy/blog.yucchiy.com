@@ -2,7 +2,7 @@
 type: unity-weekly
 title: Unity Weekly 279
 description: >-
-  2026/07/06週のUnity Weeklyです。Unity 6.6のECS開発状況、Unity IAP 5.4のD2C機能、AppleのRosetta廃止スケジュールと対応を紹介しています。
+  2026/07/06週のUnity Weeklyです。Unity 6.6のECS開発状況、URPのGTAOおよびScreen Space Reflectionsのプレビュー、Unity IAP 5.4のD2C機能、AppleのRosetta廃止スケジュールと対応を紹介しています。
 pubDatetime: 2026-07-06T09:00:00+09:00
 tags:
   - Unity Weekly
@@ -37,6 +37,45 @@ Unity 6.6に向けたECS / Entitiesの開発状況をまとめたディスカッ
     - `IDebugOnAdded` / `IDebugOnRemoved`インターフェースで、componentの追加・削除タイミングを追跡できるようになった
 - API Cleanup and Improvements
     - `EntityCommandBuffer`のmulti-playbackの非推奨化やEntity Store V1の削除などのAPI整理が行われている
+
+### Preview of URP Ground Truth Ambient Occlusion (GTAO)
+
+[Preview of URP Ground Truth Ambient Occlusion (GTAO) - Unity Engine - Unity Discussions](https://discussions.unity.com/t/preview-of-urp-ground-truth-ambient-occlusion-gtao/1724061)
+
+URP の Screen Space Ambient Occlusion を強化する Ground Truth Ambient Occlusion（GTAO）のプレビューを案内するディスカッションです。
+Unity 6.7 での提供を目指しており、Unity 6000.7.0a1 以降の Alpha で試せます。
+
+GTAO は深度バッファから水平線角度を読み取り、各ピクセル上の半球が近傍ジオメトリにどれだけ遮られているかを推定する手法です。
+従来の Alchemy SSAO より、物理ベースのコンタクトシャドウを出しやすいと説明されています。
+既存の SSAO は引き続きサポートされ、シーンごとに GTAO へ移行できます。
+
+主な変更点は以下の通りです。
+
+- Ground Truth Ambient Occlusion
+    - Alchemy SSAOと並ぶ新しいモードとして追加され、dropdownで切り替えられる
+- Volume-Based Configuration
+    - SSAO設定がVolume systemへ統合され、runtimeではVolume overrideが正として扱われる
+- Compute Shader Path
+    - compute shaderによりstep countとdirection countを制御でき、raster fallbackも用意される
+- Spatial filtering
+    - compute pathではBilateral filterとBox filterを選択できる
+- Temporal filtering
+    - motion vectorを使って前フレームのAOをreprojectし、動きのある場面でノイズを抑えられる
+
+Unity はプレビュー版へのフィードバックも求めており、試用後の[短いアンケート](https://docs.google.com/forms/d/e/1FAIpQLScQHxwgCtEqw2XEZzyCSg0puqvfdcSx8m9K5BilLfwPdqI1GA/viewform?usp=header)と、バグやガイドに載っていない内容の[スレッド報告](https://discussions.unity.com/t/preview-of-urp-ground-truth-ambient-occlusion-gtao/1724061)を案内しています。
+
+### Preview of Screen Space Reflections for URP
+
+[Preview of Screen Space Reflections for URP - Unity Engine - Unity Discussions](https://discussions.unity.com/t/preview-of-screen-space-reflections-for-urp/1721494)
+
+URP向けScreen Space Reflectionsのプレビューを案内するディスカッションです。
+
+Unity 6.7での提供を目指しており、Unity 6000.6.0a7以降のAlphaで試せます。
+
+この機能はスクリーンスペースでレイマーチングを行い、カメラのカラーバッファと深度バッファを参照して、リアルタイムに光沢のある反射を生成します。
+画面内に表示されている情報だけを使うため、反射レイが画面外へ出る場合やオブジェクトの背後を参照する場合は、近くのリフレクションプローブまたはスカイマップのキューブマップを代替として使います。
+
+プレビュー版へのフィードバックも求めており、試用後の[短いアンケート](https://docs.google.com/forms/d/e/1FAIpQLSeDlcosKk5T06zfFT2GOKyFjKKzCZ_iJ9D3tWJkKwj1asjdaQ/viewform?usp=publish-editor)と、バグやガイドに載っていない内容の[スレッド報告](https://discussions.unity.com/t/preview-of-screen-space-reflections-for-urp/1721494)を案内しています。
 
 ### Direct-to-consumer (D2C) capabilities are now available in Unity IAP 5.4
 
