@@ -1,4 +1,4 @@
-<!DOCTYPE html><html dir="ltr" lang="ja" class="false" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/project/unity-weekly/279.html"><meta name="generator" content="Astro v5.15.5"><!-- General Meta Tags --><title>Unity Weekly 279 | Yucchiy&#39;s Note</title><meta name="title" content="Unity Weekly 279 | Yucchiy's Note"><meta name="description" content="2026/07/06週のUnity Weeklyです。Unity 6.6のECS開発状況、Unity IAP 5.4のD2C機能、AppleのRosetta廃止スケジュールと対応を紹介しています。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Unity Weekly 279 | Yucchiy's Note"><meta property="og:description" content="2026/07/06週のUnity Weeklyです。Unity 6.6のECS開発状況、Unity IAP 5.4のD2C機能、AppleのRosetta廃止スケジュールと対応を紹介しています。"><meta property="og:url" content="https://blog.yucchiy.com/project/unity-weekly/279.html"><meta property="og:image" content="https://blog.yucchiy.com/project/unity-weekly/279/index.png"><!-- Article Published/Modified time --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/project/unity-weekly/279.html"><meta property="twitter:title" content="Unity Weekly 279 | Yucchiy's Note"><meta property="twitter:description" content="2026/07/06週のUnity Weeklyです。Unity 6.6のECS開発状況、Unity IAP 5.4のD2C機能、AppleのRosetta廃止スケジュールと対応を紹介しています。"><meta property="twitter:image" content="https://blog.yucchiy.com/project/unity-weekly/279/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity Weekly 279 | Yucchiy's Note","image":"https://blog.yucchiy.com/project/unity-weekly/279/index.png","datePublished":"undefined","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
+<!DOCTYPE html><html dir="ltr" lang="ja" class="false" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/project/unity-weekly/279.html"><meta name="generator" content="Astro v5.15.5"><!-- General Meta Tags --><title>Unity Weekly 279 | Yucchiy&#39;s Note</title><meta name="title" content="Unity Weekly 279 | Yucchiy's Note"><meta name="description" content="2026/07/06週のUnity Weeklyです。Unity 6.6のECS開発状況、URPのGTAOおよびScreen Space Reflectionsのプレビュー、Unity IAP 5.4のD2C機能、AppleのRosetta廃止スケジュールと対応を紹介しています。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Unity Weekly 279 | Yucchiy's Note"><meta property="og:description" content="2026/07/06週のUnity Weeklyです。Unity 6.6のECS開発状況、URPのGTAOおよびScreen Space Reflectionsのプレビュー、Unity IAP 5.4のD2C機能、AppleのRosetta廃止スケジュールと対応を紹介しています。"><meta property="og:url" content="https://blog.yucchiy.com/project/unity-weekly/279.html"><meta property="og:image" content="https://blog.yucchiy.com/project/unity-weekly/279/index.png"><!-- Article Published/Modified time --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/project/unity-weekly/279.html"><meta property="twitter:title" content="Unity Weekly 279 | Yucchiy's Note"><meta property="twitter:description" content="2026/07/06週のUnity Weeklyです。Unity 6.6のECS開発状況、URPのGTAOおよびScreen Space Reflectionsのプレビュー、Unity IAP 5.4のD2C機能、AppleのRosetta廃止スケジュールと対応を紹介しています。"><meta property="twitter:image" content="https://blog.yucchiy.com/project/unity-weekly/279/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity Weekly 279 | Yucchiy's Note","image":"https://blog.yucchiy.com/project/unity-weekly/279/index.png","datePublished":"undefined","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
 
             window.dataLayer = window.dataLayer || [];
             function gtag() {
@@ -246,6 +246,49 @@ Tags
 </ul>
 </li>
 </ul>
+<h3 id="preview-of-urp-ground-truth-ambient-occlusion-gtao">Preview of URP Ground Truth Ambient Occlusion (GTAO)</h3>
+<p><a href="https://discussions.unity.com/t/preview-of-urp-ground-truth-ambient-occlusion-gtao/1724061">Preview of URP Ground Truth Ambient Occlusion (GTAO) - Unity Engine - Unity Discussions</a></p>
+<p>URP の Screen Space Ambient Occlusion を強化する Ground Truth Ambient Occlusion（GTAO）のプレビューを案内するディスカッションです。
+Unity 6.7 での提供を目指しており、Unity 6000.7.0a1 以降の Alpha で試せます。</p>
+<p>GTAO は深度バッファから水平線角度を読み取り、各ピクセル上の半球が近傍ジオメトリにどれだけ遮られているかを推定する手法です。
+従来の Alchemy SSAO より、物理ベースのコンタクトシャドウを出しやすいと説明されています。
+既存の SSAO は引き続きサポートされ、シーンごとに GTAO へ移行できます。</p>
+<p>主な変更点は以下の通りです。</p>
+<ul>
+<li>Ground Truth Ambient Occlusion
+<ul>
+<li>Alchemy SSAOと並ぶ新しいモードとして追加され、dropdownで切り替えられる</li>
+</ul>
+</li>
+<li>Volume-Based Configuration
+<ul>
+<li>SSAO設定がVolume systemへ統合され、runtimeではVolume overrideが正として扱われる</li>
+</ul>
+</li>
+<li>Compute Shader Path
+<ul>
+<li>compute shaderによりstep countとdirection countを制御でき、raster fallbackも用意される</li>
+</ul>
+</li>
+<li>Spatial filtering
+<ul>
+<li>compute pathではBilateral filterとBox filterを選択できる</li>
+</ul>
+</li>
+<li>Temporal filtering
+<ul>
+<li>motion vectorを使って前フレームのAOをreprojectし、動きのある場面でノイズを抑えられる</li>
+</ul>
+</li>
+</ul>
+<p>Unity はプレビュー版へのフィードバックも求めており、試用後の<a href="https://docs.google.com/forms/d/e/1FAIpQLScQHxwgCtEqw2XEZzyCSg0puqvfdcSx8m9K5BilLfwPdqI1GA/viewform?usp=header">短いアンケート</a>と、バグやガイドに載っていない内容の<a href="https://discussions.unity.com/t/preview-of-urp-ground-truth-ambient-occlusion-gtao/1724061">スレッド報告</a>を案内しています。</p>
+<h3 id="preview-of-screen-space-reflections-for-urp">Preview of Screen Space Reflections for URP</h3>
+<p><a href="https://discussions.unity.com/t/preview-of-screen-space-reflections-for-urp/1721494">Preview of Screen Space Reflections for URP - Unity Engine - Unity Discussions</a></p>
+<p>URP向けScreen Space Reflectionsのプレビューを案内するディスカッションです。</p>
+<p>Unity 6.7での提供を目指しており、Unity 6000.6.0a7以降のAlphaで試せます。</p>
+<p>この機能はスクリーンスペースでレイマーチングを行い、カメラのカラーバッファと深度バッファを参照して、リアルタイムに光沢のある反射を生成します。
+画面内に表示されている情報だけを使うため、反射レイが画面外へ出る場合やオブジェクトの背後を参照する場合は、近くのリフレクションプローブまたはスカイマップのキューブマップを代替として使います。</p>
+<p>プレビュー版へのフィードバックも求めており、試用後の<a href="https://docs.google.com/forms/d/e/1FAIpQLSeDlcosKk5T06zfFT2GOKyFjKKzCZ_iJ9D3tWJkKwj1asjdaQ/viewform?usp=publish-editor">短いアンケート</a>と、バグやガイドに載っていない内容の<a href="https://discussions.unity.com/t/preview-of-screen-space-reflections-for-urp/1721494">スレッド報告</a>を案内しています。</p>
 <h3 id="direct-to-consumer-d2c-capabilities-are-now-available-in-unity-iap-54">Direct-to-consumer (D2C) capabilities are now available in Unity IAP 5.4</h3>
 <p><a href="https://discussions.unity.com/t/direct-to-consumer-d2c-capabilities-are-now-available-in-unity-iap-5-4/1724578">Direct-to-consumer (D2C) capabilities are now available in Unity IAP 5.4 - Unity Services - Unity Discussions</a></p>
 <p>Unity IAP 5.4でDirect-to-consumer（D2C）機能が利用可能になったことをアナウンスするディスカッションです。</p>
