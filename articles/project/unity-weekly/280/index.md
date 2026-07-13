@@ -2,7 +2,7 @@
 type: unity-weekly
 title: Unity Weekly 280
 description: >-
-  2026/07/13週のUnity Weeklyです。Unity Hub 3.19.4/3.19.5、CEDEC 2026でのUnity関連セッション、Unity 6.7のCoreCLR Playerの性能検証、Reactのモデルを参考にした宣言的UIフレームワークvelvet、Unity 6時代のR3運用ルール、UI ToolkitランタイムデバッグツールSpica.Debuggerなどを紹介しています。
+  2026/07/13週のUnity Weeklyです。Unity Hub 3.19.4/3.19.5、CEDEC 2026でのUnity関連セッション、Unity 6.7のCoreCLR Playerの性能検証、Reactのモデルを参考にした宣言的UIフレームワークvelvet、Unity 6時代のR3運用ルールなどを紹介しています。
 pubDatetime: 2026-07-13T09:00:00+09:00
 tags:
   - Unity Weekly
