@@ -121,6 +121,16 @@ Editor上のAddressableのロードがビルドしたプレイヤーより遅い
 
 `Assets/AddressableAssetsData/AddressableAssetSettings.asset`の`m_simulatedLoadDelay`がデフォルトで0.1に設定されており、ロード時に必ず0.1秒の遅延が入ることが原因で、この値はDebugモードのInspectorでのみ確認・変更できるとしています。
 
+### プライバシーを守りながらAndroidアプリの年齢認証を実施する「Google Play Age Signals API」の正式提供が開始、日本でも年内に施行
+
+[プライバシーを守りながらAndroidアプリの年齢認証を実施する「Google Play Age Signals API」の正式提供が開始、日本でも年内に施行 - IndieGamesJp.dev](https://indiegamesjp.dev/?p=12291)
+
+Googleが正式提供を開始した[Play Age Signals API](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play?hl=ja)を紹介する記事です。
+
+保護者が管理する子どもや成人の年齢層情報を取得し、アプリ内のコンテンツや設定を年齢に応じて調整できるようにするAPIで、現在はブラジルで提供されており、8月中旬までにオーストラリアとカナダへ拡大し、年内には全世界へ展開される予定としています。
+
+APIはAndroidネイティブ向けのSDKとして提供される一方、Unity向けにはコミュニティ製ラッパーの[unity-play-age-signals](https://github.com/dvillaseca/unity-play-age-signals)がGitHubで公開されているほか、Voxel Bustersの無料アセット[Essential Kit Lite](https://assetstore.unity.com/packages/tools/integration/essential-kit-lite-for-mobile-tv-sharing-rate-my-app-shortcuts-m-140137)のUtilityモジュールにも組み込まれていることが紹介されています。
+
 ### エンコーダのみモデルの感情分析ファインチューニングして Unity で動かす
 
 [エンコーダのみモデルの感情分析ファインチューニングして Unity で動かす - Zenn](https://zenn.dev/edom18/articles/encoder-only-model-ft)
@@ -129,10 +139,4 @@ Editor上のAddressableのロードがビルドしたプレイヤーより遅い
 
 ModernBERT-jaが採用するSentencePiece（unigram）のトークナイズをC#で実装しており、[デモプロジェクト](https://github.com/edom18/Encoder-model-fine-tuning-demo-with-unity)を公開しています。
 
-### プライバシーを守りながらAndroidアプリの年齢認証を実施する「Google Play Age Signals API」の正式提供が開始、日本でも年内に施行
 
-[プライバシーを守りながらAndroidアプリの年齢認証を実施する「Google Play Age Signals API」の正式提供が開始、日本でも年内に施行 - IndieGamesJp.dev](https://indiegamesjp.dev/?p=12291)
-
-Googleが正式提供を開始した[Play Age Signals API](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play?hl=ja)を紹介する記事です。保護者が管理する子どもや成人の年齢層情報を取得し、アプリ内のコンテンツや設定を年齢に応じて調整できるようにするAPIで、現在はブラジルで提供されており、8月中旬までにオーストラリアとカナダへ拡大し、年内には全世界へ展開される予定としています。
-
-APIはAndroidネイティブ向けのSDKとして提供される一方、Unity向けにはコミュニティ製ラッパーの[unity-play-age-signals](https://github.com/dvillaseca/unity-play-age-signals)がGitHubで公開されているほか、Voxel Bustersの無料アセット[Essential Kit Lite](https://assetstore.unity.com/packages/tools/integration/essential-kit-lite-for-mobile-tv-sharing-rate-my-app-shortcuts-m-140137)のUtilityモジュールに組み込まれることが報告されているとしています。
