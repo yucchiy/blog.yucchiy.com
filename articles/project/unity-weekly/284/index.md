@@ -2,7 +2,7 @@
 type: unity-weekly
 title: Unity Weekly 284
 description: >-
-  2026/08/10週のUnity Weeklyです。The Path to CoreCLR #1、Unity 6.7のCustomizable Main Toolbar、3D as 2Dサンプルプロジェクト「Bunny Blitz」、Air Sticker 2.0、ModernBERT-jaの感情分析をUnity Sentisで動かす記事などを紹介しています。
+  2026/08/10週のUnity Weeklyです。The Path to CoreCLR、Unity 6.7のCustomizable Main Toolbar、3D as 2Dサンプルプロジェクト「Bunny Blitz」などを紹介しています。
 pubDatetime: 2026-08-10T09:00:00+09:00
 tags:
   - Unity Weekly
@@ -16,6 +16,7 @@ tags:
 [The Path to CoreCLR #1: The Problem - Unity Engine - Unity Discussions](https://discussions.unity.com/t/the-path-to-coreclr-1-the-problem/1733018)
 
 UnityのMonoからCoreCLRへのランタイム移行について、なぜ移行が必要なのかを解説する連載第1回のディスカッションです。
+
 今後数か月にわたり、移行の各課題を個別の技術記事として掘り下げていくとしています。
 
 - The Mono Runtime
