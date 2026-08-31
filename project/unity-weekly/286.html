@@ -1,0 +1,637 @@
+<!DOCTYPE html><html dir="ltr" lang="ja" class="false" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/project/unity-weekly/286.html"><meta name="generator" content="Astro v5.15.5"><!-- General Meta Tags --><title>Unity Weekly 286 | Yucchiy&#39;s Note</title><meta name="title" content="Unity Weekly 286 | Yucchiy's Note"><meta name="description" content="2026/08/31週のUnity Weeklyです。Unite Seoul 2026基調講演でのUnity 7発表、Unity Compute Light Baker、WebGPUの正式機能化、モバイルサンプルプロジェクトPiñata Popなどを紹介しています。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Unity Weekly 286 | Yucchiy's Note"><meta property="og:description" content="2026/08/31週のUnity Weeklyです。Unite Seoul 2026基調講演でのUnity 7発表、Unity Compute Light Baker、WebGPUの正式機能化、モバイルサンプルプロジェクトPiñata Popなどを紹介しています。"><meta property="og:url" content="https://blog.yucchiy.com/project/unity-weekly/286.html"><meta property="og:image" content="https://blog.yucchiy.com/project/unity-weekly/286/index.png"><!-- Article Published/Modified time --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/project/unity-weekly/286.html"><meta property="twitter:title" content="Unity Weekly 286 | Yucchiy's Note"><meta property="twitter:description" content="2026/08/31週のUnity Weeklyです。Unite Seoul 2026基調講演でのUnity 7発表、Unity Compute Light Baker、WebGPUの正式機能化、モバイルサンプルプロジェクトPiñata Popなどを紹介しています。"><meta property="twitter:image" content="https://blog.yucchiy.com/project/unity-weekly/286/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity Weekly 286 | Yucchiy's Note","image":"https://blog.yucchiy.com/project/unity-weekly/286/index.png","datePublished":"undefined","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", PUBLIC_GA_MEASUREMENT_ID);
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/about.BAAik6nD.css">
+<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media(prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
+</style><style>[data-astro-transition-scope="astro-ovirr3re-1"] { view-transition-name: unity-weekly-286; }@layer astro { ::view-transition-old(unity-weekly-286) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly-286) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly-286) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly-286) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-2"] { view-transition-name: unity-weekly; }@layer astro { ::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-3"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-4"] { view-transition-name: unity-weekly; }@layer astro { ::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-5"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-sckkx6r4>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> Yucchiy&#39;s Note </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/projects">
+Projects
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="mx-auto max-w-app px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <div class="mx-auto flex w-full max-w-app items-center justify-start px-2"><a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-2 flex hover:text-foreground/75"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span>Go back</span></a></div><script type="module">function o(){const t=document.querySelector("#back-button"),e=sessionStorage.getItem("backUrl");e&&t&&(t.href=e)}document.addEventListener("astro:page-load",o);o();</script> <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12" data-pagefind-body> <h1 class="inline-block text-xl font-semibold tracking-tight text-heading sm:text-2xl" data-astro-transition-scope="astro-ovirr3re-1"> Unity Weekly 286 </h1> <div class="my-2 flex items-center gap-2"> <div class="flex items-center gap-x-1.5 opacity-70"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block min-w-[1rem] size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg>  <time class="text-sm" datetime="2026-08-29T00:00:00.000Z">2026年8月29日</time> </div> </div> <div class="mt-3 mb-6"> <div class="flex items-center gap-1"><div class="flex items-center"><a href="https://x.com/intent/post?url=https://blog.yucchiy.com/project/unity-weekly/286.html&text=Unity%20Weekly%20286" class="group inline-block hover:text-accent p-1" title="Share this post on X"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg><span class="sr-only">Share this post on X</span></a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/project/unity-weekly/286.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg><span class="sr-only">Share this post on Hatena Bookmark</span></a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/project/unity-weekly/286.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg><span class="sr-only">Share this post on Facebook</span></a></div></div> <ul class="mt-2 flex flex-wrap items-center gap-1"> <li class="inline"> <a href="/tags/unity-weekly" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-2"> Unity Weekly </a> </li><li class="inline"> <a href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-3"> Unity </a> </li> </ul> </div> <article id="article" class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"> <h2 id="unity-officials">Unity Officials</h2>
+<h3 id="unite-seoul-2026-keynote-recap-announcing-unity-7">Unite Seoul 2026 Keynote Recap: Announcing Unity 7</h3>
+<p><a href="https://unity.com/blog/unite-seoul-keynote-2026-recap">Unite Seoul 2026 Keynote Recap: Announcing Unity 7 - Unity Blog</a></p>
+<p>Unite Seoul 2026の基調講演で発表されたUnity 7をはじめとする各種アナウンスをまとめた公式のリキャップ記事です。開発中の機能・時期を含むため、内容は変更される可能性があると注記されています。</p>
+<ul>
+<li>Welcome to Unite Seoul 2026: Unity CEO Matthew Bromberg sets the stage
+<ul>
+<li>CEOのMatthew Bromberg氏がUnity 7を発表した。Unity 6からのbreaking changesなしの直接の継続で、Unity 7 Previewは12月、正式リリースは来年Q1を予定し、一部機能は先行してベータで提供される</li>
+</ul>
+</li>
+<li>Inside the Engine: CoreCLR and the push for faster iteration
+<ul>
+<li>Unity 7でCoreCLRを搭載し、.NET 10とC# 14、MSBuild対応を含むモダンな.NETエコシステムへアクセスできるようになる。ドメイン全体でなく必要な部分だけを再読み込みする新しいコードリロードモデルも導入する</li>
+<li>Unity 6.6以降ではFast Enter Play Modeが新規プロジェクトのデフォルトになる（LORDNINE: Infinite Classで2.7倍、Deep Rock Galactic: Survivorで4.7倍のPlay Mode進入の高速化を紹介）</li>
+<li>CoreCLR移行に向けて人気Asset Storeパッケージ68個の互換性テスト、<a href="https://discussions.unity.com/t/path-to-coreclr-2026-upgrade-guide/1714279">アップグレードガイド</a>の公開、Unity 6へのProject Auditor統合を実施済みで、Discussionsとバグトラッカーでのフィードバックを募っている</li>
+</ul>
+</li>
+<li>Graphics: Real-time global illumination, a new 2D toolset, and Neural Rendering in Unity 7
+<ul>
+<li>URP向けの完全に動的なglobal illuminationであるSurface Cache GIを初公開した。ベイク不要で間接光が即時更新され、動的ジオメトリにも対応する。6.7 alphaでプレビューでき、Unity 6.7 LTSで広く提供される</li>
+<li>Unity 6.6でDirectX Shader Compiler（DXC）によるDX12向けシェーダーコンパイルに対応し、Unity 6.7ではシェーダービルド時間を最大90%削減するFast Build Profileが加わる</li>
+<li>2Dでは新サンプルBunny Blitz、マルチスレッドのPhysics Core 2D（Box2D v3ベース）、GameObjectのオーバーヘッドなしに大量のスプライトを描画するRenderSprite API、新しい2Dプロファイラーを紹介した</li>
+<li>ニューラル推論をURPのcomputeパイプラインへ持ち込むUnity Neuralを発表した。強化されたUpscaler FrameworkとNeural Texture Compression（NTC）を含み、Unity 6.7からロールアウトが始まる</li>
+</ul>
+</li>
+<li>Platform reach: A new partnership, XR devices, and a first look at Unity inside Unreal
+<ul>
+<li>Metaとのパートナーシップ深化によるQuest向けAI支援ワークフロー、Google Android XRエコシステムのXREAL AURA対応を紹介した</li>
+<li>Unite Barcelonaで発表したEpic Gamesとのパートナーシップの初の公開技術デモとして、Unityでシミュレートしたゲームを Unreal Engine がリアルタイムに描画する様子を披露した（PolySpatialというクライアント・サーバー型のプロトコルで同期。2027年の早期アクセスに向けた<a href="https://create.unity.com/unity-on-fortnite-unreal-interest-form">申し込みフォーム</a>を受付中）</li>
+</ul>
+</li>
+<li>Grow your game: Unity Vector’s next phase focused on creatives and agentic capabilities
+<ul>
+<li>Unity Adsの基盤であるUnity Vectorについて、AIによる広告クリエイティブ生成・最適化のワークフローと、自然言語でキャンペーンを管理できるUnity Ads MCP、対話型AIエージェントのCampaign Assistantを年内に提供する計画を発表した</li>
+</ul>
+</li>
+<li>IAP SDK 5.4: Native Direct-to-Consumer Commerce Comes to Unity
+<ul>
+<li>Unity IAP SDK 5.4でdirect-to-consumer（D2C）コマースが利用可能になった。Web決済レイヤーによるゲーム内チェックアウトと、ノーコードのwebshopビルダーの2通りを提供し、決済プロバイダーとしてStripeとCodaに対応する（Stashも近日対応）</li>
+</ul>
+</li>
+<li>Real-time 3D collaboration with Unity Studio
+<ul>
+<li>ブラウザベースのStudioエディタがリアルタイムのマルチユーザーコラボレーションに対応した。Asset ManagerのSelf-Hosted Cloudオプション（AWS / Azure接続）とPipeline Automationも発表した</li>
+</ul>
+</li>
+<li>Production pipelines and CLI: Opening the Editor to everyone
+<ul>
+<li>Unity CLIとUnity MCP serverを誰でも無料・サブスクリプション不要で利用できるようにすると表明した。Webダッシュボード、CLI、プロジェクトレベルのRBAC、Web経由のアップロードなどはクローズドベータを受付中で、Unity 6以上で動作する</li>
+</ul>
+</li>
+<li>Wrap-Up: Unity 7 and what comes next
+<ul>
+<li>締めくくりとして、リビルドや再デプロイなしにコード変更が実機へほぼリアルタイムに反映されるlive code iteration on deviceのライブデモを披露した</li>
+</ul>
+</li>
+</ul>
+<h3 id="new-unity-compute-light-baker-available-in-66">New Unity Compute Light Baker available in 6.6</h3>
+<p><a href="https://discussions.unity.com/t/new-unity-compute-light-baker-available-in-6-6/1734762">New Unity Compute Light Baker available in 6.6 - Graphics Product Updates - Unity Discussions</a></p>
+<p>Unity 6000.6.0a3で新しいライトベイキングエンジンUnity Compute Light Bakerが追加されたことを告知するディスカッションです。</p>
+<p><a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@17.5/manual/index.html">Scriptable Render Pipelines Core</a>パッケージとUnity Compute shader、<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@17.5/manual/UnifiedRayTracing/unified-ray-tracing-api.html">Unified Ray Tracing API</a>を活用してライトマップ・ライトプローブ・adaptive probe volumeデータを生成するもので、6000.7で提供予定の動的GIソリューション（Surface Cache GI）と同じ技術スタックにより実装されているとのことです。</p>
+<ul>
+<li>現在はオプトインで、Project Settings / Graphics / Default Light Bakerから有効化する。
+<ul>
+<li>Unity 7サイクルで新規プロジェクトのデフォルトになる</li>
+</ul>
+</li>
+<li>挙動の違いによりライティング設定の軽微な変更が必要な場合があり、詳細は<a href="https://docs.google.com/document/d/1JQYAPP-Sq8wPnKT3BPF26Bg6qZO-H6O4ohi0vZLtidc/edit?tab=t.0#heading=h.n6hcgaugb9kl">Unity Compute Light Baker user manual</a>にまとまっている</li>
+<li>CPU/GPU Progressive Lightmapperは非推奨化の方向に
+<ul>
+<li>Unity 7サイクルでCPU Lightmapperは削除され（利用プロジェクトはUnity Compute Light Bakerへアップグレード）、Progressive GPU Lightmapperの既存プロジェクトは継続利用できるが、2027年を通してUnity Compute GPU Light Bakerへ移行される</li>
+</ul>
+</li>
+<li>非推奨化はメンテナンスコストと、Rosettaエミュレーション終了後にmacOSのARM CPUアーキテクチャをサポートできないことが理由としている
+<ul>
+<li>影響を確認する<a href="https://docs.google.com/forms/d/e/1FAIpQLSfP_1GDysJv1wg7jJokXor-wXKdYP2VEE_NCPkZ6BcAcYF7ag/viewform?usp=header">アンケート</a>を実施している</li>
+</ul>
+</li>
+</ul>
+<h3 id="webgpu-out-of-experimental-in-unity-66">WebGPU out of experimental in Unity 6.6</h3>
+<p><a href="https://discussions.unity.com/t/webgpu-out-of-experimental-in-unity-6-6/1734694">WebGPU out of experimental in Unity 6.6 - Web - Unity Discussions</a></p>
+<p>Unity 6000.6でWebGPUグラフィックスAPIがexperimentalを脱して、標準サポート対象の正式機能になったことを告知するディスカッションです。</p>
+<ul>
+<li>What “out of experimental” means
+<ul>
+<li>compute shaderを筆頭にモダンなGPU機能セットをブラウザにもたらす</li>
+<li>ただしデフォルトでは無効で、Web Player settingsのGraphics APIsリストへの追加が必要（WebGL 2が当面デフォルトのまま）</li>
+</ul>
+</li>
+<li>Features unique to WebGPU on the Web
+<ul>
+<li>GPU Resident Drawing / GPU Occlusion Culling、Spatial-Temporal Post-processing（STP）、VFX Graph、Adaptive Probe Volumes（APV）、Compute SkinningなどWebGLでは動かない機能がブラウザで動作する</li>
+</ul>
+</li>
+<li>Graphics Device Filtering: control your fallback
+<ul>
+<li>Unity 6.6の新機能<a href="https://docs.unity3d.com/6000.6/Documentation/Manual/webgpu-intro-device-filter-asset.html">Graphics Device Filtering</a>で、特定のデバイスやドライバでWebGPUを許可・拒否するルールを定義し、WebGLへのフォールバック条件を制御できる</li>
+</ul>
+</li>
+<li>Compatibility mode
+<ul>
+<li>フルの「core」モードを扱えない古いグラフィックスハードウェア向けに、軽量版のAPIである互換モードを用意している</li>
+<li>WebGPUが使えない環境では自動で互換モードへフォールバックするため、開発者側の追加作業なしに、WebGLまで落とさずWebGPUのままより広いデバイスへ届けられる</li>
+</ul>
+</li>
+</ul>
+<p>過去の経緯として<a href="https://discussions.unity.com/t/early-access-to-the-new-webgpu-backend/933493">早期アクセス</a>と<a href="https://discussions.unity.com/t/public-access-to-webgpu-experimental-in-unity-6-1/1572462">Unity 6.1でのexperimental公開</a>のアナウンスも参照されています。</p>
+<h3 id="help-us-refine-addressables-and-assetbundles">Help us refine addressables and AssetBundles!</h3>
+<p><a href="https://discussions.unity.com/t/help-us-refine-addressables-and-assetbundles/1734679">Help us refine addressables and AssetBundles! - Asset &#x26; Content Management Product Updates - Unity Discussions</a></p>
+<p>AddressablesやAssetBundleに精通したユーザーに、コンテンツパイプラインの改善へ協力を呼びかけるディスカッションです。</p>
+<p>大規模なライブラリを管理している、独自のワークアラウンドを構築している、現状の問題点に強い意見があるといったユーザーを対象に、プライベートなUnityグループスペースで開発中のプロダクト（今後のcontent directoriesを含む）への意見を求めています。
+参加者はコンテンツパイプラインの将来と優先順位へ直接影響を与えられ、構築中の機能への早期アクセスを得られるとしています。参加希望は<a href="https://forms.gle/873r4Yase99MuDky9">フォーム</a>から受け付けています。</p>
+<h3 id="piñata-pop---mobile-sample-project-available-now">Piñata Pop - Mobile Sample Project Available Now</h3>
+<p><a href="https://discussions.unity.com/t/pinata-pop-mobile-sample-project-available-now/1734688">Piñata Pop - Mobile Sample Project Available Now - Technical Articles - Unity Discussions</a></p>
+<p>Unityのモバイル・マネタイズ機能の実装リファレンスとなる新しいサンプルゲーム<a href="https://assetstore.unity.com/packages/templates/packs/pinata-pop-mobile-sample-project-386952">Piñata Pop</a>の公開を告知するディスカッションです。</p>
+<ul>
+<li>Touch input: Input Systemによるタッチ入力と同時入力の扱い</li>
+<li>Gyroscope / motion: 加速度センサーでデバイスの傾きをゲームプレイに反映</li>
+<li>Ads monetization via LevelPlay: リワード・バナー・インタースティシャル広告の配置ロジックとコールバック</li>
+<li>In-app purchases: 消費型・非消費型のカタログをIn-App Purchasingで一元管理</li>
+<li>UI: SafeArea APIでノッチやパンチホールを避けるuGUIの実装</li>
+<li>Localization: フランス語・スペイン語・オランダ語・英語の文字列とアセットのローカライズ</li>
+<li>Local Notifications: ローカル通知によるリテンション施策</li>
+</ul>
+<p>商用・趣味プロジェクトへの再利用が可能で、<a href="https://play.unity.com/en/games/41088e19-1fc7-4bf5-a6fe-e15473a9f515/pinata-pop-mobile-sample-project">Unity Play</a>でそのままプレイもできます。チュートリアルとLearnコースも開発中とのことです。</p>
+<h3 id="new-uvcs-1101610371-release">New UVCS 11.0.16.10371 release!</h3>
+<p><a href="https://discussions.unity.com/t/new-uvcs-11-0-16-10371-release/1734678">New UVCS 11.0.16.10371 release! - Unity Version Control - Unity Discussions</a></p>
+<p>Unity Version Control（UVCS）<a href="https://www.plasticscm.com/download/releasenotes/11.0.16.10371">11.0.16.10371</a>のリリースを告知するディスカッションです。今回はDesktop GUI中心の更新としています。</p>
+<ul>
+<li>All platforms — Desktop GUI: Show hidden branches in the Branch Explorer
+<ul>
+<li>Branch Explorerの「Other」フィルターに「Show hidden」トグルが追加され、隠しブランチを低い不透明度で図中に表示できるようになった</li>
+</ul>
+</li>
+<li>All platforms — Desktop GUI: “Merge to” is now enabled when you are not in a workspace
+<ul>
+<li>ソースをworkspaceへロードせずサーバー上で直接マージする「merge to」が、workspaceを開いていない状態でもブランチ・チェンジセット・ラベルの右クリックメニューから実行できるようになった（CLIの<code>cm merge</code>の<code>--to</code> / <code>--destination</code>オプションに相当）</li>
+</ul>
+</li>
+<li>Bug fixes
+<ul>
+<li>1行が極端に長いファイル（1行のhexとしてシリアライズされたバイナリブロブを含むUnity YAMLアセットなど）のdiffを開くと数秒フリーズする問題を、先頭数千文字+省略マーカーの描画に変えて修正した</li>
+<li>side-by-side diffでブロック選択を中央のスプリッターをまたいでドラッグするとクラッシュする問題を修正した</li>
+<li>Pending ChangesタブのShelves一覧が初回ロード時の日付を表示し続ける問題を修正した</li>
+</ul>
+</li>
+</ul>
+<p>インストーラーは<a href="https://docs.unity.com/en-us/unity-version-control/installation-landing">UVCSのドキュメント</a>と<a href="https://www.plasticscm.com/download">Plastic SCMのダウンロードページ</a>から入手できます。</p>
+<h3 id="how-to-reimagine-a-classic-sports-game-for-a-new-generation-with-level-design-worldbuilding-and-vfx">How to reimagine a classic sports game for a new generation with level design, worldbuilding, and VFX</h3>
+<p><a href="https://unity.com/blog/reimagining-backyard-baseball-3d-level-design-and-environment-art">How to reimagine a classic sports game for a new generation with level design, worldbuilding, and VFX - Unity Blog</a></p>
+<p>1997年の2Dゲーム『Backyard Baseball』を3Dで再構築したMega Cat Studiosが、レベルデザインと環境アートの取り組みを解説する記事です。同スタジオによる技術Tipsシリーズの第3弾です。</p>
+<ul>
+<li>Design for readability
+<ul>
+<li>読みやすさを最終仕上げでなく基礎的なデザイン要件として扱い、前景・中景・背景を色・コントラスト・ライティングで分離</li>
+</ul>
+</li>
+<li>Props and world-building
+<ul>
+<li>リプレイや別カメラに対応するため各フィールドを360°の環境として作り込み、頂点数の管理とマテリアル共有で最適化</li>
+</ul>
+</li>
+<li>Decals for environmental detail
+<ul>
+<li>UnityのDecal Renderer Featureで摩耗・汚れ・ひび・足跡を表現し、一貫性・正確さ・ブレンド・繊細さを考慮して設定</li>
+</ul>
+</li>
+<li>Interactive VFX
+<ul>
+<li>ボールが環境に当たると照明が明滅したり茂みからリスが飛び出したりする、スクリプトされたリアクションのシステムを構築</li>
+</ul>
+</li>
+<li>Blending materials / Lighting
+<ul>
+<li>マテリアルブレンドの調整と、プレイエリアを鮮明に保ちつつフォグで距離感を作るライティングで、昼夜どちらでも統一感を保つ</li>
+</ul>
+</li>
+</ul>
+<h3 id="deploying-and-optimizing-ug-for-meta-quest">Deploying and optimizing UG for Meta Quest</h3>
+<p><a href="https://unity.com/blog/deploying-and-optimizing-ug-for-meta-quest">Deploying and optimizing UG for Meta Quest - Unity Blog</a></p>
+<p>Meta Quest向けマルチプレイヤーVRゲーム『UG』のデプロイと最適化について、Continuum XRの開発者へのインタビュー記事です。</p>
+<p>ネットワーキングにはPhoton Fusion 2 Shared Modeを採用し、Unity Version Controlのブランチ運用とUnity Hub + Meta Quest Developer Hubでのビルド・配布、Mixpanelダッシュボードによるエラー監視を組み合わせています。
+Unity 2021.1からUnity 6への移行は安定性とFusionとの相性を理由に行い、約1週間で主な問題を解決したとのことです。</p>
+<p>パフォーマンス面では72fpsを目標にUnity ProfilerとMetaのダッシュボードで監視し、シーン検索APIの呼び出しが多数のオブジェクトがあるシーンでスタッターを起こしていた事例や、1フレームに複数のネットワークオブジェクトをspawnしていた事例をProfilerで特定・解決した経験を紹介しています。
+ターゲットを絞ったビルドを小規模なコホートへ10分以内に配信できるQAワークフローが安定性の鍵だと述べています。</p>
+<h3 id="how-limbitless-solutions-is-redefining-adaptive-sports-with-real-time-3d">How Limbitless Solutions is redefining adaptive sports with real-time 3D</h3>
+<p><a href="https://unity.com/blog/limbitless-solutions-facial-powered-play-adaptive-sports-wheelchair-mobility">How Limbitless Solutions is redefining adaptive sports with real-time 3D - Unity Blog</a></p>
+<p>University of Central Floridaの非営利研究組織Limbitless Solutionsが開発する、顔の筋肉の動きだけで操作できるアダプティブEMGコントローラーProject Xavierを紹介する記事です。
+Unity for Humanity Awards 2026でHonourable Mentionに選ばれています。</p>
+<p>顔の筋肉の動きを入力としてデジタルスポーツ環境を操作できるようにし、進行性の神経筋疾患を持つ人が競技へ参加しながら、電動車椅子の操作に必要な空間認識や精密な制御のスキルを同時に練習できる設計になっています。
+リハビリと競技・遊びを分離せず1つの体験に統合している点と、プラットフォーム全体を無料で提供している点が特徴として挙げられています。</p>
+<h3 id="a-day-in-the-life-of-an-industrial-designer-running-collaborative-design-reviews-without-endless-revision-cycles">A day in the life of an industrial designer running collaborative design reviews, without endless revision cycles</h3>
+<p><a href="https://unity.com/blog/unity-studio-collaborative-design-review-without-endless-revisions">A day in the life of an industrial designer running collaborative design reviews, without endless revision cycles - Unity Blog</a></p>
+<p>Unity Studioを使ったインタラクティブなデザインレビューを、架空のインダストリアルデザイナーの1日として描く記事です。</p>
+<p>CADデータをUnity Studioへドラッグ&#x26;ドロップしてブラウザで探索できるレビュー環境を作り、現実的な環境・ライティング・ガイド付き視点を整えたうえで、エンジニアリング・マーケティング・リーダーシップへブラウザリンクを共有して同じインタラクティブな体験をレビューする流れを紹介しています。
+静的なレンダリング画像やスライドでのレビューで起きる曖昧なフィードバックや手戻りを減らし、全員が同じデザインを見て議論できることを利点として挙げています。</p>
+<h2 id="articles">Articles</h2>
+<h3 id="colorにorangeやskyblueなど140色以上のプリセットが一気に追加unity">ColorにorangeやskyBlueなど、140色以上のプリセットが一気に追加【Unity】</h3>
+<p><a href="https://kan-kikuchi.hatenablog.com/entry/Color_New">ColorにorangeやskyBlueなど、140色以上のプリセットが一気に追加【Unity】 - (:3[kanのメモ帳]</a></p>
+<p>Unity 6.1で<code>Color</code>構造体に146個の色プリセットが追加されたことを紹介する記事です。</p>
+<p>Unity 6.0までは<code>Color.red</code>など11個（実質10色）だったプリセットが、<code>Color.darkRed</code>や<code>Color.coral</code>、<code>Color.skyBlue</code>など.NETの色定義に基づくHTML/CSS標準の色名で大幅に拡充され、カラーピッカーからも参照できるようになったことを示しています。</p>
+<h3 id="custom-editors--unity-shader-code-basics-08">Custom Editors | Unity Shader Code Basics 08</h3>
+<p><a href="https://danielilett.com/2026-08-27-tut10-08-custom-editors/">Custom Editors | Unity Shader Code Basics 08 - Daniel Ilett</a></p>
+<p>Unity Shader Code Basicsシリーズの第8回として、マテリアルのインスペクターGUIを完全にカスタマイズするShaderGUIベースのカスタムエディタの実装を解説する記事です。</p>
+<p>PBRシェーダーにopaque/transparentの切り替えやアルファクリップなどのプロパティを追加し、<code>ShaderGUI</code>を継承したクラスで<code>MaterialHeaderScopeList</code>によるセクション分け、enumとpopupによるプロパティ描画、選択に応じたブレンドモード・シェーダーキーワード・描画パスの動的な切り替えまでを実装しています。</p>
+<h3 id="増え続ける3dアセットに悩む方へ家具の品質管理を自動化するバリデータ導入事例">増え続ける3Dアセットに悩む方へ。家具の品質管理を自動化するバリデータ導入事例</h3>
+<p><a href="https://note.com/reality_eng/n/n28a876fd80e6">増え続ける3Dアセットに悩む方へ。家具の品質管理を自動化するバリデータ導入事例 - REALITY株式会社（note）</a></p>
+<p>REALITYのTAチームが、大量に制作される家具3Dアセットの品質確認を自動化するバリデータの導入事例を紹介する記事です。</p>
+<p>月4本の家具ガチャ（約600アセット）の手動確認の負担を背景に、アセットのファイル構成、ファイルの命名（AIを活用したスペルミス検出を含む）、テクスチャのサイズ、prefabの構成、<code>AssetDatabase.GetDependencies</code>による外部依存性のチェックを、GitHubのPull Request作成時に実行する運用を解説しています。</p>
+<h3 id="uiプレハブを一元管理自動生成するunityエディタ拡張の設計と実装">UIプレハブを一元管理・自動生成するUnityエディタ拡張の設計と実装</h3>
+<p><a href="https://tech.sumzap.co.jp/entry/unity-ui-registry-editor-extension">UIプレハブを一元管理・自動生成するUnityエディタ拡張の設計と実装 - Sumzap Engineering Blog</a></p>
+<p>UIプレハブの登録・管理・生成コードの自動生成を1つのエディタウィンドウに集約するエディタ拡張「Spica.UIRegistry」の設計と実装を解説する記事です。</p>
+<p>Group・Items・Previewの3ペイン構成のエディタウィンドウ、<code>ScriptableSingleton</code>によるProject Settingsへの設定保存、<code>ReorderableList</code>での並び替えと重複登録の防止、<code>PreviewRenderUtility</code>によるCanvas有無両対応のプレビューとEditModeでのアニメーション再生確認、テンプレート置換による<code>MenuItem</code>付き生成コードの自動出力までを、コード例とともに紹介しています。</p>
+<h3 id="unity-iap-v5-イベントの発生タイミングについて調べてみた">Unity IAP v5 イベントの発生タイミングについて調べてみた</h3>
+<p><a href="https://logicalbeat.co.jp/blog/25051/">Unity IAP v5 イベントの発生タイミングについて調べてみた - 株式会社ロジカルビート</a></p>
+<p>Unity 6.2とUnity IAP 5.0.4の環境で、Unity IAP v5の各イベントが発生するタイミングを正常フローとエラー時の両方で整理した記事です。</p>
+<p>初期化・購入・リストアの正常フローでの<code>OnPurchasePending</code>から<code>ConfirmPurchase</code>、<code>OnPurchaseConfirmed</code>までの流れに加え、ストア側の決済の前後どちらで切断されたかによる挙動の違いを検証しています。特に決済後に切断された場合、未完了のトランザクションがアプリ起動時・リストア時・別商品の購入時に<code>OnPurchasePending</code>として割り込んでくる点に注意が必要だとしています。</p> </article> <hr class="my-8 border-dashed"> <ul class="my-4 flex flex-wrap items-center gap-1"> <li class="inline"> <a href="/tags/unity-weekly" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-4"> Unity Weekly </a> </li><li class="inline"> <a href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-5"> Unity </a> </li> </ul> <div class="flex items-center gap-1 flex-col md:items-start"><span class="italic">Share this post on:</span><div class="flex items-center"><a href="https://x.com/intent/post?url=https://blog.yucchiy.com/project/unity-weekly/286.html&text=Unity%20Weekly%20286" class="group inline-block hover:text-accent p-1" title="Share this post on X"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg><span class="sr-only">Share this post on X</span></a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/project/unity-weekly/286.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg><span class="sr-only">Share this post on Hatena Bookmark</span></a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/project/unity-weekly/286.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg><span class="sr-only">Share this post on Facebook</span></a></div></div> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
+Back To Top
+</span> </button> </div> <script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+    const footer = document.querySelector("footer");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+
+      // Adjust button position when footer is visible (mobile only)
+      if (footer && window.innerWidth < 768) {
+        const footerRect = footer.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const buttonHeight = 56 + 32; // size-14 (56px) + bottom-8 (32px)
+
+        if (footerRect.top < viewportHeight) {
+          const offset = viewportHeight - footerRect.top + 16;
+          btnContainer.style.bottom = `${offset}px`;
+        } else {
+          btnContainer.style.bottom = "";
+        }
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">  <a href="/project/unity-weekly/285" class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"> <div> <span>Next Post</span> <div class="text-sm text-accent/85">Unity Weekly 285</div> </div> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </main> <footer class="w-full mt-auto"> <div class="mx-auto max-w-app px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/yucchiy" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on GitHub"> <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg> <span class="sr-only">Yucchiy&#39;s Note on GitHub</span> </a><a href="https://x.com/yucchiy_" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on X"> <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on X</span> </a><a href="https://www.linkedin.com/in/yucchiy/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on LinkedIn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on LinkedIn</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2026 Yucchiy&#39;s Note</span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>All rights reserved.</span> </div> </div> </footer>  </body></html> <!-- GLightbox CSS --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"> <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script> <script data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      // Check if --file-name-offset custom property exists
+      const computedStyle = getComputedStyle(codeBlock);
+      const hasFileNameOffset =
+        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
+
+      // Determine the top positioning class
+      const topClass = hasFileNameOffset
+        ? "top-(--file-name-offset)"
+        : "-top-3";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Initialize GLightbox for image zoom functionality */
+  function initializeLightbox() {
+    const images = document.querySelectorAll('.app-prose img');
+
+    images.forEach((img) => {
+      // data属性を設定してライトボックス対象として識別（個別表示）
+      img.setAttribute('data-glightbox', '');
+
+      // alt属性があればタイトルとして表示
+      if (img.alt) {
+        img.setAttribute('title', img.alt);
+      }
+    });
+
+    // GLightboxインスタンス作成
+    const lightbox = GLightbox({
+      selector: '[data-glightbox]',
+      descPosition: 'bottom',
+      touchNavigation: true,
+      keyboardNavigation: false,
+      closeOnOutsideClick: true,
+      openEffect: 'zoom',
+      closeEffect: 'zoom',
+      zoomable: true,
+      draggable: true,
+    });
+  }
+  initializeLightbox();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () => {
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+
+    // GLightbox を再初期化
+    initializeLightbox();
+  });
+</script>
