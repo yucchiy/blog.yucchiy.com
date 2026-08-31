@@ -3,7 +3,7 @@ type: unity-weekly
 title: Unity Weekly 286
 description: >-
   2026/08/31週のUnity Weeklyです。Unite Seoul 2026基調講演でのUnity 7発表、Unity Compute Light Baker、WebGPUの正式機能化、モバイルサンプルプロジェクトPiñata Popなどを紹介しています。
-pubDatetime: 2026-08-29T09:00:00+09:00
+pubDatetime: 2026-08-31T09:00:00+09:00
 tags:
   - Unity Weekly
   - Unity
