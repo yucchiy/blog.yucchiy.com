@@ -1,0 +1,918 @@
+<!DOCTYPE html><html dir="ltr" lang="ja" class="false" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/project/unity-weekly/288.html"><meta name="generator" content="Astro v5.15.5"><!-- General Meta Tags --><title>Unity Weekly 288 | Yucchiy&#39;s Note</title><meta name="title" content="Unity Weekly 288 | Yucchiy's Note"><meta name="description" content="2026/09/21週のUnity Weeklyです。Unity 6.7ベータ、UI Toolkitの開発状況とFigma connector、Unity CLI 1.0.0-beta.9 / beta.10、Unity Pipeline 0.7.0-exp.1、Netcode for Entities 7.0.0とNetcode for GameObjects 3.0.0、Claude CodeとCodex向けの公式Unityプラグインなどを紹介しています。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Unity Weekly 288 | Yucchiy's Note"><meta property="og:description" content="2026/09/21週のUnity Weeklyです。Unity 6.7ベータ、UI Toolkitの開発状況とFigma connector、Unity CLI 1.0.0-beta.9 / beta.10、Unity Pipeline 0.7.0-exp.1、Netcode for Entities 7.0.0とNetcode for GameObjects 3.0.0、Claude CodeとCodex向けの公式Unityプラグインなどを紹介しています。"><meta property="og:url" content="https://blog.yucchiy.com/project/unity-weekly/288.html"><meta property="og:image" content="https://blog.yucchiy.com/project/unity-weekly/288/index.png"><!-- Article Published/Modified time --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/project/unity-weekly/288.html"><meta property="twitter:title" content="Unity Weekly 288 | Yucchiy's Note"><meta property="twitter:description" content="2026/09/21週のUnity Weeklyです。Unity 6.7ベータ、UI Toolkitの開発状況とFigma connector、Unity CLI 1.0.0-beta.9 / beta.10、Unity Pipeline 0.7.0-exp.1、Netcode for Entities 7.0.0とNetcode for GameObjects 3.0.0、Claude CodeとCodex向けの公式Unityプラグインなどを紹介しています。"><meta property="twitter:image" content="https://blog.yucchiy.com/project/unity-weekly/288/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity Weekly 288 | Yucchiy's Note","image":"https://blog.yucchiy.com/project/unity-weekly/288/index.png","datePublished":"undefined","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", PUBLIC_GA_MEASUREMENT_ID);
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/about.BAAik6nD.css">
+<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media(prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
+</style><style>[data-astro-transition-scope="astro-ovirr3re-1"] { view-transition-name: unity-weekly-288; }@layer astro { ::view-transition-old(unity-weekly-288) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly-288) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly-288) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly-288) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ovirr3re-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ovirr3re-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-2"] { view-transition-name: unity-weekly; }@layer astro { ::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-3"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-4"] { view-transition-name: unity-weekly; }@layer astro { ::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-5"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-sckkx6r4>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> Yucchiy&#39;s Note </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/projects">
+Projects
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="mx-auto max-w-app px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <div class="mx-auto flex w-full max-w-app items-center justify-start px-2"><a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-2 flex hover:text-foreground/75"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span>Go back</span></a></div><script type="module">function o(){const t=document.querySelector("#back-button"),e=sessionStorage.getItem("backUrl");e&&t&&(t.href=e)}document.addEventListener("astro:page-load",o);o();</script> <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12" data-pagefind-body> <h1 class="inline-block text-xl font-semibold tracking-tight text-heading sm:text-2xl" data-astro-transition-scope="astro-ovirr3re-1"> Unity Weekly 288 </h1> <div class="my-2 flex items-center gap-2"> <div class="flex items-center gap-x-1.5 opacity-70"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block min-w-[1rem] size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg>  <time class="text-sm" datetime="2026-09-21T00:00:00.000Z">2026年9月21日</time> </div> </div> <div class="mt-3 mb-6"> <div class="flex items-center gap-1"><div class="flex items-center"><a href="https://x.com/intent/post?url=https://blog.yucchiy.com/project/unity-weekly/288.html&text=Unity%20Weekly%20288" class="group inline-block hover:text-accent p-1" title="Share this post on X"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg><span class="sr-only">Share this post on X</span></a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/project/unity-weekly/288.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg><span class="sr-only">Share this post on Hatena Bookmark</span></a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/project/unity-weekly/288.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg><span class="sr-only">Share this post on Facebook</span></a></div></div> <ul class="mt-2 flex flex-wrap items-center gap-1"> <li class="inline"> <a href="/tags/unity-weekly" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-2"> Unity Weekly </a> </li><li class="inline"> <a href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-3"> Unity </a> </li> </ul> </div> <article id="article" class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"> <h2 id="unity-officials">Unity Officials</h2>
+<h3 id="unity-67-beta-is-now-available">Unity 6.7 Beta is now available</h3>
+<ul>
+<li><a href="https://discussions.unity.com/t/unity-6-7-beta-is-now-available/1736830">Unity 6.7 Beta is now available - Unity Editor Product Updates - Unity Discussions</a></li>
+<li><a href="https://discussions.unity.com/t/6-7-lts-beta-sweepstakes-your-chance-to-win-a-gpu-switch-or-unity-swag/1736728">6.7 (LTS) Beta Sweepstakes - Your chance to win a GPU, Switch or Unity Swag! - Unity Editor - Unity Discussions</a></li>
+</ul>
+<p>Unity 6.7の公開ベータ開始と、ベータ期間中のバグ報告を対象にしたBeta Sweepstakesを告知するディスカッションです。</p>
+<p>ベータ版は毎週ビルドを公開する予定で、最新ビルドとリリースノートは<a href="https://unity.com/releases/editor/beta">beta landing page</a>から確認できます。
+ただし破壊的な問題を含む場合や変更が少ない場合はビルドを見送ることがあり、週次の頻度は保証しないとしています。プレリリースに関する議論は<a href="https://discussions.unity.com/tag/6-7-beta/160473">6.7-betaタグ</a>で行い、投稿時は<a href="https://issuetracker.unity3d.com/">issue tracker</a>で既知の問題か確認したうえで、新しいトピックにはIssue IDを添える、別々の問題は別々のトピックに分ける、といったガイドラインを挙げています。</p>
+<p>Sweepstakesは、未報告でUnityが再現・確認した「original bug」を6.7ベータ期間中に1件以上報告すると参加できます。<a href="https://unity.com/releases/editor/qa#bug-reporting">bug report</a>のDescriptionに<code>#BetaSweepstakes_6_7</code>を書くか、Editorのbug reporterのチェックボックスをオンにします。応募期間は2026年9月17日6:00 PTから2026年11月27日23:59 PTまでです。</p>
+<h3 id="state-of-ui-toolkit-in-unity-67">State of UI Toolkit in Unity 6.7</h3>
+<p><a href="https://discussions.unity.com/t/state-of-ui-toolkit-in-unity-6-7/1736756">State of UI Toolkit in Unity 6.7 - UI Product Updates - Unity Discussions</a></p>
+<p>UI Toolkitの開発状況をまとめたディスカッションです。</p>
+<p><a href="https://discussions.unity.com/t/ui-toolkit-development-status-and-next-milestones-november-2025/1698009">2025年11月のステータス更新</a>以降にUnity 6.4から6.7にかけて入った変更を、正式リリース済みの機能、実験的フラグを有効にすると試せる機能、今後の方針の3つに分けて整理しています。</p>
+<p>Unity 6.7の時点でUI ToolkitはゲームUIのほとんどの用途をカバーできるようになったとしています。</p>
+<ul>
+<li>Released and supported
+<ul>
+<li>Rendering, effects, and styling: <code>backdrop-filter</code>（6.6、6.7でカスタムfilter functionに対応）、<code>drop-shadow()</code>（6.6）、<code>background-image</code>の<code>linear-gradient()</code> / <code>radial-gradient()</code>（6.7）、flex子要素の間隔を取る<code>gap</code>（6.7）、階層順と独立に重なり順を制御する<code>z-index</code>（6.7）、UI Shader Graphの頂点ステージプログラミング（6.6）、<code>VisualElement.AddMeshModifier</code>などのメッシュ変更API（6.6）</li>
+<li>In-scene authoring and animation: 6.6で実験的だった<a href="https://docs.unity3d.com/6000.7/Documentation/Manual/ui-systems/in-scene-ui-authoring.html">in-scene UI authoring</a>とUI Viewportが6.7で正式化。Scene viewとHierarchyで画面空間・ワールド空間のUIを直接配置・操作でき、Animation windowで<code>VisualElement</code>のプロパティをキーフレームアニメーションできる。</li>
+<li>Text: Advanced Text Generatorがランタイムパネルのデフォルトになり（6.7）、移行中のテキスト生成でCPU 10%〜40%の改善を計測。<code>TextElement.SetText</code>に<code>ReadOnlySpan&#x3C;char></code>や<code>StringBuilder</code>などを受けるアロケーションなしのオーバーロードが追加された（6.6）。</li>
+<li>Localization: Addressables上の任意パッケージではなく6.7でエンジン組み込みになった。asset providerの抽象化、Smart Strings、stringとassetを1つのテーブル型で扱う統合テーブルエディタ、CSV / XLIFF / Google Sheetsのインポート・エクスポートを持つ。</li>
+<li>Performance and diagnostics: computed styleのアンマネージドメモリ移行（6.5）、WebGLで最大20倍・WebGPUで最大4倍になったメッシュ更新（6.5）、専用Profilerモジュール（6.6）、USSセレクタマッチングの高速化（6.7）、<code>opacity: 0</code>要素のカリング（6.4）、OpenGL ES / WebGL 2.0でUIシェーダーが頂点uniform上限を超えて描画に失敗する問題の解消（6.7）</li>
+<li>Authoring and workflow: <code>UIDocument</code>の後継となる<code>PanelRenderer</code>（6.5）、MonoBehaviourのフィールドからランタイムの要素を参照する<code>VisualElementReference</code>（6.5・6.6）、UI Toolkit要素向けのカスタムproperty drawer（6.7）、非推奨UXML構文を自動更新するUXML upgrade service（6.6）</li>
+</ul>
+</li>
+<li>Available behind an experimental flag
+<ul>
+<li>Project Settings > UI Toolkitからオプトインする。<code>[VisualElementComponent]</code>構造体を任意の<code>VisualElement</code>に付けるUI Components、CSS Gridに相当するGrid Layout、Android / iOS / macOS / Windowsのランタイムパネル向けAccessibility Hierarchy、<code>-unity-curvature</code>でワールド空間パネルを湾曲させるCurved UI、Font Subsetter、StyleSheet Editing Mode、複数のUI Builderウィンドウ、UI Toolkit Filters向けのShader Graph target（いずれも6.7）と、USS Stats profiler（6.5）。</li>
+</ul>
+</li>
+<li>UI Toolkit Connector for Figma Design
+<ul>
+<li>要望の多かったFigmaからのインポートを別投稿（次項）で解説している</li>
+</ul>
+</li>
+<li>What’s next
+<ul>
+<li>今後は新機能の追加より、性能と仕上げの2点に注力するとしている。soft maskingやUI内のパーティクル / 3Dオブジェクト、media query、Addressables対応などの要望は引き続き追跡するが、この2点を優先すると述べている。</li>
+</ul>
+</li>
+</ul>
+<h3 id="experimental-ui-toolkit-connector-for-figma-design">Experimental: UI Toolkit Connector for Figma design</h3>
+<p><a href="https://discussions.unity.com/t/experimental-ui-toolkit-connector-for-figma-design/1736969">Experimental: UI Toolkit Connector for Figma design - UI Product Updates - Unity Discussions</a></p>
+<p>UI Toolkit Connector for Figma designの最初の実験版<code>com.unity.ui.figma 0.1.0-exp.1</code>のリリースを告知するディスカッションです。</p>
+<p>Figmaで作ったフレームを手作業で組み直さずにUI Toolkitへ持ち込み、Unity側で加えた変更をFigmaへ送り返すことを狙ったパッケージです。
+FigmaフレームをUXMLへ変換できること自体より、FigmaとUnityの間で開発者がどのように作業したいのかを知りたいとして、ワークフローへのフィードバックを求めています。</p>
+<ul>
+<li>What it does
+<ul>
+<li>Figmaで選択したフレームをPush selectionで<code>Assets/Figma/&#x3C;file name>/</code>配下の<code>.uxml</code>と<code>.uss</code>として取り込む</li>
+<li>インポートごとに<code>tokens.uss</code>とdesign-token modeごとのstylesheetが生成され、テーマをstylesheet単位で切り替えられる</li>
+<li>ボタンやトグルなどのFigmaコンポーネントは、名前、プラグイン上のタグ、Project Settings > UI Toolkit > Connector for Figma designのmapping assetのいずれかで実際のコントロールへ解決される</li>
+<li>スタイル、レイアウト、インタラクション状態、design tokenの変更はFigmaへ書き戻せる。ただし構造は一方向で、Figmaが階層を所有するためUnity側での要素追加や並べ替えは送り返されない。</li>
+<li>connectorウィンドウのLast importで、インポートで表現できなかった内容と理由を確認できる</li>
+</ul>
+</li>
+<li>Requirements
+<ul>
+<li>Unity 6000.3以降、Figma desktop app、対象ファイルをDesign modeで編集できる権限が必要</li>
+<li>プラグイン自体は無料でどのFigmaプランでも入れられるが、実際に使える範囲はプランではなくファイルの権限で決まる。他人のファイルを閲覧専用で開いている場合や、Dev seatしか持っていない場合は、インポートもFigmaへの書き戻しもできない。</li>
+<li>design tokenの取り込みはどのプランでも動く。ただしダークとライトのようにmodeごとにstylesheetを分けるには1つのcollectionに複数のmodeを持たせる必要があり、無料プランでは作れないためProfessional以上が必要になる。</li>
+</ul>
+</li>
+<li>Setup
+<ul>
+<li><code>com.unity.ui.figma</code>をインストールすると依存としてUnity Pipeline（<code>com.unity.pipeline</code>）も入り、connectorはPipelineのサーバー上で動く。Figmaプラグインはサンドボックス化されたブラウザフレームで動くため、Window > Pipeline > SettingsでAllow Browser Clientsを有効にしてサーバーを再起動する必要がある。その後、Unity側でコピーしたトークン（60秒でクリップボードから消える）をFigma側の<a href="https://www.figma.com/community/plugin/1671239513881857517/unity-ui-toolkit-connector">Unity UI Toolkit Connector</a>プラグインに貼り付けて接続する。</li>
+</ul>
+</li>
+</ul>
+<p>0.1リリースのため引き継がれない要素があり、<a href="https://docs.unity3d.com/Packages/com.unity.ui.figma@0.1/manual/index.html#known-limitations">known limitations</a>と<a href="https://docs.unity3d.com/Packages/com.unity.ui.figma@0.1/manual/control-mapping.html">control mapping</a>のページを参照するよう案内しています。</p>
+<h3 id="graph-toolkit-update-in-unity-67-beta">Graph Toolkit Update in Unity 6.7 beta</h3>
+<p><a href="https://discussions.unity.com/t/graph-toolkit-update-in-unity-6-7-beta/1735612">Graph Toolkit Update in Unity 6.7 beta - Unity Editor Product Updates - Unity Discussions</a></p>
+<p>Unity 6.7ベータでのGraph Toolkit（GTK）の主要な機能追加とAPI拡張を紹介するディスカッションです。</p>
+<ul>
+<li>State Machines
+<ul>
+<li>GTKの初期バージョン以降で最大の新機能。専用のtransitionとconditionを持つ<a href="https://docs.unity3d.com/6000.7/Documentation/ScriptReference/Unity.GraphToolkit.Editor.StateMachine.html">state machine</a>用のグラフ種別が追加された。使い方を示すサンプルは<a href="https://docs.unity3d.com/Packages/com.unity.graphtoolkit-samples@0.6/manual/">sample package</a>で近日提供予定。
+<ul>
+<li>States: StateMachineグラフの基本単位。単独のstateとして実装するか、通常のグラフまたはStateMachineグラフを内包するsubgraph nodeとして実装できる。</li>
+<li>Transitions &#x26; Conditions: 2つのstateをつなぐ接続。inspector overlayでconditionを設定し、条件を満たすと遷移する。</li>
+<li>Self Transition: stateから自身への遷移。同じstate上でループする遷移を定義できる。</li>
+<li>Debug View: 通常のグラフと同様に、PlayMode中にstate machineの各要素をハイライト表示できる</li>
+<li>State Machine Creation API: state machineをコードから組み立てるメソッドが追加された</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Other Additions
+<ul>
+<li>Unityが<a href="https://docs.unity3d.com/6000.7/Documentation/Manual/script-serialization-dictionaries.html">Dictionaryをシリアライズ</a>できるようになったことを受けたDictionary対応</li>
+<li>新しい<code>NodeView</code>クラスでnodeのルート<code>VisualElement</code>にアクセスし、SliderやToggleなどを直接差し込める</li>
+<li><code>IInputPortBuilder</code> / <code>IOutputPortBuilder.WithDataTypes</code>で1つのポートに複数の型を持たせるpolymorphic port</li>
+<li>Variable Nodeを入力ポート付きに変換するSet Value Input。graph inspectorの「Allow to set value in graph」か、ALT / Optionキーを押しながらのドラッグ、またはコードから<code>VariableNodeMode.Set</code>を指定して作る。</li>
+<li><code>[GraphMenu(typeof(MyGraph))]</code> / <code>[BlackboardMenu(typeof(MyGraph))]</code>による右クリックメニューのカスタム項目</li>
+<li><code>Graph.BuildAvailableVariableTypes</code> / <code>Graph.BuildAvailableConstantTypes</code>で作成可能なvariable / constantの型を制御</li>
+<li><code>DataTypeStyleMapper</code>のiconに<code>null</code>を渡して型アイコンを隠す方法、グラフの変更内容を追いやすくする<code>GraphLogger</code>の新プロパティ</li>
+</ul>
+</li>
+<li>What’s next
+<ul>
+<li>今後はAPI拡張による安定化とユーザー要望への対応に時間を割くとしている</li>
+</ul>
+</li>
+</ul>
+<h3 id="unity-cli-100-beta9--100-beta10-is-rolling-out">Unity CLI 1.0.0-beta.9 / 1.0.0-beta.10 is rolling out</h3>
+<ul>
+<li><a href="https://discussions.unity.com/t/unity-cli-1-0-0-beta-9-is-rolling-out/1736105">Unity CLI 1.0.0-beta.9 is rolling out - Unity Editor Product Updates - Unity Discussions</a></li>
+<li><a href="https://discussions.unity.com/t/unity-cli-1-0-0-beta-10-is-rolling-out/1736729">Unity CLI 1.0.0-beta.10 is rolling out - Unity Editor Product Updates - Unity Discussions</a></li>
+</ul>
+<p>Unity CLI 1.0.0-beta.9と1.0.0-beta.10のリリースを告知するディスカッションです。beta.9はサインインのセキュリティと日常的な使い勝手、beta.10はEditorを外側から扱うための機能が中心です。</p>
+<ul>
+<li>beta.9
+<ul>
+<li>Configuration: <code>proxy</code>や<code>accelerator</code>など個別サブコマンドだった設定を<code>unity config get|set|list|unset &#x3C;key></code>に統合し、シークレットらしい値は読み戻し時にマスクする。グローバルフラグ<code>--color &#x3C;auto|always|never></code>と、<code>unity version --format json</code>によるバージョン情報の構造化出力を追加。</li>
+<li>Testing: <code>unity test --affected --since &#x3C;ref></code>がバージョン管理のimpact graphを使い、変更が到達するテストだけを実行する。Addressablesやリソースフォルダ読み込みのように解析で証明できない変更がある場合は推測せず拒否し、<code>--affected-compare</code>で自分のプロジェクトでの偽陰性率を確認できる。</li>
+<li>Changed: <code>unity skill show</code>がスキル内容をインストールなしで標準出力に表示、<code>unity plugin upgrade</code>が実バージョン比較に変更、<code>unity install --list-components</code>は<code>--list-modules</code>へ改名</li>
+<li>Notable fixes: Windowsで無関係なプロセスのコマンドラインに制御文字が混ざるとEditor実行中でも「実行中でない」と誤報告していた問題、<code>unity open</code>などが起動したEditorのエラー終了を常に成功と報告していた問題、macOSで<code>unity doctor</code>が資格情報ストアの確認でハングしたりキーチェーンダイアログを出す問題、<code>unity install 6000.5</code>のような部分バージョン指定が最新リリースに解決されない問題などを修正</li>
+</ul>
+</li>
+<li>beta.10
+<ul>
+<li>Contexts and configuration: <code>unity context</code>でアカウント、組織、プロジェクト、Editor、パスのデフォルトを名前付きでまとめる。<code>ProjectSettings/UnityCliConfig.json</code>をコミットして<code>unity build</code> / <code>unity test</code>のデフォルトを宣言でき、<code>unity config resolve &#x3C;key></code>で適用値と出典レイヤーを確認できる。Unity Acceleratorの設定と<code>unity diagnose accelerator</code>による接続確認も追加。</li>
+<li>Builds: <code>unity build --list-targets</code> / <code>--list-profiles</code> / <code>--create-profile &#x3C;target></code>、再ビルドなしに最新の記録済みビルドを起動する<code>unity build run</code>、起動したEditorの終了まで待つ<code>unity open --wait</code>（Windowsは未対応でexit code 2）</li>
+<li>Agents and automation: 全コマンドツリーをJSONで出す<code>unity commands --format json</code>、接続先Editorの結果だけを返す<code>unity command &#x3C;name> --result-only</code>、ファイル変更ごとに<code>unity test --affected</code>を再実行する<code>unity watch test</code>、<code>unity mcp</code>のキャプチャがメインスレッド無応答時にデスクトップスクリーンショットへフォールバック</li>
+<li>Also added: <code>unity vcs blame &#x3C;scene|prefab></code>、Editorなしで.unitypackageの中身を見る<code>unity assets inspect</code>、<code>unity license status</code>の<code>floatingServer</code> / <code>machineId</code>報告</li>
+<li>Sign-in: トークン読み取りが常駐のauth broker経由に統一され、リフレッシュ要求はハードウェアバックの鍵（Windows / LinuxはTPM、macOSはKeychain）で署名される。<code>UNITY_NO_AUTH_BROKER=1</code>でオプトアウトできる。</li>
+<li>Changed: <code>unity self-update</code>が中断再開とBrotli圧縮版（生バイナリの約2/3）に対応、<code>unity command</code>のrecompile / test結果を人が読める形式で表示</li>
+<li>Notable fixes: <code>unity install</code>が既存install-stateデータベースの<code>writer_kind</code>カラム欠落で<code>INSTALL_FAILED</code>になる問題、<code>unity status</code>が起動中Editorを<code>ready</code>と誤報告する問題やWSL内からWindowsホストのEditorを見逃す問題、Apple Silicon + Rosetta 2で<code>unity install &#x3C;version> -a x86_64</code>が動かない問題、<code>unity bug --share-project</code>がプロジェクト全体をレポートに含めていた問題などを修正</li>
+</ul>
+</li>
+</ul>
+<p>更新は<code>unity self-update</code>、完全なリリースノートは<code>unity changelog</code>で確認できます。</p>
+<h3 id="unity-pipeline-package-060-exp1--070-exp1-is-available-now">Unity Pipeline package 0.6.0-exp.1 / 0.7.0-exp.1 is available now!</h3>
+<ul>
+<li><a href="https://discussions.unity.com/t/unity-pipeline-package-0-6-0-exp-1-is-available-now/1735626">Unity Pipeline package 0.6.0-exp.1 is available now! - Unity Editor Product Updates - Unity Discussions</a></li>
+<li><a href="https://discussions.unity.com/t/unity-pipeline-package-0-7-0-exp-1-is-available-now/1736536">Unity Pipeline package 0.7.0-exp.1 is available now! - Unity Editor Product Updates - Unity Discussions</a></li>
+</ul>
+<p>Unity Pipelineパッケージ0.6.0-exp.1と0.7.0-exp.1のリリースを告知するディスカッションです。0.6.0-exp.1はUnity Weekly 287で取り上げたとおり、IL2CPPと接続中のプレイヤーで使えるホットリロード、最大200コマンドをまとめて実行する<code>batch</code>、単一<code>.cs</code>をメモリ上でコンパイルして呼ぶ<code>run_script</code>、Runtime ServerのMonoBehaviourからSettingsへの移行（破壊的変更）が中心でした。</p>
+<p>0.7.0-exp.1は<code>unity pipeline install</code>（既存プロジェクトは<code>--force</code>）で導入でき、<code>console</code>コマンドが実態を正しく報告すること、Pipelineをリリースビルドから外すことの2点を主眼にしています。</p>
+<ul>
+<li>New
+<ul>
+<li><code>CommandRegistry.RegisterCommand</code> / <code>UnregisterCommand</code>で、<code>[CliCommand]</code>属性なしにランタイムでコマンドを登録できる。属性宣言と同じメタデータと<code>[CliArg]</code>の探索を持ち、特定オブジェクトに束縛したdelegateを渡せる。</li>
+<li>すべての<code>console</code>レスポンスに、severity別の保持件数<code>counts</code>と、Editor自身の<code>compilationFailed</code> / <code>compiling</code>フラグやコンソール件数を含む<code>groundTruth</code>が付く。エントリを返さず同じカウンタだけを返す<code>console_status</code>はコンパイル中のポーリングに使える。</li>
+<li>各エントリがUnityの<code>LogType</code>をそのまま持つ<code>logType</code>と、ライブ捕捉ではなくEditorのストアから読んだことを示す<code>seeded</code>を返す。<code>recompile_status</code>も<code>compilationFailed</code>を報告する。</li>
+<li><code>wait</code>: editorやobjectの状態が成立するかタイムアウトするまで、同期またはバックグラウンドでポーリングする。<code>/api/exec</code>を自前で回す必要がなくなる。</li>
+</ul>
+</li>
+<li>Changes（破壊的変更3件）
+<ul>
+<li>ランタイムアセンブリと同梱のRoslyn DLLが、Development BuildでないPlayerビルドから除外される。含めたい場合は<code>ENABLE_RUNTIME_PIPELINE</code>を定義する。</li>
+<li>コードリロード用の属性が<code>Unity.Pipeline.Attributes</code>へ移動した。属性のためだけに<code>Unity.Pipeline</code>を参照していたアセンブリ定義は参照の追加が必要。</li>
+<li>ログを二重にバッファしていた<code>get_console_logs</code>が廃止され、<code>logType</code>を持つ<code>console</code>に置き換わる。<code>clear_console</code>はランタイムアセンブリへ移動し、playerビルドでも動く。</li>
+</ul>
+</li>
+<li>Fixes
+<ul>
+<li><code>console</code>のカーソルが新しいセッションやスナップショット復元をまたいで生存できなかった問題を修正し、レスポンスに<code>session</code>を追加。使えないカーソルには<code>reset=true</code> / <code>dropped=true</code>付きで末尾を返す。</li>
+<li>捕捉開始前に出たコンパイルエラーがsticky entryとして残るためバッファがConsole windowと一致しなかった問題を、セッションごとに1回Editorのストアからバックフィルして修正</li>
+<li><code>clear_console</code>が2つのバッファの片方しかクリアしていなかった問題、<code>recompile</code>がコンパイルエラーが残っているのに<code>up_to_date</code>を返す問題（Unityのネイティブなcompile-failureフラグを参照するよう変更）を修正</li>
+<li>Androidでランタイムのインスタンス記述子が書けなかった問題を<code>Application.persistentDataPath</code>への書き込みで修正、<code>Pipeline_SessionStopped</code>が送信されていなかった問題を<code>EditorApplication.wantsToQuit</code>での発火に変更して修正</li>
+</ul>
+</li>
+</ul>
+<p><code>wait</code>、ランタイム登録、consoleコマンドの詳細は<a href="https://docs.unity3d.com/Packages/com.unity.pipeline@0.7/manual/index.html">パッケージのドキュメント</a>にあります。</p>
+<h3 id="netcode-for-entities-700-moving-back-to-an-independent-package-in-unity-67">Netcode for Entities 7.0.0: moving back to an independent package in Unity 6.7</h3>
+<p><a href="https://discussions.unity.com/t/netcode-for-entities-7-0-0-moving-back-to-an-independent-package-in-unity-6-7/1736319">Netcode for Entities 7.0.0: moving back to an independent package in Unity 6.7 - Multiplayer &#x26; Networking Product Updates - Unity Discussions</a></p>
+<p>Unity 6000.7.0b1以降でNetcode for Entitiesがコアパッケージから独立パッケージに戻り、最初の独立リリースが7.0.0になることを告知するディスカッションです。Unity 6.0、6.3、6.5、6.6には変更がありません。</p>
+<p>Unity 6.5でEntitiesパッケージとの統合上の課題からコアパッケージ化された（<a href="https://discussions.unity.com/t/netcode-for-entities-package-as-part-of-6000-5-editor/1723854">当時の投稿</a>）ものの、技術的な解決策ができたため独立化するとしています。
+Editorのリリースサイクルから離れることで、より広い対象Editorへ機能と修正を早く届け、新しいGameObjectワークフローへLTSを待たずに早期アクセスできると説明しています。バージョンが2.xでなく7.0.0なのは、コアパッケージ時代にEditorのバージョン（6.5.0、6.6.0）に従っていたため、Package Managerがバージョンを上げる方向にしか動けないためだとしています。</p>
+<ul>
+<li>Breaking changes in Netcode for Entities 7.0.0
+<ul>
+<li><code>World</code>から<code>NetcodeWorld</code>へ: <code>ClientServerBootstrap.ClientWorld</code> / <code>ServerWorld</code>などnetcodeシステムを要求するAPIの引数と戻り値が<code>NetcodeWorld</code>になり、通常の<code>World</code>を渡した場合に実行時エラーだったものがコンパイル時エラーになる
+<ul>
+<li><code>NetcodeWorld</code>は<code>World</code>を継承するため大半はそのまま動くが、戻り値や<code>List&#x3C;World></code>のようなコレクションは手で直す必要がある</li>
+</ul>
+</li>
+<li><code>NetCode</code>から<code>Netcode</code>へ: 命名規則統一のため名前空間と型名を正規化し、<code>NetworkTime</code> / <code>NetworkTimeSystem</code>は<code>Unity.Netcode.NetcodeTime</code>名前空間へ移動。いずれも<code>[MovedFrom]</code>付きでscript updaterが自動移行する。</li>
+<li><code>AutoConnectPort</code>のデフォルトが非ゼロになり、新規プロジェクトが標準で接続・描画されるようになる</li>
+<li>Single-world host modeが新規プロジェクトの既定になり、実験的なdefineは削除された（<a href="https://docs.unity3d.com/Packages/com.unity.netcode@7.0/manual/single-world-host-mode.html">ドキュメント</a>）</li>
+</ul>
+</li>
+<li>Editor and version support
+<ul>
+<li>最小サポートEditorはUnity 6000.7.0b1で、Editor manifestに含まれて自動取得される。Unity 6.5 / 6.6はバンドル済みのコアバージョンを維持し、Unity 6.3はNetcode for Entities 1.xで継続サポートされる。</li>
+</ul>
+</li>
+</ul>
+<p>移行手順は<a href="https://docs.unity3d.com/Packages/com.unity.netcode@7.0/manual/upgrade-guide.html">upgrade guide</a>を参照するよう案内しています。</p>
+<h3 id="netcode-for-gameobjects-300-is-now-available">Netcode for GameObjects 3.0.0 is now available</h3>
+<p><a href="https://discussions.unity.com/t/netcode-for-gameobjects-3-0-0-is-now-available/1736792">Netcode for GameObjects 3.0.0 is now available - Multiplayer &#x26; Networking Product Updates - Unity Discussions</a></p>
+<p>Netcode for GameObjects 3.0.0のリリースを告知するディスカッションです。</p>
+<p>Unite Seoulで発表されたネットコード統合に向けた最初のリリースで、Netcode for Entities 7.0.0が必須の依存パッケージになりました。</p>
+<ul>
+<li>What do you need to know
+<ul>
+<li>3.0.0へアップグレードするとNetcode for Entitiesが自動的にプロジェクトへ追加される。ただし現時点では実際には使っておらず、将来のUnity Netcodeに向けた準備としての依存追加だとFAQで答えている。</li>
+<li>最小サポートEditorはUnity 6000.7.0b1で、Editor manifestには6000.7.0b3から含まれる予定</li>
+<li>Unity 6.6以下ではNetcode for GameObjects 2.xを継続利用し、対象Editorのサポート終了までバグ修正のバックポートを続ける</li>
+<li><a href="https://github.com/Unity-Technologies/com.unity.netcode.gameobjects">GitHubリポジトリ</a>のデフォルトブランチが<code>develop-2.0.0</code>から<code>develop-3.x.x</code>へ変わる予定</li>
+</ul>
+</li>
+<li>Breaking changes in Netcode for GameObjects 3.0.0
+<ul>
+<li>プロジェクトを開くと、存在しなければ<code>NetcodeConfig</code>設定アセットが作成される（ソース管理へのチェックインを推奨）</li>
+<li><code>Unity.Netcode.Editor</code>から<code>Unity.Netcode.GameObjects.Editor</code>のようにアセンブリと名前空間が改名され、<code>NetworkTime</code> / <code>NetworkTimeSystem</code>は<code>Unity.Netcode.GameObjects.Timing</code>へ移動、<code>[MovedFrom]</code>付きでscript updaterが自動移行する</li>
+<li>数バージョンにわたり警告だった長期非推奨APIがエラーになった</li>
+</ul>
+</li>
+</ul>
+<p>移行手順は<a href="https://docs.unity3d.com/Packages/com.unity.netcode.gameobjects@3.0/manual/upgrade-guide.html">upgrade guide</a>を、統合の背景は<a href="https://discussions.unity.com/t/ghostfields-in-gameobject-netcode-devlog-entry-3/1713506/18">devlog</a>を参照するよう案内しています。</p>
+<h3 id="unitys-plugin-is-now-available-in-claude-code">Unity’s plugin is now available in Claude Code</h3>
+<ul>
+<li><a href="https://discussions.unity.com/t/unity-s-plugin-is-now-available-in-claude-code/1736143">Unity’s plugin is now available in Claude Code - AI &#x26; Machine Learning Product Updates - Unity Discussions</a></li>
+<li><a href="https://unity.com/ja/blog/unity-plugin-for-claude-code">Official Unity Plugin for Claude Code - Unity Blog</a></li>
+</ul>
+<p>Claude Code向けの公式Unityプラグインの公開を告知するディスカッションと、その内容を解説するブログ記事です。</p>
+<p>Unityのエンジニアリングスキル、Unity CLI、実行中のEditorを操作するためのUnity MCPサーバーをインストールするファーストパーティのプラグインで、Anthropicのマネージドディレクトリから<a href="https://claude.com/plugins/unity">1回のインストール</a>で設定なしに使えるとしています。</p>
+<p>ブログではClaude Codeがこのプラグインをインストールできる最初のコーディングエージェントで、他のエージェント向けは年内に提供予定と述べています。</p>
+<ul>
+<li>公開時点で含まれるもの
+<ul>
+<li>URP、UI Toolkit、Multiplayer、LevelPlay、IAP向けに作られた29個のエンジンスキル</li>
+<li>サポートされるビルド操作を組み込んだCLIワークフロー</li>
+<li>Unityのサポートとセキュリティのもとで、Claude Codeをアクティブなプロジェクトに接続するEditor操作</li>
+</ul>
+</li>
+<li>初期スキルセットの分類（ブログ）
+<ul>
+<li>はじめに＆ツール: 新規プロジェクトのガイド付きフロー<code>/new-unity-project</code>、ターミナルからUnityを操作する<code>/unity-cli</code>、Editor外からUPMパッケージを操作する<code>/unity-package-management</code></li>
+<li>UIとテキスト: UIシステムを自動判定してUI Toolkit / uGUI / IMGUI向けへ振り分ける<code>/ui</code>系と、TextMeshProのフォント構成を扱う<code>/optimize-text-mesh-pro</code></li>
+<li>2Dとスプライト、グラフィックとレンダリング（URPポストプロセス、カスタムShader Graphノード、Render Graph上のRendererFeatureのレビュー）、オーディオ、シーンとゲームプレイ（AI Navigation、3D物理の衝突診断）、Monetizationとライブ運用（Unity IAP、LevelPlay、Unity Services）、Multiplayer、プラットフォームとローカライゼーション</li>
+</ul>
+</li>
+</ul>
+<p>ブログは汎用のコーディングエージェントがプロジェクト固有の規約を知らずに推測で作業する問題を挙げ、Unityの各機能を担当するチームがスキルを書くことでエラーが減り、トークン効率が上がり、少ないターンで作業が終わると述べています。</p>
+<p>ドキュメントは<a href="https://docs.unity.com/en-us/ai/unity-plugin/claude-code">docs.unity.com</a>にあります。</p>
+<h3 id="the-official-unity-plugin-for-codex">The Official Unity Plugin for Codex</h3>
+<ul>
+<li><a href="https://discussions.unity.com/t/the-official-unity-plugin-for-codex/1736730">The Official Unity Plugin for Codex - AI &#x26; Machine Learning Product Updates - Unity Discussions</a></li>
+<li><a href="https://unity.com/blog/unity-plugin-codex">Unity’s Official Plugin for Codex: Skills, CLI, Editor Control - Unity Blog</a></li>
+</ul>
+<p>Codex向けの公式Unityプラグインの公開を告知するディスカッションと、その内容を解説するブログ記事です。</p>
+<p>ターミナルからの2コマンド、または<a href="https://chatgpt.com/plugins/plugins_6aa1c02597c081918e358d72f65bd772">Codexのディレクトリ</a>からのワンクリックでセットアップでき、プロジェクトごとの設定やマシン移行時のコピーは不要としています。対象はUnity 6以降です。</p>
+<ul>
+<li>What a single install gets you
+<ul>
+<li>UI ToolkitとuGUI、2Dとタイルマップ、URPとShader Graph、オーディオ、ナビゲーションと物理、IAPとLevelPlay、マルチプレイヤー、Web、ローカライゼーションを担当するUnityの各チームが書いた31個のスキル</li>
+<li>Codexがターミナルから直接Editorのインストール、プロジェクトの作成・オープン、パッケージ管理を行うためのunity-cliスキル</li>
+</ul>
+</li>
+</ul>
+<p>ディスカッションでは、これはスキルのパッケージであってMCPサーバーではないため、実行中のEditorには接続しないと明記しています。</p>
+<p>詳細は<a href="https://docs.unity.com/en-us/ai/unity-plugin/codex">ドキュメント</a>を参照するよう案内しています。</p>
+<p>ブログはOpenAIの<a href="https://openai.com/index/gpt-6-astra/">GPT-6 Astra</a>のリリースに合わせた公開だとしています。
+汎用のコーディングエージェントは古いバージョン向けのフォーラム投稿やチュートリアルを含む「ネット上の平均」から回答するため、コンパイルは通っても実態が誤っているコードになりがちだと指摘し、手作業のスプライトアトラス、hover stateに誤って書かれたトランジション、動かないURP renderer featureを例に挙げています。</p>
+<p>根拠として<a href="https://survey.stackoverflow.co/2025/ai">Stack Overflowの2025 Developer Survey</a>を引いています。66%が「ほぼ正しいが完全ではないAIの回答」を最大の不満に挙げ、45%がAI生成コードのデバッグに時間がかかると答えたという結果です。プラグインはUnity Technologies名義でUnity Companion Licenseのもとで公開されています。</p>
+<p>スキル一覧はClaude Code版とほぼ共通で、Built-in Render PipelineからURPへ移行する<code>/migrate-birp-to-urp</code>、Unity Searchのクエリを作る<code>/generate-editor-search-query</code>、<code>/audio-setup-mixers</code>などが加わっています。</p>
+<h3 id="welcome-to-the-new-unity-documentation-experience-and-yes-dark-mode-is-finally-here">Welcome to the new Unity Documentation experience (and yes, Dark Mode is finally here 🌑)</h3>
+<p><a href="https://discussions.unity.com/t/welcome-to-the-new-unity-documentation-experience-and-yes-dark-mode-is-finally-here/1736348">Welcome to the new Unity Documentation experience (and yes, Dark Mode is finally here 🌑) - Templates &#x26; Documentation Product Updates - Unity Discussions</a></p>
+<p>Unityのドキュメントサイトを全面的に刷新し、<a href="http://docs.unity.com/engine">Engineのドキュメント</a>を含む全製品のドキュメントを<a href="http://docs.unity.com">docs.unity.com</a>へ統合したことを告知するディスカッションです。</p>
+<p>パッケージのドキュメント移行は進行中で、次の最優先事項だとしています。</p>
+<ul>
+<li>A redesigned reading and reference experience
+<ul>
+<li>Dark Modeの追加、タブ切り替えや折りたたみセクションなどの新しいコンテンツ部品、Visual Studio / Riderに近いシンタックスハイライトとコピー用ボタン付きのコードスニペット、Scripting Referenceの目次構造とスコープ検索の改善、APIリファレンスとマニュアルの検索結果統合</li>
+</ul>
+</li>
+<li>Faster, more reliable under the hood
+<ul>
+<li>モダンなフレームワークで再構築し、予測可能なURL構造で検索エンジン、LLM、コーディングエージェントが正しいページとバージョンを解決・引用できるようにした</li>
+</ul>
+</li>
+<li>Search that actually finds what you need
+<ul>
+<li>検索を再構築し、LearnやDiscussions、サポート記事を含む全情報源から結果を返してフィルタで絞り込める</li>
+</ul>
+</li>
+<li>Built for you and your AI assistants
+<ul>
+<li>任意のドキュメントURLに<code>.md</code>を付けるとナビゲーションやHTMLなしのプレーンなMarkdownを取得できる（例: docs.unity.com/en-us/hub/settings.md）</li>
+<li><a href="http://docs.unity.com/llms.txt">docs.unity.com/llms.txt</a>が全製品の構造化マップを提供し、製品ごとの<code>llms.txt</code>（例: <a href="http://docs.unity.com/hub/llms.txt">Hub</a>）もある</li>
+</ul>
+</li>
+<li>Versioning that scales
+<ul>
+<li>製品ごとに独立したバージョン切り替えに対応し、サポート終了バージョンや非推奨製品向けのアーカイブ機構を用意した。今後数か月で更新が止まったドキュメントのアーカイブを始めるが、削除はせず常にダウンロードできる。</li>
+</ul>
+</li>
+</ul>
+<p>フィードバックはサイト上のページ内ウィジェットから送れます。</p>
+<h3 id="icymi-august-2026-edition">ICYMI August 2026 Edition</h3>
+<p><a href="https://discussions.unity.com/t/icymi-august-2026-edition/1736559">ICYMI August 2026 Edition - News &#x26; General Discussion - Unity Discussions</a></p>
+<p>2026年8月のUnity関連のニュースと更新をまとめたディスカッションです。</p>
+<ul>
+<li>Discussions posts
+<ul>
+<li>Announcements: <a href="https://discussions.unity.com/t/discussions-what-s-changed/1733999">Discussions: what’s changed?</a></li>
+<li>Releases: <a href="https://discussions.unity.com/t/now-available-unity-hub-3-21-1/1734183">Unity Hub 3.21.1</a>、UVCS 11.0.16.10330 / 10371</li>
+<li>Feature Previews, Pre-Releases, and Roadmap updates: <a href="https://discussions.unity.com/t/the-path-to-coreclr-1-the-problem/1733018">The Path to CoreCLR #1: The Problem</a>、Unity CLI 1.0.0-beta.4 / beta.6、<a href="https://discussions.unity.com/t/customizable-main-toolbar-unity-6-7-improvements/1733331">Customizable Main Toolbar: Unity 6.7 improvements</a>、<a href="https://discussions.unity.com/t/unity-cloud-collaboration-tools-experimental/1734008">Unity Cloud Collaboration Tools (experimental)</a>、<a href="https://discussions.unity.com/t/unity-performance-testing-api-package-becomes-a-core-package-in-6-6/1734660">Unity Performance Testing API package becomes a Core Package in 6.6</a>、Unity Compute Light Baker、WebGPU、Unity Pipeline 0.5.0-exp.1、<a href="https://discussions.unity.com/t/vivox-summer-update/1734063">Vivox Summer Update</a></li>
+<li>Technical Articles: <a href="https://discussions.unity.com/t/technical-guide-building-custom-tools-for-the-unity-editor/1733712/1">Technical Guide: Building custom tools for the Unity Editor</a>、<a href="https://unity.com/resources/unity-pipeline-cli-technical-walkthrough">The Unity Pipeline package and Unity CLI: Installation guide and walkthrough</a></li>
+</ul>
+</li>
+<li>e-books / How-to Articles
+<ul>
+<li>CADから3Dへのパイプライン自動化、3Dデザインレビュー、Unity IAPのwebshop設定、ユーザー獲得やゲーム経済設計のガイド</li>
+</ul>
+</li>
+<li>Videos / Livestreams / Unity Learn
+<ul>
+<li><a href="https://www.youtube.com/watch?v=FsSu_CHzI2o">Switching from Unity MCP server to Unity CLI</a>、Unity Adsのキャンペーン運用、Creator Spotlight（Blast Ships、Tempus Vitae、Drakkenridge）、Piñata Popサンプル、Unity CLIの導入・プロジェクト作成・シーン構築のチュートリアル</li>
+</ul>
+</li>
+<li>Blogs / Case studies
+<ul>
+<li>Gorilla Tagのライブ運用、Hologryphの<a href="https://unity.com/blog/hologryph-sand-raiders-of-sophie">SAND: Raiders of Sophie</a>、<a href="https://unity.com/blog/immortal-john-triptych-joe-richardson-interview">The Immortal John Triptych</a>、<a href="https://unity.com/blog/drakkenridge-building-open-world-mobile-vr-rpg-unity-ecs">DrakkenRidge</a>、<a href="https://unity.com/blog/rendering-at-scale-efficient-strategies-for-massive-object-counts">Rendering at scale</a>、Unity IAP 5の移行ガイドと決済プロバイダ、XGame StudioとFalcon Gamesの事例</li>
+</ul>
+</li>
+</ul>
+<h3 id="composer--category-updates--how-its-landing">Composer &#x26; Category Updates — How It’s Landing</h3>
+<p><a href="https://discussions.unity.com/t/composer-category-updates-how-its-landing/1736051">Composer &#x26; Category Updates — How It’s Landing - Discussions Platform - Unity Discussions</a></p>
+<p>Unity Discussionsで数週間前に導入した新しいトピック作成画面と細分化されたカテゴリ構成の結果を報告するディスカッションです。</p>
+<p>無関係な話題の受け皿になっていた「Unity Engine」カテゴリを解消することが主な目的で、投稿が最初から適切なカテゴリに入る割合が増え、運営がトピックを事後に移動する時間が大きく減ったとしています。</p>
+<p>新しいタグ機能への慣れについてはまだ様子を見ている段階で、このスレッドで更新を続けると述べています。</p>
+<h3 id="cicd-made-easier-with-unity-cli">CICD Made Easier with Unity CLI</h3>
+<p><a href="https://unity.com/blog/cicd-made-easier-with-unity-cli">CICD Made Easier with Unity CLI - Unity Blog</a></p>
+<p>継ぎ足しで肥大化しがちなCI/CDパイプラインの責務を、Unity CLIでどう減らせるかを解説するブログ記事です。</p>
+<p>CIプロバイダーやプロジェクトのビルドコードを置き換えるものではなく、両者をつなぐ独自の仕組みを減らすものと位置付けています。</p>
+<ul>
+<li>Simplify: express what the pipeline needs to do
+<ul>
+<li>Editorの実行ファイルを直接呼んで<code>-batchmode -nographics -quit -runTests ...</code>を並べる代わりに、<code>unity test . --mode EditMode --output ./results/editmode.xml --allow-install</code>のように意図を直接書ける。<code>--allow-install</code>はプロジェクトが要求するEditorバージョンを読んで必要ならインストールするため、バージョンの正はビルドマシンではなくプロジェクト側になる。</li>
+<li>ビルドも<code>unity build . --target Android --execute-method Builder.PerformBuild --output-path ./out/app.aab</code>と書け、シーン選択やスクリプティングシンボルなどプロジェクト固有のロジックは既存の<code>Builder.PerformBuild</code>側に残る。CLI自体は<code>brew install --cask unity-cli</code>（macOS / Linux）や<code>winget install Unity.CLI</code>（Windows）で入れる。</li>
+</ul>
+</li>
+<li>Improve: remove risk from the pipeline
+<ul>
+<li>ランナーのEditorバージョンが違う、CIと開発者マシンで挙動が違う、独自ラッパースクリプトがそれ自体インフラになる、失敗の診断が難しい、認証情報とライセンスがジョブより長く残る、パイプラインが1つのCIプロバイダーに縛られる、という6つのリスクを挙げている</li>
+<li>診断面では<code>unity test</code>がNUnit XMLを直接出力し、定義済みの終了コードと<code>cli-log.json</code>などのログを残す。認証情報はbase64でエンコードしたシークレットから復号してビルド後に削除し、ライセンスは<code>unity license activate --floating</code>から<code>unity license return</code>までをジョブのライフサイクルとして扱い、エフェメラルランナーでは<code>return</code>を無条件の後始末に置くよう勧めている。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-tips-for-speeding-up-your-xr-dev-workflows-with-unity-cli">5 tips for speeding up your XR dev workflows with Unity CLI</h3>
+<p><a href="https://unity.com/blog/5-tips-for-speeding-up-your-xr-dev-workflows-with-unity-cli">5 tips for speeding up your XR dev workflows with Unity CLI - Unity Blog</a></p>
+<p>MetaのDeveloper AdvocateであるDilmer Valecillos氏に、Unity CLIをXR開発のワークフローへ組み込む5つの方法を聞いたブログ記事です。</p>
+<ul>
+<li>Tip 1: Leverage the new Unity CLI and pipeline package over the MCP
+<ul>
+<li>Unity MCP serverをリリース以来使ってきたが、MCPは飛ばしてUnity CLIとpipelineパッケージを使うことを勧めている。CLIは同じプロトコルの組み込みMCP serverを持つためMCPクライアントはそのまま接続でき、最大の利点はRoslynによるコード評価でEditorの再コンパイルとドメインリロードが不要になること。</li>
+</ul>
+</li>
+<li>Tip 2: Familiarize yourself with the basic commands
+<ul>
+<li><code>unity command eval "return UnityEditor.EditorApplication.isPlaying;"</code>のようにC#スニペットをメインスレッドで即時実行する例や、<code>unity install 6000.5.0f1 -m android android-sdk-ndk-tools --cm --accept-eula --yes</code>のようなパラメータ化したインストール例を挙げている</li>
+</ul>
+</li>
+<li>Tip 3: Try out different LLMs
+<ul>
+<li>現在はClaude CodeとCodexを併用し、コードを書く時とレビューする時で別のLLMを使い分けることを勧めている</li>
+</ul>
+</li>
+<li>Tip 4: Get to a working Quest build faster with Meta’s AI tooling
+<ul>
+<li>汎用のコーディングアシスタントはVRについて自信満々だが間違いも多いとし、最新ドキュメントと実機への直接アクセスを提供する<a href="https://developers.meta.com/horizon/documentation/unity/ts-ai-tooling-overview/#hzdb-horizon-debug-bridge">Meta VR CLI</a>（<code>metavr mcp install claude-code</code>などでMCP serverを導入）、Questの要件を確認して誤設定を直す<a href="https://developers.meta.com/horizon/documentation/unity/unity-upst-overview/">Project Setup Tool</a>、LOD付きの3Dアセットを150万点検索できる<a href="https://developers.meta.com/horizon/documentation/unity/unity-asset-library-overview/">Meta Asset Library</a>を紹介している</li>
+</ul>
+</li>
+<li>Tip 5: Let agents assist your performance profiling
+<ul>
+<li>Meta VR CLIの<code>perf</code>コマンド（<code>metavr perf capture --mode full --duration 15000 ...</code>）でフレーム時間のスパイクやCPU / GPUのボトルネックを数秒で提示させ、Unity内では<a href="https://developers.meta.com/horizon/documentation/unity/unity-quest-runtime-optimizer">Quest Runtime Optimizer</a>のボトルネック分析とGameObject単位の「What If」分析を使う。OVRMetricsやRenderDoc、Perfetto、Unity Profilerも引き続き使える。</li>
+</ul>
+</li>
+</ul>
+<h3 id="optimizing-deep-rock-galactic-survivor-for-mobile">Optimizing Deep Rock Galactic: Survivor for Mobile</h3>
+<p><a href="https://unity.com/blog/optimizing-deep-rock-galactic-survivor-for-mobile">Optimizing Deep Rock Galactic: Survivor for Mobile - Unity Blog</a></p>
+<p>Funday GamesのDeep Rock Galactic: Survivorを、移植会社のPiktivがモバイル向けに最適化した過程を、engineering managerのMarcus Ekelund氏とprincipal engineerのFredrik Åkerblom氏にインタビューしたブログ記事です。</p>
+<p>PC版が1.0に達する前に分岐し、PCからモバイルへの一方向マージだけを維持しながら、技術面では独自に再構築したとしています。
+対象機種の多くはRAM 4GBですが、対象のiPadのうち1機種だけが3GBで、使えるメモリは約1,850MBしかなく、超えるとクラッシュするためRAM管理が最優先だったとのことです。</p>
+<ul>
+<li>ボトルネックと解決策
+<ul>
+<li>ダメージラベル
+<ul>
+<li>TextMesh ProのGameObject生成がボトルネックだったため、0〜9のスプライトシートを使う通常のparticle systemに置き換えた</li>
+</ul>
+</li>
+<li>パスファインディング
+<ul>
+<li>PC版のNavMeshをやめ、flow field navigationとKD-treeによる物理クエリの最適化を導入した</li>
+<li>flow fieldはグリッド全体にゴールからの方向を伝播させるためエージェント数にコストが依存せず、KD-treeは範囲検索で爆発範囲内の敵探索などを置き換えるが、敵が常に動くためツリーの再構築頻度が課題だった</li>
+</ul>
+</li>
+<li>敵の描画
+<ul>
+<li>約1,000体のskinned mesh rendererが同時に表示される問題に対し、アニメーションのキーフレームをテクスチャに焼き込んで頂点シェーダーで動かし、GPU instancingでCPUコストをほぼゼロにした</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>テストと指標
+<ul>
+<li>低スペック機で30fps、フラグシップで60fpsを目標に、1,000体の敵が接近する、500体と全武器の自動発射といった6シナリオでCPU / GPU / メモリを自動計測した
+<ul>
+<li>約4,000個の光るcubeを10秒間にspawnするシナリオは当初大きな負荷だったが、最適化後は計測できないレベルになった</li>
+</ul>
+</li>
+<li>敵の移動と物理は10〜15段の依存を持つBurst jobsのチェーンで通常のphysics systemの外で処理し、手続き生成されるレベルの床と壁はトップダウンカメラの可視範囲を計算して独自のbatch draw commandで送っている</li>
+<li>AddressablesはbiomeごとにアセットをまとめてiPadのメモリ制限を守るために重要で、同期処理を非同期化する大きなアーキテクチャ変更を伴った</li>
+</ul>
+</li>
+</ul>
+<p>ECSやDOTSを使うべきだったと気付いても全面書き換えは不要で、Burstコンパイラとネイティブなデータ型の部分採用で十分だったというのが2人の教訓です。</p>
+<h3 id="how-hologryph-built-sand-raiders-of-sophie-for-a-sustainable-live-ops-cadence">How Hologryph Built SAND: Raiders of Sophie For A Sustainable Live Ops Cadence</h3>
+<p><a href="https://unity.com/blog/hologryph-sand-raiders-of-sophie">How Hologryph Built SAND: Raiders of Sophie For A Sustainable Live Ops Cadence - Unity Blog</a></p>
+<p>HologryphのCTO兼ゲームディレクターであるSerhiy Grinets氏に、1910年の架空の砂漠世界を舞台にしたextraction game「SAND: Raiders of Sophie」の技術構成とライブ運用についてインタビューしたブログ記事です。</p>
+<p>技術目標は、authoritativeなサーバーとクライアントの厳密な分離と両側で同一結果を出す手続き的なワールド生成、1台のTramplerを構成する数百エンティティの同期、滑らかなワールドストリーミングの3つでした。</p>
+<ul>
+<li>構成
+<ul>
+<li>Tramplerはデッキやキャビンなどのcompartment単位で構成され、新しいcompartmentはモデリングと設定だけで組み込める。基盤は独自のInversion of ControlコンテナとECSの組み合わせで、レプリケーションは独自ネットワークエンジンがゲームプレイコードの下層で処理する。</li>
+<li>シミュレーションはUnity EntitiesではなくオープンソースのEntitasを改造したもので動くが、地形生成、Tramplerの移動計算、独自のocclusion cullingはBurstコンパイルしたjobのチェーンとしてメインスレッド外で実行している</li>
+<li>砂塵、煙、シールド、武器のエフェクトはすべてVFX Graph製で、size、color、timingなどのパラメータを公開してアーティストだけで新エフェクトを作れるようにしている</li>
+<li>Addressablesがメモリ管理の中核で、プレイヤーの移動に応じてコンテンツを読み込み・解放する。クライアントとサーバーのプロジェクト間でアセットを転送する独自の仕組みも持つ。</li>
+<li>Asset StoreからはGPU Instancer Pro、Amplify Impostors、Odin Inspector、Rewired、Easy Save、DOTween、I2 Localizationを使っている</li>
+</ul>
+</li>
+<li>Vivox
+<ul>
+<li>全プレイヤーがクルー用の「無線」チャンネルと3D proximity voiceのpositionalチャンネルに常時接続し、位置情報はプレイヤー移動時のみ約20回/秒で送っている。proximity voiceは交渉、協力、裏切りといったextraction gameらしい社会的なやり取りを生むゲームプレイ要素だとしている。</li>
+</ul>
+</li>
+</ul>
+<h3 id="drakkenridge-building-an-open-world-adventure-for-mobile-vr">DrakkenRidge: Building an open-world adventure for mobile VR</h3>
+<p><a href="https://unity.com/ja/blog/drakkenridge-building-open-world-mobile-vr-rpg-unity-ecs">DrakkenRidge: Building an open-world adventure for mobile VR - Unity Blog</a></p>
+<p>Garage CollectiveのSimeon Acker氏とCyril Guichard氏が、2人チームでモバイルVR向けのオープンワールドRPG「DrakkenRidge」をEntitiesで構築した方法を解説するゲストブログです。</p>
+<ul>
+<li>ECSとGameObjectの使い分け
+<ul>
+<li>ワールドの90%はEntitiesとして<a href="https://docs.unity3d.com/Packages/com.unity.entities.graphics@1.0/manual/index.html">Entities Graphics</a>で描画し、数百のバッチとSetPass呼び出しを削減して数千のオブジェクトを8回のSetPass呼び出しで描いている</li>
+<li>掴み、登攀、パルクール、魔法、近接戦闘といった近接のVRインタラクションは、プログラマー1名とアーティスト1名で素早く試行するため従来のGameObjectとMonoBehaviourで作っている。物理オブジェクトはプレイヤー位置を追跡し、遠距離では描画のみ、近距離でだけ物理相互作用を許可する。</li>
+</ul>
+</li>
+<li>カスタムのエンティティシステム
+<ul>
+<li>Editor上で各エンティティにカリング値を持たせてランタイムで描画とカリングを判断する距離オーサリング、都市内のエンティティをまとめて判断するカスタムのエンティティグループ、遠方のエンティティを軽いエンティティに置き換えるエンティティLOD</li>
+<li>距離計算は<code>IJobChunk</code>を実装したBurstコンパイル済みのjobで行い、<code>DynamicBuffer</code>を反復前に<code>NativeArray</code>へ変換する最適化を紹介している</li>
+</ul>
+</li>
+<li>さらなる最適化
+<ul>
+<li>ローポリゴンのレトロなアートスタイルのため従来の3D LODはメリットが薄く、独自の距離オーサリングで代替した。森など密集した遠景には一定距離で2Dビルボードに置き換えるインポスターを使っている。</li>
+</ul>
+</li>
+</ul>
+<h3 id="made-with-unity-gamescom-2026-recap">Made With Unity: gamescom 2026 Recap</h3>
+<p><a href="https://unity.com/blog/made-with-unity-gamescom-2026-recap">Made With Unity: gamescom 2026 Recap - Unity Blog</a></p>
+<p>gamescom 2026でのUnity製タイトルの動向をまとめたブログ記事で、Indie Arena Boothへの初出展、Opening Night Liveで発表されたHUMANKIND 2やLEGO Skylinesなどの新作、Made with Unity Awardを受賞したMorbid Metalを紹介しています。</p>
+<h2 id="articles">Articles</h2>
+<h3 id="unity-psd-から実用的な-prefab-を生成する-claude-code-skills-設計">[Unity] PSD から実用的な Prefab を生成する Claude Code Skills 設計</h3>
+<p><a href="https://developers.wonderpla.net/entry/2026/08/26/110022">[Unity] PSD から実用的な Prefab を生成する Claude Code Skills 設計 - WonderPlanet Developers’ Blog</a></p>
+<p>社内ハッカソンで開発した、PhotoshopのPSDからuGUIのPrefabをClaude Code Skillsで自動生成するツールの設計を解説する記事です。</p>
+<p>共通のnested prefabを使う、ヒエラルキーからUIの意図が読める、LayoutGroupとアンカーが適切に設定されている、の3条件を「実用的なPrefab」と定義し、レイヤー分けが描画都合で決まるPSDに対して「どれが塊で、どれが並ぶか」というUI都合の構造判定をAIに任せています。</p>
+<p>実装面では<a href="https://github.com/yucchiy/UniCli">UniCli</a>の<code>eval</code>で起動中のEditor内でC#を実行し、CanvasをRenderTextureで撮影してPSDと比較・修正するループをEdit Modeで回す構成です。演出を含む画面や場合分けが必要なUIではルールを明示しないと良い結果にならないとし、デザイナーがPhotoshopレイヤーに意図を追記して暗黙知をスキルに蓄積する仕組みを紹介しています。</p>
+<h3 id="zlinqが急に動かなくなった原因がpipelineパッケージだった">ZLinqが急に動かなくなった原因がPipelineパッケージだった</h3>
+<p><a href="https://blog.kyubuns.dev/entry/2026/09/19/222836">ZLinqが急に動かなくなった原因がPipelineパッケージだった - きゅぶろぐ</a></p>
+<p>Unityのバージョンを上げた後に<a href="https://github.com/Cysharp/ZLinq">ZLinq</a>を使うコードが<code>MissingMethodException</code>で落ちるようになった原因を追った記事です。</p>
+<p>Pipelineパッケージに同梱される<code>System.Runtime.CompilerServices.Unsafe.dll</code>が古く、ZLinqが使う<code>Unsafe.SkipInit</code>を持たないことが原因とのことでした。
+これまではCollectionsパッケージが同梱する新しいDLLが使われていたため問題が出ず、Collectionsが2.6.8へ更新されて重複回避のためにこのDLLが削除されたことで、Pipeline側の古いDLLが読み込まれるようになったと説明しています。</p>
+<p>この記事では、ワークアラウンドについても併せて紹介しています。</p>
+<h3 id="ienableablecomponent-usage-in-an-actual-game">IEnableableComponent usage in an actual game</h3>
+<p><a href="https://coffeebraingames.wordpress.com/2026/09/10/ienableablecomponent-usage-in-an-actual-game/">IEnableableComponent usage in an actual game - COFFEE BRAIN GAMES</a></p>
+<p>Unity ECSの<code>IEnableableComponent</code>を、開発中のゲーム「Made of Food」でどう使っているかを3つのパターンで紹介する記事です。</p>
+<p>3つのパターンを、実際のクエリコードとともに示しています。</p>
+<ul>
+<li>一度だけ実行: スプライト準備が必要なエンティティを<code>WithDisabled&#x3C;T>()</code>で拾い、処理後に<code>SetComponentEnabledForAll</code>で有効化して再処理を防ぐ</li>
+<li>状態: <code>Tired</code>のようなタグを有効・無効にし、複数のシステムが<code>WithNone&#x3C;Tired>()</code>で対象を除外する</li>
+<li>dirty flag: ネストした<code>ItemState.Changed</code>を有効にして<code>WithAll&#x3C;ItemState.Changed>()</code>で変更のあったアイテムだけを更新し、処理後に無効化する</li>
+</ul>
+<h3 id="dissolve--noise--unity-shader-code-basics-10">Dissolve &#x26; Noise | Unity Shader Code Basics 10</h3>
+<p><a href="https://danielilett.com/2026-09-10-tut10-10-dissolve-noise/">Dissolve &#x26; Noise | Unity Shader Code Basics 10 - Daniel Ilett</a></p>
+<p>Unity Shader Code Basicsシリーズの第10回として、ノイズ関数をHLSLで自作し、ディゾルブ表現を実装する記事です。</p>
+<p>シードから疑似ランダムな単位ベクトルを返す<code>randomVector()</code>を土台に、2種類のノイズを<code>NoiseFunctions.hlsl</code>に実装しています。</p>
+<ul>
+<li>Perlinノイズ: 格子点のランダムベクトルとの内積を補間する。単一オクターブ版と、周波数を倍にしつつ振幅を半分にして重ねる3オクターブ版を作る。</li>
+<li>Voronoiノイズ: セルの中心と境界からの距離を求める</li>
+</ul>
+<p><code>Dissolve.shader</code>はPBRシェーダーを拡張し、<code>_NoiseScale</code>や<code>_CutoffHeight</code>、<code>_EdgeColor</code>などのプロパティと<code>_Time.y</code>によるアニメーションで、ノイズに沿って溶けていく表現を作っています。</p>
+<h3 id="unity-shader-graph-basics-part-13---terrain-lit-official-support">Unity Shader Graph Basics (Part 13 - Terrain Lit Official Support)</h3>
+<p><a href="https://danielilett.com/2026-09-17-tut9-13-official-terrains/">Unity Shader Graph Basics (Part 13 - Terrain Lit Official Support) - Daniel Ilett</a></p>
+<p>Unity 6.3でShader Graphに追加されたTerrain material typeを使って、テレイン用のシェーダーを作る記事です。サンプルプロジェクトはUnity 6.6へ更新されています。</p>
+<p>Create > Shader Graph > URP > Terrain Lit Shader Graphから作成し、インデックスでテクスチャレイヤーを取り出すTerrain Textureノード、各レイヤーの重みをRGBAに持つLayer Masks出力、レイヤーのPBR出力をまとめてサンプリングするLayer Standardノードを組み合わせて基本のテレインシェーダーを組んでいます。</p>
+<p>後半では、レイヤーマスクにハイトマップを掛けて境界を作るheight-based blendingをHeight MaskとBlend Layers Alphaノードで実装しています。</p>
+<h3 id="unity-2dで絵が化けるshader-graphおもしろテクニック12選">Unity 2Dで絵が化けるShader Graphおもしろテクニック12選</h3>
+<p><a href="https://zenn.dev/gamedev_toollab/articles/3255ea6d473453">Unity 2Dで絵が化けるShader Graphおもしろテクニック12選 - Zenn</a></p>
+<p>Unity 2DのSpriteRenderer向けに、Shader Graphで実装できる表現技法を12個まとめた記事です。</p>
+<p>被弾フラッシュ、パレットスワップ、溶解、アウトラインと内側リム、揺れ、グリッチ、ピクセル化と減色、ホログラム、Normal Mapと2D Lightによる疑似立体化、Mask Mapによる部分発光、複製Spriteの水面反射、ワールドを横切るスキャンの12種を、模様生成用と画像サンプリング用の座標を一本化しないという前提のもとで解説しています。</p>
+<p>Sprite Atlasの回転パックで横ずれが縦に変わる、透明縁が黒くなるといった失敗例と、TextureSample数や透明Overdrawなど負荷要素についても整理しています。</p> </article> <hr class="my-8 border-dashed"> <ul class="my-4 flex flex-wrap items-center gap-1"> <li class="inline"> <a href="/tags/unity-weekly" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-4"> Unity Weekly </a> </li><li class="inline"> <a href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-5"> Unity </a> </li> </ul> <div class="flex items-center gap-1 flex-col md:items-start"><span class="italic">Share this post on:</span><div class="flex items-center"><a href="https://x.com/intent/post?url=https://blog.yucchiy.com/project/unity-weekly/288.html&text=Unity%20Weekly%20288" class="group inline-block hover:text-accent p-1" title="Share this post on X"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg><span class="sr-only">Share this post on X</span></a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/project/unity-weekly/288.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg><span class="sr-only">Share this post on Hatena Bookmark</span></a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/project/unity-weekly/288.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg><span class="sr-only">Share this post on Facebook</span></a></div></div> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
+Back To Top
+</span> </button> </div> <script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+    const footer = document.querySelector("footer");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+
+      // Adjust button position when footer is visible (mobile only)
+      if (footer && window.innerWidth < 768) {
+        const footerRect = footer.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const buttonHeight = 56 + 32; // size-14 (56px) + bottom-8 (32px)
+
+        if (footerRect.top < viewportHeight) {
+          const offset = viewportHeight - footerRect.top + 16;
+          btnContainer.style.bottom = `${offset}px`;
+        } else {
+          btnContainer.style.bottom = "";
+        }
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">  <a href="/project/unity-weekly/287" class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"> <div> <span>Next Post</span> <div class="text-sm text-accent/85">Unity Weekly 287</div> </div> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </main> <footer class="w-full mt-auto"> <div class="mx-auto max-w-app px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/yucchiy" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on GitHub"> <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg> <span class="sr-only">Yucchiy&#39;s Note on GitHub</span> </a><a href="https://x.com/yucchiy_" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on X"> <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on X</span> </a><a href="https://www.linkedin.com/in/yucchiy/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on LinkedIn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on LinkedIn</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2026 Yucchiy&#39;s Note</span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>All rights reserved.</span> </div> </div> </footer>  </body></html> <!-- GLightbox CSS --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"> <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script> <script data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      // Check if --file-name-offset custom property exists
+      const computedStyle = getComputedStyle(codeBlock);
+      const hasFileNameOffset =
+        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
+
+      // Determine the top positioning class
+      const topClass = hasFileNameOffset
+        ? "top-(--file-name-offset)"
+        : "-top-3";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Initialize GLightbox for image zoom functionality */
+  function initializeLightbox() {
+    const images = document.querySelectorAll('.app-prose img');
+
+    images.forEach((img) => {
+      // data属性を設定してライトボックス対象として識別（個別表示）
+      img.setAttribute('data-glightbox', '');
+
+      // alt属性があればタイトルとして表示
+      if (img.alt) {
+        img.setAttribute('title', img.alt);
+      }
+    });
+
+    // GLightboxインスタンス作成
+    const lightbox = GLightbox({
+      selector: '[data-glightbox]',
+      descPosition: 'bottom',
+      touchNavigation: true,
+      keyboardNavigation: false,
+      closeOnOutsideClick: true,
+      openEffect: 'zoom',
+      closeEffect: 'zoom',
+      zoomable: true,
+      draggable: true,
+    });
+  }
+  initializeLightbox();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () => {
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+
+    // GLightbox を再初期化
+    initializeLightbox();
+  });
+</script>
