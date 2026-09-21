@@ -2,7 +2,7 @@
 type: unity-weekly
 title: Unity Weekly 288
 description: >-
-  2026/09/21週のUnity Weeklyです。Unity 6.7ベータ、UI Toolkitの開発状況とFigma connector、Unity CLI 1.0.0-beta.9 / beta.10、Unity Pipeline 0.7.0-exp.1、Netcode for Entities 7.0.0とNetcode for GameObjects 3.0.0、Claude CodeとCodex向けの公式Unityプラグインなどを紹介しています。
+  2026/09/21週のUnity Weeklyです。Unity 6.7ベータの開始、UI Toolkitの開発状況とFigma connector、Unity CLI 1.0.0-beta.9 / beta.10、Unity Pipeline 0.7.0-exp.1、Netcode for Entities 7.0.0とNetcode for GameObjects 3.0.0、Claude CodeとCodex向けの公式Unityプラグインなどを紹介しています。
 pubDatetime: 2026-09-21T09:00:00+09:00
 tags:
   - Unity Weekly
