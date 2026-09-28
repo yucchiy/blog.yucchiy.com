@@ -252,6 +252,16 @@ RUST LTDの共同創業者でhead of productionのLuke Noonan氏とgame director
     - Odin Inspectorで銃ごとに無関係な設定項目を隠すカスタムインスペクターを全員が書いている
     - Technie Collider Creator 2は物理ハルのオーサリングで数百から数千時間を節約したとしている
 
+## Events
+
+### Unity Shader 完全に理解した 勉強会
+
+[Unity Shader 完全に理解した 勉強会 - connpass](https://unity-fully-understood.connpass.com/event/403229/)
+
+Unityユーザーコミュニティ主導の「Unity 〇〇完全に理解した勉強会」のShader回が、2026/10/02（金）18:30から渋谷スクランブルスクエアのDeNAで開催されます。
+
+UnityにおけるShaderの知見を持つメンバーによるトークとLTのあと、懇親会が予定されています。会場参加とYouTube Liveでのオンライン参加のどちらも無料で、connpassから申し込めます。
+
 ## Articles
 
 ### 作ったツール、作りっぱなしにしてませんか?
