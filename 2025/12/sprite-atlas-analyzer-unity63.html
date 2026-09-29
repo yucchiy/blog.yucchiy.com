@@ -1,4 +1,4 @@
-<!DOCTYPE html><html dir="ltr" lang="ja" class="scroll-smooth" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html"><meta name="generator" content="Astro v5.15.5"><!-- General Meta Tags --><title>Unity 6.3から使えるSprite Atlas Analyzerを触ってみる | Yucchiy&#39;s Note</title><meta name="title" content="Unity 6.3から使えるSprite Atlas Analyzerを触ってみる | Yucchiy's Note"><meta name="description" content="Unity 6.3で追加されたSprite Atlas Analyzerの概要から導入方法、利用方法について紹介します。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Unity 6.3から使えるSprite Atlas Analyzerを触ってみる | Yucchiy's Note"><meta property="og:description" content="Unity 6.3で追加されたSprite Atlas Analyzerの概要から導入方法、利用方法について紹介します。"><meta property="og:url" content="https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html"><meta property="og:image" content="https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2025-11-30T15:00:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html"><meta property="twitter:title" content="Unity 6.3から使えるSprite Atlas Analyzerを触ってみる | Yucchiy's Note"><meta property="twitter:description" content="Unity 6.3で追加されたSprite Atlas Analyzerの概要から導入方法、利用方法について紹介します。"><meta property="twitter:image" content="https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity 6.3から使えるSprite Atlas Analyzerを触ってみる | Yucchiy's Note","image":"https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63/index.png","datePublished":"2025-11-30T15:00:00.000Z","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
+<!DOCTYPE html><html dir="ltr" lang="ja" class="scroll-smooth" data-astro-cid-ju4pidww> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html"><meta name="generator" content="Astro v7.3.5"><!-- General Meta Tags --><title>Unity 6.3から使えるSprite Atlas Analyzerを触ってみる | Yucchiy&#39;s Note</title><meta name="title" content="Unity 6.3から使えるSprite Atlas Analyzerを触ってみる | Yucchiy's Note"><meta name="description" content="Unity 6.3で追加されたSprite Atlas Analyzerの概要から導入方法、利用方法について紹介します。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Unity 6.3から使えるSprite Atlas Analyzerを触ってみる | Yucchiy's Note"><meta property="og:description" content="Unity 6.3で追加されたSprite Atlas Analyzerの概要から導入方法、利用方法について紹介します。"><meta property="og:url" content="https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html"><meta property="og:image" content="https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63/index.png"><!-- Article Published/Modified time --><meta property="article:published_time" content="2025-11-30T15:00:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html"><meta property="twitter:title" content="Unity 6.3から使えるSprite Atlas Analyzerを触ってみる | Yucchiy's Note"><meta property="twitter:description" content="Unity 6.3で追加されたSprite Atlas Analyzerの概要から導入方法、利用方法について紹介します。"><meta property="twitter:image" content="https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity 6.3から使えるSprite Atlas Analyzerを触ってみる | Yucchiy's Note","image":"https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63/index.png","datePublished":"2025-11-30T15:00:00.000Z","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
 
             window.dataLayer = window.dataLayer || [];
             function gtag() {
@@ -6,10 +6,8 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/about.4qm-iYxu.css">
-<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media(prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
-:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
-</style><style>[data-astro-transition-scope="astro-fam6wyqg-1"] { view-transition-name: unity-6-3-\304B\3089\4F7F\3048\308B-sprite-atlas-analyzer\3092\89E6\3063\3066\307F\308B; }@layer astro { ::view-transition-old(unity-6-3-\304B\3089\4F7F\3048\308B-sprite-atlas-analyzer\3092\89E6\3063\3066\307F\308B) { 
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+</style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: unity-6-3-\304B\3089\4F7F\3048\308B-sprite-atlas-analyzer\3092\89E6\3063\3066\307F\308B; }@layer astro { ::view-transition-old(unity-6-3-\304B\3089\4F7F\3048\308B-sprite-atlas-analyzer\3092\89E6\3063\3066\307F\308B) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -25,207 +23,27 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fam6wyqg-1"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fam6wyqg-1"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-fam6wyqg-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-fam6wyqg-1"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-fam6wyqg-1"] { 
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-eq54l3i4-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-eq54l3i4-1"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-2"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(unity) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-3"] { view-transition-name: unity-6-3; }@layer astro { ::view-transition-old(unity-6-3) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(unity-6-3) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-6-3) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-6-3) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-4"] { view-transition-name: _2-d; }@layer astro { ::view-transition-old(_2-d) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(_2-d) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(_2-d) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(_2-d) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-4"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-4"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-4"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-4"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-4"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-4"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-4"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-4"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-5"] { view-transition-name: sprite-atlas; }@layer astro { ::view-transition-old(sprite-atlas) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(sprite-atlas) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(sprite-atlas) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(sprite-atlas) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-5"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-5"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-5"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-5"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-5"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-5"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-5"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-5"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-6"] { view-transition-name: advent-calendar; }@layer astro { ::view-transition-old(advent-calendar) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(advent-calendar) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(advent-calendar) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(advent-calendar) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-6"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-6"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-6"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-6"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-6"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-6"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-6"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-6"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-7"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-2"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -241,27 +59,27 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-7"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-7"] { 
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-7"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-7"] { 
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-7"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-7"] { 
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-7"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-7"] { 
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-8"] { view-transition-name: unity-6-3; }@layer astro { ::view-transition-old(unity-6-3) { 
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-3"] { view-transition-name: unity-6-3; }@layer astro { ::view-transition-old(unity-6-3) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -277,27 +95,27 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-8"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-8"] { 
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-8"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-8"] { 
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-8"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-8"] { 
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-8"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-8"] { 
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-9"] { view-transition-name: _2-d; }@layer astro { ::view-transition-old(_2-d) { 
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-4"] { view-transition-name: _2-d; }@layer astro { ::view-transition-old(_2-d) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -313,27 +131,27 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-9"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-9"] { 
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-9"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-9"] { 
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-9"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-9"] { 
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-9"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-9"] { 
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-10"] { view-transition-name: sprite-atlas; }@layer astro { ::view-transition-old(sprite-atlas) { 
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-5"] { view-transition-name: sprite-atlas; }@layer astro { ::view-transition-old(sprite-atlas) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -349,27 +167,27 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-10"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-10"] { 
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-10"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-10"] { 
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-10"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-10"] { 
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-10"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-10"] { 
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-11"] { view-transition-name: advent-calendar; }@layer astro { ::view-transition-old(advent-calendar) { 
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-6"] { view-transition-name: advent-calendar; }@layer astro { ::view-transition-old(advent-calendar) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -385,35 +203,215 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-11"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-11"] { 
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-6"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-11"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-11"] { 
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-6"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-11"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-11"] { 
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-6"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-11"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-11"] { 
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-6"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-6"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-sckkx6r4>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-7"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-7"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-7"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-7"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-7"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-7"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-8"] { view-transition-name: unity-6-3; }@layer astro { ::view-transition-old(unity-6-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-6-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-6-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-6-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-8"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-8"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-8"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-8"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-8"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-9"] { view-transition-name: _2-d; }@layer astro { ::view-transition-old(_2-d) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(_2-d) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(_2-d) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(_2-d) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-9"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-9"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-9"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-9"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-9"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-9"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-9"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-9"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-10"] { view-transition-name: sprite-atlas; }@layer astro { ::view-transition-old(sprite-atlas) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(sprite-atlas) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(sprite-atlas) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(sprite-atlas) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-10"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-10"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-10"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-10"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-10"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-10"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-10"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-10"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-11"] { view-transition-name: advent-calendar; }@layer astro { ::view-transition-old(advent-calendar) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(advent-calendar) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(advent-calendar) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(advent-calendar) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-11"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-11"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-11"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-11"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-11"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-11"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-11"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-11"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-ju4pidww>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
 Skip to content
-</a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> Yucchiy&#39;s Note </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&#38;>li>a]:block [&#38;>li>a]:px-4 [&#38;>li>a]:py-3 [&#38;>li>a]:text-center [&#38;>li>a]:font-medium [&#38;>li>a]:hover:text-accent sm:[&#38;>li>a]:px-2 sm:[&#38;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts">
+</a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> Yucchiy&#39;s Note </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&amp;>li>a]:block [&amp;>li>a]:px-4 [&amp;>li>a]:py-3 [&amp;>li>a]:text-center [&amp;>li>a]:font-medium [&amp;>li>a]:hover:text-accent sm:[&amp;>li>a]:px-2 sm:[&amp;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts">
 Posts
 </a> </li> <li class="col-span-2"> <a href="/projects">
 Projects
 </a> </li> <li class="col-span-2"> <a href="/tags">
 Tags
-</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span> </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent" title="Toggles light & dark" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="mx-auto max-w-app px-4"> <hr class="border-border" aria-hidden="true"> </div> </header> <script type="module">function s(){const e=document.querySelector("#menu-btn"),t=document.querySelector("#menu-items"),n=document.querySelector("#menu-icon"),o=document.querySelector("#close-icon");!e||!t||!n||!o||e.addEventListener("click",()=>{const c=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",c?"false":"true"),e.setAttribute("aria-label",c?"Open Menu":"Close Menu"),t.classList.toggle("hidden"),n.classList.toggle("hidden"),o.classList.toggle("hidden")})}s();document.addEventListener("astro:after-swap",s);</script> <div class="mx-auto flex w-full max-w-app items-center justify-start px-4"><a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-6 flex items-center text-sm text-foreground/80 hover:text-accent"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg><span>Go back</span></a></div><script type="module">function o(){const t=document.querySelector("#back-button"),e=sessionStorage.getItem("backUrl");e&&t&&(t.href=e)}document.addEventListener("astro:page-load",o);o();</script> <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12" data-pagefind-body> <h1 class="inline-block text-balance text-2xl font-semibold tracking-tight text-heading sm:text-3xl" data-astro-transition-scope="astro-fam6wyqg-1"> Unity 6.3から使えるSprite Atlas Analyzerを触ってみる </h1> <div class="mt-4 flex items-center gap-2"> <div class="flex items-center gap-x-1.5 opacity-70"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block min-w-[1rem] text-accent size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg>  <time class="text-sm" datetime="2025-11-30T15:00:00.000Z">2025年12月1日</time> </div> <span aria-hidden="true" class="max-sm:hidden hidden">|</span>  </div> <div class="mt-5"> <div class="flex items-center gap-1"><div class="flex items-center"><a href="https://x.com/intent/post?url=https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html&text=Unity%206.3%E3%81%8B%E3%82%89%E4%BD%BF%E3%81%88%E3%82%8BSprite%20Atlas%20Analyzer%E3%82%92%E8%A7%A6%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B" class="group inline-block hover:text-accent p-1" title="Share this post on X"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg><span class="sr-only">Share this post on X</span></a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg><span class="sr-only">Share this post on Hatena Bookmark</span></a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg><span class="sr-only">Share this post on Facebook</span></a></div></div> <ul class="mt-2 flex flex-wrap items-center gap-1"> <li class="inline"> <a href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-2"> Unity </a> </li><li class="inline"> <a href="/tags/unity-6-3" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-3"> Unity 6.3 </a> </li><li class="inline"> <a href="/tags/2-d" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-4"> 2D </a> </li><li class="inline"> <a href="/tags/sprite-atlas" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-5"> Sprite Atlas </a> </li><li class="inline"> <a href="/tags/advent-calendar" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-6"> Advent Calendar </a> </li> </ul> </div> <article id="article" class="app-prose mx-auto mt-10 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"> <p><a href="https://qiita.com/advent-calendar/2025/applibot">Applibot Advent Calendar 2025</a> の1日目の記事です。</p>
+</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span>  </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span>  </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&amp;&gt;svg]:stroke-accent" title="Toggles light &amp; dark" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="mx-auto max-w-app px-4"> <hr class="border-border" aria-hidden="true"> </div> </header><script type="module">function e(){let e=document.querySelector(`#menu-btn`),t=document.querySelector(`#menu-items`),n=document.querySelector(`#menu-icon`),r=document.querySelector(`#close-icon`);e&&t&&n&&r&&e.addEventListener(`click`,()=>{let i=e.getAttribute(`aria-expanded`)===`true`;e.setAttribute(`aria-expanded`,i?`false`:`true`),e.setAttribute(`aria-label`,i?`Open Menu`:`Close Menu`),t.classList.toggle(`hidden`),n.classList.toggle(`hidden`),r.classList.toggle(`hidden`)})}e(),document.addEventListener(`astro:after-swap`,e);</script> <div class="mx-auto flex w-full max-w-app items-center justify-start px-4"> <a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-6 flex items-center text-sm text-foreground/80 hover:text-accent">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span>Go back</span>  </a> </div><script type="module">function e(){let e=document.querySelector(`#back-button`),t=sessionStorage.getItem(`backUrl`);t&&e&&(e.href=t)}document.addEventListener(`astro:page-load`,e),e();</script> <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12" data-pagefind-body> <h1 data-astro-transition-scope="astro-eq54l3i4-1" class="inline-block text-balance text-2xl font-semibold tracking-tight text-heading sm:text-3xl"> Unity 6.3から使えるSprite Atlas Analyzerを触ってみる </h1> <div class="mt-4 flex items-center gap-2"> <div class="flex items-center gap-x-1.5 opacity-70"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block min-w-[1rem] text-accent size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg>  <time class="text-sm" datetime="2025-11-30T15:00:00.000Z">2025年12月1日</time> </div> <span aria-hidden="true" class="max-sm:hidden hidden">|</span>  </div> <div class="mt-5"> <div class="flex items-center gap-1">  <div class="flex items-center"> <a href="https://x.com/intent/post?url=https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html&amp;text=Unity%206.3%E3%81%8B%E3%82%89%E4%BD%BF%E3%81%88%E3%82%8BSprite%20Atlas%20Analyzer%E3%82%92%E8%A7%A6%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B" class="group inline-block hover:text-accent p-1" title="Share this post on X">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Share this post on X</span>  </a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg> <span class="sr-only">Share this post on Hatena Bookmark</span>  </a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg> <span class="sr-only">Share this post on Facebook</span>  </a> </div> </div> <ul class="mt-2 flex flex-wrap items-center gap-1"> <li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-2" href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-3" href="/tags/unity-6-3" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity 6.3 </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-4" href="/tags/2-d" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> 2D </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-5" href="/tags/sprite-atlas" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Sprite Atlas </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-6" href="/tags/advent-calendar" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Advent Calendar </a> </li> </ul> </div> <article id="article" class="app-prose mx-auto mt-10 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"> <p><a href="https://qiita.com/advent-calendar/2025/applibot">Applibot Advent Calendar 2025</a> の1日目の記事です。</p>
 <p>この記事では、Unity 6.3から追加されたSprite Atlas Analyzerの機能と使い方について紹介します。</p>
 <h2 id="はじめに">はじめに</h2>
 <p>Sprite Atlasは、2Dの描画パフォーマンスを最適化するために必須の機能です。</p>
@@ -464,18 +462,18 @@ Tags
 <span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
 <h2 id="使い方">使い方</h2>
 <p>Sprite Atlas Analyzerを起動するには、<strong>Window</strong> > <strong>Analysis</strong> > <strong>Sprite Atlas Analyzer</strong> を選択します。下図のようなウインドウが表示されます。</p>
-<p><img  loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 2384px) 2384px, 100vw"  data-astro-image="constrained" width="2384" height="1648" src="/_astro/sprite-atlas-analyzer.8u0-k5N8_Z2kIPYf.webp" srcset="/_astro/sprite-atlas-analyzer.8u0-k5N8_28U5FO.webp 640w, /_astro/sprite-atlas-analyzer.8u0-k5N8_29s6U7.webp 750w, /_astro/sprite-atlas-analyzer.8u0-k5N8_OIJl8.webp 828w, /_astro/sprite-atlas-analyzer.8u0-k5N8_rXzYo.webp 1080w, /_astro/sprite-atlas-analyzer.8u0-k5N8_UcF4l.webp 1280w, /_astro/sprite-atlas-analyzer.8u0-k5N8_26VAj7.webp 1668w, /_astro/sprite-atlas-analyzer.8u0-k5N8_25gYYd.webp 2048w, /_astro/sprite-atlas-analyzer.8u0-k5N8_Z2kIPYf.webp 2384w"></p>
+<p><img alt="" loading="lazy" decoding="async" sizes="(min-width: 2384px) 2384px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2384" height="1648" src="/_astro/sprite-atlas-analyzer.8u0-k5N8_Z9VXv1.webp" srcset="/_astro/sprite-atlas-analyzer.8u0-k5N8_nyIH5.webp 640w, /_astro/sprite-atlas-analyzer.8u0-k5N8_o6JVn.webp 750w, /_astro/sprite-atlas-analyzer.8u0-k5N8_ZUBBCB.webp 828w, /_astro/sprite-atlas-analyzer.8u0-k5N8_1Pj0CN.webp 1080w, /_astro/sprite-atlas-analyzer.8u0-k5N8_2ix5HK.webp 1280w, /_astro/sprite-atlas-analyzer.8u0-k5N8_ZMsF1A.webp 1668w, /_astro/sprite-atlas-analyzer.8u0-k5N8_ZO8glu.webp 2048w, /_astro/sprite-atlas-analyzer.8u0-k5N8_Z9VXv1.webp 2384w"></p>
 <p>ウィンドウが開いたら、左下の <strong>Analyze</strong> ボタンをクリックすることで、プロジェクト内のSprite Atlasの分析が開始されます。分析が完了すると、画面右側にレポートが表示されます。</p>
-<p><img  loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 2384px) 2384px, 100vw"  data-astro-image="constrained" width="2384" height="1648" src="/_astro/sprite-atlas-analyzer-info.BMGbst02_25Dmeo.webp" srcset="/_astro/sprite-atlas-analyzer-info.BMGbst02_ZAeuYS.webp 640w, /_astro/sprite-atlas-analyzer-info.BMGbst02_27Y0f.webp 750w, /_astro/sprite-atlas-analyzer-info.BMGbst02_1Pkg2i.webp 828w, /_astro/sprite-atlas-analyzer-info.BMGbst02_Z14ew5v.webp 1080w, /_astro/sprite-atlas-analyzer-info.BMGbst02_1qApOq.webp 1280w, /_astro/sprite-atlas-analyzer-info.BMGbst02_ZvVrOs.webp 1668w, /_astro/sprite-atlas-analyzer-info.BMGbst02_Z1jIFkj.webp 2048w, /_astro/sprite-atlas-analyzer-info.BMGbst02_25Dmeo.webp 2384w"></p>
+<p><img alt="" loading="lazy" decoding="async" sizes="(min-width: 2384px) 2384px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2384" height="1648" src="/_astro/sprite-atlas-analyzer-info.BMGbst02_ZEc5cg.webp" srcset="/_astro/sprite-atlas-analyzer-info.BMGbst02_1BOXgA.webp 640w, /_astro/sprite-atlas-analyzer-info.BMGbst02_2fcsgI.webp 750w, /_astro/sprite-atlas-analyzer-info.BMGbst02_Z11Mova.webp 828w, /_astro/sprite-atlas-analyzer-info.BMGbst02_1srsD5.webp 1080w, /_astro/sprite-atlas-analyzer-info.BMGbst02_Z16TIfU.webp 1280w, /_astro/sprite-atlas-analyzer-info.BMGbst02_1NpexO.webp 1668w, /_astro/sprite-atlas-analyzer-info.BMGbst02_10C12X.webp 2048w, /_astro/sprite-atlas-analyzer-info.BMGbst02_ZEc5cg.webp 2384w"></p>
 <p>上図に示す通り、Sprite Atlas Analyzerウインドウは、左ペインに分析項目の一覧が表示され、右ペインには選択した分析項目の詳細情報が表示されます。</p>
 <h3 id="データソースの設定">データソースの設定</h3>
 <p>下図のように <strong>Analyze</strong> ボタン右側の <strong>…</strong> ボタンから <strong>Data Source Configuration</strong> パネルを開くと、分析対象のフォルダパスを追加・削除できます。特定のフォルダのみを分析対象としたい場合に便利です。</p>
-<p><img  loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 2206px) 2206px, 100vw"  data-astro-image="constrained" width="2206" height="1242" src="/_astro/data-source-configuration.D76MsGji_9A2ox.webp" srcset="/_astro/data-source-configuration.D76MsGji_ZIhi3c.webp 640w, /_astro/data-source-configuration.D76MsGji_sa9sE.webp 750w, /_astro/data-source-configuration.D76MsGji_Z19joc8.webp 828w, /_astro/data-source-configuration.D76MsGji_9TGe2.webp 1080w, /_astro/data-source-configuration.D76MsGji_Z14Y24B.webp 1280w, /_astro/data-source-configuration.D76MsGji_Z2be8h1.webp 1668w, /_astro/data-source-configuration.D76MsGji_2cpVfY.webp 2048w, /_astro/data-source-configuration.D76MsGji_9A2ox.webp 2206w"></p>
+<p><img alt="" loading="lazy" decoding="async" sizes="(min-width: 2206px) 2206px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2206" height="1242" src="/_astro/data-source-configuration.D76MsGji_Z2nU6FN.webp" srcset="/_astro/data-source-configuration.D76MsGji_198MYj.webp 640w, /_astro/data-source-configuration.D76MsGji_2kAfva.webp 750w, /_astro/data-source-configuration.D76MsGji_I6GPn.webp 828w, /_astro/data-source-configuration.D76MsGji_2mYauv.webp 1080w, /_astro/data-source-configuration.D76MsGji_185rbR.webp 1280w, /_astro/data-source-configuration.D76MsGji_1PkYs.webp 1668w, /_astro/data-source-configuration.D76MsGji_Zl5cOm.webp 2048w, /_astro/data-source-configuration.D76MsGji_Z2nU6FN.webp 2206w"></p>
 <h2 id="ビルトインレポート">ビルトインレポート</h2>
 <p>Sprite Atlas Analyzerには、以下の6種類のビルトインレポートが用意されています。</p>
 <h3 id="all-sprite-atlases">All Sprite Atlases</h3>
 <p>下図に示すように、Sprite Atlasの詳細情報をテーブル形式で表示します。</p>
-<p><img  loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 2228px) 2228px, 100vw"  data-astro-image="constrained" width="2228" height="526" src="/_astro/all-sprite-atlases.gne9k_xI_w5DPW.webp" srcset="/_astro/all-sprite-atlases.gne9k_xI_1WmVC5.webp 640w, /_astro/all-sprite-atlases.gne9k_xI_2joNyt.webp 750w, /_astro/all-sprite-atlases.gne9k_xI_Z3k9tW.webp 828w, /_astro/all-sprite-atlases.gne9k_xI_oCB6O.webp 1080w, /_astro/all-sprite-atlases.gne9k_xI_ZGCtKl.webp 1280w, /_astro/all-sprite-atlases.gne9k_xI_1sBo0R.webp 1668w, /_astro/all-sprite-atlases.gne9k_xI_Z1l4S7t.webp 2048w, /_astro/all-sprite-atlases.gne9k_xI_w5DPW.webp 2228w"></p>
+<p><img alt="" loading="lazy" decoding="async" sizes="(min-width: 2228px) 2228px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2228" height="526" src="/_astro/all-sprite-atlases.gne9k_xI_Z2eoLl2.webp" srcset="/_astro/all-sprite-atlases.gne9k_xI_1GUYqf.webp 640w, /_astro/all-sprite-atlases.gne9k_xI_23WQmD.webp 750w, /_astro/all-sprite-atlases.gne9k_xI_ZiL6FM.webp 828w, /_astro/all-sprite-atlases.gne9k_xI_Z2lQO5a.webp 1080w, /_astro/all-sprite-atlases.gne9k_xI_1C4dQB.webp 1280w, /_astro/all-sprite-atlases.gne9k_xI_Z1hS2b7.webp 1668w, /_astro/all-sprite-atlases.gne9k_xI_XBOut.webp 2048w, /_astro/all-sprite-atlases.gne9k_xI_Z2eoLl2.webp 2228w"></p>
 <p>表示される項目は下記の通りです。</p>
 
 
@@ -536,23 +534,23 @@ Tags
 <p>ちなみに、<strong>Texture Format</strong> などの項目は、<strong>現在のエディターのプラットフォーム</strong> におけるフォーマットが表示されます。</p>
 <h3 id="atlas-page-count">Atlas Page Count</h3>
 <p>設定した閾値以上のページ数を持つSprite Atlasを検出します。</p>
-<p><img  loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1848px) 1848px, 100vw"  data-astro-image="constrained" width="1848" height="1306" src="/_astro/atlas-page-count.DE3l5Gi2_2v2rCe.webp" srcset="/_astro/atlas-page-count.DE3l5Gi2_Zp7Wvf.webp 640w, /_astro/atlas-page-count.DE3l5Gi2_Z1AX6g9.webp 750w, /_astro/atlas-page-count.DE3l5Gi2_2163Wf.webp 828w, /_astro/atlas-page-count.DE3l5Gi2_1R9dDd.webp 1080w, /_astro/atlas-page-count.DE3l5Gi2_24Yz9W.webp 1280w, /_astro/atlas-page-count.DE3l5Gi2_1nsSoC.webp 1668w, /_astro/atlas-page-count.DE3l5Gi2_2v2rCe.webp 1848w"></p>
+<p><img alt="" loading="lazy" decoding="async" sizes="(min-width: 1848px) 1848px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1848" height="1306" src="/_astro/atlas-page-count.DE3l5Gi2_ZfrXyK.webp" srcset="/_astro/atlas-page-count.DE3l5Gi2_1Rs8wf.webp 640w, /_astro/atlas-page-count.DE3l5Gi2_FBYLl.webp 750w, /_astro/atlas-page-count.DE3l5Gi2_ZLuXOc.webp 828w, /_astro/atlas-page-count.DE3l5Gi2_1BHgrn.webp 1080w, /_astro/atlas-page-count.DE3l5Gi2_1OxBX7.webp 1280w, /_astro/atlas-page-count.DE3l5Gi2_Z1n1wMm.webp 1668w, /_astro/atlas-page-count.DE3l5Gi2_ZfrXyK.webp 1848w"></p>
 <p>上図の画面右下の「Atlas with pages greater than XXX」の「XXX」でページ数を設定できます。</p>
 <p>Unityは同じテクスチャページを共有するSpriteのみバッチ処理できるため、複数ページにまたがるAtlasはパフォーマンス問題の原因となりえます。</p>
 <h3 id="source-textures-with-compression">Source Textures with Compression</h3>
 <p>Sprite Atlasにパッキングされる前にすでに圧縮されているソーステクスチャを検出します。</p>
-<p><img  loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1848px) 1848px, 100vw"  data-astro-image="constrained" width="1848" height="1120" src="/_astro/source-textures-with-compression.ukWs3xYF_Z2r33HM.webp" srcset="/_astro/source-textures-with-compression.ukWs3xYF_ZFm7sa.webp 640w, /_astro/source-textures-with-compression.ukWs3xYF_Z2hmwTT.webp 750w, /_astro/source-textures-with-compression.ukWs3xYF_1sKwH6.webp 828w, /_astro/source-textures-with-compression.ukWs3xYF_13zi1O.webp 1080w, /_astro/source-textures-with-compression.ukWs3xYF_Zy4oYA.webp 1280w, /_astro/source-textures-with-compression.ukWs3xYF_Z2leI1l.webp 1668w, /_astro/source-textures-with-compression.ukWs3xYF_Z2r33HM.webp 1848w"></p>
+<p><img alt="" loading="lazy" decoding="async" sizes="(min-width: 1848px) 1848px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1848" height="1120" src="/_astro/source-textures-with-compression.ukWs3xYF_2avgY4.webp" srcset="/_astro/source-textures-with-compression.ukWs3xYF_22c3AW.webp 640w, /_astro/source-textures-with-compression.ukWs3xYF_qbD9d.webp 750w, /_astro/source-textures-with-compression.ukWs3xYF_ZSRq2I.webp 828w, /_astro/source-textures-with-compression.ukWs3xYF_Z1fqwMv.webp 1080w, /_astro/source-textures-with-compression.ukWs3xYF_2d6T01.webp 1280w, /_astro/source-textures-with-compression.ukWs3xYF_2gjBFv.webp 1668w, /_astro/source-textures-with-compression.ukWs3xYF_2avgY4.webp 1848w"></p>
 <p>上図では、<code>Star_Yellow_1024x1024</code> というAtlasを、<strong>RGB(A) Compressed ASTC 6x6 block</strong> で圧縮した上で、さらにSprite Atlasの方も <strong>RGB(A) Compressed ASTC 6x6 block</strong> で圧縮しています。</p>
 <p>ソーステクスチャがパッキング前に圧縮されていると、Sprite Atlasにパッキングされる際に二重圧縮となり、テクスチャ品質が劣化する可能性があります。</p>
 <h3 id="texture-space-wastage">Texture Space Wastage</h3>
 <p>設定した閾値（KB単位）以上の未使用領域（ここで未使用領域とは、ピクセルの色が透明な箇所）を持つSprite Atlasを検出します。</p>
-<p><img  loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 1848px) 1848px, 100vw"  data-astro-image="constrained" width="1848" height="1120" src="/_astro/texture-space-wastage.C686ePGy_1yanKl.webp" srcset="/_astro/texture-space-wastage.C686ePGy_q7uuA.webp 640w, /_astro/texture-space-wastage.C686ePGy_Z2eYe5F.webp 750w, /_astro/texture-space-wastage.C686ePGy_Zm577a.webp 828w, /_astro/texture-space-wastage.C686ePGy_Z1PxPOx.webp 1080w, /_astro/texture-space-wastage.C686ePGy_233tzv.webp 1280w, /_astro/texture-space-wastage.C686ePGy_ZJ6TJ5.webp 1668w, /_astro/texture-space-wastage.C686ePGy_1yanKl.webp 1848w"></p>
+<p><img alt="" loading="lazy" decoding="async" sizes="(min-width: 1848px) 1848px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1848" height="1120" src="/_astro/texture-space-wastage.C686ePGy_Z1leRzm.webp" srcset="/_astro/texture-space-wastage.C686ePGy_Z1kdQt9.webp 640w, /_astro/texture-space-wastage.C686ePGy_14QxJw.webp 750w, /_astro/texture-space-wastage.C686ePGy_Z27qt5T.webp 828w, /_astro/texture-space-wastage.C686ePGy_Zsdqb8.webp 1080w, /_astro/texture-space-wastage.C686ePGy_Z1DNeA1.webp 1280w, /_astro/texture-space-wastage.C686ePGy_1qEWJ9.webp 1668w, /_astro/texture-space-wastage.C686ePGy_Z1leRzm.webp 1848w"></p>
 <p>閾値は、上図の画面右下の「Texture Wastage size grater than XXX KB」の「XXX」によって調整できます。</p>
 <p>パッキングされたSprite間の未使用領域が多いと、利用することのない箇所を多く含むテクスチャをGPUに転送することにより、結果的にメモリ効率が悪くなります。</p>
 <p>この分析結果をもとにテクスチャ上の無駄な領域を減らすことで、より効率的にメモリを扱うように最適化できます。</p>
 <h3 id="sprite-count">Sprite Count</h3>
 <p>設定した数以下のSpriteしか含まないSprite Atlasを検出します。</p>
-<p><img  loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 2212px) 2212px, 100vw"  data-astro-image="constrained" width="2212" height="1102" src="/_astro/sprite-count.Bvb8MC_U_Z26KGgX.webp" srcset="/_astro/sprite-count.Bvb8MC_U_SBaHz.webp 640w, /_astro/sprite-count.Bvb8MC_U_2cO23n.webp 750w, /_astro/sprite-count.Bvb8MC_U_Zht18b.webp 828w, /_astro/sprite-count.Bvb8MC_U_pLOrU.webp 1080w, /_astro/sprite-count.Bvb8MC_U_Z222mak.webp 1280w, /_astro/sprite-count.Bvb8MC_U_1crd7h.webp 1668w, /_astro/sprite-count.Bvb8MC_U_Z1BMMax.webp 2048w, /_astro/sprite-count.Bvb8MC_U_Z26KGgX.webp 2212w"></p>
+<p><img alt="" loading="lazy" decoding="async" sizes="(min-width: 2212px) 2212px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2212" height="1102" src="/_astro/sprite-count.Bvb8MC_U_1AXzOR.webp" srcset="/_astro/sprite-count.Bvb8MC_U_2pNizn.webp 640w, /_astro/sprite-count.Bvb8MC_U_Z1laXSK.webp 750w, /_astro/sprite-count.Bvb8MC_U_1eI6IC.webp 828w, /_astro/sprite-count.Bvb8MC_U_219vUp.webp 1080w, /_astro/sprite-count.Bvb8MC_U_ZqEEGP.webp 1280w, /_astro/sprite-count.Bvb8MC_U_Z2hneea.webp 1668w, /_astro/sprite-count.Bvb8MC_U_25VtVi.webp 2048w, /_astro/sprite-count.Bvb8MC_U_1AXzOR.webp 2212w"></p>
 <p>閾値は、上図の画面右下の「Sprite Count is less than or equals to XXX」の「XXX」によって調整できます。</p>
 <p>少数のSpriteしか含まないSprite Atlasを特定することで、少量のSprite Atlas同士を統合したり、そもそも単体でしか使うことのできないSpriteはSprite Atlasを作らないなど、Spriteのパッキング方法を工夫できます。</p>
 <h3 id="secondary-texture-count-mismatch">Secondary Texture Count Mismatch</h3>
@@ -561,7 +559,7 @@ Tags
 <h2 id="カスタムレポートの作成">カスタムレポートの作成</h2>
 <p>Sprite Atlas Analyzerには、6種類のレポートがビルトインされていますが、独自のレポートを実装することで、プロジェクト固有のレポートを生成することもできます。</p>
 <p>2D Toolingパッケージには、カスタムレポートの作成方法を示すサンプルが2つ含まれています。Package Managerの <strong>Samples</strong> タブからインポートできます。</p>
-<p><img  loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 2282px) 2282px, 100vw"  data-astro-image="constrained" width="2282" height="1270" src="/_astro/import-samples.DUZe2ZAc_Z1lNN14.webp" srcset="/_astro/import-samples.DUZe2ZAc_Z27zTFh.webp 640w, /_astro/import-samples.DUZe2ZAc_5U5yd.webp 750w, /_astro/import-samples.DUZe2ZAc_WTvT3.webp 828w, /_astro/import-samples.DUZe2ZAc_Z1qjOpW.webp 1080w, /_astro/import-samples.DUZe2ZAc_HwSt0.webp 1280w, /_astro/import-samples.DUZe2ZAc_Rf34i.webp 1668w, /_astro/import-samples.DUZe2ZAc_Zd2w8I.webp 2048w, /_astro/import-samples.DUZe2ZAc_Z1lNN14.webp 2282w"></p>
+<p><img alt="" loading="lazy" decoding="async" sizes="(min-width: 2282px) 2282px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="2282" height="1270" src="/_astro/import-samples.DUZe2ZAc_ULi1q.webp" srcset="/_astro/import-samples.DUZe2ZAc_1A9mqy.webp 640w, /_astro/import-samples.DUZe2ZAc_Z1gwL8S.webp 750w, /_astro/import-samples.DUZe2ZAc_ZoxkN3.webp 828w, /_astro/import-samples.DUZe2ZAc_1UiG2p.webp 1080w, /_astro/import-samples.DUZe2ZAc_Z111IRz.webp 1280w, /_astro/import-samples.DUZe2ZAc_ZQjzhh.webp 1668w, /_astro/import-samples.DUZe2ZAc_24xySL.webp 2048w, /_astro/import-samples.DUZe2ZAc_ULi1q.webp 2282w"></p>
 <ul>
 <li><strong>Sample Sprite Atlas Report</strong>: ビルトインの <code>SpriteAtlasDataSource</code> を利用したカスタムレポートの実装例</li>
 <li><strong>Sample Sprite Data source And Report</strong>: 独自のデータソースとレポートを作成する実装例</li>
@@ -1076,7 +1074,7 @@ Tags
 <ul>
 <li><a href="https://discussions.unity.com/t/sprite-atlas-analyzer-in-unity-6-3-beta/1683242">Sprite Atlas Analyzer in Unity 6.3 Beta</a></li>
 <li><a href="https://docs.unity3d.com/Packages/com.unity.2d.tooling@1.0/manual/index.html">2D Tooling package</a></li>
-</ul> </article> <hr class="my-8 border-dashed">  <ul class="my-4 flex flex-wrap items-center gap-1"> <li class="inline"> <a href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-7"> Unity </a> </li><li class="inline"> <a href="/tags/unity-6-3" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-8"> Unity 6.3 </a> </li><li class="inline"> <a href="/tags/2-d" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-9"> 2D </a> </li><li class="inline"> <a href="/tags/sprite-atlas" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-10"> Sprite Atlas </a> </li><li class="inline"> <a href="/tags/advent-calendar" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent" data-astro-transition-scope="astro-36ssibgs-11"> Advent Calendar </a> </li> </ul> <div class="flex items-center gap-1 flex-col md:items-start"><span class="italic">Share this post on:</span><div class="flex items-center"><a href="https://x.com/intent/post?url=https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html&text=Unity%206.3%E3%81%8B%E3%82%89%E4%BD%BF%E3%81%88%E3%82%8BSprite%20Atlas%20Analyzer%E3%82%92%E8%A7%A6%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B" class="group inline-block hover:text-accent p-1" title="Share this post on X"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg><span class="sr-only">Share this post on X</span></a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg><span class="sr-only">Share this post on Hatena Bookmark</span></a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook"><svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg><span class="sr-only">Share this post on Facebook</span></a></div></div> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
+</ul> </article> <hr class="my-8 border-dashed">  <ul class="my-4 flex flex-wrap items-center gap-1"> <li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-7" href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-8" href="/tags/unity-6-3" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity 6.3 </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-9" href="/tags/2-d" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> 2D </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-10" href="/tags/sprite-atlas" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Sprite Atlas </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-11" href="/tags/advent-calendar" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Advent Calendar </a> </li> </ul> <div class="flex items-center gap-1 flex-col md:items-start"> <span class="italic">Share this post on:</span> <div class="flex items-center"> <a href="https://x.com/intent/post?url=https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html&amp;text=Unity%206.3%E3%81%8B%E3%82%89%E4%BD%BF%E3%81%88%E3%82%8BSprite%20Atlas%20Analyzer%E3%82%92%E8%A7%A6%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B" class="group inline-block hover:text-accent p-1" title="Share this post on X">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Share this post on X</span>  </a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg> <span class="sr-only">Share this post on Hatena Bookmark</span>  </a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/2025/12/sprite-atlas-analyzer-unity63.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg> <span class="sr-only">Share this post on Facebook</span>  </a> </div> </div> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
 Back To Top
 </span> </button> </div> <script data-astro-rerun>
   /** Scrolls the document to the top when
@@ -1146,7 +1144,7 @@ Back To Top
     });
   }
   backToTop();
-</script> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2"> <a href="/2025/12/project-auditor-intro" class="group flex w-full gap-2"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 inline-block size-5 flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div> <span class="text-sm text-foreground/70">Previous Post</span> <div class="mt-1 text-base leading-snug font-medium text-heading group-hover:text-accent"> Project Auditorを触ってみる </div> </div> </a> <a href="/2024/12/reviewing-2024" class="group flex w-full justify-end gap-2 text-end sm:col-start-2"> <div> <span class="text-sm text-foreground/70">Next Post</span> <div class="mt-1 text-base leading-snug font-medium text-heading group-hover:text-accent"> 2024年の振り返り </div> </div> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 inline-block size-5 flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </main> <footer class="w-full mt-auto"> <div class="mx-auto max-w-app px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/yucchiy" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on GitHub"> <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg> <span class="sr-only">Yucchiy&#39;s Note on GitHub</span> </a><a href="https://x.com/yucchiy_" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on X"> <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on X</span> </a><a href="https://www.linkedin.com/in/yucchiy/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on LinkedIn"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on LinkedIn</span> </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2026 Yucchiy&#39;s Note</span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>All rights reserved.</span> </div> </div> </footer>  </body></html> <!-- GLightbox CSS --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"> <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script> <script data-astro-rerun>
+</script> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2"> <a href="/2025/12/project-auditor-intro" class="group flex w-full gap-2"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 inline-block size-5 flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <div> <span class="text-sm text-foreground/70">Previous Post</span> <div class="mt-1 text-base leading-snug font-medium text-heading group-hover:text-accent"> Project Auditorを触ってみる </div> </div> </a> <a href="/2024/12/reviewing-2024" class="group flex w-full justify-end gap-2 text-end sm:col-start-2"> <div> <span class="text-sm text-foreground/70">Next Post</span> <div class="mt-1 text-base leading-snug font-medium text-heading group-hover:text-accent"> 2024年の振り返り </div> </div> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 inline-block size-5 flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </main> <footer class="w-full mt-auto"> <div class="mx-auto max-w-app px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/yucchiy" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on GitHub">  <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg> <span class="sr-only">Yucchiy&#39;s Note on GitHub</span>  </a><a href="https://x.com/yucchiy_" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on X">  <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on X</span>  </a><a href="https://www.linkedin.com/in/yucchiy/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on LinkedIn">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on LinkedIn</span>  </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2026 Yucchiy&#39;s Note</span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>All rights reserved.</span> </div> </div> </footer>  </body> </html> <!-- GLightbox CSS --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"> <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script> <script data-astro-rerun>
   /** Create a progress indicator
    *  at the top */
   function createProgressBar() {
