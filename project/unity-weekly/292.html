@@ -1,0 +1,600 @@
+<!DOCTYPE html><html dir="ltr" lang="ja" class="false" data-astro-cid-ju4pidww> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/project/unity-weekly/292.html"><meta name="generator" content="Astro v7.3.5"><!-- General Meta Tags --><title>Unity Weekly 292 | Yucchiy&#39;s Note</title><meta name="title" content="Unity Weekly 292 | Yucchiy's Note"><meta name="description" content="2026/10/19週のUnity Weeklyです。Unity Hub 4.0 Beta、Unity CLIによるライトベイクのコマンド、Foxy Dumplingsのマルチプラットフォーム開発、Triple-i Initiativeのショーケースなどを紹介しています。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Unity Weekly 292 | Yucchiy's Note"><meta property="og:description" content="2026/10/19週のUnity Weeklyです。Unity Hub 4.0 Beta、Unity CLIによるライトベイクのコマンド、Foxy Dumplingsのマルチプラットフォーム開発、Triple-i Initiativeのショーケースなどを紹介しています。"><meta property="og:url" content="https://blog.yucchiy.com/project/unity-weekly/292.html"><meta property="og:image" content="https://blog.yucchiy.com/project/unity-weekly/292/index.png"><!-- Article Published/Modified time --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/project/unity-weekly/292.html"><meta property="twitter:title" content="Unity Weekly 292 | Yucchiy's Note"><meta property="twitter:description" content="2026/10/19週のUnity Weeklyです。Unity Hub 4.0 Beta、Unity CLIによるライトベイクのコマンド、Foxy Dumplingsのマルチプラットフォーム開発、Triple-i Initiativeのショーケースなどを紹介しています。"><meta property="twitter:image" content="https://blog.yucchiy.com/project/unity-weekly/292/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity Weekly 292 | Yucchiy's Note","image":"https://blog.yucchiy.com/project/unity-weekly/292/index.png","datePublished":"undefined","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", PUBLIC_GA_MEASUREMENT_ID);
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+</style><style>[data-astro-transition-scope="astro-ixci5i7f-1"] { view-transition-name: unity-weekly-292; }@layer astro { ::view-transition-old(unity-weekly-292) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly-292) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly-292) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly-292) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ixci5i7f-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ixci5i7f-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ixci5i7f-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ixci5i7f-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ixci5i7f-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ixci5i7f-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ixci5i7f-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ixci5i7f-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-2"] { view-transition-name: unity-weekly; }@layer astro { ::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-3"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-4"] { view-transition-name: unity-weekly; }@layer astro { ::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-5"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-ju4pidww>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> Yucchiy&#39;s Note </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&amp;>li>a]:block [&amp;>li>a]:px-4 [&amp;>li>a]:py-3 [&amp;>li>a]:text-center [&amp;>li>a]:font-medium [&amp;>li>a]:hover:text-accent sm:[&amp;>li>a]:px-2 sm:[&amp;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/projects">
+Projects
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span>  </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span>  </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&amp;&gt;svg]:stroke-accent" title="Toggles light &amp; dark" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="mx-auto max-w-app px-4"> <hr class="border-border" aria-hidden="true"> </div> </header><script type="module">function e(){let e=document.querySelector(`#menu-btn`),t=document.querySelector(`#menu-items`),n=document.querySelector(`#menu-icon`),r=document.querySelector(`#close-icon`);e&&t&&n&&r&&e.addEventListener(`click`,()=>{let i=e.getAttribute(`aria-expanded`)===`true`;e.setAttribute(`aria-expanded`,i?`false`:`true`),e.setAttribute(`aria-label`,i?`Open Menu`:`Close Menu`),t.classList.toggle(`hidden`),n.classList.toggle(`hidden`),r.classList.toggle(`hidden`)})}e(),document.addEventListener(`astro:after-swap`,e);</script> <div class="mx-auto flex w-full max-w-app items-center justify-start px-4"> <a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-6 flex items-center text-sm text-foreground/80 hover:text-accent">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span>Go back</span>  </a> </div><script type="module">function e(){let e=document.querySelector(`#back-button`),t=sessionStorage.getItem(`backUrl`);t&&e&&(e.href=t)}document.addEventListener(`astro:page-load`,e),e();</script> <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12" data-pagefind-body> <h1 data-astro-transition-scope="astro-ixci5i7f-1" class="inline-block text-balance text-2xl font-semibold tracking-tight text-heading sm:text-3xl"> Unity Weekly 292 </h1> <div class="mt-4 flex items-center gap-2"> <div class="flex items-center gap-x-1.5 opacity-70"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block min-w-[1rem] text-accent size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg>  <time class="text-sm" datetime="2026-10-19T00:00:00.000Z">2026年10月19日</time> </div> </div> <div class="mt-5"> <div class="flex items-center gap-1">  <div class="flex items-center"> <a href="https://x.com/intent/post?url=https://blog.yucchiy.com/project/unity-weekly/292.html&amp;text=Unity%20Weekly%20292" class="group inline-block hover:text-accent p-1" title="Share this post on X">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Share this post on X</span>  </a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/project/unity-weekly/292.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg> <span class="sr-only">Share this post on Hatena Bookmark</span>  </a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/project/unity-weekly/292.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg> <span class="sr-only">Share this post on Facebook</span>  </a> </div> </div> <ul class="mt-2 flex flex-wrap items-center gap-1"> <li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-2" href="/tags/unity-weekly" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity Weekly </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-3" href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity </a> </li> </ul> </div> <article id="article" class="app-prose mx-auto mt-10 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"> <h2 id="unity-officials">Unity Officials</h2>
+<h3 id="now-available-unity-hub-40-beta">Now Available: Unity Hub 4.0 Beta</h3>
+<p><a href="https://discussions.unity.com/t/now-available-unity-hub-4-0-beta/1739331">Now Available: Unity Hub 4.0 Beta - Unity Hub - Unity Discussions</a></p>
+<p>Unity Hub 4.0 Betaの公開をアナウンスするディスカッションです。</p>
+<p>macOS、Windows、Linux向けのネイティブアプリとして一から作り直したもので、起動は約10倍速く、ダウンロードサイズは約4分の1になったとしています。
+Unity CLIとコアを共有しており、両方のツールが同じプロジェクト、Editor、サインインを参照します。</p>
+<p>ソース管理では、SSHを使うGitリモートに対応し、また、Git Credential Managerを設定してGitHubとGitLabへブラウザーからサインインできるため、personal access tokenの貼り付けが不要になりました。</p>
+<p>Linuxでは既存の <code>unityhub</code> パッケージをその場で更新するほか、Flatpakでの配布も始まりました。</p>
+<p>詳細は<a href="https://unity.com/unity-hub/release-notes#4.0.0-beta.1">リリースノート</a>を案内しており、4.0.0-beta.1（2026年10月14日）の主な項目は次のとおりです。</p>
+<ul>
+<li>What’s new
+<ul>
+<li>General
+<ul>
+<li><code>Cmd+F</code>（WindowsとLinuxは <code>Ctrl+F</code>）でProjects、Templates、Installsの検索へ移動できる</li>
+<li>システムの視差効果を減らす設定に従う</li>
+</ul>
+</li>
+<li>Source control
+<ul>
+<li>SSHを使うGitリモートはSSHエージェントが保持する鍵で動作する</li>
+<li>組織ごと、またはプロジェクトごとに選んだGitアカウントは、Unity CLI、IDE、Gitと共有される</li>
+<li>システムの資格情報マネージャーに保存済みのGitHubとGitLabのサインインを使う</li>
+<li>接続を切るとターミナルとIDEもサインアウトするため、事前に確認を求める</li>
+</ul>
+</li>
+<li>Installs
+<ul>
+<li>Install Editorダイアログに各バージョンのリリース日を表示する</li>
+</ul>
+</li>
+<li>Licenses
+<ul>
+<li>Linux Arm64では、FEX-Emuがインストールされていればライセンス処理が動作する</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Bug fixes &#x26; improvements
+<ul>
+<li>Projects
+<ul>
+<li>アカウントを切り替えると、インストールできるEditorリリースの一覧を更新する</li>
+</ul>
+</li>
+<li>Source control
+<ul>
+<li>Gitのクローンに進捗を表示し、Cancelで中止できる</li>
+<li>Git LFSがインストールされていれば、Git LFSのファイルを実ファイルとして取得する</li>
+<li>サブフォルダーにあるプロジェクトのリポジトリリンクがデフォルトブランチを開く</li>
+<li>Windowsで、アクセント付きや非ラテン文字のパスに対してUnity Version Controlが空のチェックインをしなくなった</li>
+<li>新規プロジェクトの最初のUnity Version Controlチェックインが失敗した時に報告する</li>
+</ul>
+</li>
+<li>Installs
+<ul>
+<li>キャンセルやクラッシュで残った部分的なダウンロードファイルを削除する</li>
+</ul>
+</li>
+<li>Custom templates
+<ul>
+<li>Editorで開いているプロジェクトからはテンプレートを作成できない</li>
+<li>非ラテン文字だけのテンプレート名を使える</li>
+</ul>
+</li>
+<li>General
+<ul>
+<li>Unity Editorのプロキシ設定（<code>UNITY_PROXYSERVER</code>、<code>UNITY_NOPROXY</code>）を使う</li>
+</ul>
+</li>
+<li>Security
+<ul>
+<li>バグレポートのログとHub自身のログにアカウント名とメールアドレスを含めない</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="upcoming-video-light-baking-with-unity-cli-commands-for-light-baking">Upcoming video: Light baking with Unity CLI (commands for light baking)</h3>
+<p><a href="https://discussions.unity.com/t/upcoming-video-light-baking-with-unity-cli-commands-for-light-baking/1739366">Upcoming video: Light baking with Unity CLI (commands for light baking) - Lighting &#x26; Global Illumination - Unity Discussions</a></p>
+<p>公開予定の動画「Light baking with Unity CLI」で使うスクリプトを先行して配布するディスカッションです。</p>
+<p>添付の<a href="https://discussions.unity.com/uploads/short-url/aZzuVKPkgaAGrSDRlUTVaQ4sK9O.zip">LightingCLI.zip</a>には、次の6つのカスタムコマンドを含む <code>.unitypackage</code> が入っています。</p>
+<ul>
+<li><code>lighting-viewset</code>：シーンのピン留めしたカメラビューを生成する</li>
+<li><code>lighting-bake</code>：複数のシーンを順にベイクし、それぞれをキャプチャする</li>
+<li><code>lighting-status</code>：進行中のベイクの状態を確認する</li>
+<li><code>lighting-capture</code>：シーンのビューをPNGとHTMLのコンタクトシートに描画する</li>
+<li><code>lighting-verify</code>：欠落または古くなったライティングデータを検出する</li>
+<li><code>lighting-report</code>：コミット間で差分を取れるJSONとしてライティングの統計を出力する</li>
+</ul>
+<p>要件はUnity 6000.6、URP、Pipelineパッケージ（<code>unity pipeline install</code>）で、<code>Assets > Import Package > Custom Package</code> で取り込みます。</p>
+<p>Asset Storeの外で共有するパッケージのため、Unityは未署名の警告を出しますが、想定どおりの挙動だとしています。</p>
+<p>プロジェクトフォルダーから <code>unity command lighting-viewset --scenes MyScene</code> のように実行する例を示し、詳細はzip内のREADMEと<a href="https://on.unity.com/UnityCLI_Docs">Unity CLIのドキュメント</a>を案内しています。</p>
+<p>ほかに欲しいコマンドのアイデアや質問も募っているとのことです。</p>
+<h3 id="information-on-account-suspension">Information on account suspension</h3>
+<p><a href="https://discussions.unity.com/t/information-on-account-suspension/1739213">Information on account suspension - News &#x26; General Discussion - Unity Discussions</a></p>
+<p>二要素認証（2FA）のリセット期限後にアカウントが停止されたユーザーへの対応を案内するディスカッションです。</p>
+<p>停止されたアカウントは、<a href="https://support.unity.com/hc/en-us/p/account_and_organization">サポート</a>の「Sign-in and account recovery」から連絡するよう案内しています。</p>
+<p>継続的なセキュリティ対策として、全ユーザーに<a href="https://cloud.unity.com/account/security">アカウントのセキュリティページ</a>で2FAを有効化または更新することを勧めています。</p>
+<p>停止中にプライバシー関連の請求を出したユーザーは、まずサポート経由でアクセスを回復したうえで、<a href="https://support.unity.com/hc/en-us/articles/33187219273876-How-can-I-request-a-personal-information-report-for-my-Unity-account">Unity Dashboardから請求を出し直す</a>必要があります。</p>
+<p>また、サポートへ送る内容をまとめた<a href="https://support.unity.com/hc/en-us/articles/54616227806612-My-Unity-account-was-suspended-after-the-2FA-deadline-How-do-I-get-it-back">ナレッジベースの記事</a>を案内しています。</p>
+<h3 id="how-soft-crunch-games-built-foxy-dumplings-for-every-platform">How Soft Crunch Games built Foxy Dumplings for every platform</h3>
+<p><a href="https://unity.com/blog/foxy-dumplings-cross-platform-development">How Soft Crunch Games built Foxy Dumplings for every platform - Unity Blog</a></p>
+<p>4人チームの<a href="https://softcrunch.games/">Soft Crunch Games</a>が、料理と経営のゲーム『<a href="https://store.steampowered.com/app/4184130/Foxy_Dumplings/">Foxy Dumplings</a>』を単一のコードベースからPC、コンソール、モバイルへ出荷した取り組みを紹介する記事です。</p>
+<p>全プラットフォームが同じコミットから同じビルドを得る方針を取り、ゲームプレイのコードはプラットフォームに依存させていません。
+セーブ、実績、クラウド同期などの固有処理はインターフェースの背後に置いて起動時に選び、約40のプラットフォームとストアの構成に対するコンパイルチェックをスクリプトで回しています。</p>
+<ul>
+<li>入力とUIは、ゲームパッド、キーボードとマウス、タッチの各操作体系を単独で完結させ、1つのボタンプロンプトのPrefabが使用中のデバイスに応じて表示を切り替える</li>
+<li>性能は最も弱いターゲットから実機でプロファイルし、レンダーテクスチャのサイズ削減と、言語切り替え時にフォントアトラスで起きるメモリスパイクを修正した</li>
+<li>セーブは移植可能な単一のバイナリ形式にし、クラウド同期は各プラットフォームのネイティブセーブと<a href="https://docs.unity.com/en-us/cloud-save">Unity Cloud Save</a>、アカウント連携は<a href="https://docs.unity.com/en-us/authentication">Unity Authentication</a>で構成した</li>
+</ul>
+<p>Unity 6.3 LTSではIL2CPPビルドが10〜15%ほど速くなったと報告しています。</p>
+<p>振り返りとして、Editorでは出ない問題が実機で見つかったため、もっと早く開発機にビルドを載せるべきだったと述べています。</p>
+<h3 id="all-unity-games-in-the-october-triple-i-initiative">All Unity games in the October Triple-i Initiative</h3>
+<p><a href="https://unity.com/blog/all-unity-games-triple-i-showcase">All Unity games in the October Triple-i Initiative - Unity Blog</a></p>
+<p>2026年10月に開催された<a href="https://iii-initiative.com/en/">Triple-i Initiative</a>のショーケースで紹介されたUnity製タイトルをまとめた記事です。</p>
+<p>春のショーケースから6か月後のサプライズ開催で、45分間にワールドプレミア、ゲームプレイ公開、発売日発表が詰め込まれ、紹介作品の半数以上がUnity製だったとしています。
+あわせて<a href="https://store.steampowered.com/sale/triple-i-initiative-2026">Triple-i Initiativeのセール</a>と<a href="https://store.steampowered.com/curator/45049063-Made-With-Unity-Official/list/145840/">Made with UnityのSteamキュレーターページ</a>を案内しています。</p>
+<p>紹介されている作品は次のとおりです。</p>
+<ul>
+<li>ワールドプレミアと新作発表
+<ul>
+<li>『Machinarium 2』（Amanita Design）：2009年作の続編</li>
+<li>『Dandelion Void』（Manzanita Interactive / Kwalee）：2027年に早期アクセス開始、デモ配信中</li>
+<li>『Lazare’s Sacrifice』（Dream Reality Interactive / Curve Games）：2027年春</li>
+<li>『Little Prince Tyger』（Saltitude / Team 17）：最初のプレイテストを受付中</li>
+<li>『The Escapists 3』（Team17）：2027年にPCとコンソール向け</li>
+<li>『Volatiles』（Team Instant Defeat / 11 bit studios）</li>
+</ul>
+</li>
+<li>発売日の発表
+<ul>
+<li>『Waltz and Jam』（Flyway Games / Krafton）：2026年12月3日、デモ配信中</li>
+<li>『PRISON OF HUSKS』（Glass Head Dolls / Wings）：2027年1月27日にPCとPS5向け、Steamデモ配信中</li>
+<li>『ROCKBEASTS』（LICHTHUND / CRITICAL ROLE）：2027年1月、初の公開デモ配信中</li>
+<li>『Among Us Story: On Guard』（Innersloth）：2027年2月17日</li>
+<li>『Trainwatch』（Harvester Games / 11 bit studios）：2027年3月10日、プレイテスト中</li>
+<li>『ReVamp』（Digital Sun Games / Forklift Interactive）：2027年3月25日、プレイテストの登録受付中</li>
+<li>『LIVING HELL』（Joe Fender / Future Friends Games）：2027年夏、プレイテスト中</li>
+<li>『SULFUR』（Perfect Random）：10月28日にコンソール版1.0</li>
+</ul>
+</li>
+<li>デモとプレイテスト
+<ul>
+<li>『Haunted Paws』（LazyFlock）：PCデモ配信中</li>
+<li>『Isle Goblin』（Kilowatt Games / Fireshine Games、Pocketpair Publishing）：プレイテスト中</li>
+<li>『Pony Island 2: Panda Circus』（Daniel Mullins Games）：Steamでプレイテスト中</li>
+<li>『Prospice: Anomalous Logistics』（Code Wakers / Forklift Interactive）：デモ配信中、2027年発売</li>
+<li>『Too Deep To Quit』（DEMON MAX）：デモ配信中</li>
+<li>『Vaultbreakers』（BetaDwarf / Square Enix Collective）：デモ配信中</li>
+</ul>
+</li>
+<li>既存タイトルの追加コンテンツ
+<ul>
+<li>『DAVE THE DIVER x Subnautica 2』（MINTROCKET）：コンテンツパックのDLCを2027年初頭に配信</li>
+<li>『Kingdom Two Crowns: Pharaoh Lands』（Fury Studios / Raw Fury）：2026年配信予定のDLC</li>
+<li>『Risk of Rain 2: Hallowed Concepts』（Gearbox Software、Hopoo Games / 2K Games）：4つ目のDLCが配信中</li>
+</ul>
+</li>
+</ul>
+<h2 id="articles">Articles</h2>
+<h3 id="unity大規模開発のaiコーディングで手戻りを減らすgrill-meで実装スコープを絞り込んだ実践例">Unity大規模開発のAIコーディングで手戻りを減らす。「grill-me」で実装スコープを絞り込んだ実践例</h3>
+<p><a href="https://blog.colopl.dev/entry/2026/10/08/110000">Unity大規模開発のAIコーディングで手戻りを減らす。「grill-me」で実装スコープを絞り込んだ実践例 - COLOPL Tech Blog</a></p>
+<p>コンパイルや実機確認に時間がかかるUnityの大規模タイトルで、Claude Codeに実装させる前に<a href="https://github.com/mattpocock/skills">grill-me</a>スキルで設計とスコープを絞り込んだ実践例を紹介しています。</p>
+<p>grill-meを使わずに依頼した場合、AIはコードベース内にある類似処理を見つけて流用しようとしましたが、その処理はPrefab構造が異なるため、流用するには周辺の複数のスクリプトまで変更する必要があり、大規模な改修案が提示されたとのことです。</p>
+<p><code>/grill-me</code> を使った場合は、状態管理の方針や連携通知の方式についてAIから質問を受け、開発者が流用案を却下して変更範囲を対象コンポーネント内に限定することで、実装後のコンパイルと実機確認を手戻りなく通せたとしています。</p>
+<p>設計の着地点が見えていて検証コストが高い運用中コードの改修に向き、素早い試行錯誤や探索的な設計比較には向かないと整理しています。</p>
+<p>執筆時点では処理本体が共通スキルの<a href="https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md">grilling</a>へ委譲されており、新規導入では <code>grilling</code> への移行が推奨されていることにも触れています。</p>
+<h3 id="自作unity-uiライブラリkumikoの内部設計を解説状態管理とgateの仕組み">自作Unity UIライブラリ「Kumiko」の内部設計を解説！状態管理とGateの仕組み</h3>
+<p><a href="https://zenn.dev/sorane/articles/cb454ee1f72202">自作Unity UIライブラリ「Kumiko」の内部設計を解説！状態管理とGateの仕組み - Zenn</a></p>
+<p>著者が開発するuGUI向けUIライブラリ<a href="https://github.com/SoraneDev/Kumiko">Kumiko</a>の内部設計のうち、UIの状態管理と、ボタンの決定入力に条件を加えるGateを解説しています。</p>
+<p>状態管理では、同時に成立しうる内部状態を <code>[Flags]</code> 付きの <code>InteractionFlags</code> で保持し、入力種別（Navigation / Pointer / Touch）に応じて表示用の <code>InteractionState</code> を1つに決定します。
+Gateは <code>Evaluate()</code> で状態を変えずに判定し、全Gateの最終結果を受けて <code>Commit()</code> で状態を更新する2段階にすることで、<code>DoubleClickGate</code> と <code>CooldownGate</code> を組み合わせても状態の食い違いが起きないようにしています。</p>
+<h3 id="unity-63の入力設計入門input-systemuiポーズリバインドの実践">Unity 6.3の入力設計入門：Input System・UI・ポーズ・リバインドの実践</h3>
+<p><a href="https://zenn.dev/gamedev_toollab/articles/761211b826ae6e">Unity 6.3の入力設計入門：Input System・UI・ポーズ・リバインドの実践 - Zenn</a></p>
+<p>Unity 6.3でInput Systemを使う入力設計を、ActionとBindingの基本、Project-wide Actionsによる読み取り、ポーリングAPIとフェーズの使い分け、Updateで保存してFixedUpdateで消費する入力の扱い、ポーズ、UI入力の分離、<code>PlayerInput</code>、リバインドと保存、文字入力とタッチ、Input Debuggerでの切り分けまで整理しています。
+操作の意味、入力の所有者、処理タイミング、状態遷移時の破棄条件を先に決めることを勧めています。</p>
+<h3 id="unity67からエディタ上部のtoolbarにメニュー項目をピン留め出来るようにunity">Unity6.7からエディタ上部のToolBarに、メニュー項目をピン留め出来るように【Unity】</h3>
+<p><a href="https://kan-kikuchi.hatenablog.com/entry/ToolbarPinning">Unity6.7からエディタ上部のToolBarに、メニュー項目をピン留め出来るように【Unity】 - (:3[kanのメモ帳]</a></p>
+<p>Unity 6.7（検証環境は6000.7.0a6）から、コードを書かずにEditor上部のツールバーへメニュー項目をピン留めできるようになったことを紹介しています。
+ツールバー右端の「⋮」から「Add Menu Item Shortcut」を選び、開いたウィンドウでメニュー項目を検索して選ぶと、そのメニューを開くボタンが追加される仕組みです。
+以前の記事で紹介した<a href="https://kan-kikuchi.hatenablog.com/entry/MainToolbarElement">プログラムでツールバーを拡張する方法</a>と同様のことができるとしています。</p> </article> <hr class="my-8 border-dashed"> <ul class="my-4 flex flex-wrap items-center gap-1"> <li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-4" href="/tags/unity-weekly" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity Weekly </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-5" href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity </a> </li> </ul> <div class="flex items-center gap-1 flex-col md:items-start"> <span class="italic">Share this post on:</span> <div class="flex items-center"> <a href="https://x.com/intent/post?url=https://blog.yucchiy.com/project/unity-weekly/292.html&amp;text=Unity%20Weekly%20292" class="group inline-block hover:text-accent p-1" title="Share this post on X">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Share this post on X</span>  </a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/project/unity-weekly/292.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg> <span class="sr-only">Share this post on Hatena Bookmark</span>  </a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/project/unity-weekly/292.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg> <span class="sr-only">Share this post on Facebook</span>  </a> </div> </div> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
+Back To Top
+</span> </button> </div> <script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+    const footer = document.querySelector("footer");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+
+      // Adjust button position when footer is visible (mobile only)
+      if (footer && window.innerWidth < 768) {
+        const footerRect = footer.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const buttonHeight = 56 + 32; // size-14 (56px) + bottom-8 (32px)
+
+        if (footerRect.top < viewportHeight) {
+          const offset = viewportHeight - footerRect.top + 16;
+          btnContainer.style.bottom = `${offset}px`;
+        } else {
+          btnContainer.style.bottom = "";
+        }
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">  <a href="/project/unity-weekly/291" class="group flex w-full justify-end gap-2 text-end sm:col-start-2"> <div> <span class="text-sm text-foreground/70">Next Post</span> <div class="mt-1 text-base leading-snug font-medium text-heading group-hover:text-accent"> Unity Weekly 291 </div> </div> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 inline-block size-5 flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </main> <footer class="w-full mt-auto"> <div class="mx-auto max-w-app px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/yucchiy" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on GitHub">  <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg> <span class="sr-only">Yucchiy&#39;s Note on GitHub</span>  </a><a href="https://x.com/yucchiy_" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on X">  <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on X</span>  </a><a href="https://www.linkedin.com/in/yucchiy/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on LinkedIn">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on LinkedIn</span>  </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2026 Yucchiy&#39;s Note</span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>All rights reserved.</span> </div> </div> </footer>  </body> </html> <!-- GLightbox CSS --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"> <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script> <script data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      // Check if --file-name-offset custom property exists
+      const computedStyle = getComputedStyle(codeBlock);
+      const hasFileNameOffset =
+        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
+
+      // Determine the top positioning class
+      const topClass = hasFileNameOffset
+        ? "top-(--file-name-offset)"
+        : "-top-3";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Initialize GLightbox for image zoom functionality */
+  function initializeLightbox() {
+    const images = document.querySelectorAll('.app-prose img');
+
+    images.forEach((img) => {
+      // data属性を設定してライトボックス対象として識別（個別表示）
+      img.setAttribute('data-glightbox', '');
+
+      // alt属性があればタイトルとして表示
+      if (img.alt) {
+        img.setAttribute('title', img.alt);
+      }
+    });
+
+    // GLightboxインスタンス作成
+    const lightbox = GLightbox({
+      selector: '[data-glightbox]',
+      descPosition: 'bottom',
+      touchNavigation: true,
+      keyboardNavigation: false,
+      closeOnOutsideClick: true,
+      openEffect: 'zoom',
+      closeEffect: 'zoom',
+      zoomable: true,
+      draggable: true,
+    });
+  }
+  initializeLightbox();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () => {
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+
+    // GLightbox を再初期化
+    initializeLightbox();
+  });
+</script>
