@@ -6,7 +6,7 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
 </style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: cssnext\3067\307F\308B\6B21\4E16\4EE3-css\3068-post-css; }@layer astro { ::view-transition-old(cssnext\3067\307F\308B\6B21\4E16\4EE3-css\3068-post-css) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
@@ -312,7 +312,7 @@ PostCSSはCSSを入力として, 任意の処理(たとえばvendor prefixを自
 <h3 id="custom-properties--var">Custom properties &#x26; var()</h3>
 <p>カスタムプロパティはその名の通りユーザが自由にプロパティを定義するための機能で, <code>--property-name</code>と<code>var()</code>を用いる.
 様々な利用方法が考えられるが, 利用例としてSassなどの変数として利用するなどが考えられる.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>:root {</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>:root {</span></span>
 <span class="line"><span>    --accent-color: #f0825c; </span></span>
 <span class="line"><span>    --base-color: #4f5759;</span></span>
 <span class="line"><span>}</span></span>
@@ -327,7 +327,7 @@ PostCSSはCSSを入力として, 任意の処理(たとえばvendor prefixを自
 <p><code>--accent-color</code>と<code>--base-color</code>というカスタムプロパティを定義し, aタグとbodyタグ以下の要素にそれぞれ割り当てている.
 ここで, <code>var()</code>の第2引数にはフォールバック値が割り当てられる. 上記では<code>--accent-color</code>が定義されていない時,
 かわりに<code>black</code>がcolorとして割り当てられる.上記をコンパイルすると以下の様なcssが出力される.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>a {</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>a {</span></span>
 <span class="line"><span>    color: #f0825c;</span></span>
 <span class="line"><span>}</span></span>
 <span class="line"><span></span></span>
@@ -340,7 +340,7 @@ PostCSSはCSSを入力として, 任意の処理(たとえばvendor prefixを自
 <h3 id="custom-media-queries">Custom media queries</h3>
 <p>カスタムメディアクエリを用いると, メディアクエリに名前が付けられるようになる. これによりメディアクエリに設計者の意図を伝えることができ,
 また, メディアクエリのサイズを変更したい場合に, カスタムメディアクエリの定義を変更するだけでよくなる(下記だと<code>--smarll-viewport</code>を変更するだけでよい).</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>@custom-media --small-viewport (max-width: 30em);</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>@custom-media --small-viewport (max-width: 30em);</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>@media (--small-viewport) {</span></span>
 <span class="line"><span>    .invisible-with-small-viewport {</span></span>
@@ -350,7 +350,7 @@ PostCSSはCSSを入力として, 任意の処理(たとえばvendor prefixを自
 <h3 id="media-queries-ranges">Media queries ranges</h3>
 <p>現状のメディアクエリでは, <code>min-width</code>と<code>max-width</code>を用いることで範囲を表現していたが, メディアクエリの範囲指定に<code>>=</code>と<code>&#x3C;=</code>を用いることができる.
 カスタムメディアクエリと併用すると, 以下の様な直感的なクエリが記述できる.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>@custom-media --small-viewport (width &#x3C;= 30em);</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>@custom-media --small-viewport (width &#x3C;= 30em);</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>@media (--small-viewport) {</span></span>
 <span class="line"><span>    .invisible-with-small-viewport {</span></span>
@@ -359,13 +359,13 @@ PostCSSはCSSを入力として, 任意の処理(たとえばvendor prefixを自
 <span class="line"><span>}</span></span></code></pre>
 <h3 id="custom-selectors">Custom selectors</h3>
 <p>カスタムセレクタを用いると, 既存のセレクタを用いて新たなセレクタを作成することができる.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>@custom-selector :--heading h1, h2, h3, h4, h5, h6;</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>@custom-selector :--heading h1, h2, h3, h4, h5, h6;</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>:--heading + p {</span></span>
 <span class="line"><span>    margin-bottom: 15px;</span></span>
 <span class="line"><span>}</span></span></code></pre>
 <p>上記のカスタムセレクタをコンパイルすると, 以下のCSSが出力される.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>h1 + p,</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>h1 + p,</span></span>
 <span class="line"><span>h2 + p,</span></span>
 <span class="line"><span>h3 + p,</span></span>
 <span class="line"><span>h4 + p,</span></span>
@@ -376,7 +376,7 @@ PostCSSはCSSを入力として, 任意の処理(たとえばvendor prefixを自
 <p>上記のように複数のセレクタにまとめてスタイルを適用したり, 複数からなるセレクタを一つにまとめることでコードの重複を防いだりなど, 様々な用途が考えられる.</p>
 <h3 id="colorhwbgrayrrggbbaa">color()・hwb()・gray()・#rrggbbaa</h3>
 <p>色指定を行う関数がいくつか実装されている. カラー表現を数値で行うことができるため, 上記の<code>calc()</code>関数と併用してつかうなど用途が考えられる.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>.foo {</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>.foo {</span></span>
 <span class="line"><span>    color: gray(0);</span></span>
 <span class="line"><span>}</span></span>
 <span class="line"><span></span></span>
@@ -401,7 +401,7 @@ SassやStylusにあるネストやミックスイン構文などはサポート�
 cssnextを導入してもそのような構文は利用できずに辛い, という意見はあると思う.
 そういうときには, <strong>PostCSSのプラグインを足すことで</strong>ネストやミックスイン構文を追加することができる.
 例えば, <a href="https://github.com/postcss/postcss-mixins">postcss-mixins</a>と<a href="https://github.com/postcss/postcss-nested">postcss-nested</a>を追加すると以下の様なCSSが書ける.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>@custom-media --mobile (width &#x3C;= 640px);</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>@custom-media --mobile (width &#x3C;= 640px);</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>@define-mixin social-icon $color {</span></span>
 <span class="line"><span>    background: $color;</span></span>

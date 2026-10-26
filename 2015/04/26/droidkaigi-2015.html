@@ -6,7 +6,7 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
 </style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: droid-kaigi\306B\53C2\52A0\3057\3066\304D\305F; }@layer astro { ::view-transition-old(droid-kaigi\306B\53C2\52A0\3057\3066\304D\305F) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
@@ -221,12 +221,12 @@ Tags
 IDEのサポートが手厚いのはかなり安心できるし, なにより<strong>Android StudioにKotlinプラグインを導入するだけで利用できる</strong> という手軽さは大きいと思う.</p>
 <p>安全という点ではnull safeである言語設計は良いなと思う.
 JavaではOptionalが導入されたが, 以下の様なソースはコンパイルが普通に通る.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Optional&#x3C;String> hoge = null;</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Optional&#x3C;String> hoge = null;</span></span></code></pre>
 <p><strong>誰にもnullは止められない.</strong></p>
 <p>Kotlinでは, デフォルトでnullの代入を禁止している. Swiftでも同じような機能があるため馴染みがあると思う.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>var hoge: String = null; // NG</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>var hoge: String = null; // NG</span></span></code></pre>
 <p>また, 以下の様に高階関数でコレクション操作が行える.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>(1..999)</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>(1..999)</span></span>
 <span class="line"><span>.filter { it % 3 == 0 || it % 5 == 0}</span></span>
 <span class="line"><span>.reduce {a, b -> a + b }</span></span></code></pre>
 <p>このへんはJava 8でもラムダ式がいい感じにかけるが, <strong>AndroidのJava 8対応していないので利用できず</strong>, Kotlin最高ってなる.</p>

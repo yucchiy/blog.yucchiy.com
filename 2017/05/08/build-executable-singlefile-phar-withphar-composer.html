@@ -6,7 +6,7 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
 </style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: composer\7BA1\7406\306E-ph-p\30D7\30ED\30B8\30A7\30AF\30C8\304B\3089\5B9F\884C\53EF\80FD\306Aphar\3092\4F5C\308B; }@layer astro { ::view-transition-old(composer\7BA1\7406\306E-ph-p\30D7\30ED\30B8\30A7\30AF\30C8\304B\3089\5B9F\884C\53EF\80FD\306Aphar\3092\4F5C\308B) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
@@ -283,7 +283,7 @@ Tags
 公式では1を推奨しています。</p>
 <h2 id="利用方法">利用方法</h2>
 <p>HTTP Clientの<a href="http://docs.guzzlephp.org/en/latest/">Guzzle</a>を利用するスクリプトを書いて、pharを作ってみます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ mkdir sample-phar-compose</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ mkdir sample-phar-compose</span></span>
 <span class="line"><span>$ cd sample-phar-compose</span></span>
 <span class="line"><span>$ composer.phar init # composer.jsonが作られる</span></span>
 <span class="line"><span>$ vim composer.json # composer.jsonを編集して、requireとbinの項目を追記する</span></span>
@@ -306,7 +306,7 @@ Tags
 <span class="line"><span>$ composer.phar update # 依存するライブラリをダウンロードし、vendor/autoload.php を作る</span></span></code></pre>
 <p><code>bin/sample.php</code>をvendor binaryとして登録したので、このファイルを編集します。
 今回は、Guzzleの<a href="http://docs.guzzlephp.org/en/latest/">サンプル</a>をそのまま動かしてみます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>&#x3C;?php</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>&#x3C;?php</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>use GuzzleHttp\Client;</span></span>
 <span class="line"><span></span></span>
@@ -320,12 +320,12 @@ Tags
 <span class="line"><span></span></span>
 <span class="line"><span>$promise->wait();</span></span></code></pre>
 <p>そのまま実行してみます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ php bin/sample.php </span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ php bin/sample.php </span></span>
 <span class="line"><span>I completed! &#x3C;!DOCTYPE html></span></span>
 <span class="line"><span>... </span></span></code></pre>
 <h3 id="pharファイルを作成する">pharファイルを作成する</h3>
 <p>スクリプトが作成できたので、pharファイルを作成してみます。<code>phar-composer</code>は前述した1の方法でのインストールを前提とします。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ phar-composer.phar build . </span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ phar-composer.phar build . </span></span>
 <span class="line"><span>$ phar-composer.phar build .</span></span>
 <span class="line"><span>Your configuration disabled writing phar files (phar.readonly = On), please update your configuration or run with "php -d phar.readonly=off /Users/a13946/bin/phar-composer.phar", trying to re-spawn with correct config</span></span>
 <span class="line"><span>[1/1] Creating phar sample-phar-composer.phar</span></span>
@@ -349,7 +349,7 @@ Tags
 <p>pharファイルの作成には、サブコマンドの<code>build</code>を用います。第2引数にはビルド対象を指定します。結構<a href="https://github.com/clue/phar-composer#phar-composer-build">いろいろな指定方法</a>があるのですが、<code>composer.json</code>が存在するディレクトリを指定すればよい、ということを覚えておけば十分そうです。</p>
 <p>これで生成される<code>sample-phar-composer.phar</code>が、お目当てのスクリプトファイルになります。
 実行してみます。(http通信が成功していれば&#x26;外部のコンテンツが変わってなければ)先程と同じ結果が得られます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>php sample-phar-composer.phar</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>php sample-phar-composer.phar</span></span>
 <span class="line"><span>I completed! &#x3C;!DOCTYPE html></span></span>
 <span class="line"><span>... </span></span>
 <span class="line"><span></span></span></code></pre>

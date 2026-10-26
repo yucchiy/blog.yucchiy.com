@@ -6,7 +6,7 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
 </style><style>[data-astro-transition-scope="astro-ixci5i7f-1"] { view-transition-name: unity-weekly-034; }@layer astro { ::view-transition-old(unity-weekly-034) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
@@ -233,7 +233,7 @@ Tags
 <p><a href="https://www.patreon.com/posts/56602776">Shader Tutorial: Self-Drawing Lines | Team Dogpit on Patreon</a></p>
 <p>この記事では、Self-Drawing linesと呼ばれる効果を実装する方法について解説しています。</p>
 <p>「画像のどの領域がいつ頃描画されるか」という情報を保持したマスク画像を用意しておいて、</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>half progress = saturate(</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>half progress = saturate(</span></span>
 <span class="line"><span>    smoothstep(mask.r - _Falloff, mask.r + _Falloff, _Line)</span></span>
 <span class="line"><span>);</span></span></code></pre>
 <p>というような形でマスクを取って、実際の画像の輝度値としているようです。（ <code>_Line</code> が時間経過を表す変数で 0 ~ 1、 <code>mask.r</code> がマスク画像の輝度値となります）</p>

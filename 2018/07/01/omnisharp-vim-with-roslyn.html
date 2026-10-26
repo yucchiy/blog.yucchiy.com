@@ -6,7 +6,7 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
 </style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: roslyn\30D9\30FC\30B9\306E-omni-sharp-omnisharp-vim\3092-mac\3067\8A66\3059; }@layer astro { ::view-transition-old(roslyn\30D9\30FC\30B9\306E-omni-sharp-omnisharp-vim\3092-mac\3067\8A66\3059) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
@@ -306,16 +306,16 @@ Tags
 詳細は<a href="https://github.com/OmniSharp/omnisharp-roslyn/blob/master/BUILD.md">こちら</a>が参考にするとよい。</p>
 <p>ビルドするためには、.NET 4.6なので、事前にインストールしておく必要がある。</p>
 <p>またmacOSでビルド・実行するにはMono5.2.0が必要である。インストールは<a href="http://www.mono-project.com/download/stable/">.pkg</a>か、Homebrewを用いるとよい。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>brew update</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>brew update</span></span>
 <span class="line"><span>brew install mono</span></span>
 <span class="line"><span>brew install caskroom/cask/mono-mdk</span></span></code></pre>
 <p>ソースをビルドするには、<a href="https://github.com/OmniSharp/omnisharp-roslyn">OmniSharp/omnisharp-roslyn</a>レポジトリを落としてきて、<code>build.sh</code>を実行する。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>cd Path/To/omnisharp-roslyn</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>cd Path/To/omnisharp-roslyn</span></span>
 <span class="line"><span>./build.sh</span></span></code></pre>
 <p>ビルドが成功すると、<code>artifacts/publish/OmniSharp.Http.Driver/OmniSharp.exe</code>が生成される。</p>
 <h3 id="python">Python</h3>
 <p>Pythonが利用可能かどうかは以下のコマンドを実行する</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>:echo has('python')</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>:echo has('python')</span></span></code></pre>
 <h3 id="asynchronous-command-execution">Asynchronous command execution</h3>
 <p>OmniSharp-vimは、次の条件を満たしている場合のみ、サーバーをの起動、非同期ビルドを実行できる。</p>
 <ul>
@@ -328,14 +328,14 @@ Tags
 この条件に当てはまらなければ、vim-dispatchかvimproc.vimをインストールすればよい。</p>
 <h2 id="how-to-use">How to Use</h2>
 <p>まずはOmniSharp-vimはインストールする。<code>NeoBundle</code>からインストールするには、以下を<code>.vimrc</code>に記述する</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>NeoBundleLazy 'OmniSharp/omnisharp-vim', {</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>NeoBundleLazy 'OmniSharp/omnisharp-vim', {</span></span>
 <span class="line"><span>      \   'autoload': { 'filetypes': [ 'cs', 'csi', 'csx' ] },</span></span>
 <span class="line"><span>      \ }</span></span></code></pre>
 <p>Roslynを言語サーバーとして利用するには以下のように設定する。</p>
 <p><code>OmniSharp_server_type</code>は、<a href="https://github.com/OmniSharp/omnisharp-vim/tree/96ec4327f1756f3090e4576749a9cc0ae0c5379c">2018/07/01現在のレポジトリ</a>では<code>roslyn</code>になっているが、念の為指定する。
 <code>OmniSharp_server_path</code>には、先程作成した<code>OmniSharp.exe</code>のパスを指定する。</p>
 <p>また、MacOSで実行するにはMonoが必要になる。そのため<code>OmniSharp_server_use_mono</code>を<code>1</code>として、monoで実行するようにする。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>let g:OmniSharp_server_type='roslyn'</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>let g:OmniSharp_server_type='roslyn'</span></span>
 <span class="line"><span>let g:OmniSharp_server_path = '/Path/To/OmniSharp.exe'</span></span>
 <span class="line"><span>let g:OmniSharp_server_use_mono = 1</span></span></code></pre>
 <p>OmniSharp-Roslynには<a href="http://libuv.org/">libuv</a>が必要になる。

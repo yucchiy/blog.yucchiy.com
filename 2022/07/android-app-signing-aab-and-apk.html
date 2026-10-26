@@ -6,7 +6,7 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
 </style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: android\306E-aab\FF08-android-app-bundle\FF09\306E\7F72\540D\306B\3064\3044\3066; }@layer astro { ::view-transition-old(android\306E-aab\FF08-android-app-bundle\FF09\306E\7F72\540D\306B\3064\3044\3066) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
@@ -223,13 +223,13 @@ Tags
 </li>
 </ul>
 <p>v1 スキームは、<a href="https://docs.oracle.com/javase/jp/1.5.0/tooldocs/windows/jarsigner.html">署名付きJAR</a>という方式に基づいています。つまりこの署名は、Android独自のものではなく、Javaエコシステムの署名を利用していると言えます。この署名を行うには <code>jarsigner</code> というツールを用いて下記のように署名します。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ jarsigner -verbose \</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ jarsigner -verbose \</span></span>
 <span class="line"><span>    -sigalg SHA256withRSA \</span></span>
 <span class="line"><span>    -digestalg SHA-256 \</span></span>
 <span class="line"><span>    -keystore test.keystore \</span></span>
 <span class="line"><span>    test.aab upload</span></span></code></pre>
 <p>一方で、v2スキーム以降の署名はAndroid独自の署名形式です。ツールも <code>apksigner</code> というツールを用いて下記のように署名します。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ apksigner sign --ks test.keystore test.apk</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ apksigner sign --ks test.keystore test.apk</span></span></code></pre>
 <h2 id="playアプリ署名">Playアプリ署名</h2>
 <p>Google Playでは、事前に登録しておいたアプリ署名鍵で、ディベロッパーに変わってアプリに署名する仕組みが用意されています。これを「Playアプリ署名」と言います。</p>
 <p><a href="https://support.google.com/googleplay/android-developer/answer/9842756?hl=ja">Play アプリ署名を使用する - Play Console ヘルプ</a></p>
@@ -247,7 +247,7 @@ Tags
 </ol>
 <h3 id="アップロード鍵の作成">アップロード鍵の作成</h3>
 <p>アップロード鍵を作成するのに<a href="https://developer.android.com/studio/publish/app-signing#generate-key"> Android Studioによる鍵の作成方法が公式ドキュメントで紹介されています</a>が、 <code>keytool</code> での作成方法を紹介します。キー作成の方法は下記のとおりです。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ keytool -genkey -v \</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ keytool -genkey -v \</span></span>
 <span class="line"><span>    -keystore test.keystore \</span></span>
 <span class="line"><span>    -storepass himitsu-no-storepass \</span></span>
 <span class="line"><span>    -alias upload \</span></span>
@@ -259,7 +259,7 @@ Tags
 <p>上記コマンドを実行後に、下記のような内容を確認されますが、適当なものを入力します。入力が完了するとキーストアが作成されます。</p>
 <p><img alt="" loading="lazy" decoding="async" sizes="(min-width: 753px) 753px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="753" height="309" src="/_astro/E1AC8235E733AD2732F0FDE3B3B7BB56.DIVWMLdo_ObnCf.webp" srcset="/_astro/E1AC8235E733AD2732F0FDE3B3B7BB56.DIVWMLdo_Z1a04DR.webp 640w, /_astro/E1AC8235E733AD2732F0FDE3B3B7BB56.DIVWMLdo_Z1tFPFU.webp 750w, /_astro/E1AC8235E733AD2732F0FDE3B3B7BB56.DIVWMLdo_ObnCf.webp 753w"></p>
 <p>キーストアに保存されている鍵を確認するのも <code>keystore</code> で行えます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ keytool -list \</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ keytool -list \</span></span>
 <span class="line"><span>    -keystore test.keystore \</span></span>
 <span class="line"><span>    -storepass himitsu-no-storepass</span></span>
 <span class="line"><span>Keystore type: jks</span></span>
@@ -271,7 +271,7 @@ Tags
 <span class="line"><span>Certificate fingerprint (SHA1): 89:7F:BE:D8:B0:BE:27:C0:D2:86:32:E1:87:0F:A3:E8:28:C5:08:21</span></span></code></pre>
 <p>行最後の <code>upload, Jul 21, 2022, PrivateKeyEntry</code> というところが先ほど作った <code>upload</code> 鍵のエントリになります。</p>
 <p>先述しましたが、aabをCLIで作成したアップロード鍵で署名するには、下記のように <code>jarsigner</code> で行なえます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ jarsigner -verbose \</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ jarsigner -verbose \</span></span>
 <span class="line"><span>    -sigalg SHA256withRSA \</span></span>
 <span class="line"><span>    -digestalg SHA-256 \</span></span>
 <span class="line"><span>    -keystore test.keystore \</span></span>
@@ -281,7 +281,7 @@ Tags
 <span class="line"><span>    upload</span></span></code></pre>
 <p><code>test.aab</code> が署名したいAAB、 <code>upload</code> が先ほど作成した鍵のエイリアスです。</p>
 <p>署名の確認には <code>keytoole</code> を利用します。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ keytool -printcert -jarfile test.aab</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plain"><code><span class="line"><span>$ keytool -printcert -jarfile test.aab</span></span>
 <span class="line"><span>Signer #1:</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>Signature:</span></span>

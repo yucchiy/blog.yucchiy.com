@@ -6,7 +6,7 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
 </style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: understanding-xargs; }@layer astro { ::view-transition-old(understanding-xargs) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
@@ -135,11 +135,11 @@ Tags
 </ul>
 <h2 id="xargsの動作">xargsの動作</h2>
 <p>xargsは標準入力を受け取って, それを指定したコマンドに渡して実行するコマンドである.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ seq 10 | xargs echo</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ seq 10 | xargs echo</span></span>
 <span class="line"><span>1 2 3 4 5 6 7 8 9 10</span></span></code></pre>
 <p>seqコマンドは, 標準出力に連番の数字を改行付きで出力するコマンドである.
 上記は以下のコマンドの実行と同じである.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>echo 1 2 3 4 5 6 7 8 9 10</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>echo 1 2 3 4 5 6 7 8 9 10</span></span></code></pre>
 <p>このようにxargsは, <code>seq 10</code>の標準出力を受け取ってechoの引数として
 展開するというコマンドになる.</p>
 <h2 id="xargsのオプション">xargsのオプション</h2>
@@ -148,24 +148,24 @@ Tags
 <p>xargsの注意点として, 標準入力をすべて引数として展開してしまうことだ.
 引数は渡せる数に上限があり(<code>ARG_MAX</code>で指定されている), 例えば以下の様な
 操作をするときに問題がある.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ find . -name '*.txt' | wc -l</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ find . -name '*.txt' | wc -l</span></span>
 <span class="line"><span>   100000</span></span>
 <span class="line"><span>$ find . -name '*.txt' | xargs rm</span></span></code></pre>
 <p>つまり, findコマンドが出力したすべてのファイルパスをrmコマンドに引数として
 渡してしまい, 上記の上限に達したことでrmコマンドが実行できなくなってしまう.
 この問題を解決する方法として, <code>-n</code>オプションで, xargsが渡す引数の数を指定する.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ seq 9 | xargs -n 3 echo</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ seq 9 | xargs -n 3 echo</span></span>
 <span class="line"><span>1 2 3</span></span>
 <span class="line"><span>4 5 6</span></span>
 <span class="line"><span>7 8 9</span></span></code></pre>
 <p>上記の例ではxargsが渡す引数の上限を3とする. つまり以下のコマンドを実行される.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>echo 1 2 3</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>echo 1 2 3</span></span>
 <span class="line"><span>echo 4 5 6</span></span>
 <span class="line"><span>echo 7 8 9</span></span></code></pre>
 <p>上記を利用することで, 引数を渡しすぎないように調整することができる.</p>
 <h3 id="-p-max-procs">-P max-procs</h3>
 <p><code>-P</code>オプションでは, 並列実行するプロセス数を指定することができる.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ find . -name '*.txt' | xargs -P 4 -n 1 ./omotaiscript</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ find . -name '*.txt' | xargs -P 4 -n 1 ./omotaiscript</span></span></code></pre>
 <p>xargsで簡単に並列実行できて便利である. 例えば動画のエンコードなどを並列に
 実行したい場合などに便利かもしれない.</p>
 <h3 id="-i-replace-str">-I replace-str</h3>
@@ -173,7 +173,7 @@ Tags
 引数を渡す場所を指定したい場合もある. これは<code>-I</code>オプションを用いることで
 実現できる.
 <code>-I replace-str</code>で設定した文字列<code>replace-str</code>は, コマンド中で引数に置き換える.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ ls</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ ls</span></span>
 <span class="line"><span>$ seq 10 | xargs -I {} touch "{}.txt"</span></span>
 <span class="line"><span>$ ls</span></span>
 <span class="line"><span>1.txt  10.txt 2.txt  3.txt  4.txt  5.txt  6.txt  7.txt  8.txt  9.txt</span></span></code></pre>

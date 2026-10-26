@@ -6,7 +6,7 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
 </style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: fig\3067-rails\306E\958B\767A\74B0\5883\3092\69CB\7BC9\3059\308B; }@layer astro { ::view-transition-old(fig\3067-rails\306E\958B\767A\74B0\5883\3092\69CB\7BC9\3059\308B) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
@@ -80,7 +80,7 @@ Tags
 <h3 id="ベースとなるrubyのコンテナイメージを作成">ベースとなるRubyのコンテナイメージを作成</h3>
 <p>まず, dockerでRailsの実行環境を構築する. 上記のサンプルを動作させるには, ruby 2.0.0 の実行環境が必要である.
 Ubuntu14.04上でそのような環境を構築するために, 以下の<code>Dockerfile</code>を用意し, ベースとなるイメージを用意する.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>FROM ubuntu:14.04</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>FROM ubuntu:14.04</span></span>
 <span class="line"><span>ENV DEBIAN_FRONTEND noninteractive</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>RUN apt-get update &#x26;&#x26; \</span></span>
@@ -103,7 +103,7 @@ Ubuntu14.04上でそのような環境を構築するために, 以下の<code>D
 <span class="line"><span>RUN echo 'gem: --no-rdoc --no-ri' >> /.gemrc</span></span>
 <span class="line"><span>RUN bash -l -c 'rbenv global $RUBY_VERSION; gem install bundler;'</span></span></code></pre>
 <p>以下のコマンドでビルドを行う.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ docker build --tag=yucchiy/ruby:2.0.0 .</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ docker build --tag=yucchiy/ruby:2.0.0 .</span></span></code></pre>
 <p>このような用途のイメージは使いまわしやすいので, 上記のようにして, イメージを分割しておくと良い(更にいうと ベースとなるOSに
 gitやsshといった, どこでも使いそうなパッケージをインストールしたベースパッケージを用意しておくとGood).
 この時, <a href="https://github.com/y-uuki/dockerfiles/blob/master/perl/5.20.1/Dockerfile">イメージサイズを小さくする工夫しておく</a>
@@ -112,7 +112,7 @@ gitやsshといった, どこでも使いそうなパッケージをインスト
 <a href="https://github.com/yucchiy/dockerfiles/blob/master/mysql/Makefile">Makefileでタスクを管理</a>すると, 何かと便利である.)</p>
 <h3 id="アプリケーションを実行するためのコンテナの作成">アプリケーションを実行するためのコンテナの作成</h3>
 <p>上記のRubyコンテナを用いて, サンプルの実行環境を構築する. 具体的には以下の<code>Dockerfile</code>を用意する.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>FROM yucchiy/ruby:2.0.0</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>FROM yucchiy/ruby:2.0.0</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>RUN \</span></span>
 <span class="line"><span>    apt-get install -yq --force-yes mysql-client-5.5 libmysqlclient-dev libssl-dev nodejs &#x26;&#x26; \</span></span>
@@ -133,47 +133,47 @@ gitやsshといった, どこでも使いそうなパッケージをインスト
 <h2 id="figによる複数コンテナの管理">Figによる複数コンテナの管理</h2>
 <p>Figを用いて, 複数コンテナの管理をする. 具体的には<code>fig.yml</code>を用意する. 以下に, サンプルソースを, MySQLを用いて
 実行するための<code>fig.yml</code>の例を示す.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="yaml"><code><span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">db</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  image</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D"> mysql:5.6</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  environment</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span></span>
-<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">    - </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">MYSQL_ROOT_PASSWORD=himitsunopassword</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  ports</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span></span>
-<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">    - </span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">3306</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  volumes</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span></span>
-<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">    - </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">/storage/mysql:/var/lib/mysql</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">web</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  build</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> .</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  command</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D"> bash -l -c 'bundle exec rails server --port=3000 --binding=0.0.0.0'</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  ports</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span></span>
-<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">    - </span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">3000:3000</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  volumes</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span></span>
-<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">    - </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">./sample_app_rails_4:/app</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  links</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span></span>
-<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">    - </span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D">db</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="yaml"><code><span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">db</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  image</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> mysql:5.6</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  environment</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    -</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> MYSQL_ROOT_PASSWORD=himitsunopassword</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  ports</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    -</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">3306</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  volumes</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    -</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> /storage/mysql:/var/lib/mysql</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">web</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  build</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> .</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  command</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> bash -l -c 'bundle exec rails server --port=3000 --binding=0.0.0.0'</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  ports</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    -</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">3000:3000</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  volumes</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    -</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> ./sample_app_rails_4:/app</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  links</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    -</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> db</span></span></code></pre>
 <p><a href="http://www.fig.sh/yml.html">公式ドキュメント</a>と, <a href="http://www.fig.sh/rails.html">公式のRails環境の構築方法</a>を参考にした.</p>
 <p>今回, MySQLのコンテナとして, <a href="https://registry.hub.docker.com/_/mysql/">https://registry.hub.docker.com/_/mysql/</a>を用いた.
 設定を変更するにはいくつか方法があるが, <code>/etc/mysql</code>が<code>VOLUME</code>に登録されているらしく,
 複数の設定を変更したいときは, <code>/home/my-etcmysql:/etc/mysql</code>という感じで<code>/etc/mysql</code>に自分のディレクトリをマウントすることで,
 ごっそり設定ファイルを入れ替えることができる.</p>
 <p>次に, 以下のコマンドでコンテナのビルドを行う.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ fig build</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ fig build</span></span></code></pre>
 <h3 id="データベースの設定">データベースの設定</h3>
 <p>figで管理しているデータベースの設定は, <a href="https://docs.docker.com/userguide/dockerlinks/">環境変数を介して取得できる</a>.
 アプリケーションのコンテナに設定されている環境変数は, 以下のコマンドで確認できる.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ fig run web env</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ fig run web env</span></span></code></pre>
 <p>これを用いてデータベースの接続先を設定するには, 以下のように記述する.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="yaml"><code><span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">development</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  adapter</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D"> mysql2</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  encoding</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D"> utf8</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  database</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D"> sample_app_rails_4_development</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  user</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D"> root</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  password</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D"> &#x3C;%= ENV['DB_ENV_MYSQL_ROOT_PASSWORD'] %></span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  host</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D"> &#x3C;%= ENV['DB_PORT_3306_TCP_ADDR'] %></span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  port</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#ECC48D"> &#x3C;%= ENV['DB_PORT_3306_TCP_PORT'] %></span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">  timeout</span><span style="--shiki-light:#D32F2F;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#1976D2;--shiki-dark:#F78C6C"> 5000</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="yaml"><code><span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">development</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  adapter</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> mysql2</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  encoding</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> utf8</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  database</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> sample_app_rails_4_development</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  user</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> root</span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  password</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> &#x3C;%= ENV['DB_ENV_MYSQL_ROOT_PASSWORD'] %></span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  host</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> &#x3C;%= ENV['DB_PORT_3306_TCP_ADDR'] %></span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  port</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D"> &#x3C;%= ENV['DB_PORT_3306_TCP_PORT'] %></span></span>
+<span class="line"><span style="--shiki-light:#998418;--shiki-dark:#B8A965">  timeout</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#2F798A;--shiki-dark:#4C9A91"> 5000</span></span></code></pre>
 <h3 id="データベースの作成マイグレーション">データベースの作成・マイグレーション</h3>
 <p><code>fig run</code>を用いて, 以下のように行う.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ fig run web bash -l -c 'bundle exec rake db:create db:migrate'</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ fig run web bash -l -c 'bundle exec rake db:create db:migrate'</span></span></code></pre>
 <h3 id="figによるコンテナの起動">Figによるコンテナの起動</h3>
 <p><code>fig up</code>で, 管理しているコンテナをまとめて起動できる. また, 個別に起動をすることも可能である.</p>
 <h2 id="まとめ">まとめ</h2>
@@ -181,16 +181,16 @@ gitやsshといった, どこでも使いそうなパッケージをインスト
 <h2 id="参考環境構築">参考(環境構築)</h2>
 <h3 id="homebrewによるツールのインストール">Homebrewによるツールのインストール</h3>
 <p>今回想定する環境では, 今回利用するDocker・Boot2docker・Figは, いずれもHomebrewでインストールできる.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ brew install docker boot2docker fig</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ brew install docker boot2docker fig</span></span></code></pre>
 <h3 id="boot2dockerのセットアップ">Boot2dockerのセットアップ</h3>
 <p>boot2dockerを利用するためには, まず初期化を行う.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ boot2docker init</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ boot2docker init</span></span></code></pre>
 <p>次に, boot2dockerに環境変数を設定する. 以下のコマンドを実行することで, 一括で設定を行うことができる.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$(boot2docker initshell)</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$(boot2docker initshell)</span></span></code></pre>
 <p>以下を実行することで出力される設定をそのまま<code>.bashrc</code>に書いても良いが,
 <a href="http://qiita.com/deeeet/items/518704402e9bc5995ecc">このコマンドをシェル起動時都度実行する</a>ほうが良い.</p>
 <p>設定後は, 以下のコマンドでboot2dockerを操作できる.</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ boot2docker start # 起動</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ boot2docker start # 起動</span></span>
 <span class="line"><span>$ boot2docker stop  # 終了</span></span></code></pre>
 <h3 id="参考ページ">参考ページ</h3>
 <ul>

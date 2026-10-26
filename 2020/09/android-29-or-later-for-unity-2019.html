@@ -6,7 +6,7 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
 </style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: unity-2019-\306E-android-build-support\3067\3082-api-level-29-\3067\30D3\30EB\30C9\3067\304D\308B\3088\3046\306B\3059\308B; }@layer astro { ::view-transition-old(unity-2019-\306E-android-build-support\3067\3082-api-level-29-\3067\30D3\30EB\30C9\3067\304D\308B\3088\3046\306B\3059\308B) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
@@ -209,7 +209,7 @@ Tags
 <p><img alt="AndroidのTarget API Levelの指定方法" loading="lazy" decoding="async" sizes="(min-width: 1752px) 1752px, 100vw" data-astro-image="constrained" data-astro-image-pos="center" width="1752" height="1174" src="/_astro/android-sdk-version-for-unity.2LGjjQJx_1scx4E.webp" srcset="/_astro/android-sdk-version-for-unity.2LGjjQJx_Z28cMLA.webp 640w, /_astro/android-sdk-version-for-unity.2LGjjQJx_1yIWa7.webp 750w, /_astro/android-sdk-version-for-unity.2LGjjQJx_1z6J7f.webp 828w, /_astro/android-sdk-version-for-unity.2LGjjQJx_1GPAY4.webp 1080w, /_astro/android-sdk-version-for-unity.2LGjjQJx_Z2k6GgY.webp 1280w, /_astro/android-sdk-version-for-unity.2LGjjQJx_Z2gvhoO.webp 1668w, /_astro/android-sdk-version-for-unity.2LGjjQJx_1scx4E.webp 1752w"></p>
 <p>つまり、現状Androidをデフォルト設定のままビルドしてしまうと、下記のように<code>targetSdkVersion</code>が<code>28</code>の状態のままビルドされてしまい、<strong>そのままではGoogle Playに提出できません</strong>。
 下記はビルドしたapkから<code>targetSdkVersion</code>を抽出した様子です。 <code>android:targetSdkVersion(0x01010270)=(type 0x10)0x1c</code>となっていて、<code>targetSdkVersion</code>が<code>28</code>であることを確認できます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>aapt list -a test-automatic-default.apk | grep SdkVersion</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>aapt list -a test-automatic-default.apk | grep SdkVersion</span></span>
 <span class="line"><span>    A: android:compileSdkVersion(0x01010572)=(type 0x10)0x1c</span></span>
 <span class="line"><span>    A: android:compileSdkVersionCodename(0x01010573)="9" (Raw: "9")</span></span>
 <span class="line"><span>      A: android:minSdkVersion(0x0101020c)=(type 0x10)0x17</span></span>
@@ -225,7 +225,7 @@ Tags
 <p>「Android Build Support」によってインストールされるAndroid SDKは、macOSではデフォルトで <code>/Applications/Unity/Hub/Editor/{UNITY_VERSION}/PlaybackEngines/AndroidPlayer/SDK</code>以下にインストールされています。（<code>{UNITY_VERSION}</code>にはインストールしたUnityのバージョンが入ります）</p>
 <p>このディレクトリ下は、通常<code>sdkmanager</code>を用いて配置されるファイル等がそのまま展開された状態になっています。<code>sdkmanager</code>はその中の<code>./tools/bin/sdkmanager</code>にあります。</p>
 <p>たとえば、インストール済みおよび利用可能なパッケージは <code>sdkmanager --list</code>コマンドで確認できます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ pwd</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ pwd</span></span>
 <span class="line"><span>/Applications/Unity/Hub/Editor/2019.3.12f1/PlaybackEngines/AndroidPlayer/SDK</span></span>
 <span class="line"><span>$ ./tools/bin/sdkmanager --list</span></span>
 <span class="line"><span>Installed packages:=====================] 100% Computing updates...</span></span>
@@ -242,7 +242,7 @@ Tags
 <span class="line"><span>  add-ons;addon-google_apis-google-16                                                      | 4            | Google APIs</span></span>
 <span class="line"><span>...</span></span></code></pre>
 <p>「Target API Level」を<code>30</code>にあげるためには、下記のように<code>"platforms;android-30"</code>インストールすれば良いです。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ ./tools/bin/sdkmanager  "platforms;android-30</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ ./tools/bin/sdkmanager  "platforms;android-30</span></span>
 <span class="line"><span>[=======================================] 100% Unzipping... android-11/framework</span></span>
 <span class="line"><span>$ ./tools/bin/sdkmanager --list</span></span>
 <span class="line"><span>Installed packages:=====================] 100% Computing updates...</span></span>
@@ -255,7 +255,7 @@ Tags
 <span class="line"><span>  tools                | 26.1.1  | Android SDK Tools 26.1.1          | tools/</span></span>
 <span class="line"><span>...</span></span></code></pre>
 <p>この状態でPlayer Settings内の「Target API Level」を<code>Automatic</code>にしてアプリをビルドして、<code>targetSdkVersion</code>が正しいか確認しましょう。<code>aapt</code>コマンドを使うことでapkから確認できます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ ./build-tools/28.0.3/aapt list -a test.apk | grep SdkVersion</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ ./build-tools/28.0.3/aapt list -a test.apk | grep SdkVersion</span></span>
 <span class="line"><span>    A: android:compileSdkVersion(0x01010572)=(type 0x10)0x1e</span></span>
 <span class="line"><span>    A: android:compileSdkVersionCodename(0x01010573)="11" (Raw: "11")</span></span>
 <span class="line"><span>      A: android:minSdkVersion(0x0101020c)=(type 0x10)0x13</span></span>

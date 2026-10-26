@@ -6,7 +6,7 @@
             }
             gtag("js", new Date());
             gtag("config", PUBLIC_GA_MEASUREMENT_ID);
-          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CIFqcepF.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
 </style><style>[data-astro-transition-scope="astro-eq54l3i4-1"] { view-transition-name: global-json\3068-net-sdk\306E\30D0\30FC\30B8\30E7\30F3\6307\5B9A\3068\30ED\30FC\30EB\30D5\30A9\30EF\30FC\30C9\306B\3064\3044\3066; }@layer astro { ::view-transition-old(global-json\3068-net-sdk\306E\30D0\30FC\30B8\30E7\30F3\6307\5B9A\3068\30ED\30FC\30EB\30D5\30A9\30EF\30FC\30C9\306B\3064\3044\3066) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
@@ -129,18 +129,18 @@ Tags
 <p>global.jsonファイルが存在しない場合は、.NET CLIはインストールされている中で<strong>最新バージョンのSDK</strong>を利用します。</p>
 <h3 id="作成方法">作成方法</h3>
 <p><code>dotnet</code>コマンド経由で作成することができます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>dotnet new globaljson</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>dotnet new globaljson</span></span></code></pre>
 <p>成功すると下記のメッセージが出力されます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>The template "global.json file" was created successfully.</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>The template "global.json file" was created successfully.</span></span></code></pre>
 <p>作成されるglobal.jsonで指定されるバージョンは、デフォルトでインストールされている中で最新のバージョンが指定されます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat global.json</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat global.json</span></span>
 <span class="line"><span>{</span></span>
 <span class="line"><span>  "sdk": {</span></span>
 <span class="line"><span>    "version": "6.0.100-preview.2.21155.3"</span></span>
 <span class="line"><span>  }</span></span>
 <span class="line"><span>}</span></span></code></pre>
 <p>SDKのバージョンを指定するには<code>--sdk-version</code>オプションを指定します。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ dotnet new globaljson --sdk-version 5.0.100</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ dotnet new globaljson --sdk-version 5.0.100</span></span>
 <span class="line"><span>The template "global.json file" was created successfully.</span></span>
 <span class="line"><span>$ cat global.json </span></span>
 <span class="line"><span>{</span></span>
@@ -150,13 +150,13 @@ Tags
 <span class="line"><span>}</span></span></code></pre>
 <h2 id="globaljsonのスキーマ">global.jsonのスキーマ</h2>
 <p>global.jsonでは下記の３つのプロパティが指定できます。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="json"><code><span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">{</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">    "sdk"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB"> {</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">        "version"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="--shiki-light:#22863A;--shiki-dark:#C789D6">5.0.202</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">        "allowPrerelease"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#1976D2;--shiki-dark:#FF5874"> true</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">,</span></span>
-<span class="line"><span style="--shiki-light:#D32F2F;--shiki-dark:#7FDBCA">        "rollForward"</span><span style="--shiki-light:#212121;--shiki-dark:#D6DEEB">:</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD"> "</span><span style="--shiki-light:#22863A;--shiki-dark:#C789D6">latestFeature</span><span style="--shiki-light:#22863A;--shiki-dark:#D9F5DD">"</span></span>
-<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">    }</span></span>
-<span class="line"><span style="--shiki-light:#24292EFF;--shiki-dark:#D6DEEB">}</span></span></code></pre>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="json"><code><span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">{</span></span>
+<span class="line"><span style="--shiki-light:#99841877;--shiki-dark:#B8A96577">    "</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">sdk</span><span style="--shiki-light:#99841877;--shiki-dark:#B8A96577">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#999999;--shiki-dark:#666666"> {</span></span>
+<span class="line"><span style="--shiki-light:#99841877;--shiki-dark:#B8A96577">        "</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">version</span><span style="--shiki-light:#99841877;--shiki-dark:#B8A96577">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">5.0.202</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span></span>
+<span class="line"><span style="--shiki-light:#99841877;--shiki-dark:#B8A96577">        "</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">allowPrerelease</span><span style="--shiki-light:#99841877;--shiki-dark:#B8A96577">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#1E754F;--shiki-dark:#4D9375"> true</span><span style="--shiki-light:#999999;--shiki-dark:#666666">,</span></span>
+<span class="line"><span style="--shiki-light:#99841877;--shiki-dark:#B8A96577">        "</span><span style="--shiki-light:#998418;--shiki-dark:#B8A965">rollForward</span><span style="--shiki-light:#99841877;--shiki-dark:#B8A96577">"</span><span style="--shiki-light:#999999;--shiki-dark:#666666">:</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77"> "</span><span style="--shiki-light:#B56959;--shiki-dark:#C98A7D">latestFeature</span><span style="--shiki-light:#B5695977;--shiki-dark:#C98A7D77">"</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">    }</span></span>
+<span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666">}</span></span></code></pre>
 <ul>
 <li><code>version</code>: 選択するSDKのバージョンを指定</li>
 <li><code>allowPrerelease</code>: プレリリースバージョン（プレビューリリースなど）の利用を許容するかどうかを指定</li>
@@ -166,7 +166,7 @@ Tags
 <h2 id="ロールフォワード">ロールフォワード</h2>
 <p>global.jsonによるSDKのバージョン指定はデフォルトで<code>version</code>によるバージョンの完全マッチです。例えば<code>5.0.202</code>を指定した場合には、同バージョンのSDKが存在する必要があります。</p>
 <p>例えば、インストール済みのSDKは下記とします。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span># 下記コマンドにより、インストール済みの</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span># 下記コマンドにより、インストール済みの</span></span>
 <span class="line"><span># SDK一覧が確認可能</span></span>
 <span class="line"><span>$ dotnet --list-sdks</span></span>
 <span class="line"><span>2.1.300 [/usr/local/share/dotnet/sdk]</span></span>
@@ -180,14 +180,14 @@ Tags
 <span class="line"><span>5.0.202 [/usr/local/share/dotnet/sdk]</span></span>
 <span class="line"><span>6.0.100-preview.2.21155.3 [/usr/local/share/dotnet/sdk]</span></span></code></pre>
 <p>また、global.jsonでは<code>5.0.202</code>が指定されているとします。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat global.json</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat global.json</span></span>
 <span class="line"><span>{</span></span>
 <span class="line"><span>  "sdk": {</span></span>
 <span class="line"><span>    "version": "5.0.202"</span></span>
 <span class="line"><span>  }</span></span>
 <span class="line"><span>}</span></span></code></pre>
 <p>この状態で<code>dotnet run</code>を実行してみます。すると互換性のあるバージョンのSDKが存在しない旨のメッセージが表示され、<code>dotnet run</code>が失敗します。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ dotnet run</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ dotnet run</span></span>
 <span class="line"><span>Could not execute because the application was not found or a compatible .NET SDK is not installed.</span></span>
 <span class="line"><span>Possible reasons for this include:</span></span>
 <span class="line"><span>  * You intended to execute a .NET program:</span></span>
@@ -204,7 +204,7 @@ Tags
 <p>これだと少し不便なのですが、（.NET Core 3.0 SDKから）フォールバックによるバージョン指定を<code>rollForward</code>プロパティによりその動作を決めることができます。</p>
 <p>ロールフォワードではフォールバックで利用されるバージョンを、そのバージョンよりも<strong>新しいバージョンから照合</strong>します。</p>
 <p>例えば、先程のSDKのインストール状況で<code>sdk</code>に<code>5.0.200</code>を、<code>rollForward</code>を<code>latestPatch</code>で指定すると、<code>5.0.202</code>が選択されます</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat global.json</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat global.json</span></span>
 <span class="line"><span>{</span></span>
 <span class="line"><span>  "sdk": {</span></span>
 <span class="line"><span>    "version": "5.0.200",</span></span>
@@ -252,7 +252,7 @@ Tags
 <p><code>patch</code>と<code>feature</code>、<code>minor</code>と<code>major</code>は指定されたバージョンから、より近いものにロールフォワードします。</p>
 <p>具体的には<code>patch</code>を指定した場合、指定バージョンが<strong>存在しない場合</strong>には<code>major</code>と<code>minor</code>、<code>feature</code>が同じ、<strong>最新の<code>patch</code>バージョンを選択</strong>します。もし存在しない場合は失敗します。</p>
 <p><code>feature</code>を指定した場合、（指定バージョンの存在有無に関わらず）<code>major</code>と<code>minor</code>、<code>feature</code>が同じ最新の<code>patch</code>バージョンを選択します。もし存在しない場合は失敗します。</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>3.0.100</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>3.0.100</span></span>
 <span class="line"><span>3.0.102</span></span>
 <span class="line"><span>3.1.113</span></span>
 <span class="line"><span>3.1.115</span></span>
@@ -299,7 +299,7 @@ Tags
 <table><thead><tr><th align="left">ロールフォワード</th><th align="left">選択されるSDKバージョン</th><th align="left">備考</th></tr></thead><tbody><tr><td align="left"><code>patch</code></td><td align="left"><code>3.0.100</code></td><td align="left">完全一致するバージョンが存在するため</td></tr><tr><td align="left"><code>feature</code></td><td align="left"><code>3.0.102</code></td><td align="left"><code>3.0.1</code>帯の最新のパッチバージョンが適用されるため</td></tr><tr><td align="left"><code>minor</code></td><td align="left"><code>3.0.102</code></td><td align="left"><code>feature</code>でバージョンが見つかったため</td></tr><tr><td align="left"><code>major</code></td><td align="left"><code>3.0.102</code></td><td align="left"><code>feature</code>でバージョンが見つかったため</td></tr></tbody></table>
 <p>ちなみに、下記のようにSDKバージョンに<code>3.0.300</code>が指定される場合は、<code>patch</code>および<code>feature</code>では失敗し、<code>minor</code>及び<code>major</code>では<code>3.1.115</code>が選択されます。
 （<code>feature</code>で失敗するので<code>minor</code>で上位のマイナーの最新パッチバージョンが適用され、<code>3.1.115</code>となります。）</p>
-<pre class="astro-code astro-code-themes min-light night-owl" style="--shiki-light:#24292eff;--shiki-dark:#d6deeb;--shiki-light-bg:#ffffff;--shiki-dark-bg:#011627; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>{</span></span>
+<pre class="astro-code astro-code-themes vitesse-light vitesse-dark" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212; overflow-x: auto;--file-name-offset: -0.75rem;" tabindex="0" data-language="plaintext"><code><span class="line"><span>{</span></span>
 <span class="line"><span>  "sdk": {</span></span>
 <span class="line"><span>    "version": "3.0.300",</span></span>
 <span class="line"><span>    "rollForward": "feature"</span></span>
