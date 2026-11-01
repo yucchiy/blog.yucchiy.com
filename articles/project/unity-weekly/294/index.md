@@ -2,12 +2,11 @@
 type: unity-weekly
 title: Unity Weekly 294
 description: >-
-  2026/11/02週のUnity Weeklyです。Brotliデコーダの脆弱性とeMudhra CA侵害のセキュリティアドバイザリ、Unity CLI 1.0.0-beta.15、Unity IAPのロードマップ、XREAL AURA向けのAndroid XR開発、content directories、Memory Profiler 1.2.0、LiSPSMによる影の描画などを紹介しています。
+  2026/11/02週のUnity Weeklyです。Brotliデコーダの脆弱性とeMudhra CA侵害のセキュリティアドバイザリ、Unity CLI 1.0.0-beta.15、Unity IAPのロードマップ、XREAL AURA向けのAndroid XR開発、content directories、Memory Profiler 1.2.0などを紹介しています。
 pubDatetime: 2026-11-02T09:00:00+09:00
 tags:
   - Unity Weekly
   - Unity
-draft: true
 ---
 
 ## Unity Officials
