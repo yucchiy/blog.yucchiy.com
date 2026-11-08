@@ -2,7 +2,7 @@
 type: unity-weekly
 title: Unity Weekly 295
 description: >-
-  2026/11/09週のUnity Weeklyです。Shader Build SettingsとFast Build、Cloud Code 3.0、GameObject NetcodeのGhostObjects、Unity CLI 1.0.0-beta.16と17、Unity Pipeline 0.10.0-exp.1、Unity Hub 3.22.6と4.0.0-beta.5、SEEDとAres Interactiveの事例、Xcode 27でのUIRequiresFullScreenの挙動変更などを紹介しています。
+  2026/11/09週のUnity Weeklyです。Shader Build SettingsとFast Build、Cloud Code 3.0、GameObject NetcodeのGhostObjects、Unity CLI 1.0.0-beta.16と17、Unity Pipeline 0.10.0-exp.1、Unity Hub 3.22.6と4.0.0-beta.5、SEEDとAres Interactiveの事例などを紹介しています。
 pubDatetime: 2026-11-09T09:00:00+09:00
 tags:
   - Unity Weekly
