@@ -1,0 +1,731 @@
+<!DOCTYPE html><html dir="ltr" lang="ja" class="false" data-astro-cid-ju4pidww> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://blog.yucchiy.com/project/unity-weekly/295.html"><meta name="generator" content="Astro v7.3.5"><!-- General Meta Tags --><title>Unity Weekly 295 | Yucchiy&#39;s Note</title><meta name="title" content="Unity Weekly 295 | Yucchiy's Note"><meta name="description" content="2026/11/09週のUnity Weeklyです。Shader Build SettingsとFast Build、Cloud Code 3.0、GameObject NetcodeのGhostObjects、Unity CLI 1.0.0-beta.16と17、Unity Pipeline 0.10.0-exp.1、Unity Hub 3.22.6と4.0.0-beta.5などを紹介しています。"><meta name="author" content="向井 祐一郎"><link rel="sitemap" href="/sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Unity Weekly 295 | Yucchiy's Note"><meta property="og:description" content="2026/11/09週のUnity Weeklyです。Shader Build SettingsとFast Build、Cloud Code 3.0、GameObject NetcodeのGhostObjects、Unity CLI 1.0.0-beta.16と17、Unity Pipeline 0.10.0-exp.1、Unity Hub 3.22.6と4.0.0-beta.5などを紹介しています。"><meta property="og:url" content="https://blog.yucchiy.com/project/unity-weekly/295.html"><meta property="og:image" content="https://blog.yucchiy.com/project/unity-weekly/295/index.png"><!-- Article Published/Modified time --><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://blog.yucchiy.com/project/unity-weekly/295.html"><meta property="twitter:title" content="Unity Weekly 295 | Yucchiy's Note"><meta property="twitter:description" content="2026/11/09週のUnity Weeklyです。Shader Build SettingsとFast Build、Cloud Code 3.0、GameObject NetcodeのGhostObjects、Unity CLI 1.0.0-beta.16と17、Unity Pipeline 0.10.0-exp.1、Unity Hub 3.22.6と4.0.0-beta.5などを紹介しています。"><meta property="twitter:image" content="https://blog.yucchiy.com/project/unity-weekly/295/index.png"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unity Weekly 295 | Yucchiy's Note","image":"https://blog.yucchiy.com/project/unity-weekly/295/index.png","datePublished":"undefined","author":[{"@type":"Person","name":"向井 祐一郎","url":"https://blog.yucchiy.com"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="Yucchiy's Note" href="https://blog.yucchiy.com/rss.xml"><meta name="theme-color" content=""><script async src="https://www.googletagmanager.com/gtag/js?id=G-6SV1P550ZW"></script><script>(function(){const PUBLIC_GA_MEASUREMENT_ID = "G-6SV1P550ZW";
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", PUBLIC_GA_MEASUREMENT_ID);
+          })();</script><script src="/toggle-theme.js"></script><link rel="stylesheet" href="/_astro/Footer.CDeev5JG.css"><style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*),[data-astro-transition-scope]{animation:none!important}}
+</style><style>[data-astro-transition-scope="astro-ixci5i7f-1"] { view-transition-name: unity-weekly-295; }@layer astro { ::view-transition-old(unity-weekly-295) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly-295) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly-295) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly-295) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ixci5i7f-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ixci5i7f-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ixci5i7f-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ixci5i7f-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-ixci5i7f-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-ixci5i7f-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-ixci5i7f-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-ixci5i7f-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-2"] { view-transition-name: unity-weekly; }@layer astro { ::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-3"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-4"] { view-transition-name: unity-weekly; }@layer astro { ::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity-weekly) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-bztu2lml-5"] { view-transition-name: unity; }@layer astro { ::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(unity) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-bztu2lml-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-bztu2lml-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body data-astro-cid-ju4pidww>  <header> <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4">
+Skip to content
+</a> <div id="nav-container" class="mx-auto flex max-w-app flex-col items-center justify-between sm:flex-row"> <div id="top-nav-wrap" class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"> <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"> Yucchiy&#39;s Note </a> <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"> <button id="menu-btn" class="focus-outline self-end p-2 sm:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="menu-items"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> </button> <ul id="menu-items" class="mt-4 grid w-44 grid-cols-2 place-content-center gap-2 [&amp;>li>a]:block [&amp;>li>a]:px-4 [&amp;>li>a]:py-3 [&amp;>li>a]:text-center [&amp;>li>a]:font-medium [&amp;>li>a]:hover:text-accent sm:[&amp;>li>a]:px-2 sm:[&amp;>li>a]:py-1 hidden sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"> <li class="col-span-2"> <a href="/posts">
+Posts
+</a> </li> <li class="col-span-2"> <a href="/projects">
+Projects
+</a> </li> <li class="col-span-2"> <a href="/tags">
+Tags
+</a> </li> <li class="col-span-2"> <a href="/archives" class="group inline-block hover:text-accent focus-outline flex justify-center p-3 sm:p-1" aria-label="archives" title="Archives">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:inline-block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" /><path d="M10 12l4 0" /></svg> <span class="sm:sr-only">Archives</span>  </a> </li> <li class="col-span-1 flex items-center justify-center"> <a href="/search" class="group inline-block hover:text-accent focus-outline flex p-3 sm:p-1" aria-label="search" title="Search">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg> <span class="sr-only">Search</span>  </a> </li> <li class="col-span-1 flex items-center justify-center"> <button id="theme-btn" class="focus-outline relative size-12 p-4 sm:size-8 hover:[&amp;&gt;svg]:stroke-accent" title="Toggles light &amp; dark" aria-label="auto" aria-live="polite"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> </button> </li> </ul> </nav> </div> </div> <div class="mx-auto max-w-app px-4"> <hr class="border-border" aria-hidden="true"> </div> </header><script type="module">function e(){let e=document.querySelector(`#menu-btn`),t=document.querySelector(`#menu-items`),n=document.querySelector(`#menu-icon`),r=document.querySelector(`#close-icon`);e&&t&&n&&r&&e.addEventListener(`click`,()=>{let i=e.getAttribute(`aria-expanded`)===`true`;e.setAttribute(`aria-expanded`,i?`false`:`true`),e.setAttribute(`aria-label`,i?`Open Menu`:`Close Menu`),t.classList.toggle(`hidden`),n.classList.toggle(`hidden`),r.classList.toggle(`hidden`)})}e(),document.addEventListener(`astro:after-swap`,e);</script> <div class="mx-auto flex w-full max-w-app items-center justify-start px-4"> <a id="back-button" href="/" class="group inline-block hover:text-accent focus-outline mt-8 mb-6 flex items-center text-sm text-foreground/80 hover:text-accent">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-5 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span>Go back</span>  </a> </div><script type="module">function e(){let e=document.querySelector(`#back-button`),t=sessionStorage.getItem(`backUrl`);t&&e&&(e.href=t)}document.addEventListener(`astro:page-load`,e),e();</script> <main id="main-content" class="mx-auto w-full max-w-app px-4 pb-12" data-pagefind-body> <h1 data-astro-transition-scope="astro-ixci5i7f-1" class="inline-block text-balance text-2xl font-semibold tracking-tight text-heading sm:text-3xl"> Unity Weekly 295 </h1> <div class="mt-4 flex items-center gap-2"> <div class="flex items-center gap-x-1.5 opacity-70"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block min-w-[1rem] text-accent size-5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M7 14h.013" /><path d="M10.01 14h.005" /><path d="M13.01 14h.005" /><path d="M16.015 14h.005" /><path d="M13.015 17h.005" /><path d="M7.01 17h.005" /><path d="M10.01 17h.005" /></svg>  <time class="text-sm" datetime="2026-11-09T00:00:00.000Z">2026年11月9日</time> </div> </div> <div class="mt-5"> <div class="flex items-center gap-1">  <div class="flex items-center"> <a href="https://x.com/intent/post?url=https://blog.yucchiy.com/project/unity-weekly/295.html&amp;text=Unity%20Weekly%20295" class="group inline-block hover:text-accent p-1" title="Share this post on X">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Share this post on X</span>  </a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/project/unity-weekly/295.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg> <span class="sr-only">Share this post on Hatena Bookmark</span>  </a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/project/unity-weekly/295.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-5"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg> <span class="sr-only">Share this post on Facebook</span>  </a> </div> </div> <ul class="mt-2 flex flex-wrap items-center gap-1"> <li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-2" href="/tags/unity-weekly" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity Weekly </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-3" href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity </a> </li> </ul> </div> <article id="article" class="app-prose mx-auto mt-10 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"> <h2 id="unity-officials">Unity Officials</h2>
+<h3 id="shader-build-settings-and-fast-compilation">Shader Build Settings and fast compilation</h3>
+<p><a href="https://discussions.unity.com/t/shader-build-settings-and-fast-compilation/1740976">Shader Build Settings and fast compilation - Graphics Product Updates - Unity Discussions</a></p>
+<p>Unity 6.6と6.7で利用できるShader Build Settingsと、シェーダーのコンパイル時間を短縮する設定を紹介するディスカッションです。</p>
+<ul>
+<li>Configuring the target compiler with Shader Build Settings
+<ul>
+<li>Unity 6.6から、WindowsのBuild ProfileごとにDXCを選択できる。対応はDX12のみで、DX11を併用するとFXC用のシェーダーもコンパイルするため、ビルド時間が増える場合がある</li>
+</ul>
+</li>
+<li>Fast shader builds
+<ul>
+<li>Unity 6.7のFast Buildは、対応するキーワードを動的分岐へ変換してバリアントを削減する</li>
+<li>URP 3D Sampleでの試験では、クリーンビルドの時間を約75%短縮できたと報告している</li>
+</ul>
+</li>
+<li>Keyword exclusion
+<ul>
+<li>Unity 6.6から、不要なキーワードや組み合わせを除外できる</li>
+<li>必要なバリアントが欠落する可能性があるため、実行時に使わないと確認できたものだけを除外するよう注意を呼びかけている</li>
+</ul>
+</li>
+<li>Constant defines
+<ul>
+<li>バリアントを増やさずにビルド時の分岐を設定する、独自のシェーダー定義をEditorから指定できる</li>
+</ul>
+</li>
+</ul>
+<h3 id="performance-testing-framework-370-has-been-released">Performance Testing Framework 3.7.0 has been released</h3>
+<p><a href="https://discussions.unity.com/t/performance-testing-framework-3-7-0-has-been-released/1740972">Performance Testing Framework 3.7.0 has been released - Performance &#x26; Profiling Product Updates - Unity Discussions</a></p>
+<p>Performance Testing Framework 3.7.0（<code>com.unity.test-framework.performance</code>）のリリースを紹介しています。</p>
+<p>Unity 6.0と6.3向けにリリースし、Unity 2022.3 xLTSのサポート終了に伴って最小対応バージョンをUnity 6.0に引き上げたことが主な変更です。
+このバージョンにはまだbreaking changesはなく、2022.3のプロジェクトへ強制的に導入することは可能だと説明しています。</p>
+<h3 id="module-state-and-streamlined-development-with-cloud-code-30">Module state and streamlined development with Cloud Code 3.0</h3>
+<p><a href="https://discussions.unity.com/t/module-state-and-streamlined-development-with-cloud-code-3-0/1741157">Module state and streamlined development with Cloud Code 3.0 - Cloud Code - Unity Discussions</a></p>
+<p>Unity 6.7以降を対象としたCloud Code 3.0の正式パッケージ公開を紹介しています。</p>
+<ul>
+<li>Stateful Cloud Code
+<ul>
+<li><code>[StateScope]</code>でプレイヤー単位またはMultiplayerセッション単位の状態を呼び出し間で保持できる</li>
+<li>対象プレイヤーへのプッシュメッセージ、サーバータイマー、関数単位のアクセス制御に対応した</li>
+</ul>
+</li>
+<li>Native Authoring: Cloud Code modules in the Editor
+<ul>
+<li>Unityプロジェクト内でモジュールを作成し、型付きのクライアントを自動生成できる</li>
+</ul>
+</li>
+<li>The local Cloud Code server
+<ul>
+<li>デプロイせずにローカル実行とデバッグができ、再コンパイル後は実行中のサーバーへ変更を反映する</li>
+<li>Observability Logsウィンドウから、デプロイ済みのスクリプトとモジュールのログを確認できる</li>
+</ul>
+</li>
+<li>Multiplayer Play Mode integration
+<ul>
+<li>ローカルまたはリモートのCloud Codeを使うシナリオを設定し、複数プレイヤーで検証できる</li>
+</ul>
+</li>
+<li>Also in 3.0
+<ul>
+<li><code>ModuleHostWarmup</code>による事前起動に対応し、ワーカーのメモリを256 MBから512 MBへ増やした</li>
+</ul>
+</li>
+<li>Agent Skills
+<ul>
+<li>Unityのマルチプレイヤーサービスを使う開発向けに、<code>build-live-game</code>スキルを公開した</li>
+</ul>
+</li>
+<li>Before you upgrade
+<ul>
+<li>Unity 6000.7以降と.NET 10 SDKが必要</li>
+<li>一部の旧APIを削除し、<code>Unity.Services.CloudCode.Apis</code>のクラスを内部化したため、インターフェース経由の利用へ移行が必要</li>
+</ul>
+</li>
+</ul>
+<h3 id="prediction-in-gameobject-netcode---ghostobjects-released">Prediction in GameObject Netcode - GhostObjects Released</h3>
+<p><a href="https://discussions.unity.com/t/prediction-in-gameobject-netcode-ghostobjects-released/1741239">Prediction in GameObject Netcode - GhostObjects Released - Multiplayer &#x26; Networking Product Updates - Unity Discussions</a></p>
+<p>Unity 6000.7以降向けのUnity Netcode 7.2.0とNetcode for GameObjects 3.2.0で、GhostObject APIが利用可能になったことを紹介しています。</p>
+<ul>
+<li>Package versions
+<ul>
+<li>Netcode for EntitiesをUnity Netcodeへ改称した。パッケージ名の<code>com.unity.netcode</code>は変更なし</li>
+<li>GameObjectに<code>GhostObject</code>と<code>GhostBehaviour</code>を追加し、予測、ロールバック、量子化、差分圧縮を利用できる</li>
+</ul>
+</li>
+<li>Since our last dev log: Unity Netcode 7.2.0
+<ul>
+<li>Rigidbodyの予測とロールバックを支援する物理処理、遅延スポーン、親子関係の変更の予測と同期などに対応した</li>
+</ul>
+</li>
+<li>How this fits with Netcode for GameObjects
+<ul>
+<li>同じGameObject上で<code>NetworkObject</code>と<code>GhostObject</code>を併用できる</li>
+<li>既存の接続フローを維持しながら、<code>NetworkTransform</code>をGhostObjectのTransform同期へ置き換える構成を紹介している</li>
+</ul>
+</li>
+<li>Next steps
+<ul>
+<li>オブジェクトプールや予測誤差の平滑化などを今後の改善項目として挙げている</li>
+</ul>
+</li>
+<li>Unity 7
+<ul>
+<li>2つのNetcodeパッケージのコードを統合する方針で、いずれかの機能群を廃止するものではないと説明している</li>
+</ul>
+</li>
+</ul>
+<h3 id="unity-cli-100-beta16-is-rolling-out">Unity CLI 1.0.0-beta.16 is rolling out</h3>
+<p><a href="https://discussions.unity.com/t/unity-cli-1-0-0-beta-16-is-rolling-out/1741044">Unity CLI 1.0.0-beta.16 is rolling out - Unity Editor Product Updates - Unity Discussions</a></p>
+<p>Unity CLI 1.0.0-beta.16の公開をアナウンスするディスカッションです。
+Editorのダイアログ操作や起動中のEditorを使ったビルドを追加し、自動化スクリプトに影響する出力形式と終了コードも変更しています。</p>
+<ul>
+<li>Highlights
+<ul>
+<li>対応するEditorでは、<code>unity command editor dialog</code>でダイアログを確認し、<code>unity command editor dialog answer &#x3C;id> &#x3C;button></code>で応答できる</li>
+<li><code>unity build --target</code>が起動中のEditorでビルドする。タイムアウトやCtrl+Cは待機を終了するだけで、Editorやビルド自体は停止しない</li>
+<li><code>unity skill sync [client]</code>で1つのエージェントのスキルを確認なしに更新する</li>
+<li><code>unity vcs diff</code>が変更された参照先のアセット名を示し、<code>unity vcs summarize --objects</code>でオブジェクト単位に変更を要約する</li>
+</ul>
+</li>
+<li>Also new
+<ul>
+<li>Cloud Buildのターゲット、リポジトリ、署名用認証情報の設定をCLIから実行できる</li>
+<li>クラウド連携プロジェクトの作成時にRemote Configの<code>liveops_enabled</code>とCloud Saveのスロットを追加する。<code>--bare</code>で省略できる</li>
+</ul>
+</li>
+<li>Changes to check if you script the CLI
+<ul>
+<li>コマンドの出力を実行中にストリーミングし、コマンド自身の終了コードを返す</li>
+<li>EditorのJSON出力から<code>success</code>、<code>command</code>、<code>parameters</code>、<code>target</code>のラッパーを削除した。<code>--result-only</code>は変更なし</li>
+<li>Editorが処理中の場合は終了コード17、モーダルダイアログで停止している場合は18、オフラインやDNS、プロキシ関連のエラーは7を返す</li>
+<li><code>setup all</code>はシェルを利用できるエージェントへMCPを自動登録しない。必要な場合は<code>unity mcp configure</code>で設定する</li>
+</ul>
+</li>
+<li>Notable fixes
+<ul>
+<li>URPマテリアルのアップグレードダイアログによる停止、指定changesetと異なるEditorビルドのインストール、SOCKSプロキシ経由のダウンロードなどを修正した</li>
+</ul>
+</li>
+</ul>
+<h3 id="unity-cli-100-beta17-is-rolling-out">Unity CLI 1.0.0-beta.17 is rolling out</h3>
+<p><a href="https://discussions.unity.com/t/unity-cli-1-0-0-beta-17-is-rolling-out/1741241">Unity CLI 1.0.0-beta.17 is rolling out - Unity Editor Product Updates - Unity Discussions</a></p>
+<p>Unity CLI 1.0.0-beta.17の配信開始をアナウンスするディスカッションです。</p>
+<ul>
+<li>Highlights
+<ul>
+<li>プラグインの依存関係の宣言に対応し、依存先からインストールや更新を実行する</li>
+<li>CLIからPipeline Automationアプリと下書きバージョンを作成できる</li>
+</ul>
+</li>
+<li>Also new
+<ul>
+<li>Hubでクラッシュレポートの送信を無効にすると、CLIにも反映する</li>
+</ul>
+</li>
+<li>Changes to check if you script the CLI
+<ul>
+<li>複数のコマンドグループで、引数不足や余分な引数がある場合の終了コードを2に変更した</li>
+<li><code>--git-token-from-stdin</code>への入力が空の場合は終了コード4で失敗し、保存済みGit認証へフォールバックしない</li>
+<li>非対話環境でリモートリポジトリを削除するロールバックには、<code>--yes</code>が必要に</li>
+<li>Cloudプロジェクト名が一意に解決できない場合や通信失敗時の終了コード、TSVとJSONの出力形式を変更した</li>
+</ul>
+</li>
+<li>Notable fixes
+<ul>
+<li>引用符付きの<code>-projectPath</code>で起動したEditorの検出、JUnitレポートによるNUnitレポートの上書き、負荷が高い環境でのテスト監視の取りこぼしなどを修正した</li>
+</ul>
+</li>
+</ul>
+<h3 id="unity-pipeline-0100-exp1-is-out">Unity Pipeline 0.10.0-exp.1 is out!</h3>
+<p><a href="https://discussions.unity.com/t/unity-pipeline-0-10-0-exp-1-is-out/1741046">Unity Pipeline 0.10.0-exp.1 is out! - Unity Editor Product Updates - Unity Discussions</a></p>
+<p>Unity Pipeline 0.10.0-exp.1の公開をアナウンスするディスカッションです。
+CLIからのProfiler記録やメモリスナップショット取得、Editorウィンドウのキャプチャなどを追加し、引数の命名規則や設定ファイルの保存先も変更しています。</p>
+<ul>
+<li>New
+<ul>
+<li>Editorまたは接続した開発用PlayerのProfiler記録と、<code>.snap</code>形式のメモリスナップショット取得に対応した</li>
+<li>任意のEditorウィンドウやSceneビューのキャプチャ、URPとHDRPでのオーバーレイUIを含むカメラキャプチャに対応した</li>
+<li><code>script eval</code>が<code>using</code>、メソッド、型、<code>await</code>を含むスクリプトに対応した。<code>--file</code>によるファイル実行や<code>--dry-run</code>によるコンパイルのみの確認もできる</li>
+<li><code>--format human|tsv|json</code>で出力形式を指定し、実行中にCLIへストリーミングする</li>
+<li>Unity 6.3以降のツールバーからPipeline Serverを起動、停止できる</li>
+</ul>
+</li>
+<li>Changes
+<ul>
+<li>コマンド引数と構造化引数のキーをkebab-caseに統一し、古い表記は拒否する。コマンド名と結果フィールドは変更なし</li>
+<li>有効化は<code>enabled</code>、出力先は<code>output-path</code>など、同じ概念の引数名を統一した。公開済みの<code>unity</code> CLIは1.0.0まで動作する</li>
+<li>未知の引数やネストしたキーは<code>INVALID_COMMAND_ARGS</code>として拒否し、候補を提示する</li>
+<li>独自コマンドの引数名として<code>format</code>、<code>json</code>、<code>fields</code>、<code>verbose</code>、<code>omit-nulls</code>を使用できない</li>
+<li>プロトコルの終了コードをCLIに合わせ、サーバー自身の終了コードは100以降にした。特定のコードを判定するスクリプトは更新が必要</li>
+<li>Editorサーバー設定を<code>ProjectSettings/</code>からユーザー単位の<code>UserSettings/</code>へ移動した。コミット済みの設定はプロジェクトの全員には適用されなくなる</li>
+<li>キャプチャの相対<code>--output-path</code>の基準を<code>Assets/</code>からプロジェクトルートへ変更した</li>
+<li><code>capture screenshot</code>と<code>script eval_file</code>を非推奨にし、それぞれ<code>capture game_view</code>または<code>capture scene_view</code>、<code>script eval --file</code>への移行を案内している</li>
+</ul>
+</li>
+<li>Fixes
+<ul>
+<li>batchmodeでのEditorの予期しない終了、スクリプト再読み込み後の古いリスナー、コンパイル完了前の成功報告を修正した</li>
+<li>Multiplayer Play Modeのクローン起動や、ドメインリロードを伴うテスト結果の重複、欠落などを修正した</li>
+</ul>
+</li>
+<li>Upcoming API change in Unity Pipeline 1.0.0: a smaller public API
+<ul>
+<li>今後の1.0.0では、サーバー実装、応答モデル、コンパイル処理などの内部用C#型を公開APIから削除する予定だとしている</li>
+<li>JSONの応答形式は変更しない一方、対象のC#型に依存するコードは1.0.0へ更新するとコンパイルできなくなるため、依存箇所の確認を呼びかけている</li>
+</ul>
+</li>
+</ul>
+<h3 id="now-available-unity-hub-3220">Now Available: Unity Hub 3.22.0</h3>
+<ul>
+<li><a href="https://discussions.unity.com/t/now-available-unity-hub-3-22-0/1737927/40">Now Available: Unity Hub 3.22.0 - Unity Hub - Unity Discussions</a></li>
+<li><a href="https://unity.com/unity-hub/release-notes">Unity Hub release notes - Unity</a></li>
+</ul>
+<p>Unity Hub 3.22.0のスレッドで、2026年11月6日に公開した3.22.6の変更点を案内する投稿です。
+主にWindowsのMSIX版のインストールと更新に関する不具合を修正しています。</p>
+<ul>
+<li>What’s new
+<ul>
+<li>Unity 6の新しいEditorへ変更する前に、Project Auditorで移行準備を確認する機能を段階的に提供する</li>
+</ul>
+</li>
+<li>Bug fixes &#x26; improvements
+<ul>
+<li>ベータ版を安定版に重ねてインストールした際に、古い安定版への更新を案内する不具合を修正した</li>
+<li>MSIX版でダウンロード済みテンプレートからのプロジェクト作成や、一部のWindows 11でのインストールが失敗する不具合を修正した</li>
+<li>MSIX版のデスクトップショートカット自動作成を廃止し、ログの保存先を<code>%APPDATA%\UnityHub\logs</code>へ変更した</li>
+<li>新規インストール時の利用状況分析の既定設定を更新した</li>
+</ul>
+</li>
+</ul>
+<h3 id="now-available-unity-hub-40-beta">Now Available: Unity Hub 4.0 Beta</h3>
+<ul>
+<li><a href="https://discussions.unity.com/t/now-available-unity-hub-4-0-beta/1739331/123">Now Available: Unity Hub 4.0 Beta - Unity Hub - Unity Discussions</a></li>
+<li><a href="https://unity.com/unity-hub/release-notes">Unity Hub release notes - Unity</a></li>
+</ul>
+<p>Unity Hub 4.0 Betaのスレッドで、2026年11月6日に公開した4.0.0-beta.5の変更点を案内する投稿です。</p>
+<ul>
+<li>What’s new
+<ul>
+<li>プロジェクトとテンプレートの警告を非表示にし、設定から復元できる</li>
+<li>再起動なしで反映するクラッシュレポート送信設定と、Editorのパスをコピーする項目を追加した</li>
+<li>同梱するUnity CLIを1.0.0-beta.17へ更新した</li>
+</ul>
+</li>
+<li>Bug fixes &#x26; improvements
+<ul>
+<li>Editor更新時の二重確認、GitHubとGitLabへの接続、ダウンロード再開などの不具合を修正した</li>
+<li>Windows MSIX版のインストール失敗、タスクバーのアイコン欠落、更新の不具合を修正した</li>
+<li>新規インストール時の利用状況分析の既定設定を更新した</li>
+</ul>
+</li>
+</ul>
+<h3 id="how-seed-renders-a-world-players-never-stop-building">How SEED renders a world players never stop building</h3>
+<p><a href="https://unity.com/blog/seed-unity-rendering-performance">How SEED renders a world players never stop building - Unity Blog</a></p>
+<p>Klang GamesのMMO「SEED」における、プレイヤーが拡張し続ける世界をPCとモバイルで描画するための最適化事例を紹介しています。</p>
+<p>URPとShader Graphをベースに、プレイヤーが築いた社会のサーバースナップショットをテストケースとして再現し、ProfilerとFrame Debuggerで描画負荷を調べています。
+LODのアニメーション付きクロスフェードの無効化や、GPU Resident DrawerによるインスタンシングでCPU負荷を軽減しています。</p>
+<p>モバイルではMemory Profilerによる重複アセットの調査、プラットフォーム別のAddressables、Mesh LODの活用でメモリ使用量を削減したことを解説しています。</p>
+<h3 id="how-ares-interactive-runs-live-ops-without-waiting-on-client-updates">How Ares Interactive runs live ops without waiting on client updates</h3>
+<p><a href="https://unity.com/blog/ares-interactive-live-service-games">How Ares Interactive runs live ops without waiting on client updates - Unity Blog</a></p>
+<p>Ares Interactiveの「Baseball Hits 26」と「The Walking Dead: Aftermath」を題材に、クライアント更新を待たずにイベントやバランス調整を反映する運用設計を紹介しています。</p>
+<p>「The Walking Dead: Aftermath」では、Addressablesをロードとメモリ管理に、AssetBundles APIを遠隔配信に使い分けています。
+スコープ付きの依存性注入による機能の分離、セーブデータの移行処理、CIによる開発環境と本番環境の設定管理についても解説しています。</p>
+<h3 id="our-new-xr-e-book-is-here-build-xr-with-unity-meta-xr">Our new XR e-book is here: Build XR with Unity: Meta XR</h3>
+<ul>
+<li><a href="https://unity.com/blog/our-new-xr-e-book-is-here-build-xr-with-unity%3A-meta-xr">Our new XR e-book is here: Build XR with Unity: Meta XR - Unity Blog</a></li>
+<li><a href="https://discussions.unity.com/t/build-xr-with-unity-meta-xr-e-book-available-now-for-free/1741289">Build XR with Unity - Meta XR e-book, available now for free - XR - Unity Discussions</a></li>
+</ul>
+<p>UnityとMetaが共同制作した無料のXR開発ガイド「Build XR with Unity: Meta XR」の公開を紹介しています。</p>
+<p>Unity 6.6とXR Interaction Toolkit 3.6を用いた環境構築、視線やハンドトラッキング、Quad ViewsやApplication SpaceWarpによる描画最適化を解説しています。
+Unity CLIとUnity Pipeline、実験的なMeta XR Operatorを使った、AIエージェントによるビルドやテスト、検証のワークフローも取り上げています。</p>
+<h3 id="the-immersive-edge-october-2026-industry-content-wrap-up">The Immersive Edge: October 2026 industry content wrap-up</h3>
+<p><a href="https://unity.com/blog/october-2026-industry-content-wrap-up">The Immersive Edge: October 2026 industry content wrap-up - Unity Blog</a></p>
+<p>2026年9月と10月に公開された、産業分野でのUnity活用に関する21件の資料を紹介しています。
+CADデータの活用やシミュレーション、デジタルツインによる学習データ生成、HMI向けテンプレートなどを取り上げています。</p>
+<h3 id="games-made-with-unity-october-2026-in-review">Games made with Unity: October 2026 in review</h3>
+<p><a href="https://unity.com/blog/games-made-with-unity-october-2026-releases">Games made with Unity: October 2026 in review - Unity Blog</a></p>
+<p>2026年10月にリリースされたUnity製ゲームをジャンル別に紹介しています。
+「SULFUR」や「Mycopunk」の正式リリースに加え、Australian Game Developer Awardsの受賞作品やMIX Fall Showcaseの出展作品も取り上げています。</p>
+<h2 id="articles">Articles</h2>
+<h3 id="unityxcode-27-sdk-27-での-uirequiresfullscreen-の挙動変更とウィンドウリサイズへの対応">【Unity】Xcode 27 (SDK 27) での UIRequiresFullScreen の挙動変更とウィンドウリサイズへの対応</h3>
+<p><a href="https://zenn.dev/applibot_tech/articles/bbc27e1b520137">【Unity】Xcode 27 (SDK 27) での UIRequiresFullScreen の挙動変更とウィンドウリサイズへの対応 - Zenn</a></p>
+<p>Xcode 27でビルドしたUnityアプリをiPadOS 27で動かした際の、<code>UIRequiresFullScreen</code>の互換モード廃止とウィンドウリサイズへの対応を解説しています。
+設定の有無によるリサイズの反映タイミングや画面回転の違いを検証し、<code>Screen.orientation</code>だけに頼らず、<code>Screen.width</code>と<code>Screen.height</code>に基づいてレイアウトを更新する方針を紹介しています。</p>
+<h3 id="netunityc-の型制約とボックス化をハックする--il-と手動スタック配置">【.NET/Unity】C# の型制約とボックス化をハックする — IL と手動スタック配置</h3>
+<p><a href="https://zenn.dev/aakei/articles/csharp-stack-box">【.NET/Unity】C# の型制約とボックス化をハックする — IL と手動スタック配置 - Zenn</a></p>
+<p>ILで型制約なしに<code>Dispose</code>を呼ぶ方法と、ボックスを手動でスタックに配置する方法を、Windows x64の.NETとUnityで検証しています。
+両方式の割り当て量や値の変更の保持を比較し、手動のスタック配置については、ランタイムへの依存と参照の寿命の制約から実用を推奨していません。</p>
+<h3 id="シーン管理と画面遷移を統合するunityナビゲーション基盤の設計と実装">シーン管理と画面遷移を統合するUnityナビゲーション基盤の設計と実装</h3>
+<p><a href="https://tech.sumzap.co.jp/entry/unity-navigation-framework-design-and-implementation">シーン管理と画面遷移を統合するUnityナビゲーション基盤の設計と実装 - Sumzap Engineering Blog</a></p>
+<p>シーン管理と画面遷移をRoot / Session / Screenのツリーで扱う、Spica.Navigationの設計と内部実装を紹介しています。
+GraphViewによる画面構成の定義とコード生成、共通祖先からの差分による遷移対象の決定、遷移手順やルーターを独立させる設計を解説しています。</p>
+<h3 id="unity66からノッチなどを避けてuiを配置出来るsafeareaコンポーネントが追加unityugui">Unity6.6からノッチなどを避けてUIを配置出来るSafeAreaコンポーネントが追加【Unity】【uGUI】</h3>
+<p><a href="https://kan-kikuchi.hatenablog.com/entry/SafeArea_6_6">Unity6.6からノッチなどを避けてUIを配置出来るSafeAreaコンポーネントが追加【Unity】【uGUI】 - (:3[kanのメモ帳]</a></p>
+<p>Unity 6.6で追加されたSafe Areaコンポーネントを使い、ノッチやホームインジケーターを避けてuGUIを配置する方法を紹介しています。
+<code>Edges</code>で調整する辺を選ぶ設定や、画面回転への追従、Content Size FitterなどとRectTransformの制御が競合する場合の注意点を説明しています。</p>
+<h3 id="unityのuiだけ重いcanvaslayout文字更新から原因を切り分ける">UnityのUIだけ重い：Canvas・Layout・文字更新から原因を切り分ける</h3>
+<p><a href="https://zenn.dev/gamedev_toollab/articles/8245c840ae35ee">UnityのUIだけ重い：Canvas・Layout・文字更新から原因を切り分ける - Zenn</a></p>
+<p>uGUIの負荷を、実機に接続したProfilerとEditor専用のProfilerのUIモジュールを使って切り分ける手順を紹介しています。
+文字列生成、Layout、Canvasのバッチ構築を区別し、更新条件やCanvasの分割などを一つずつ変えて、CPU時間と割り当て量、描画への影響を比較する方法を説明しています。</p>
+<h3 id="android-xrunityでパススルーと空間認識を使う---galaxy-xrでの実装と検証">Android XR（Unity）でパススルーと空間認識を使う - Galaxy XRでの実装と検証</h3>
+<ul>
+<li><a href="https://zenn.dev/miyaura/articles/androidxr-unity-passthrough-meshing-97c594f54228e9">Android XR（Unity）でパススルーと空間認識を使う - Galaxy XRでの実装と検証 - Zenn</a></li>
+<li><a href="https://zenn.dev/miyaura/articles/unitycli-androidxr-template-857dd9165237c7">Unity用のAndroid XR設定済みプロジェクトを作成しテンプレート化する - Zenn</a></li>
+<li><a href="https://zenn.dev/miyaura/articles/androidxr-mrtk3-setup-87b915e67b491d">Galaxy XR（Android XR）向けMRTK3の開発環境と空シーンを構築する - Zenn</a></li>
+</ul>
+<p>UnityでAndroid XR向けの開発環境を構築し、Galaxy XRで動作を検証した3本の記事です。
+パススルーと空間メッシュによるオクルージョンや衝突判定の実装、Unity CLIによる設定済みプロジェクトのテンプレート化、MRTK3で手の操作を使うための設定と公式サンプルの動作状況を紹介しています。</p>
+<h3 id="unityのanimator-controllerは本当に必要かplayablesanimancerを選ぶ判断軸">UnityのAnimator Controllerは本当に必要か？Playables・Animancerを選ぶ判断軸</h3>
+<p><a href="https://zenn.dev/gamedev_toollab/articles/0ba99e00a47531">UnityのAnimator Controllerは本当に必要か？Playables・Animancerを選ぶ判断軸 - Zenn</a></p>
+<p>Animator Controller、Playablesの直接利用、Animancerを、遷移を編集する担当者と再生制御の実装範囲から比較しています。
+攻撃の完了と中断をゲーム側の行動管理で判断する設計や、既存機能の移行、Animancerの無料版と有料版の違い、段階的な導入の確認項目を解説しています。</p> </article> <hr class="my-8 border-dashed"> <ul class="my-4 flex flex-wrap items-center gap-1"> <li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-4" href="/tags/unity-weekly" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity Weekly </a> </li><li class="inline"> <a data-astro-transition-scope="astro-bztu2lml-5" href="/tags/unity" class="rounded bg-accent/10 px-2 py-1 text-foreground/80 hover:bg-accent/20 hover:text-accent"> Unity </a> </li> </ul> <div class="flex items-center gap-1 flex-col md:items-start"> <span class="italic">Share this post on:</span> <div class="flex items-center"> <a href="https://x.com/intent/post?url=https://blog.yucchiy.com/project/unity-weekly/295.html&amp;text=Unity%20Weekly%20295" class="group inline-block hover:text-accent p-1" title="Share this post on X">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Share this post on X</span>  </a><a href="https://b.hatena.ne.jp/entry/https://blog.yucchiy.com/project/unity-weekly/295.html" class="group inline-block hover:text-accent p-1" title="Share this post on Hatena Bookmark">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Hatena Bookmark</title><path d="M20.47 0C22.42 0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42 0 20.47V3.53C0 1.58 1.58 0 3.53 0h16.94zm-3.705 14.47c-.78 0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2 0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424 0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705 0 1.185.088 1.44.262.27.18.39.495.39.93 0 .405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71 0 1.185.08 1.432.24.245.16.367.435.367.83 0 .38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z" /></svg> <span class="sr-only">Share this post on Hatena Bookmark</span>  </a><a href="https://www.facebook.com/sharer.php?u=https://blog.yucchiy.com/project/unity-weekly/295.html" class="group inline-block hover:text-accent p-1" title="Share this post on Facebook">  <svg role="img" viewBox="0 0 24 24" class="fill-current opacity-70 hover:opacity-100 size-6"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" /></svg> <span class="sr-only">Share this post on Facebook</span>  </a> </div> </div> <div id="btt-btn-container" class="fixed end-4 bottom-8 z-50 md:sticky md:end-auto md:float-end md:me-1 translate-y-14 opacity-0 transition duration-500"> <button data-button="back-to-top" class="group relative bg-background px-2 py-1 size-14 rounded-full shadow-xl md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 md:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> <span class="sr-only text-sm group-hover:text-accent md:not-sr-only"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 5l0 14" /><path d="M16 9l-4 -4" /><path d="M8 9l4 -4" /></svg>
+Back To Top
+</span> </button> </div> <script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+    const footer = document.querySelector("footer");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        lastVisible = isVisible;
+      }
+
+      // Adjust button position when footer is visible (mobile only)
+      if (footer && window.innerWidth < 768) {
+        const footerRect = footer.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const buttonHeight = 56 + 32; // size-14 (56px) + bottom-8 (32px)
+
+        if (footerRect.top < viewportHeight) {
+          const offset = viewportHeight - footerRect.top + 16;
+          btnContainer.style.bottom = `${offset}px`;
+        } else {
+          btnContainer.style.bottom = "";
+        }
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script> <hr class="my-6 border-dashed"> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">  <a href="/project/unity-weekly/294" class="group flex w-full justify-end gap-2 text-end sm:col-start-2"> <div> <span class="text-sm text-foreground/70">Next Post</span> <div class="mt-1 text-base leading-snug font-medium text-heading group-hover:text-accent"> Unity Weekly 294 </div> </div> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 inline-block size-5 flex-none rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M9 6l6 6l-6 6" /></svg> </a> </div> </main> <footer class="w-full mt-auto"> <div class="mx-auto max-w-app px-0"> <hr class="border-border" aria-hidden="true"> </div> <div class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"> <div class="flex-wrap justify-center gap-1 flex"> <a href="https://github.com/yucchiy" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on GitHub">  <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg> <span class="sr-only">Yucchiy&#39;s Note on GitHub</span>  </a><a href="https://x.com/yucchiy_" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on X">  <svg role="img" viewBox="0 0 24 24" class="inline-block size-6 scale-125 fill-current opacity-90 sm:scale-110"><title>X</title><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on X</span>  </a><a href="https://www.linkedin.com/in/yucchiy/" class="group inline-block hover:text-accent p-2 hover:rotate-6 sm:p-1" title="Yucchiy's Note on LinkedIn">  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg> <span class="sr-only">Yucchiy&#39;s Note on LinkedIn</span>  </a> </div> <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row"> <span>Copyright &#169; 2026 Yucchiy&#39;s Note</span> <span class="hidden sm:inline">&nbsp;|&nbsp;</span> <span>All rights reserved.</span> </div> </div> </footer>  </body> </html> <!-- GLightbox CSS --> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"> <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script> <script data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      // Check if --file-name-offset custom property exists
+      const computedStyle = getComputedStyle(codeBlock);
+      const hasFileNameOffset =
+        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
+
+      // Determine the top positioning class
+      const topClass = hasFileNameOffset
+        ? "top-(--file-name-offset)"
+        : "-top-3";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = `copy-code absolute end-3 ${topClass} rounded bg-muted border border-muted px-2 py-1 text-xs leading-4 text-foreground font-medium`;
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /** Initialize GLightbox for image zoom functionality */
+  function initializeLightbox() {
+    const images = document.querySelectorAll('.app-prose img');
+
+    images.forEach((img) => {
+      // data属性を設定してライトボックス対象として識別（個別表示）
+      img.setAttribute('data-glightbox', '');
+
+      // alt属性があればタイトルとして表示
+      if (img.alt) {
+        img.setAttribute('title', img.alt);
+      }
+    });
+
+    // GLightboxインスタンス作成
+    const lightbox = GLightbox({
+      selector: '[data-glightbox]',
+      descPosition: 'bottom',
+      touchNavigation: true,
+      keyboardNavigation: false,
+      closeOnOutsideClick: true,
+      openEffect: 'zoom',
+      closeEffect: 'zoom',
+      zoomable: true,
+      draggable: true,
+    });
+  }
+  initializeLightbox();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () => {
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+
+    // GLightbox を再初期化
+    initializeLightbox();
+  });
+</script>

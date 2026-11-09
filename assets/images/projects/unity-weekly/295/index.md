@@ -7,7 +7,7 @@ pubDatetime: 2026-11-09T09:00:00+09:00
 tags:
   - Unity Weekly
   - Unity
-draft: true
+draft: false
 ---
 
 ## Unity Officials
